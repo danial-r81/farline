@@ -15,14 +15,14 @@ export const initialValuesForRegister = (userInfo) => {
 export const initialValuesForFillProfile = (userInfo) => {
   return async (dispatch, getState) => {
     const userRegister = { ...getState() };
-    const { fullName, password, confirmPassword } = userInfo;
+    const { fullName, password, confirmPassword, grade } = userInfo;
     const { nationalCode, phoneNumber } = userRegister;
     const user = {
       fullName,
       nationalCode,
       phoneNumber,
       password,
-      confirmPassword,
+      grade,
     };
     console.log(user);
     await dispatch({ type: 'SIGN_IN', payload: user });

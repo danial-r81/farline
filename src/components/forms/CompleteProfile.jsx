@@ -41,11 +41,11 @@ const CompleteProfile = ({ history }) => {
     },
   };
 
-  const options = [
-    { value: 'tenth', label: 'دهم' },
-    { value: 'eleventh', label: 'یازدهم' },
-    { value: 'twelfth', label: 'دوازدهم' },
-  ];
+  const options = ['دهم', 'یازدهم', 'دوازدهم'];
+
+  const grades = options.map((option) => (
+    <option value={option}>{option}</option>
+  ));
 
   const initialValues = {
     fullName: '',
@@ -56,9 +56,9 @@ const CompleteProfile = ({ history }) => {
 
   const validationSchema = Yup.object().shape({
     fullName: Yup.string().required('پرکردن این فیلد الزامی است'),
-    // grade: Yup.string()
-    //   .required('انتخاب پایه تحصیلی الزامی است')
-    //   .oneOf(options),
+    grade: Yup.string()
+      .required('انتخاب پایه تحصیلی الزامی است')
+      .oneOf(options),
     password: Yup.string()
       .required('پرکردن این فیلد الزامی است')
       .min(8, 'گذرواژه نمی تواند کمتر از 8 کارکتر باشد'),
@@ -92,7 +92,7 @@ const CompleteProfile = ({ history }) => {
             name='grade'
             id='grade'
             placeholder='پایه تحصیلی'
-            options={options}
+            grades={grades}
             className='grade'
           />
           <Input type='password' name='password' placeholder='رمز عبور' />

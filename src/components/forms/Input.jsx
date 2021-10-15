@@ -1,17 +1,27 @@
 import { ErrorMessage, FastField, Field, FieldArray } from 'formik';
 import Select from 'react-select';
 
-export const Input = ({ type, name, placeholder, options, id, ...rest }) => {
+export const Input = ({
+  type,
+  name,
+  placeholder,
+  options,
+  id,
+  grades,
+  ...rest
+}) => {
   return (
     <div className='input-container'>
       {type === 'select' ? (
-        <Select
-          name={name}
-          id={id}
-          placeholder={placeholder}
-          isSearchable={false}
-          options={options}
-        />
+        <FastField
+          className='select-grade'
+          grades={grades}
+          type={type}
+          as={type}
+          name={name}>
+          <option value=''>پایه تحصیلی خود را انتخاب کنید</option>
+          {grades}
+        </FastField>
       ) : (
         <FastField
           type={type}
