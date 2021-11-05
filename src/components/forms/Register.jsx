@@ -2,10 +2,11 @@ import { Form, Formik } from 'formik';
 import { withRouter } from 'react-router';
 import { Input } from './Input';
 import * as Yup from 'yup';
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { initialValuesForRegister } from '../../redux/actions/userInfo';
 import { motion } from 'framer-motion';
+import { userRegister } from '../../services/userServices';
+import { toast } from 'react-toastify';
 
 const Register = ({ history }) => {
   const dispatch = useDispatch();
@@ -49,10 +50,32 @@ const Register = ({ history }) => {
       ),
   });
 
-  const onSubmit = (value) => {
+  const onSubmit = async (value) => {
     console.log(value);
-    history.push('/get-code');
-    dispatch(initialValuesForRegister(value));
+    try {
+      const { data, status } = await userRegister(value);
+      const code = data.code;
+      dispatch(initialValuesForRegister(value, code));
+
+      if (status === 201) {
+        console.log('register was successful');
+        history.push('/get-code');
+      }
+    } catch (e) {
+      if (e.response) {
+        console.log('response', e.response);
+        if (e.response.status === 400) {
+          toast.warn('شما قبلا ثبت نام کرده اید.', {
+            position: 'top-right',
+            closeButton: true,
+          });
+        }
+      } else if (e.message) {
+        console.log(e.message);
+      } else if (e.request) {
+        console.log('request', e.request);
+      }
+    }
   };
   return (
     <Formik

@@ -1,21 +1,20 @@
-import { FastField, Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { motion } from 'framer-motion';
 import { withRouter } from 'react-router';
 import { Input } from './Input';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { initialValuesForFillProfile } from '../../redux/actions/userInfo';
+import { useSelector } from 'react-redux';
 
 import './form.css';
-import { useSelector } from 'react-redux';
-import Select from 'react-select';
-import Option from 'react-select';
+import { fillProfile } from '../../services/userServices';
+import { toast } from 'react-toastify';
 
 const CompleteProfile = ({ history }) => {
   const dispatch = useDispatch();
-  const userRegisterInfo = useSelector((state) => state.phoneNumber);
+  const userRegisterInfo = useSelector((state) => state.userReducer.userInfo);
   console.log(userRegisterInfo);
-  console.log(history);
 
   const FormVariant = {
     hidden: {
@@ -48,14 +47,16 @@ const CompleteProfile = ({ history }) => {
   ));
 
   const initialValues = {
-    fullName: '',
+    firstName: '',
+    lastName: '',
     grade: '',
     password: '',
     confirmPassword: '',
   };
 
   const validationSchema = Yup.object().shape({
-    fullName: Yup.string().required('پرکردن این فیلد الزامی است'),
+    firstName: Yup.string().required('پرکردن این فیلد الزامی است'),
+    lastName: Yup.string().required('پرکردن این فیلد الزامی است'),
     grade: Yup.string()
       .required('انتخاب پایه تحصیلی الزامی است')
       .oneOf(options),
@@ -67,9 +68,45 @@ const CompleteProfile = ({ history }) => {
       .oneOf([Yup.ref('password'), ''], 'پسوورد ها با هم برابر نیستند'),
   });
 
-  const onSubmit = (value) => {
-    console.log(value);
-    history.replace('/');
+  const onSubmit = async (value) => {
+    const danial = 'fdgfdhj67867sdfsf2343nh';
+    // const userRegister = { ...getState().userReducer.userInfo };
+    const { firstName, lastName, password, grade } = value;
+    const { phoneNumber, nationalCode } = userRegisterInfo;
+    const user = {
+      firstName,
+      lastName,
+      password,
+      grade,
+      phoneNumber,
+      nationalCode,
+      danial,
+    };
+    try {
+      const { status } = await fillProfile(user, phoneNumber);
+      if (status === 200) {
+        console.log('ok');
+        history.replace('/');
+        toast.success('ثبت نام موفقیت آمیز بود.', {
+          position: 'top-right',
+          closeButton: true,
+        });
+      } else if (status === 400) {
+        console.log('400');
+        toast.error('شما قبلا با این مشخصات ثبت نام نموده اید', {
+          position: 'top-right',
+          closeButton: true,
+        });
+      }
+    } catch (e) {
+      if (e.response) {
+        console.log(e.response);
+      } else if (e.message) {
+        console.log(e.message);
+      } else if (e.request) {
+        console.log(e.request);
+      }
+    }
     dispatch(initialValuesForFillProfile(value));
   };
 
@@ -86,7 +123,8 @@ const CompleteProfile = ({ history }) => {
           animate='visible'
           exit='exit'>
           <h1 className='header'>تکمیل اطلاعات</h1>
-          <Input type='text' name='fullName' placeholder='نام و نام خانوادگی' />
+          <Input type='text' name='firstName' placeholder='نام' />
+          <Input type='text' name='lastName' placeholder='نام خانوادگی' />
           <Input
             type='select'
             name='grade'

@@ -1,5 +1,4 @@
-import { ErrorMessage, FastField, Field, FieldArray } from 'formik';
-import Select from 'react-select';
+import { ErrorMessage, FastField } from 'formik';
 
 export const Input = ({
   type,

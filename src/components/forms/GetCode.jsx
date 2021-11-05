@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router';
 
 const GetCode = ({ history }) => {
-  const userNumber = useSelector((state) => state.phoneNumber);
-  // const userInfo = useSelector((state) => state.userInfo);
-  // console.log(userInfo);
+  const userNumber = useSelector((state) => state.userReducer.phoneNumber);
+  const code = useSelector((state) => state.userReducer.code);
+  console.log(code);
   const FormVariant = {
     hidden: {
       y: '-50vh',
@@ -31,10 +31,13 @@ const GetCode = ({ history }) => {
   };
 
   const goToFillAccount = () => {
-    history.replace('fill-profile');
+    const input = document.querySelector('.input-code').value;
+
+    if (input === code) {
+      history.replace('fill-profile');
+    }
   };
 
-  console.log(userNumber);
   return (
     <motion.div
       className='form'

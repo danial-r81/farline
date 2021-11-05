@@ -1,12 +1,13 @@
 import ToosClass from './ToosClass';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
   return (
     <Router>
       <div className='container'>
         <ToosClass />
+        <ToastContainer />
       </div>
     </Router>
   );
