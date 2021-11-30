@@ -1,0 +1,72 @@
+:root {
+  --orange: #ee6c4d;
+  --black: #293241;
+  --dark-blue: #3d5a80;
+  --blue: #98c1d9;
+  --light-blue: #e0fbfc;
+}
+
+body {
+  background-color: var(--light-blue);
+}
+
+.courses {
+  padding: 2rem;
+  margin-top: 5rem;
+}
+
+.courses-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: auto;
+  margin: auto;
+  padding: 3rem 1rem;
+  row-gap: 1rem;
+  justify-items: center;
+  background-color: var(--blue);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.item {
+  padding: 1rem 1rem 1.5rem;
+  background-color: var(--light-blue);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.image img {
+  cursor: pointer;
+  width: 100%;
+}
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  cursor: pointer;
+}
+
+/* ====== responsiv ======= */
+@media screen and (min-width: 650px) {
+  .courses-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .courses-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .courses-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

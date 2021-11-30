@@ -73,6 +73,8 @@ const CompleteProfile = ({ history }) => {
     // const userRegister = { ...getState().userReducer.userInfo };
     const { firstName, lastName, password, grade } = value;
     const { phoneNumber, nationalCode } = userRegisterInfo;
+    const firstNameLocal = localStorage.setItem('firstName', firstName);
+    const lastNameLocal = localStorage.setItem('lastName', lastName);
     const user = {
       firstName,
       lastName,
@@ -86,16 +88,11 @@ const CompleteProfile = ({ history }) => {
       const { status } = await fillProfile(user, phoneNumber);
       if (status === 200) {
         console.log('ok');
-        history.replace('/');
-        toast.success('ثبت نام موفقیت آمیز بود.', {
+        window.location.reload();
+        history.push('/');
+        toast.success(' ثبت نام موفقیت آمیز بود ', {
           position: 'top-right',
-          closeButton: true,
-        });
-      } else if (status === 400) {
-        console.log('400');
-        toast.error('شما قبلا با این مشخصات ثبت نام نموده اید', {
-          position: 'top-right',
-          closeButton: true,
+          closeOnClick: true,
         });
       }
     } catch (e) {

@@ -1,0 +1,278 @@
+:root {
+  --orange: #ee6c4d;
+  --black: #293241;
+  --dark-blue: #3d5a80;
+  --blue: #98c1d9;
+  --light-blue: #e0fbfc;
+  --white: #fff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'vazir';
+}
+header {
+  width: 100%;
+  height: auto;
+}
+nav {
+  width: 100%;
+  height: auto;
+  background-color: var(--dark-blue);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+}
+.top-nav {
+  padding: 5px;
+  background-color: var(--dark-blue);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  justify-content: space-around;
+}
+
+.left-flex {
+  display: flex;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgb(255, 255, 255);
+}
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.login-button {
+  width: 125px;
+  background-color: var(--white);
+  padding: 8px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--black);
+  border-radius: 35px;
+}
+
+.login-button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35px;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  -ms-border-radius: 35px;
+  -o-border-radius: 35px;
+  text-decoration: none;
+  color: var(--black);
+}
+
+.icons {
+  padding-left: 10px;
+}
+.icons i {
+  padding: 0 10px;
+  font-size: 20px;
+  color: black;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+  padding: 0.6rem 0;
+  margin-top: 15px;
+}
+
+.menu .menu-item {
+  background-color: transparent;
+  padding: 5px 2vw;
+  border-radius: 10px 0 10px 0;
+  -webkit-border-radius: 10px 0 10px 0;
+  -moz-border-radius: 10px 0 10px 0;
+  -ms-border-radius: 10px 0 10px 0;
+  -o-border-radius: 10px 0 10px 0;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+.active-item {
+  border-radius: 10px 0 10px 0;
+  -webkit-border-radius: 10px 0 10px 0;
+  -moz-border-radius: 10px 0 10px 0;
+  -ms-border-radius: 10px 0 10px 0;
+  -o-border-radius: 10px 0 10px 0;
+  background-color: var(--orange);
+  padding: 5px 2vw;
+}
+.menu .menu-item:hover {
+  background-color: var(--orange);
+}
+.menu .menu-link {
+  text-decoration: none;
+  color: var(--light-blue);
+  transition: all 0.15s linear;
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  -ms-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+}
+.mobile-menu {
+  display: none;
+}
+.close-btn {
+  display: none;
+}
+
+/* ======== responsiv ======== */
+@media screen and (max-width: 650px) {
+  nav {
+    height: 45px;
+  }
+  .top-nav {
+    width: 100%;
+    position: absolute;
+    right: -100%;
+    height: 100vh;
+    flex-direction: column;
+  }
+  .left-flex {
+    margin-right: auto;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 3rem;
+  }
+  .menu {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .menu .menu-item {
+    margin: 1.4rem 0;
+    padding: 5px 10vw;
+  }
+  .mobile-menu {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 27px;
+    height: 21px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 0;
+  }
+
+  .close-btn {
+    position: absolute;
+    display: block;
+    left: 10px;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+  }
+  .close-btn .bar {
+    width: 100%;
+    height: 5px;
+    background-color: var(--light-blue);
+    position: absolute;
+    right: 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+  }
+  .close-btn .bar:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+    -webkit-transform: rotate(45deg) translate(6px, 6px);
+    -moz-transform: rotate(45deg) translate(6px, 6px);
+    -ms-transform: rotate(45deg) translate(6px, 6px);
+    -o-transform: rotate(45deg) translate(6px, 6px);
+  }
+  .close-btn .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    -webkit-transform: rotate(-45deg) translate(5px, -5px);
+    -moz-transform: rotate(-45deg) translate(5px, -5px);
+    -ms-transform: rotate(-45deg) translate(5px, -5px);
+    -o-transform: rotate(-45deg) translate(5px, -5px);
+  }
+  .close-btn .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .show-menu {
+    right: 0;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+  }
+  .mobile-menu .bar {
+    width: 100%;
+    height: 5px;
+    background-color: var(--light-blue);
+    position: absolute;
+    right: 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+  }
+  .bar:nth-child(1) {
+    top: 0;
+  }
+  .bar:nth-child(2) {
+    top: 8px;
+  }
+  .bar:nth-child(3) {
+    top: 16px;
+  }
+}

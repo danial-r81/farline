@@ -5,6 +5,7 @@ import Login from '../components/forms/Login';
 import Register from '../components/forms/Register';
 import MainLayout from '../components/layouts/MainLayout';
 import GetCode from '../components/forms/GetCode';
+import { Topics } from '../components/courses/Topics';
 
 const ToosClass = () => {
   return (
@@ -14,7 +15,8 @@ const ToosClass = () => {
           <Route path='/register' component={Register} />
           <Route path='/get-code' component={GetCode} />
           <Route path='/fill-profile' component={CompleteProfile} />
-          <Route path='/' exact component={Login} />
+          <Route path='/login' exact component={Login} />
+          <Route path='/courses' exact component={Topics} />
         </Switch>
       </AnimatePresence>
     </MainLayout>

@@ -7,6 +7,7 @@ import { initialValuesForRegister } from '../../redux/actions/userInfo';
 import { motion } from 'framer-motion';
 import { userRegister } from '../../services/userServices';
 import { toast } from 'react-toastify';
+// import { Button } from '@material-ui/core';
 
 const Register = ({ history }) => {
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ const Register = ({ history }) => {
 
   const onSubmit = async (value) => {
     console.log(value);
+
     try {
       const { data, status } = await userRegister(value);
       const code = data.code;
@@ -65,10 +67,15 @@ const Register = ({ history }) => {
       if (e.response) {
         console.log('response', e.response);
         if (e.response.status === 400) {
-          toast.warn('شما قبلا ثبت نام کرده اید.', {
+          toast.warn('کاربر با این مشخصات موجود است', {
             position: 'top-right',
-            closeButton: true,
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
           });
+          console.log(400);
         }
       } else if (e.message) {
         console.log(e.message);
@@ -93,7 +100,7 @@ const Register = ({ history }) => {
           <Input type='text' name='nationalCode' placeholder='کد ملی' />
           <Input type='text' name='phoneNumber' placeholder='شماره موبایل' />
           <button className='submit' type='submit'>
-            ارسال کد
+            دریافت کد
           </button>
         </motion.div>
       </Form>

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router';
+import { toast } from 'react-toastify';
 
 const GetCode = ({ history }) => {
   const userNumber = useSelector((state) => state.userReducer.phoneNumber);
@@ -34,7 +35,12 @@ const GetCode = ({ history }) => {
     const input = document.querySelector('.input-code').value;
 
     if (input === code) {
-      history.replace('fill-profile');
+      history.push('/fill-profile');
+    } else {
+      toast.error('کد وارد شده صحیح نمی بشد', {
+        position: 'top-right',
+        closeButton: true,
+      });
     }
   };
 
