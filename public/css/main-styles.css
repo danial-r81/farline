@@ -6,6 +6,9 @@
   font-weight: normal;
   font-style: normal;
 }
+* {
+  font-family: 'BYekan';
+}
 
 :root {
   --orange: #ee6c4d;
@@ -28,13 +31,13 @@
   -o-border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(78, 78, 78, 0.521);
+  background-color: var(--light-blue);
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(78, 78, 78, 0.767);
-}
+/* ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--light-blue);
+} */

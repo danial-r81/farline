@@ -10,8 +10,11 @@ import { useSelector } from 'react-redux';
 import './form.css';
 import { fillProfile } from '../../services/userServices';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 const CompleteProfile = ({ history }) => {
+  const [userLogedIn, setUserLigedIn] = useState(false);
+
   const dispatch = useDispatch();
   const userRegisterInfo = useSelector((state) => state.userReducer.userInfo);
   console.log(userRegisterInfo);
@@ -69,12 +72,14 @@ const CompleteProfile = ({ history }) => {
   });
 
   const onSubmit = async (value) => {
+    setUserLigedIn(true);
+    const logedIn = localStorage.setItem('logedIn', userLogedIn);
     const danial = 'fdgfdhj67867sdfsf2343nh';
     // const userRegister = { ...getState().userReducer.userInfo };
     const { firstName, lastName, password, grade } = value;
     const { phoneNumber, nationalCode } = userRegisterInfo;
-    const firstNameLocal = localStorage.setItem('firstName', firstName);
-    const lastNameLocal = localStorage.setItem('lastName', lastName);
+    // const firstNameLocal = localStorage.setItem('firstName', firstName);
+    // const lastNameLocal = localStorage.setItem('lastName', lastName);
     const user = {
       firstName,
       lastName,
@@ -88,7 +93,6 @@ const CompleteProfile = ({ history }) => {
       const { status } = await fillProfile(user, phoneNumber);
       if (status === 200) {
         console.log('ok');
-        window.location.reload();
         history.push('/');
         toast.success(' ثبت نام موفقیت آمیز بود ', {
           position: 'top-right',
