@@ -4,6 +4,24 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import 'swiper/swiper.min.css';
 
 export function Baner() {
+  const banner = [
+    {
+      image: 'images/banner/banner-1.png',
+    },
+    {
+      image: 'images/banner/banner-2.jpg',
+    },
+    {
+      image: 'images/banner/banner-3.png',
+    },
+    {
+      image: 'images/banner/banner-4.png',
+    },
+    {
+      image: 'images/banner/banner-5.png',
+    },
+  ];
+
   return (
     <>
       <Swiper
@@ -15,9 +33,9 @@ export function Baner() {
         }}
         navigation={true}
         className='banner-gallery'>
-        {[1, 2, 3, 4].map((item) => (
+        {banner.map((item) => (
           <SwiperSlide className='banner-slide'>
-            <img src='https://via.placeholder.com/150' alt='' />
+            <img src={item.image} alt='' className='banner-img' />
           </SwiperSlide>
         ))}
       </Swiper>

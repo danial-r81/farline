@@ -1,35 +1,92 @@
 :root {
-  --orange: #ee6c4d;
-  --black: #293241;
-  --dark-blue: #3d5a80;
-  --blue: #98c1d9;
-  --light-blue: #e0fbfc;
+  --white: #f8f9fa;
+  --light-grey: #dee2e6;
+  --grey: #adb5bd;
+  --dark-grey: #495057;
+  --black: #212529;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: var(--black);
+  background-color: var(--dark-grey) !important;
 }
 
 .home-page {
   padding: 1rem;
-  margin: 8rem 1rem 0 1rem;
-  background-color: var(--blue);
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  margin-top: 6rem;
+  background-color: var(--dark-grey);
+  border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
+  -ms-border-radius: 10px 10px 0 0;
+  -o-border-radius: 10px 10px 0 0;
 }
 
 .home-page h2 {
   margin: 2rem;
   text-align: center;
   position: relative;
+  /* color: var(--dark-grey) !important; */
+  font-size: 25px;
 }
+.home-courses {
+  /*background-color: var(--light-grey) !important;
+  */
+  border-radius: 15px;
+  margin: 0 2rem;
+  padding: 15px 7rem;
+  border: 8px solid var(--dark-grey);
+  background: linear-gradient(145deg, #c8cbcf, #eef2f6);
+  box-shadow: 5px 5px 10px #40464d, -5px -5px 10px #525a61;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.home-courses img {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.all-courses {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.all-courses button {
+  border-radius: 8px;
+  background: #d9d9d9;
+  box-shadow: 6px 6px 12px #b8b8b8, -6px -6px 12px #fafafa;
+  border: none;
+  padding: 8px 25px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  color: var(--dark-grey);
+  font-size: 20px;
+}
+.all-courses button a {
+  text-decoration: none;
+  color: var(--white);
+}
+
 .banner-container {
   width: 100%;
-  height: 600px;
-  background-color: aqua;
+  /* height: 600px; */
+  /* background-color: aqua; */
+}
+.item .name {
+  color: var(--black);
 }
 
 .banner {
@@ -45,17 +102,322 @@ body {
 .banner-gallery {
   width: 100%;
   margin-bottom: 2rem;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .banner-slide {
   width: 100%;
+  /* height: 400px; */
 }
 
 .banner-slide img {
   width: 100%;
   height: 400px;
+  /* object-fit: contain; */
 }
 
 .mySwiper {
-  margin: 3rem 10rem;
+  margin: 0 0 2rem 0;
+  /* width: 100%; */
+  padding: 30px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--black);
+  font-size: 16px;
+}
+
+.swiper-button-next {
+  left: -5px !important;
+}
+.swiper-button-prev {
+  right: -5px !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 26px;
+}
+
+.item {
+  padding: 10px 10px 1.5rem;
+  border-radius: 8px;
+  background: #d9d9d9;
+  box-shadow: 6px 6px 12px #b8b8b8, -6px -6px 12px #fafafa;
+}
+.teacher-gallery {
+  border-radius: 15px;
+  /* background: #e0e0e0;
+  box-shadow: 7px 7px 14px #cecece, -7px -7px 14px #f2f2f2; */
+  margin: 2rem;
+  border-radius: 10px;
+  padding: 20px 0;
+  padding-bottom: 3rem;
+}
+.teacher {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 15px;
+  border-radius: 8px;
+  /* background: #e0dfdf; */
+  background: #bdbdbd;
+  box-shadow: inset 50px 50px 72px #909090, inset -50px -50px 72px #eaeaea;
+  margin-bottom: 25px;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+
+.teacher-swiper {
+  margin: 0 4rem;
+}
+
+.lesson {
+  text-align: center;
+  color: var(--black);
+}
+.name {
+  color: var(--black);
+}
+.swiper-pagination {
+  display: none !important;
+}
+
+.teacher-header {
+  color: var(--white) !important;
+}
+
+.teacher-gallery .all-courses button {
+  border-radius: 8px;
+  background: #dee2e6;
+  border: 6px solid var(--dark-grey);
+  box-shadow: 5px 5px 12px #34393e, -5px -5px 12px #5e6770;
+  margin-top: 2rem;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Consultation */
+
+.consultation-container {
+  border-radius: 15px;
+  background: var(--light-grey);
+  box-shadow: 9px 9px 18px #3b4146, -9px -9px 18px #575f68;
+  padding: 1rem 10px;
+  margin: 1rem 2rem;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border: 10px solid var(--dark-grey);
+}
+
+.consultation {
+  margin: 4rem 28rem;
+  border-radius: 8px;
+  background: #d9d9d9;
+  box-shadow: 6px 6px 12px #b8b8b8, -6px -6px 12px #fafafa;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 4rem 2rem;
+  padding-bottom: 3rem;
+  /* background-image: url('./cons.jpg'); */
+}
+
+.consultation h2 {
+  color: var(--dark-grey);
+  font-size: 26px;
+  margin-top: 5px;
+}
+
+.cons-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.cons-btn button {
+  background-color: var(--dark-grey);
+  color: var(--white);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 5px 25px;
+  cursor: pointer;
+}
+
+.consultation-form .input-container input {
+  border-bottom: 1px solid var(--dark-grey);
+}
+
+.consultation-form .input-container input::placeholder {
+  color: var(--dark-grey);
+}
+
+.back-to-top {
+  width: 30px;
+  height: 30px;
+  background-color: var(--violet-2);
+  /* margin-right: 20px; */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.back-to-top i {
+  color: var(--white);
+}
+.back-to-top:hover {
+  text-decoration: none !important;
+}
+
+/* media query's */
+
+@media screen and (max-width: 1303px) {
+  .consultation {
+    margin: 4rem 20rem;
+  }
+}
+@media screen and (max-width: 1047px) {
+  .consultation {
+    margin: 4rem 16rem;
+  }
+}
+@media screen and (max-width: 919px) {
+  .home-courses {
+    padding: 15px 0;
+  }
+
+  .consultation {
+    margin: 4rem 10rem;
+  }
+  .consultation h2 {
+    font-size: 22px;
+  }
+  .footer-main {
+    flex-direction: column;
+  }
+
+  .footer-right {
+    width: 100%;
+  }
+
+  .footer-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 730px) {
+  .consultation-container {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .consultation {
+    margin: 4rem -1rem;
+    box-shadow: 9px 9px 18px #3b4146, -9px -9px 18px #575f68;
+    border: 6px solid var(--dark-grey);
+  }
+  .consultation h2 {
+    font-size: 18px;
+  }
+  .consultation input::placeholder {
+    font-size: 15px;
+  }
+  .consultation input {
+    width: 100%;
+  }
+  .consultation .error {
+    font-size: 13px;
+  }
+  .mySwiper {
+    margin: 3rem !important;
+  }
+
+  .teacher .lesson {
+    font-size: 15px;
+  }
+
+  .teacher-gallery .teacher-swiper {
+    margin: 0 1.5rem;
+  }
+
+  .all-courses button {
+    font-size: 17px;
+  }
+  .banner-slide img {
+    object-fit: contain;
+  }
+  .banner-gallery {
+    margin-top: -6rem;
+    margin-bottom: -2rem;
+  }
+  .banner-slide {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .home-courses,
+  .teacher-gallery,
+  .consultation-container {
+    margin: 2rem 0;
+  }
+
+  .mySwiper {
+    margin: 3rem 0 !important;
+  }
+  .home-courses h2 {
+    font-size: 22px;
+    margin: 0;
+  }
+  .name {
+    font-size: 14px;
+  }
+
+  .all-courses button {
+    font-size: 13px;
+    margin: 0 17px;
+  }
+
+  .footer-container {
+    margin: 1rem 0;
+    border-bottom: 2px solid var(--white);
+    justify-content: center;
+    width: 100%;
+    padding: 0 1rem 2rem 1rem;
+  }
+
+  .detail {
+    margin: 1rem 0;
+  }
+
+  .footer-right {
+    flex-direction: column;
+  }
 }

@@ -12,7 +12,7 @@ const Nav = () => {
   };
 
   return (
-    <header dir='ltr'>
+    <header dir='ltr' id='header'>
       <nav>
         <button className='mobile-menu' onClick={mobileMenuToggler}>
           <span className='bar'></span>
@@ -28,7 +28,7 @@ const Nav = () => {
           <div className='left-flex'>
             <div className='logo'>
               <a href='#'>
-                <img src={logo} alt='طوس کلاس' />
+                <img src='images/logo.png' alt='طوس کلاس' />
               </a>
             </div>
           </div>
@@ -44,7 +44,7 @@ const Nav = () => {
               </NavLink>
             </li>
             <li class='menu-item'>
-              <NavLink to='/masters' className='menu-link' onClick={closeMenu}>
+              <NavLink to='/teachers' className='menu-link' onClick={closeMenu}>
                 اساتید
               </NavLink>
             </li>

@@ -89,7 +89,7 @@ const Login = ({ history }) => {
             <NavLink className='register' to='/register'>
               ثبت نام
             </NavLink>
-            <NavLink to='/forget-code' className='forget-code'>
+            <NavLink to='/forget-password' className='forget-code'>
               رمز خود را فراموش کرده اید؟
             </NavLink>
           </div>

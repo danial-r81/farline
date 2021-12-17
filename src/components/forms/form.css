@@ -1,9 +1,9 @@
 :root {
-  --orange: #ee6c4d;
-  --black: #293241;
-  --dark-blue: #3d5a80;
-  --blue: #98c1d9;
-  --light-blue: #e0fbfc;
+  --white: #f8f9fa;
+  --light-grey: #dee2e6;
+  --grey: #adb5bd;
+  --dark-grey: #495057;
+  --black: #212529;
 }
 
 body {
@@ -21,13 +21,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--blue);
+  border-radius: 10px;
+  background: var(--light-grey);
+  box-shadow: 7px 7px 14px #dadada, -7px -7px 14px #ffffff;
 }
 
 .form-container {
   width: 90%;
   padding: 2rem 0.5rem;
-  background-color: var(--light-blue);
+  border-radius: 10px;
+  background: var(--light-grey);
+  box-shadow: 8px 8px 16px #caced1, -8px -8px 16px #f2f6fb;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -71,8 +75,8 @@ body {
   width: 90%;
   padding: 5px 0;
   border: none;
-  border-bottom: 2px solid rgb(155, 155, 155);
-  color: var(--light-blue);
+  border-bottom: 2px solid var(--black);
+  /* color: var(--light-blue); */
   outline: none;
   margin: auto;
   background-color: transparent;
@@ -98,7 +102,7 @@ input::placeholder {
   display: block;
   width: 105px;
   border: none;
-  color: #fff;
+  color: var(--white);
   background-color: var(--dark-blue);
   padding: 7px 15px;
   font-family: 'BYekan';
@@ -126,7 +130,7 @@ input::placeholder {
 .register {
   color: var(--dark-blue);
   display: block;
-  margin: auto;
+  margin: 1rem auto;
 }
 .register:hover {
   text-decoration: none;
@@ -181,7 +185,8 @@ input::placeholder {
 
 .forget-code {
   color: black;
-  margin-left: auto;
+  /* margin-left: auto */
+  text-align: center;
 }
 .forget-code:hover {
   text-decoration: none;

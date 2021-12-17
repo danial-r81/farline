@@ -1,0 +1,148 @@
+:root {
+  --white: #f8f9fa;
+  --light-grey: #dee2e6;
+  --grey: #adb5bd;
+  --dark-grey: #495057;
+  --black: #212529;
+}
+
+.main-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-right: 22px;
+}
+
+.title {
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+  font-family: 'vazir';
+  margin-top: 5rem;
+}
+
+.column {
+  width: 30vw;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+}
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #bbb;
+  box-shadow: 5px 5px 12px #34393e, -5px -5px 12px #5e6770;
+  border: 7px solid var(--dark-grey);
+  width: 70%;
+  height: 200px;
+  border-radius: 20px;
+  margin: 20px;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+.contact:hover {
+  background-color: #fff;
+  cursor: pointer;
+}
+.main .part-1 .contact:hover {
+  border-radius: 20px 5px 20px 5px;
+}
+.main .part-2 .contact:hover {
+  border-radius: 5px 5px 5px 5px;
+}
+.main .part-3 .contact:hover {
+  border-radius: 5px 20px 5px 20px;
+}
+.contact i {
+  font-size: 50px;
+  transform: translate(0, 20px);
+  transition: all 0.5s ease-in-out;
+}
+.contact:hover i {
+  transform: translate(0, -20px);
+}
+.contact:hover p,
+.contact:hover a {
+  opacity: 1;
+}
+.contact p {
+  font-size: 20px;
+}
+.text {
+  opacity: 0;
+  color: #000;
+  transition: all 0.5s ease-in-out;
+}
+
+.contact .fa-phone {
+  transform: translate(0, 30px) !important;
+  -webkit-transform: translate(0, 30px) !important;
+  -moz-transform: translate(0, 30px) !important;
+  -ms-transform: translate(0, 30px) !important;
+  -o-transform: translate(0, 30px) !important;
+}
+
+.contact:hover .fa-phone {
+  transform: translate(0, -10px) !important;
+  -webkit-transform: translate(0, -10px) !important;
+  -moz-transform: translate(0, -10px) !important;
+  -ms-transform: translate(0, -10px) !important;
+  -o-transform: translate(0, -10px) !important;
+}
+
+@media only screen and (max-width: 1200px) {
+  .contact {
+    width: 88%;
+  }
+}
+
+@media only screen and (max-width: 966px) {
+  .contact {
+    width: 100%;
+    margin: 5px;
+  }
+  .contact p {
+    font-size: 17px;
+  }
+  .column {
+    margin: 0;
+  }
+  .telegram,
+  .instagram {
+    margin-left: 0;
+  }
+  .gmail,
+  .phone {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  /* .contact p {
+    font-size: 15px;
+  } */
+  .main-contact {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin: 0;
+  }
+  .column {
+    width: 50vw;
+  }
+  .title {
+    margin-top: 3rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .column {
+    width: 80vw;
+  }
+}

@@ -1,0 +1,102 @@
+:root {
+  --white: #f8f9fa;
+  --light-grey: #dee2e6;
+  --grey: #adb5bd;
+  --dark-grey: #495057;
+  --black: #212529;
+}
+
+.header-name .title {
+  font-family: 'BYekan';
+  color: var(--white);
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.main-gallery {
+  width: 100%;
+  height: 100vh;
+  /* padding: 20px; */
+  position: relative;
+}
+.teacher-edu:nth-child(odd) {
+  left: 2%;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  background: var(--light-grey);
+  box-shadow: 5px 5px 12px #34393e, -5px -5px 12px #5e6770;
+  border: 7px solid var(--dark-grey);
+}
+
+.main-gallery .teacher-container:nth-child(odd) .teacher-edu:hover {
+  justify-content: flex-end;
+  padding-left: 37px;
+  width: 96%;
+  cursor: pointer;
+}
+
+.main-gallery .teacher-container:nth-child(even) .teacher-edu {
+  right: 2%;
+  box-shadow: -5px 5px 12px #34393e, 5px -5px 12px #5e6770;
+  border: 8px solid var(--dark-grey);
+  background-color: var(--light-grey);
+  justify-content: flex-start;
+}
+
+/* .main-gallery .teacher-container:nth-child(even) .teacher-edu .container {
+  right: 7%;
+} */
+
+.main-gallery .teacher-container:nth-child(even) .teacher-edu:hover {
+  padding-right: 38px;
+  width: 96%;
+  cursor: pointer;
+  /* right: 10%; */
+}
+
+.main-gallery .teacher-container:nth-child(even) .teacher-edu:hover .container {
+  right: 10%;
+}
+
+.container img {
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  width: 100%;
+}
+
+.teacher-edu {
+  position: absolute;
+  width: 240px;
+  height: 78%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.teacher-edu p {
+  text-align: center;
+}
+
+.teacher-container {
+  width: 100%;
+  position: relative;
+  height: 400px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}

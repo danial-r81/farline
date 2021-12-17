@@ -11,11 +11,12 @@
 }
 
 :root {
-  --orange: #ee6c4d;
-  --black: #293241;
-  --dark-blue: #3d5a80;
-  --blue: #98c1d9;
-  --light-blue: #e0fbfc;
+  --light-blue: #00b4d8;
+  --dark-blue: #03045e;
+  --black: #2b2d42;
+  --violet-1: #b429f9;
+  --violet-2: #702b9e;
+  --white: #ddd;
 }
 
 ::-webkit-scrollbar {
@@ -31,13 +32,10 @@
   -o-border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--light-blue);
+  background-color: rgb(158, 158, 158);
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
-/* ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--light-blue);
-} */
