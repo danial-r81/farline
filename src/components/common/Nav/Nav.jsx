@@ -1,5 +1,4 @@
 import './nav.css';
-import logo from './logo.PNG';
 import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
@@ -27,7 +26,7 @@ const Nav = () => {
           </button>
           <div className='left-flex'>
             <div className='logo'>
-              <a href='#'>
+              <a href=''>
                 <img src='images/logo.png' alt='طوس کلاس' />
               </a>
             </div>

@@ -3,18 +3,13 @@ import { motion } from 'framer-motion';
 import { withRouter } from 'react-router';
 import { Input } from './Input';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
-import { initialValuesForFillProfile } from '../../redux/actions/userInfo';
-import { useSelector } from 'react-redux';
-
-import './form.css';
+import { useDispatch, useSelector } from 'react-redux';
 import { fillProfile } from '../../services/userServices';
 import { toast } from 'react-toastify';
-import { useState } from 'react';
+import { completePrfileHandler } from '../../redux/features/userInfo';
 
+import './form.css';
 const CompleteProfile = ({ history }) => {
-  const [userLogedIn, setUserLigedIn] = useState(false);
-
   const dispatch = useDispatch();
   const userRegisterInfo = useSelector((state) => state.userReducer.userInfo);
   console.log(userRegisterInfo);
@@ -72,14 +67,9 @@ const CompleteProfile = ({ history }) => {
   });
 
   const onSubmit = async (value) => {
-    setUserLigedIn(true);
-    const logedIn = localStorage.setItem('logedIn', userLogedIn);
     const danial = 'fdgfdhj67867sdfsf2343nh';
-    // const userRegister = { ...getState().userReducer.userInfo };
     const { firstName, lastName, password, grade } = value;
     const { phoneNumber, nationalCode } = userRegisterInfo;
-    // const firstNameLocal = localStorage.setItem('firstName', firstName);
-    // const lastNameLocal = localStorage.setItem('lastName', lastName);
     const user = {
       firstName,
       lastName,
@@ -93,6 +83,7 @@ const CompleteProfile = ({ history }) => {
       const { status } = await fillProfile(user, phoneNumber);
       if (status === 200) {
         console.log('ok');
+        dispatch(completePrfileHandler({ value: user }));
         history.push('/');
         toast.success(' ثبت نام موفقیت آمیز بود ', {
           position: 'top-right',
@@ -108,7 +99,6 @@ const CompleteProfile = ({ history }) => {
         console.log(e.request);
       }
     }
-    dispatch(initialValuesForFillProfile(value));
   };
 
   return (

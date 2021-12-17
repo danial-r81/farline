@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { Input } from './Input';
 import { withRouter } from 'react-router';
 import * as Yup from 'yup';
-import { initialValuesForLogin } from '../../redux/actions/userInfo';
 
 import './form.css';
 import { useDispatch } from 'react-redux';
@@ -27,7 +26,6 @@ const Login = ({ history }) => {
 
   const onSubmit = (value) => {
     console.log(value);
-    dispatch(initialValuesForLogin(value));
   };
 
   const FormVariant = {

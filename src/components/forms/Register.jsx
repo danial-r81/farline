@@ -3,11 +3,10 @@ import { withRouter } from 'react-router';
 import { Input } from './Input';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { initialValuesForRegister } from '../../redux/actions/userInfo';
 import { motion } from 'framer-motion';
 import { userRegister } from '../../services/userServices';
 import { toast } from 'react-toastify';
-// import { Button } from '@material-ui/core';
+import { userRegisterHandler } from '../../redux/features/userInfo';
 
 const Register = ({ history }) => {
   const dispatch = useDispatch();
@@ -57,7 +56,8 @@ const Register = ({ history }) => {
     try {
       const { data, status } = await userRegister(value);
       const code = data.code;
-      dispatch(initialValuesForRegister(value, code));
+      // dispatch(initialValuesForRegister(value, code));
+      dispatch(userRegisterHandler({ value, code }));
 
       if (status === 201) {
         console.log('register was successful');
