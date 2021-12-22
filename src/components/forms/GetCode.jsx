@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router';
 import { toast } from 'react-toastify';
+import { resendCode } from '../../services/userServices';
+import { getData } from '../../redux/features/userInfo';
 
 const GetCode = ({ history }) => {
+  const dispatch = useDispatch();
   const userNumber = useSelector((state) => state.userReducer.phoneNumber);
   const code = useSelector((state) => state.userReducer.code);
-  console.log(code);
   const FormVariant = {
     hidden: {
       y: '-50vh',
@@ -61,7 +63,9 @@ const GetCode = ({ history }) => {
         </button>
         <div className='resend'>
           <p className='resend-code-text'>کد فعال سازی را دریافت نکرده اید؟</p>
-          <button className='resend-code-btn'>
+          <button
+            className='resend-code-btn'
+            onClick={() => dispatch(getData(userNumber))}>
             <div className='resend-text'>ارسال مجدد</div>
             <span class='lnr lnr-undo'></span>
           </button>

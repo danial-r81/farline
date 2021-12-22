@@ -68,6 +68,22 @@
 .contact:hover i {
   transform: translate(0, -20px);
 }
+.telegram:hover i {
+  color: #0077ff !important;
+}
+
+.instagram:hover i {
+  color: #ff0066 !important;
+}
+.phone:hover i {
+  color: #009933 !important;
+}
+.gmail:hover i {
+  color: #ea4335 !important;
+}
+.web-site:hover:hover i {
+  color: var(--grey) !important;
+}
 .contact:hover p,
 .contact:hover a {
   opacity: 1;

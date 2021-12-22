@@ -1,3 +1,4 @@
+import axios from 'axios';
 import config from './config.json';
 import http from './httpService';
 
@@ -18,4 +19,9 @@ export const userLogin = (user, phoneNumber) => {
     `${config.baseUrl}/api/user/login/${phoneNumber}`,
     JSON.stringify(user)
   );
+};
+
+export const resendCode = (phoneNumber) => {
+  console.log(phoneNumber);
+  return http.post(`${config.baseUrl}/api/user/code/again/${phoneNumber}/`);
 };

@@ -10,6 +10,8 @@ import { HomePage } from '../components/Home/HomePage';
 import ForgerPassword from '../components/forms/ForgerPassword';
 import { Contact } from '../components/contact-us/Contact';
 import { teacherGallery } from '../components/teacher-gallery/TeacherGallery';
+import { Panel } from '../components/panel/Panel';
+// import { Panel } from '../components/panel/Panel';
 
 const ToosClass = () => {
   return (
@@ -24,6 +26,7 @@ const ToosClass = () => {
           <Route path='/forget-password' component={ForgerPassword} />
           <Route path='/contact-us' component={Contact} />
           <Route path='/teachers' component={teacherGallery} />
+          <Route path='/profile' component={Panel} />
           <Route path='/' exact component={HomePage} />
         </Switch>
       </AnimatePresence>

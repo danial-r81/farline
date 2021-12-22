@@ -51,16 +51,12 @@ const Register = ({ history }) => {
   });
 
   const onSubmit = async (value) => {
-    console.log(value);
-
     try {
       const { data, status } = await userRegister(value);
       const code = data.code;
-      // dispatch(initialValuesForRegister(value, code));
       dispatch(userRegisterHandler({ value, code }));
 
       if (status === 201) {
-        console.log('register was successful');
         history.push('/get-code');
       }
     } catch (e) {

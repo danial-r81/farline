@@ -22,27 +22,27 @@ export const Courses = () => {
     {
       name: 'math-tajrobi',
       name_farsi: 'ریاضیات تجربی',
-      image: 'images/Slide2.png',
+      image: 'images/Zist.jpg',
     },
     {
       name: 'amar',
       name_farsi: 'ریاضی آمار',
-      image: 'images/Slide3.png',
+      image: 'images/Tarahi_site.jpg',
     },
     {
       name: 'amar-gosaste',
       name_farsi: 'آمار و گسسته',
-      image: 'images/Slide4.png',
+      image: 'images/Tarahi_site.jpg',
     },
     {
       name: 'fizics',
       name_farsi: 'فیزیک',
-      image: 'images/Slide5.png',
+      image: 'images/Tarahi_site.jpg',
     },
     {
       name: 'hendese',
       name_farsi: 'هندسه',
-      image: 'images/Slide6.png',
+      image: 'images/Tarahi_site.jpg',
     },
     // {
     //   name: 'jameshenasi',
@@ -57,7 +57,7 @@ export const Courses = () => {
     {
       name: 'zist',
       name_farsi: 'زیست شناسی',
-      image: 'images/Slide9.png',
+      image: 'images/Tarahi_site.jpg',
     },
     // {
     //   name: 'dini',
@@ -67,7 +67,7 @@ export const Courses = () => {
     {
       name: 'falsafe',
       name_farsi: 'فلسفه و منطق',
-      image: 'images/Slide11.png',
+      image: 'images/Tarahi_site.jpg',
     },
     // {
     //   name: 'hesaban',
@@ -77,7 +77,7 @@ export const Courses = () => {
     {
       name: 'arabi',
       name_farsi: 'عربی',
-      image: 'images/Slide13.png',
+      image: 'images/Tarahi_site.jpg',
     },
     // {
     //   name: 'history-geography',
@@ -92,7 +92,7 @@ export const Courses = () => {
     {
       name: 'shimi',
       name_farsi: 'شیمی',
-      image: 'images/Slide16.png',
+      image: 'images/Tarahi_site.jpg',
     },
     // {
     //   name: 'farsi',

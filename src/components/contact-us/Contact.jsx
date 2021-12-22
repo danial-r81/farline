@@ -10,7 +10,7 @@ export const Contact = () => {
       <section class='main-contact'>
         <div class='column part-1'>
           <div class='gmail contact'>
-            <i class='fa fa-at'></i>
+            <i class='fa fa-envelope-open-o'></i>
             <p class='text'>www.toosclass@gmail.com</p>
           </div>
           <div class='phone contact bottom'>

@@ -1,0 +1,189 @@
+.panel-contain {
+  width: 100%;
+  position: relative;
+  direction: rtl;
+}
+
+.panel-nav {
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  background-color: rgb(31, 35, 39);
+  border-right: 20px solid rgb(31, 35, 39);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.panel-nav.active {
+  width: 90px;
+}
+
+.panel-nav ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.panel-nav ul li {
+  position: relative;
+  width: 200%;
+  list-style: none;
+  transition: 0.5s;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.panel-nav ul li:hover,
+.panel-nav ul li.hovered {
+  background-color: #fff;
+}
+
+.panel-nav ul li a {
+  position: relative;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* .panel-nav ul li:nth-child(1) {
+  margin-bottom: 10rem;
+  pointer-events: none;
+} */
+
+.panel-nav ul li:hover a,
+.panel-nav ul li.hovered a {
+  color: rgb(31, 35, 39);
+}
+
+.panel-nav ul li a .icon {
+  display: block;
+  position: relative;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 1.75em;
+}
+
+.panel-nav ul li a .panel-title {
+  display: block;
+  position: relative;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+}
+/* panel-panel-main  */
+
+.panel-main {
+  position: absolute;
+  width: calc(100% - 300px);
+  right: 300px;
+  min-height: 100vh;
+  transition: 0.5s;
+}
+
+.panel-main.active {
+  width: calc(100% - 90px);
+  right: 90px;
+}
+
+.panel-bar {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.Hmenu {
+  position: relative;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.panel-user {
+  position: relative;
+  top: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.panel-user img {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* box */
+
+.card {
+  position: relative;
+  width: 100%;
+  /* padding: 20px; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.box {
+  position: relative;
+  width: 28%;
+  margin: 30px 30px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.card .boxs {
+  position: relative;
+  background: rgba(205, 208, 209, 0.733);
+  width: 100%;
+  height: 100%;
+  /* box-shadow: 0 7px 15px rgba(211, 208, 208, 0.856); */
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.number {
+  position: relative;
+  font-size: 2.5em;
+  color: rgb(31, 35, 39);
+}
+
+.cardname {
+  color: rgba(88, 97, 97, 0.945);
+  font-size: 1.5em;
+  margin-top: 5px;
+}
+
+.boxs i {
+  font-size: 2em;
+  color: rgb(124, 123, 121);
+}
+
+.boxs:hover {
+  background-color: rgb(31, 35, 39);
+}
+
+.boxs:hover .number,
+.boxs:hover .cardname,
+.boxs:hover i {
+  color: aliceblue;
+}

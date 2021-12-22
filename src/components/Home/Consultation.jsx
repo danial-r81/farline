@@ -21,6 +21,7 @@ export const Consultation = () => {
 
   return (
     <div className='consultation-container'>
+      <img src='images/cons.png' alt='' />
       <div className='consultation'>
         <h2>دریافت مشاوره</h2>
         <Formik
