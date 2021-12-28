@@ -1,51 +1,77 @@
 import React from 'react';
 import './boughtCourses.css';
 
-export const boughtCourseTable = () => {
+export const BoughtCourseTable = () => {
   return (
     <section className='table-container'>
-      <div class='tbl-header'>
-        <table cellpadding='0' cellspacing='0' border='0'>
-          <thead>
-            <tr>
-              <th>نام درس</th>
-              <th>نام استاد</th>
-              <th>قبمت</th>
-              <th>وضعیت دوره</th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-      <div class='tbl-content'>
-        <table cellpadding='0' cellspacing='0' border='0'>
+      {/* <div className='tbl-header'> */}
+      <table>
+        <thead>
+          <tr>
+            <th>نام درس</th>
+            <th>نام استاد</th>
+            <th>قیمت</th>
+            <th>وضعیت دوره</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ریاضی</td>
+            <td>رسولی</td>
+            <td>$1.38</td>
+            <td>به اتمام رسیده</td>
+          </tr>
+          <tr>
+            <td>ریاضی</td>
+            <td>رسولی</td>
+            <td>$2.38</td>
+            <td>به اتمام رسیده</td>
+          </tr>
+          <tr>
+            <td>ریاضی</td>
+            <td>رسولی</td>
+            <td>$3.22</td>
+            <td>به اتمام رسیده</td>
+          </tr>
+          <tr>
+            <td>ریاضی</td>
+            <td>رسولی</td>
+            <td>$3.22</td>
+            <td>به اتمام رسیده</td>
+          </tr>
+        </tbody>
+      </table>
+      {/* </div> */}
+      {/* <div className='tbl-content'>
+        <table>
           <tbody>
             <tr>
               <td>ریاضی</td>
-              <td>کسخلیان زاده</td>
+              <td>رسولی</td>
               <td>$1.38</td>
-              <td>+2.01</td>
+              <td>به اتمام رسیده</td>
             </tr>
             <tr>
               <td>ریاضی</td>
-              <td>کسخلیان زاده</td>
+              <td>رسولی</td>
               <td>$2.38</td>
-              <td>-0.01</td>
+              <td>به اتمام رسیده</td>
             </tr>
             <tr>
               <td>ریاضی</td>
-              <td>کسخلیان زاده</td>
+              <td>رسولی</td>
               <td>$3.22</td>
-              <td>+0.01</td>
+              <td>به اتمام رسیده</td>
             </tr>
             <tr>
               <td>ریاضی</td>
-              <td>کسخلیان زاده</td>
+              <td>رسولی</td>
               <td>$3.22</td>
-              <td>+0.01</td>
+              <td>به اتمام رسیده</td>
             </tr>
           </tbody>
         </table>
-      </div>
+      </div> */}
     </section>
   );
 };

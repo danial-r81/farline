@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { Input } from './Input';
 import { withRouter } from 'react-router';
 import * as Yup from 'yup';
-
-import './form.css';
 import { useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
+
+import './form.css';
 
 const Login = ({ history }) => {
   const dispatch = useDispatch();

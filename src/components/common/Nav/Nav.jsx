@@ -1,7 +1,12 @@
 import './nav.css';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Nav = () => {
+  const { firstName, lastName } = useSelector(
+    (state) => state.userReducer.userInfo
+  );
+
   const mobileMenuToggler = () => {
     document.querySelector('.top-nav').classList.toggle('show-menu');
   };
@@ -26,10 +31,23 @@ const Nav = () => {
           </button>
           <div className='left-flex'>
             <div className='logo'>
-              <a href=''>
+              <a href='#'>
                 <img src='images/logo.png' alt='طوس کلاس' />
               </a>
             </div>
+            {firstName && lastName ? (
+              <div className='username'>
+                <Link to='/profile'>{`${firstName} ${lastName}`}</Link>
+              </div>
+            ) : (
+              <div className='login'>
+                <div className='login-button'>
+                  <NavLink to='/login' onClick={closeMenu}>
+                    ورود/ ثبت نام
+                  </NavLink>
+                </div>
+              </div>
+            )}
           </div>
           <ul className='menu'>
             <li className='menu-item'>
@@ -59,13 +77,6 @@ const Nav = () => {
               <NavLink to='/map' className='menu-link' onClick={closeMenu}>
                 نقشه راه
               </NavLink>
-            </li>
-            <li className='login'>
-              <div className='login-button'>
-                <NavLink to='/login' onClick={closeMenu}>
-                  ورود/ ثبت نام
-                </NavLink>
-              </div>
             </li>
           </ul>
         </section>

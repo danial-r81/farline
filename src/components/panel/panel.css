@@ -1,3 +1,11 @@
+:root {
+  --white: #f6f6f6;
+  --light-grey: #c6c6c6;
+  --grey: #949494;
+  --dark-grey: #363636;
+  --black: #000000;
+}
+
 .panel-contain {
   width: 100%;
   position: relative;
@@ -5,13 +13,18 @@
 }
 
 .panel-nav {
-  width: 300px;
+  width: 60px;
   height: 100%;
   position: fixed;
   background-color: rgb(31, 35, 39);
   border-right: 20px solid rgb(31, 35, 39);
   transition: 0.5s;
   overflow: hidden;
+  z-index: 10;
+}
+
+.panel-nav.show {
+  width: 300px;
 }
 
 .panel-nav.active {
@@ -20,12 +33,17 @@
 
 .panel-nav ul {
   position: absolute;
-  top: 0;
+  top: 10%;
   left: 0;
   width: 100%;
   margin-top: 30px;
 }
 
+.panel-nav .fa-bars {
+  font-size: 23px;
+  position: absolute;
+  right: 0;
+}
 .panel-nav ul li {
   position: relative;
   width: 200%;
@@ -35,17 +53,26 @@
   border-bottom-right-radius: 30px;
 }
 
-.panel-nav ul li:hover,
+/* .panel-nav ul li:hover,
 .panel-nav ul li.hovered {
   background-color: #fff;
-}
+} */
 
 .panel-nav ul li a {
   position: relative;
   width: 100%;
   display: flex;
+  align-items: center;
   text-decoration: none;
   color: #fff;
+  cursor: default;
+}
+i {
+  cursor: pointer;
+}
+
+.panel-nav ul li a span {
+  margin-right: 20px;
 }
 
 /* .panel-nav ul li:nth-child(1) {
@@ -53,10 +80,10 @@
   pointer-events: none;
 } */
 
-.panel-nav ul li:hover a,
+/* .panel-nav ul li:hover a,
 .panel-nav ul li.hovered a {
   color: rgb(31, 35, 39);
-}
+} */
 
 .panel-nav ul li a .icon {
   display: block;
@@ -78,11 +105,13 @@
 /* panel-panel-main  */
 
 .panel-main {
-  position: absolute;
-  width: calc(100% - 300px);
-  right: 300px;
-  min-height: 100vh;
+  /* position: absolute; */
+  width: 100%;
+  /* right: 300px; */
+  height: 100vh;
   transition: 0.5s;
+  background-color: var(--light-grey);
+  padding-right: 60px;
 }
 
 .panel-main.active {
@@ -91,12 +120,11 @@
 }
 
 .panel-bar {
-  width: 100%;
   height: 10%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 0 10px;
+  margin-left: 35px;
 }
 
 .Hmenu {
@@ -113,10 +141,8 @@
 
 .panel-user {
   position: relative;
-  top: 10px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  /* top: 18px; */
+  width: 95px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -128,6 +154,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.panel-table {
+  width: 100%;
+  /* height: 100vh; */
 }
 /* box */
 

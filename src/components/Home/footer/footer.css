@@ -90,7 +90,6 @@
   margin-bottom: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
 }
 
@@ -120,6 +119,7 @@
 
 .footer-left {
   display: flex;
+  padding: 2rem 1rem;
 }
 .footer-main i {
   margin-left: 10px;

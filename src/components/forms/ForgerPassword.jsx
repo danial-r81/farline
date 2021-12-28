@@ -4,8 +4,13 @@ import * as Yup from 'yup';
 import React from 'react';
 import './form.css';
 import { Input } from './Input';
+import { useDispatch } from 'react-redux';
+import { forgotPasswordHandler } from '../../redux/features/userInfo';
+import { withRouter } from 'react-router';
 
-const ForgerPassword = () => {
+const ForgerPassword = ({ history }) => {
+  const dispatch = useDispatch();
+
   const FormVariant = {
     hidden: {
       y: '-50vh',
@@ -45,7 +50,9 @@ const ForgerPassword = () => {
   });
 
   const onSubmit = (values) => {
-    console.log(values);
+    const { phoneNumber } = values;
+    console.log(phoneNumber);
+    dispatch(forgotPasswordHandler({ phoneNumber, history }));
   };
 
   return (
@@ -76,4 +83,4 @@ const ForgerPassword = () => {
   );
 };
 
-export default ForgerPassword;
+export default withRouter(ForgerPassword);

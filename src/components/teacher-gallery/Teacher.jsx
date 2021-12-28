@@ -2,10 +2,10 @@ import React from 'react';
 
 export const Teacher = () => {
   return (
-    <div class='teacher-container'>
-      <div class='teacher-1 teacher-edu'>
+    <div className='teacher-container'>
+      <div className='teacher-1 teacher-edu'>
         <div className='teacher-info'>
-          <div class='container'>
+          <div className='container'>
             <img src='images/teacher.png' alt='' />
             <p>
               نام استاد

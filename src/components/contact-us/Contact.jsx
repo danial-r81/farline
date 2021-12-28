@@ -4,38 +4,38 @@ import './contact.css';
 export const Contact = () => {
   return (
     <Fragment>
-      <div class='title'>
+      <div className='title'>
         <h1>با ما در ارتباط باشید</h1>
       </div>
-      <section class='main-contact'>
-        <div class='column part-1'>
-          <div class='gmail contact'>
-            <i class='fa fa-envelope-open-o'></i>
-            <p class='text'>www.toosclass@gmail.com</p>
+      <section className='main-contact'>
+        <div className='column part-1'>
+          <div className='gmail contact'>
+            <i className='fa fa-envelope-open-o'></i>
+            <p className='text'>www.toosclassName@gmail.com</p>
           </div>
-          <div class='phone contact bottom'>
-            <i class='fa fa-phone'></i>
-            <p class='text'>
+          <div className='phone contact bottom'>
+            <i className='fa fa-phone'></i>
+            <p className='text'>
               02191301962 <br />
               09196724868
             </p>
           </div>
         </div>
-        <div class='column part-2'>
-          <div class='web-site contact'>
-            <i class='fa fa-google'></i>
-            <p class='text'>www.fatahzadehedu.com</p>
+        <div className='column part-2'>
+          <div className='web-site contact'>
+            <i className='fa fa-globe'></i>
+            <p className='text'>www.fatahzadehedu.com</p>
           </div>
         </div>
-        <div class='column part-3'>
-          <div class='instagram contact'>
-            <i class='fa fa-instagram'></i>
+        <div className='column part-3'>
+          <div className='instagram contact'>
+            <i className='fa fa-instagram'></i>
 
-            <p class='text'>toosclass_com</p>
+            <p className='text'>toosclassName_com</p>
           </div>
-          <div class='telegram contact bottom'>
-            <i class='fa fa-telegram'></i>
-            <p class='text'>fatahzadehedu_com</p>
+          <div className='telegram contact bottom'>
+            <i className='fa fa-telegram'></i>
+            <p className='text'>fatahzadehedu_com</p>
           </div>
         </div>
       </section>

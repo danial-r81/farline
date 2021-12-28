@@ -1,8 +1,8 @@
 :root {
   --white: #f8f9fa;
-  --light-grey: #dee2e6;
+  --light-grey: #c6c6c6;
   --grey: #adb5bd;
-  --dark-grey: #495057;
+  --dark-grey: #363636;
   --black: #212529;
 }
 
@@ -12,13 +12,9 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: var(--dark-grey) !important;
-}
-
 .home-page {
-  padding: 1rem;
-  margin-top: 6rem;
+  padding: 3rem 1rem 1rem 1rem;
+  margin-top: 2rem;
   background-color: var(--dark-grey);
   border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
@@ -42,7 +38,7 @@ body {
   padding: 15px 7rem;
   border: 8px solid var(--dark-grey);
   background: linear-gradient(145deg, #c8cbcf, #eef2f6);
-  box-shadow: 5px 5px 10px #40464d, -5px -5px 10px #525a61;
+  box-shadow: 9px 9px 18px #2a2a2a, -9px -9px 18px #424242;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
@@ -144,7 +140,7 @@ body {
   font-size: 26px;
 }
 
-.item {
+.home-courses .item {
   padding: 10px 10px 1.5rem;
   border-radius: 8px;
   background: #d9d9d9;
@@ -199,7 +195,7 @@ body {
   border-radius: 8px;
   background: #dee2e6;
   border: 6px solid var(--dark-grey);
-  box-shadow: 5px 5px 12px #34393e, -5px -5px 12px #5e6770;
+  box-shadow: 9px 9px 18px #2a2a2a, -9px -9px 18px #424242;
   margin-top: 2rem;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -231,6 +227,7 @@ body {
 .consultation-container img {
   object-fit: contain;
   width: 65%;
+  height: 100%;
   position: absolute;
   top: 6px;
   left: 130px;
@@ -239,10 +236,10 @@ body {
 
 .consultation {
   margin-right: -15%;
-  margin: 4rem 28rem;
+  margin: 4rem 25rem;
   border-radius: 8px;
   background: var(--light-grey);
-  /* box-shadow: 6px 6px 12px #b8b8b8, -6px -6px 12px #fafafa; */
+  /* box-shadow: 8px 8px 24px #9ca3aa, -8px -8px 24px #bec7d0; */
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -314,14 +311,12 @@ body {
 
 /* media query's */
 
-@media screen and (max-width: 1303px) {
+@media screen and (max-width: 1147px) {
   .consultation {
-    margin: 4rem 20rem;
+    margin-right: 0.3rem;
   }
-}
-@media screen and (max-width: 1047px) {
-  .consultation {
-    margin: 4rem 16rem;
+  .consultation-container img {
+    width: 80%;
   }
 }
 @media screen and (max-width: 919px) {
@@ -329,8 +324,21 @@ body {
     padding: 15px 0;
   }
 
+  .consultation-container img {
+    display: none;
+  }
+
+  .consultation-container {
+    background: var(--light-grey);
+    box-shadow: 9px 9px 18px #2e2e2e, -9px -9px 18px #3e3e3e;
+  }
+
   .consultation {
-    margin: 4rem 10rem;
+    margin: 4rem 7rem;
+    background: var(--light-grey);
+    box-shadow: inset 7px 7px 15px #aeaeae, inset -7px -7px 15px #dedede;
+    width: 50%;
+    padding: 4rem 2.5rem;
   }
   .consultation h2 {
     font-size: 22px;
@@ -357,11 +365,14 @@ body {
   }
   .consultation {
     margin: 4rem -1rem;
-    box-shadow: 9px 9px 18px #3b4146, -9px -9px 18px #575f68;
+    box-shadow: 9px 9px 18px #2e2e2e, -9px -9px 18px #3e3e3e;
     border: 6px solid var(--dark-grey);
+    width: 100%;
+    padding-top: 1rem;
   }
   .consultation h2 {
     font-size: 18px;
+    margin: 2rem 0;
   }
   .consultation input::placeholder {
     font-size: 15px;
@@ -389,9 +400,10 @@ body {
   }
   .banner-slide img {
     object-fit: contain;
+    height: 23rem;
   }
   .banner-gallery {
-    margin-top: -6rem;
+    margin-top: -5rem;
     margin-bottom: -2rem;
   }
   .banner-slide {
@@ -399,11 +411,21 @@ body {
   }
 }
 
+@media screen and (max-width: 550px) {
+  .banner-slide img {
+    height: 19rem;
+  }
+}
+
 @media screen and (max-width: 450px) {
   .home-courses,
   .teacher-gallery,
   .consultation-container {
-    margin: 2rem 0;
+    margin: 0;
+  }
+
+  .consultation-container {
+    padding: 0;
   }
 
   .mySwiper {
@@ -420,6 +442,10 @@ body {
   .all-courses button {
     font-size: 13px;
     margin: 0 17px;
+  }
+
+  .banner-slide img {
+    height: 15rem;
   }
 
   .footer-container {

@@ -2,8 +2,12 @@
   --white: #f8f9fa;
   --light-grey: #dee2e6;
   --grey: #adb5bd;
-  --dark-grey: #495057;
+  --dark-grey: #363636;
   --black: #212529;
+}
+
+body {
+  background-color: var(--dark-grey);
 }
 
 .main-contact {
@@ -35,7 +39,7 @@
   align-items: center;
   flex-direction: column;
   background-color: #bbb;
-  box-shadow: 5px 5px 12px #34393e, -5px -5px 12px #5e6770;
+  box-shadow: 9px 9px 18px #2e2e2e, -9px -9px 18px #3e3e3e;
   border: 7px solid var(--dark-grey);
   width: 70%;
   height: 200px;
@@ -89,7 +93,7 @@
   opacity: 1;
 }
 .contact p {
-  font-size: 20px;
+  font-size: 18px;
 }
 .text {
   opacity: 0;
@@ -119,13 +123,13 @@
   }
 }
 
-@media only screen and (max-width: 966px) {
+@media only screen and (max-width: 986px) {
   .contact {
     width: 100%;
     margin: 5px;
   }
   .contact p {
-    font-size: 17px;
+    font-size: 14px;
   }
   .column {
     margin: 0;
@@ -140,10 +144,10 @@
   }
 }
 
-@media only screen and (max-width: 700px) {
-  /* .contact p {
+@media only screen and (max-width: 730px) {
+  .contact p {
     font-size: 15px;
-  } */
+  }
   .main-contact {
     grid-template-columns: 1fr;
     justify-items: center;

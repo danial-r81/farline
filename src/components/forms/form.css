@@ -31,7 +31,7 @@ body {
   padding: 2rem 0.5rem;
   border-radius: 10px;
   background: var(--light-grey);
-  box-shadow: 8px 8px 16px #caced1, -8px -8px 16px #f2f6fb;
+  box-shadow: 9px 9px 31px #a8a8a8, -9px -9px 31px #e4e4e4;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -201,6 +201,10 @@ input::placeholder {
   border: none;
   border-bottom: 2px solid rgb(155, 155, 155);
   outline: none;
+}
+
+.change-password {
+  padding: 10px 0;
 }
 
 #grade {

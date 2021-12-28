@@ -4,14 +4,13 @@ import { withRouter } from 'react-router';
 import { Input } from './Input';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { fillProfile } from '../../services/userServices';
-import { toast } from 'react-toastify';
-import { completePrfileHandler } from '../../redux/features/userInfo';
+import { fillProfileHandler } from '../../redux/features/userInfo';
 
 import './form.css';
 const CompleteProfile = ({ history }) => {
   const dispatch = useDispatch();
   const userRegisterInfo = useSelector((state) => state.userReducer.userInfo);
+
   console.log(userRegisterInfo);
 
   const FormVariant = {
@@ -66,39 +65,8 @@ const CompleteProfile = ({ history }) => {
       .oneOf([Yup.ref('password'), ''], 'پسوورد ها با هم برابر نیستند'),
   });
 
-  const onSubmit = async (value) => {
-    const danial = 'fdgfdhj67867sdfsf2343nh';
-    const { firstName, lastName, password, grade } = value;
-    const { phoneNumber, nationalCode } = userRegisterInfo;
-    const user = {
-      firstName,
-      lastName,
-      password,
-      grade,
-      phoneNumber,
-      nationalCode,
-      danial,
-    };
-    try {
-      const { status } = await fillProfile(user, phoneNumber);
-      if (status === 200) {
-        console.log('ok');
-        dispatch(completePrfileHandler({ value: user }));
-        history.push('/');
-        toast.success(' ثبت نام موفقیت آمیز بود ', {
-          position: 'top-right',
-          closeOnClick: true,
-        });
-      }
-    } catch (e) {
-      if (e.response) {
-        console.log(e.response);
-      } else if (e.message) {
-        console.log(e.message);
-      } else if (e.request) {
-        console.log(e.request);
-      }
-    }
+  const onSubmit = (value) => {
+    dispatch(fillProfileHandler({ value, history }));
   };
 
   return (

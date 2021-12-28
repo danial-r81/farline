@@ -1,4 +1,3 @@
-import axios from 'axios';
 import config from './config.json';
 import http from './httpService';
 
@@ -24,4 +23,23 @@ export const userLogin = (user, phoneNumber) => {
 export const resendCode = (phoneNumber) => {
   console.log(phoneNumber);
   return http.post(`${config.baseUrl}/api/user/code/again/${phoneNumber}/`);
+};
+
+export const forgotPassword = (phoneNumber) => {
+  return http.post(
+    `${config.baseUrl}/api/user/change/password/${phoneNumber}/`
+  );
+};
+
+export const getAllUserData = (phoneNumber) => {
+  return http.get(`${config.baseUrl}/api/user/info/${phoneNumber}/`);
+};
+
+export const changePassword = (phoneNumber, password) => {
+  const danial = 'fdgfdhj67867sdfsf2343nh';
+
+  return http.post(
+    `${config.baseUrl}/api/user/change/password/${phoneNumber}/`,
+    JSON.stringify({ password, danial })
+  );
 };

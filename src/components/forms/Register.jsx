@@ -4,9 +4,7 @@ import { Input } from './Input';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
-import { userRegister } from '../../services/userServices';
-import { toast } from 'react-toastify';
-import { userRegisterHandler } from '../../redux/features/userInfo';
+import { registerHandler } from '../../redux/features/userInfo';
 
 const Register = ({ history }) => {
   const dispatch = useDispatch();
@@ -50,35 +48,8 @@ const Register = ({ history }) => {
       ),
   });
 
-  const onSubmit = async (value) => {
-    try {
-      const { data, status } = await userRegister(value);
-      const code = data.code;
-      dispatch(userRegisterHandler({ value, code }));
-
-      if (status === 201) {
-        history.push('/get-code');
-      }
-    } catch (e) {
-      if (e.response) {
-        console.log('response', e.response);
-        if (e.response.status === 400) {
-          toast.warn('کاربر با این مشخصات موجود است', {
-            position: 'top-right',
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-          });
-          console.log(400);
-        }
-      } else if (e.message) {
-        console.log(e.message);
-      } else if (e.request) {
-        console.log('request', e.request);
-      }
-    }
+  const onSubmit = (value) => {
+    dispatch(registerHandler({ value, history }));
   };
   return (
     <Formik

@@ -29,7 +29,7 @@
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
   background: var(--light-grey);
-  box-shadow: 5px 5px 12px #34393e, -5px -5px 12px #5e6770;
+  /* box-shadow: 5px 5px 12px #34393e, -5px -5px 12px #5e6770; */
   border: 7px solid var(--dark-grey);
 }
 
@@ -42,7 +42,7 @@
 
 .main-gallery .teacher-container:nth-child(even) .teacher-edu {
   right: 2%;
-  box-shadow: -5px 5px 12px #34393e, 5px -5px 12px #5e6770;
+  /* box-shadow: -5px 5px 12px #34393e, 5px -5px 12px #5e6770; */
   border: 8px solid var(--dark-grey);
   background-color: var(--light-grey);
   justify-content: flex-start;
@@ -84,6 +84,7 @@
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
+  box-shadow: 9px 9px 18px #2e2e2e, -9px -9px 18px #3e3e3e;
 }
 
 .teacher-edu p {
