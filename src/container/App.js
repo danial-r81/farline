@@ -22,9 +22,9 @@ const App = () => {
           theme='colored'
           limit={1}
         />
-        <Link className='back-to-top' to='header' smooth={true} duration={1000}>
+        {/* <Link className='back-to-top' to='header' smooth={true} duration={1000}>
           <i className='fa fa-arrow-up'></i>
-        </Link>
+        </Link> */}
       </div>
     </Router>
   );

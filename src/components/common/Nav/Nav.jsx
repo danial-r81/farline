@@ -74,7 +74,7 @@ const Nav = () => {
               </NavLink>
             </li>
             <li class='menu-item'>
-              <NavLink to='/map' className='menu-link' onClick={closeMenu}>
+              <NavLink to='/edu-cal' className='menu-link' onClick={closeMenu}>
                 نقشه راه
               </NavLink>
             </li>
