@@ -7,13 +7,21 @@
 }
 
 .table-container {
-  border: 8px solid var(--light-grey);
+  /* border: 8px solid var(--light-grey);
   box-shadow: 6px 6px 12px #a4a4a4, -6px -6px 12px #e8e8e8;
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
-  -o-border-radius: 15px;
+  -o-border-radius: 15px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+.table-container div {
+  font-size: 25px;
+  color: #949494;
 }
 
 table {
@@ -63,7 +71,8 @@ tr {
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 .table-container {
-  margin: 50px;
+  /* margin: 50px; */
+  height: 80vh;
   direction: rtl;
 }
 

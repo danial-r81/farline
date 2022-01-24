@@ -4,6 +4,11 @@
   --grey: #adb5bd;
   --dark-grey: #495057;
   --black: #212529;
+  --yellow: #fed03d;
+  --Gblack: #051a1c;
+  --fosfori: #2bdbc2;
+  --red: #c00;
+  --blue: #2bd1db;
 }
 
 body {
@@ -22,16 +27,15 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background: var(--light-grey);
-  box-shadow: 7px 7px 14px #dadada, -7px -7px 14px #ffffff;
+  background: var(--white);
 }
 
 .form-container {
   width: 90%;
   padding: 2rem 0.5rem;
   border-radius: 10px;
-  background: var(--light-grey);
-  box-shadow: 9px 9px 31px #a8a8a8, -9px -9px 31px #e4e4e4;
+  /* background: var(--light-grey); */
+  background: var(--Gblack);
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -42,7 +46,7 @@ body {
 
 .header {
   text-align: center;
-  color: var(--black);
+  color: var(--blue);
   font-size: 1.35rem;
   font-family: 'BYekan';
   padding-bottom: 34px;
@@ -57,7 +61,7 @@ body {
   bottom: 11px;
   right: 50%;
   transform: translate(50%, -50%);
-  background-color: var(--black);
+  background-color: var(--fosfori);
   -webkit-transform: translate(50%, -50%);
   -moz-transform: translate(50%, -50%);
   -ms-transform: translate(50%, -50%);
@@ -75,15 +79,15 @@ body {
   width: 90%;
   padding: 5px 0;
   border: none;
-  border-bottom: 2px solid var(--black);
-  /* color: var(--light-blue); */
+  color: var(--white);
+  border-bottom: 2px solid var(--fosfori);
   outline: none;
   margin: auto;
   background-color: transparent;
 }
 input::placeholder {
   font-family: 'BYekan';
-  color: var(--black);
+  color: var(--white);
 }
 .input-container label {
   padding: 10px 0;
@@ -103,8 +107,9 @@ input::placeholder {
   width: 105px;
   border: none;
   color: var(--white);
-  background-color: var(--dark-blue);
+  background-color: var(--Gblack);
   padding: 7px 15px;
+  border: 2px dotted var(--fosfori);
   font-family: 'BYekan';
   font-size: 16px;
   border-radius: 5px;
@@ -113,6 +118,11 @@ input::placeholder {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   cursor: pointer;
+}
+.submit:hover {
+  background: var(--fosfori);
+  color: var(--Gblack);
+  /* border: 2px dotted var(--Gblack); */
 }
 
 .error {
@@ -128,13 +138,13 @@ input::placeholder {
 }
 
 .register {
-  color: var(--dark-blue);
+  color: var(--white);
   display: block;
   margin: 1rem auto;
 }
 .register:hover {
   text-decoration: none;
-  color: var(--dark-blue);
+  color: var(--fosfori);
 }
 
 .get-code-text {
@@ -184,13 +194,13 @@ input::placeholder {
 }
 
 .forget-code {
-  color: black;
+  color: var(--white);
   /* margin-left: auto */
   text-align: center;
 }
 .forget-code:hover {
   text-decoration: none;
-  color: black;
+  color: var(--fosfori);
 }
 
 .input-container select {
@@ -201,6 +211,7 @@ input::placeholder {
   border: none;
   border-bottom: 2px solid rgb(155, 155, 155);
   outline: none;
+  background-color: transparent;
 }
 
 .change-password {

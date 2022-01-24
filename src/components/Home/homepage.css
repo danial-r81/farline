@@ -1,10 +1,4 @@
-:root {
-  --white: #f8f9fa;
-  --light-grey: #c6c6c6;
-  --grey: #adb5bd;
-  --dark-grey: #363636;
-  --black: #212529;
-}
+@import url('../../main-style/style.css');
 
 * {
   margin: 0;
@@ -15,7 +9,7 @@
 .home-page {
   padding: 3rem 1rem 1rem 1rem;
   margin-top: 2rem;
-  background-color: var(--dark-grey);
+  background-color: var(--white);
   border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   -moz-border-radius: 10px 10px 0 0;
@@ -27,18 +21,13 @@
   margin: 2rem;
   text-align: center;
   position: relative;
-  /* color: var(--dark-grey) !important; */
+  color: #767e7e;
   font-size: 25px;
 }
 .home-courses {
-  /*background-color: var(--light-grey) !important;
-  */
   border-radius: 15px;
   margin: 0 2rem;
   padding: 15px 7rem;
-  border: 8px solid var(--dark-grey);
-  background: linear-gradient(145deg, #c8cbcf, #eef2f6);
-  box-shadow: 9px 9px 18px #2a2a2a, -9px -9px 18px #424242;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
@@ -70,6 +59,7 @@
   -o-border-radius: 5px;
   color: var(--dark-grey);
   font-size: 20px;
+  cursor: pointer;
 }
 .all-courses button a {
   text-decoration: none;
@@ -82,7 +72,8 @@
   /* background-color: aqua; */
 }
 .item .name {
-  color: var(--black);
+  /* color: var(--black); */ /*dark mode*/
+  color: #fefefe;
 }
 
 .banner {
@@ -143,13 +134,10 @@
 .home-courses .item {
   padding: 10px 10px 1.5rem;
   border-radius: 8px;
-  background: #d9d9d9;
-  box-shadow: 6px 6px 12px #b8b8b8, -6px -6px 12px #fafafa;
+  background-color: var(--Gblack);
 }
 .teacher-gallery {
   border-radius: 15px;
-  /* background: #e0e0e0;
-  box-shadow: 7px 7px 14px #cecece, -7px -7px 14px #f2f2f2; */
   margin: 2rem;
   border-radius: 10px;
   padding: 20px 0;
@@ -161,9 +149,6 @@
   padding: 10px;
   border-radius: 15px;
   border-radius: 8px;
-  /* background: #e0dfdf; */
-  background: #bdbdbd;
-  box-shadow: inset 50px 50px 72px #909090, inset -50px -50px 72px #eaeaea;
   margin-bottom: 25px;
   border-radius: 7px;
   -webkit-border-radius: 7px;
@@ -188,14 +173,17 @@
 }
 
 .teacher-header {
-  color: var(--white) !important;
+  /* color: var(--white) !important; */
+  color: #767e7e;
 }
 
-.teacher-gallery .all-courses button {
+.all-courses button {
   border-radius: 8px;
-  background: #dee2e6;
+  /* background: #dee2e6;
   border: 6px solid var(--dark-grey);
-  box-shadow: 9px 9px 18px #2a2a2a, -9px -9px 18px #424242;
+  box-shadow: 9px 9px 18px #2a2a2a, -9px -9px 18px #424242; */
+  background-color: #c00;
+  color: #fefefe;
   margin-top: 2rem;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -217,7 +205,7 @@
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
-  border: 10px solid var(--dark-grey);
+  /* border: 10px solid var(--dark-grey); */
   /* background-image: url('images/cons/jpeg');s */
   position: relative;
   display: flex;
@@ -238,8 +226,9 @@
   margin-right: -15%;
   margin: 4rem 25rem;
   border-radius: 8px;
-  background: var(--light-grey);
+  /* background: var(--light-grey); */
   /* box-shadow: 8px 8px 24px #9ca3aa, -8px -8px 24px #bec7d0; */
+  background-color: var(--yellow);
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -253,7 +242,9 @@
 }
 
 .consultation h2 {
-  color: var(--dark-grey);
+  /* color: var(--dark-grey); */
+  /* color: #e6e6e6; */
+  color: var(--black);
   font-size: 26px;
   margin-top: 5px;
 }
@@ -266,25 +257,40 @@
 }
 
 .cons-btn button {
-  background-color: var(--dark-grey);
+  /*background-color: var(--dark-grey);
   color: var(--white);
+  */
+  background-color: transparent;
+  color: var(--black);
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
-  border: none;
+  border: 1px solid var(--black);
   outline: none;
   padding: 5px 25px;
   cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+}
+
+.cons-btn button:hover {
+  color: var(--white);
+  background-color: var(--black);
 }
 
 .consultation-form .input-container input {
-  border-bottom: 1px solid var(--dark-grey);
+  /* border-bottom: 1px solid var(--dark-grey); */
+  border-bottom: 1px solid var(--black);
 }
 
 .consultation-form .input-container input::placeholder {
-  color: var(--dark-grey);
+  /* color: var(--dark-grey); */
+  color: var(--black);
 }
 
 .back-to-top {

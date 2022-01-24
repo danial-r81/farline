@@ -1,15 +1,14 @@
-:root {
-  --white: #f6f6f6;
-  --light-grey: #c6c6c6;
-  --grey: #949494;
-  --dark-grey: #363636;
-  --black: #000000;
-}
+@import url('../../main-style/style.css');
 
 .panel-contain {
   width: 100%;
   position: relative;
   direction: rtl;
+  margin-top: 60px;
+}
+
+.fa-bars {
+  color: var(--white);
 }
 
 .panel-nav {
@@ -36,7 +35,7 @@
   top: 10%;
   left: 0;
   width: 100%;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 .panel-nav .fa-bars {
@@ -46,11 +45,12 @@
 }
 .panel-nav ul li {
   position: relative;
-  width: 200%;
   list-style: none;
   transition: 0.5s;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
+  cursor: pointer;
+  margin-top: 37px;
 }
 
 /* .panel-nav ul li:hover,
@@ -65,15 +65,19 @@
   align-items: center;
   text-decoration: none;
   color: #fff;
-  cursor: default;
+  cursor: pointer;
+}
+
+.panel-nav ul li:nth-child(6) {
+  margin-top: 16rem;
 }
 i {
   cursor: pointer;
 }
 
-.panel-nav ul li a span {
+/* .panel-nav ul li a span {
   margin-right: 20px;
-}
+} */
 
 /* .panel-nav ul li:nth-child(1) {
   margin-bottom: 10rem;
@@ -96,11 +100,41 @@ i {
 }
 
 .panel-nav ul li a .panel-title {
-  display: block;
+  display: flex;
   position: relative;
-  padding: 0 10px;
+  /* padding: 0 30px; */
   height: 60px;
   line-height: 60px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.panel-nav ul li button {
+  background-color: transparent;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.panel-nav ul li button a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.panel-nav ul li button p {
+  margin-right: 30px;
+}
+
+/* .panel-title p {
+  margin-right: 30px;
+} */
+.panel-title:nth-child(6) {
+  padding: 0;
 }
 /* panel-panel-main  */
 
@@ -108,9 +142,9 @@ i {
   /* position: absolute; */
   width: 100%;
   /* right: 300px; */
-  height: 100vh;
+  height: 91.5vh;
   transition: 0.5s;
-  background-color: var(--light-grey);
+  background-color: var(--white);
   padding-right: 60px;
 }
 
@@ -120,11 +154,11 @@ i {
 }
 
 .panel-bar {
-  height: 10%;
-  display: flex;
-  justify-content: flex-end;
+  /* height: 10%; */
+  display: none;
+  /* justify-content: flex-end;
   align-items: center;
-  margin-left: 35px;
+  margin-left: 35px; */
 }
 
 .Hmenu {
@@ -217,4 +251,128 @@ i {
 .boxs:hover .cardname,
 .boxs:hover i {
   color: aliceblue;
+}
+.panel-courses {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: var(--light-grey);
+}
+
+.orders {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: var(--light-grey);
+}
+
+.suggestion {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: var(--light-grey);
+}
+
+/* change password */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.pas-conainer {
+  width: 100%;
+  height: 91.5vh;
+  /* background: url('./pass.jpg');
+  background-repeat: no-repeat;
+  background-size: contain; */
+  background-color: #373a36;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.forgot-password {
+  width: 30rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #a79e9ef3;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.forgot-password h1 {
+  position: relative;
+  top: -35px;
+  text-align: center;
+  font-size: 30px;
+  color: rgba(230, 234, 238, 0.959);
+}
+.password-input {
+  margin: 5px 0;
+  padding: 7px 25px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  text-align: right;
+  font-size: 15px;
+  transition: 0.3s;
+  background-color: #373a36;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.change-pas-btn {
+  position: relative;
+  padding: 5px 30px;
+  border: none;
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 17px;
+  top: 15px;
+  background-color: #e6e2dd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.password-input:hover,
+.password-input.hovered {
+  background-color: #e6e2dd;
+}
+.change-pas-btn:hover {
+  background-color: rgba(85, 79, 79, 0.596);
+  color: #e6e2dd;
+}
+
+@media screen and (max-width: 750px) {
+  .panel-contain {
+    margin-top: 45px;
+  }
+
+  .panel-main {
+    height: 93.5vh;
+  }
 }

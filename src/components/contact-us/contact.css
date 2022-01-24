@@ -1,27 +1,28 @@
-:root {
-  --white: #f8f9fa;
-  --light-grey: #dee2e6;
-  --grey: #adb5bd;
-  --dark-grey: #363636;
-  --black: #212529;
-}
+@import url('../../main-style/style.css');
 
-body {
-  background-color: var(--dark-grey);
+.contact-us-container {
+  width: 100%;
+  padding: 4rem 0;
+  background-color: var(--white);
 }
 
 .main-contact {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin-right: 22px;
+  justify-items: center;
 }
 
 .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  color: #fff;
+
   padding: 20px;
-  font-family: 'vazir';
-  margin-top: 5rem;
+}
+.title h1 {
+  font-size: 45px;
+  color: var(--Gblack);
 }
 
 .column {
@@ -38,12 +39,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #bbb;
-  box-shadow: 9px 9px 18px #2e2e2e, -9px -9px 18px #3e3e3e;
-  border: 7px solid var(--dark-grey);
+  border-radius: 20px;
   width: 70%;
   height: 200px;
-  border-radius: 20px;
   margin: 20px;
   transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
@@ -51,18 +49,76 @@ body {
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
 }
-.contact:hover {
-  background-color: #fff;
-  cursor: pointer;
+.gmail {
+  border: 2px solid #ea4335;
 }
-.main .part-1 .contact:hover {
-  border-radius: 20px 5px 20px 5px;
+.gmail p {
+  font-size: 15px !important;
 }
-.main .part-2 .contact:hover {
-  border-radius: 5px 5px 5px 5px;
+.gmail p,
+.telegram p,
+.instagram p,
+.web-site p {
+  font-family: cursive;
 }
-.main .part-3 .contact:hover {
-  border-radius: 5px 20px 5px 20px;
+.telegram {
+  border: 2px solid #0077ff;
+}
+.instagram {
+  border: 2px solid #ff0066;
+}
+.phone {
+  border: 2px solid #009933;
+}
+.web-site {
+  border: 2px solid var(--grey);
+}
+.gmail i {
+  color: #ea4335;
+}
+.telegram i {
+  color: #0077ff;
+}
+.instagram i {
+  color: #ff0066;
+}
+.phone i {
+  color: #009933;
+}
+.web-site i {
+  color: var(--grey);
+}
+.gmail:hover {
+  background-color: #ea4335;
+  box-shadow: 10px 10px 20px rgb(201, 201, 201);
+  border: none;
+}
+.telegram:hover {
+  background-color: #0077ff;
+  box-shadow: 10px 10px 20px rgb(201, 201, 201);
+  border: none;
+}
+.instagram:hover {
+  /* background-color: #ff0066; */
+  background: rgb(245, 133, 41);
+  background: linear-gradient(
+    17deg,
+    rgba(245, 133, 41, 1) 14%,
+    rgba(221, 42, 123, 1) 53%,
+    rgba(81, 91, 212, 1) 94%
+  );
+  box-shadow: 10px 10px 20px rgb(201, 201, 201);
+  border: none;
+}
+.phone:hover {
+  background-color: #009933;
+  box-shadow: 10px 10px 20px rgb(201, 201, 201);
+  border: none;
+}
+.web-site:hover {
+  background-color: var(--grey);
+  box-shadow: 10px 10px 20px rgb(201, 201, 201);
+  border: none;
 }
 .contact i {
   font-size: 50px;
@@ -72,22 +128,16 @@ body {
 .contact:hover i {
   transform: translate(0, -20px);
 }
-.telegram:hover i {
-  color: #0077ff !important;
+.contact:hover {
+  transform: translateY(-6px);
+  cursor: pointer;
+}
+.contact:hover i,
+.contact:hover p,
+.contact:hover a {
+  color: var(--white);
 }
 
-.instagram:hover i {
-  color: #ff0066 !important;
-}
-.phone:hover i {
-  color: #009933 !important;
-}
-.gmail:hover i {
-  color: #ea4335 !important;
-}
-.web-site:hover:hover i {
-  color: var(--grey) !important;
-}
 .contact:hover p,
 .contact:hover a {
   opacity: 1;
@@ -97,7 +147,7 @@ body {
 }
 .text {
   opacity: 0;
-  color: #000;
+  color: var(--white);
   transition: all 0.5s ease-in-out;
 }
 
@@ -117,52 +167,51 @@ body {
   -o-transform: translate(0, -10px) !important;
 }
 
-@media only screen and (max-width: 1200px) {
+@media screen and (max-width: 990px) {
+  .main-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .column {
+    width: 60%;
+  }
   .contact {
-    width: 88%;
+    width: 70%;
+  }
+  .title h1 {
+    font-size: 35px;
   }
 }
-
-@media only screen and (max-width: 986px) {
+@media screen and (max-width: 600px) {
+  .main-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .column {
+    width: 80%;
+  }
   .contact {
     width: 100%;
-    margin: 5px;
-  }
-  .contact p {
-    font-size: 14px;
-  }
-  .column {
-    margin: 0;
-  }
-  .telegram,
-  .instagram {
-    margin-left: 0;
-  }
-  .gmail,
-  .phone {
-    margin-right: 0;
   }
 }
-
-@media only screen and (max-width: 730px) {
-  .contact p {
-    font-size: 15px;
-  }
+@media screen and (max-width: 420px) {
   .main-contact {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
   .column {
-    width: 50vw;
+    width: 80%;
   }
-  .title {
-    margin-top: 3rem;
+  .contact {
+    width: 100%;
   }
-}
-
-@media only screen and (max-width: 500px) {
-  .column {
-    width: 80vw;
+  .title h1 {
+    font-size: 30px;
   }
 }

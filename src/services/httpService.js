@@ -2,6 +2,10 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
+// axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+// axios.defaults.withCredentials = true;
+// axios.defaults.xsrfCookieName = 'csrftoken';
+// axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
 axios.interceptors.request.use(null, (error) => {
   const expectedErrors =

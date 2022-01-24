@@ -9,7 +9,7 @@ import { Topics } from '../components/courses/Topics';
 import { HomePage } from '../components/Home/HomePage';
 import ForgerPassword from '../components/forms/ForgerPassword';
 import { Contact } from '../components/contact-us/Contact';
-import { teacherGallery } from '../components/teacher-gallery/TeacherGallery';
+import { TeacherGallery } from '../components/teacher-gallery/TeacherGallery';
 import { Panel } from '../components/panel/Panel';
 import ChangePassword from '../components/forms/ChangePassword';
 import ForgotPassCode from '../components/forms/ForgotPassCode';
@@ -34,8 +34,8 @@ const ToosClass = () => {
           <Route path='/forget-password' component={ForgerPassword} />
           <Route path='/change-password' component={ChangePassword} />
           <Route path='/contact-us' component={Contact} />
-          <Route path='/teachers' component={teacherGallery} />
-          {/* <Route path='/edu-cal' component={EduCal} /> */}
+          <Route path='/teachers' component={TeacherGallery} />
+          <Route path='/edu-cal' component={EduCal} />
           <Route path='/part-one-videos' component={FirstVideosContainer} />
           <Route path='/profile' component={is_active ? Panel : AccessDenied} />
           <Route path='/' exact component={HomePage} />

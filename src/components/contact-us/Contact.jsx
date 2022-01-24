@@ -1,44 +1,66 @@
 import React, { Fragment } from 'react';
+import { motion } from 'framer-motion';
 
 import './contact.css';
+import ContactBox from './ContactBox';
 export const Contact = () => {
   return (
-    <Fragment>
+    <div className='contact-us-container'>
       <div className='title'>
         <h1>با ما در ارتباط باشید</h1>
       </div>
       <section className='main-contact'>
         <div className='column part-1'>
-          <div className='gmail contact'>
-            <i className='fa fa-envelope-open-o'></i>
-            <p className='text'>www.toosclassName@gmail.com</p>
-          </div>
-          <div className='phone contact bottom'>
-            <i className='fa fa-phone'></i>
-            <p className='text'>
-              02191301962 <br />
-              09196724868
-            </p>
-          </div>
+          <ContactBox
+            className='gmail'
+            transitionDelay={0.4}
+            initial={{ x: '10vw', opacity: 0 }}
+            animate={{ x: '0', opacity: 1 }}
+            icon='fa fa-envelope-open-o'
+            text='toosclass@gmail.com'
+          />
+          <ContactBox
+            className='phone'
+            transitionDelay={0.7}
+            initial={{ x: '10vw', opacity: 0 }}
+            animate={{ x: '0', opacity: 1 }}
+            icon='fa fa-phone'
+            text={
+              <Fragment>
+                02191301962 <br /> 09196724868
+              </Fragment>
+            }
+          />
         </div>
         <div className='column part-2'>
-          <div className='web-site contact'>
-            <i className='fa fa-globe'></i>
-            <p className='text'>www.fatahzadehedu.com</p>
-          </div>
+          <ContactBox
+            className='web-site'
+            transitionDelay={1.4}
+            initial={{ y: '-10vh', opacity: 0 }}
+            animate={{ y: '0', opacity: 1 }}
+            icon='fa fa-globe'
+            text='www.fatahzadehedu.com'
+          />
         </div>
         <div className='column part-3'>
-          <div className='instagram contact'>
-            <i className='fa fa-instagram'></i>
-
-            <p className='text'>toosclassName_com</p>
-          </div>
-          <div className='telegram contact bottom'>
-            <i className='fa fa-telegram'></i>
-            <p className='text'>fatahzadehedu_com</p>
-          </div>
+          <ContactBox
+            className='instagram'
+            transitionDelay={0.9}
+            initial={{ x: '-10vw', opacity: 0 }}
+            animate={{ x: '0', opacity: 1 }}
+            icon='fa fa-instagram'
+            text='toosclass_com'
+          />
+          <ContactBox
+            className='telegram bottom'
+            transitionDelay={1.1}
+            initial={{ x: '-10vw', opacity: 0 }}
+            animate={{ x: '0', opacity: 1 }}
+            icon='fa fa-telegram'
+            text='fatahzadehedu_com'
+          />
         </div>
       </section>
-    </Fragment>
+    </div>
   );
 };

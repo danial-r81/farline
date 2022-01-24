@@ -4,8 +4,9 @@ import './boughtCourses.css';
 export const BoughtCourseTable = () => {
   return (
     <section className='table-container'>
+      <div>در حال حاضر کلاس خریداری شده ای موجد نمی باشد</div>
       {/* <div className='tbl-header'> */}
-      <table>
+      {/* <table>
         <thead>
           <tr>
             <th>نام درس</th>
@@ -40,7 +41,7 @@ export const BoughtCourseTable = () => {
             <td>به اتمام رسیده</td>
           </tr>
         </tbody>
-      </table>
+      </table> */}
       {/* </div> */}
       {/* <div className='tbl-content'>
         <table>

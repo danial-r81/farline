@@ -11,7 +11,7 @@ const FirstVideosContainer = () => {
       </div>
       <div className='show-one-part'>
         <span>جلسات اول دوره های ما را به صورت رایگان تماشا کنید!</span>
-        <img src='images/part-one-1.png' alt='' />
+        <img src='images/Webinar.gif' alt='' />
       </div>
       <div className='part'>
         {[1, 2, 3, 4].map((item) => (

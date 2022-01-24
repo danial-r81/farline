@@ -16,7 +16,8 @@ const MainLayout = ({ children, history }) => {
   }, []);
   return (
     <Fragment>
-      {history.location.pathname === '/profile' ? null : <Nav />}
+      <Nav />
+      {/* {history.location.pathname === '/profile' ? null : <Nav />} */}
       {children}
     </Fragment>
   );

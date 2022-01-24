@@ -98,11 +98,12 @@ export const Topics = () => {
 
   return (
     <section className='courses'>
-      <div className='courses-container'>
+      <div className='no-courses'>در حال حاضر دوره ای موجود نمی باشد</div>
+      {/* <div className='courses-container'>
         {courses.map((course) => (
           <Topic course={course} />
         ))}
-      </div>
+      </div> */}
     </section>
   );
 };

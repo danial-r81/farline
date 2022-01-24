@@ -3,14 +3,21 @@ import { NavLink } from 'react-router-dom';
 import { Input } from './Input';
 import { withRouter } from 'react-router';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useStore } from 'react-redux';
 import { motion } from 'framer-motion';
+import http from '../../services/httpService';
+import config from '../../services/config.json';
+// import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
 
 import './form.css';
+import { useEffect, useState } from 'react';
+import { loginHandler } from '../../redux/features/userInfo';
 
 const Login = ({ history }) => {
   const dispatch = useDispatch();
 
+  // const [cookies, setCookie, removeCookie] = useCookies();
   const initialValues = { phoneNumber: '', password: '' };
   const validationSchema = Yup.object({
     phoneNumber: Yup.string()
@@ -24,8 +31,24 @@ const Login = ({ history }) => {
       .min(8, 'گذرواژه نمی تواند کمتر از 8 کارکتر باشد'),
   });
 
+  useEffect(() => {
+    http
+      .get(`${config.baseUrl}/api/csrf/`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        if (e.response) {
+          console.log(e.response);
+        } else if (e.message) {
+          console.log(e.message);
+        } else if (e.request) {
+          console.log(e.request);
+        }
+      });
+  }, []);
   const onSubmit = (value) => {
-    console.log(value);
+    dispatch(loginHandler(value, history));
   };
 
   const FormVariant = {
@@ -52,8 +75,6 @@ const Login = ({ history }) => {
       },
     },
   };
-
-  console.log(history);
 
   return (
     <Formik

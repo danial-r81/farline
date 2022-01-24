@@ -6,13 +6,13 @@ import 'swiper/swiper.min.css';
 export function Baner() {
   const banner = [
     {
-      image: 'images/banner/banner-1.png',
+      image: 'images/banner/banner-3.png',
     },
     {
       image: 'images/banner/banner-2.jpg',
     },
     {
-      image: 'images/banner/banner-3.png',
+      image: 'images/banner/banner-1.png',
     },
     {
       image: 'images/banner/banner-4.png',

@@ -1,9 +1,14 @@
 import React from 'react';
 import { BoughtCourseTable } from './bought-course/BoughtCourseTable';
-import { PanelNav } from './panel-nav/PanelNav';
+import PanelNav from './panel-nav/PanelNav';
 import { useSelector } from 'react-redux';
+import { PanelLayout } from './PanelLayout/PanelLayout';
 
 import './panel.css';
+import { PanelCourses } from './courses/PanelCourses';
+import { Suggestion } from './suggestion/Suggestion';
+import { EditAccount } from './edit-account/EditAccount';
+import { PanelRoutes } from './PanelLayout/PanelRoutes';
 export const Panel = () => {
   const { firstName, lastName } = useSelector(
     (state) => state.userReducer.userInfo
@@ -20,9 +25,8 @@ export const Panel = () => {
             </div>
           ) : null}
         </div>
-
         <div className='panel-table'>
-          <BoughtCourseTable />
+          <PanelRoutes />
         </div>
       </div>
     </div>

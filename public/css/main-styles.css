@@ -9,14 +9,26 @@
 * {
   font-family: 'BYekan';
 }
+a {
+  text-decoration: none;
+}
 
 :root {
   --light-blue: #00b4d8;
   --dark-blue: #03045e;
-  --black: #2b2d42;
+  /* --black: #2b2d42; */
   --violet-1: #b429f9;
   --violet-2: #702b9e;
-  --white: #ddd;
+  --white: #f8f9fa;
+  --light-grey: #dee2e6;
+  --grey: #adb5bd;
+  --dark-grey: #495057;
+  --black: #212529;
+  --yellow: #fed03d;
+  --Gblack: #051a1c;
+  --fosfori: #2bdbc2;
+  --red: #c00;
+  --blue: #2bd1db;
 }
 
 ::-webkit-scrollbar {

@@ -1,6 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { logoutHandler } from '../../../redux/features/userInfo';
+import { withRouter } from 'react-router-dom';
 
-export const PanelNav = () => {
+const PanelNav = ({ history }) => {
+  const dispatch = useDispatch();
   const toggleMenu = () => {
     const menu = document.querySelector('.panel-nav');
     // const menuLinks = document.querySelectorAll('.paner-nav a');
@@ -15,48 +20,66 @@ export const PanelNav = () => {
       </div>
       <ul>
         <li>
-          <a href='#'>
+          <button>
             {/* <span className='icon icon-film'></span> */}
-            <i className='fa fa-film'></i>
-            <span className='panel-title'>کلاس های خریداری شده</span>
-          </a>
+            <NavLink to='/profile/bought-courses' className='panel-title'>
+              <i className='fa fa-film'></i>
+              <p>کلاس های خریداری شده</p>
+            </NavLink>
+          </button>
         </li>
         <li>
-          <a href='#'>
+          <button>
             {/* <span className='icon icon-film'></span> */}
-            <i className='fa fa-shopping-cart'></i>
-            <span className='panel-title'>سفارش ها</span>
-          </a>
+            {/* <span className='panel-title'>دوره ها</span> */}
+            <NavLink to='/profile/courses' className='panel-title'>
+              <i className='fa fa-film'></i>
+              <p>دوره ها</p>
+            </NavLink>
+          </button>
         </li>
         <li>
-          <a href='#'>
+          <button>
+            {/* <span className='icon icon-film'></span> */}
+            {/* <span className='panel-title'>سفارش ها</span> */}
+            <NavLink to='/profile/orders' className='panel-title'>
+              <i className='fa fa-shopping-cart'></i>
+              <p>سفارش ها</p>
+            </NavLink>
+          </button>
+        </li>
+        <li>
+          <button>
             {/* <span className='icon icon-cogs'></span> */}
-            <i className='fa fa-edit'></i>
-            <span className='panel-title'>ویرایش حساب</span>
-          </a>
+            {/* <span className='panel-title'>ویرایش حساب</span> */}
+            <NavLink to='/profile/edit-account' className='panel-title'>
+              <i className='fa fa-edit'></i>
+              <p>سفارش ها</p>
+            </NavLink>
+          </button>
         </li>
         <li>
-          <a href='#'>
-            {/* <span className='icon icon-user'></span> */}
-            <i className='fa fa-user'></i>
-            <span className='panel-title'>پشتیبانی</span>
-          </a>
-        </li>
-        <li>
-          <a href='#'>
+          <button>
             {/* <span className='icon icon-fire'></span> */}
-            <i className='fa fa-fire'></i>
-            <span className='panel-title'>دوره های پیشنهادی </span>
-          </a>
+            {/* <span className='panel-title'>دوره های پیشنهادی </span> */}
+            <NavLink to='/profile/suggested-courses' className='panel-title'>
+              <i className='fa fa-fire'></i>
+              <p>دوره های پیشنهادی</p>
+            </NavLink>
+          </button>
         </li>
         <li>
-          <a href='#'>
-            {/* <span className='icon icon-exit'></span> */}
-            <i className='fa fa-sign-out'></i>
-            <span className='panel-title'>خروج</span>
-          </a>
+          <button onClick={() => dispatch(logoutHandler(history))}>
+            <a href=''>
+              {/* <span className='icon icon-exit'></span> */}
+              <i className='fa fa-sign-out'></i>
+              <p>خروج</p>
+            </a>
+          </button>
         </li>
       </ul>
     </div>
   );
 };
+
+export default withRouter(PanelNav);

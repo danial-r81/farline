@@ -37,7 +37,7 @@ export const Courses = () => {
     {
       name: 'fizics',
       name_farsi: 'فیزیک',
-      image: 'images/Tarahi_site.jpg',
+      image: 'images/Slide5.png',
     },
     {
       name: 'hendese',

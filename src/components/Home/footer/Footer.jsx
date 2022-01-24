@@ -10,8 +10,8 @@ export const Footer = () => {
             <div className='address-boy detail'>
               <i className='fa fa-map-marker'></i>
               <p>
-                میدان 9 دی ،جنب سرای محله عباسی ،ابتدای خیابان شیخ محمدی شرقی ،
-                کوچه مدرسه ، کوچه احدی ، دبیرستان غیردولتی طوس (دوره دوم)ویژه
+                میدان 9 دی ، جنب سرای محله عباسی ،ابتدای خیابان شیخ محمدی شرقی ،
+                کوچه مدرسه ، کوچه احدی ، دبیرستان غیردولتی طوس (دوره دوم) ، ویژه
                 پسران
               </p>
             </div>
@@ -23,8 +23,9 @@ export const Footer = () => {
             <div className='address-girl detail'>
               <i className='fa fa-map-marker'></i>
               <p>
-                میدان 9 دی ،جنب سرای محله عباسی ،ابتدای خیابان شیخ محمدی شرقی ،
-                کوچه مدرسه ، کوچه احدی ، آموزشگاه حمیدان ویژه دختران
+                خیابان قلعه مرغی ، میدان شهدای مدافع حرم ، ابتدای نواب جنوب به
+                شمال ، خیابان شیخ محمدی شرقی ، کوچه مدرسه ، آموزشگاه حمیدان ،
+                ویژه دختران
               </p>
             </div>
             <div className='tel-girl detail'>
@@ -35,7 +36,7 @@ export const Footer = () => {
           <div className='footer-items'>
             <ul>
               <li>
-                <a href='#'> استاتید طوس کلاس</a>
+                <a href='#'> اساتید طوس کلاس</a>
               </li>
               <li>
                 <a href='#'>تقویم آموزشی</a>
@@ -58,7 +59,9 @@ export const Footer = () => {
         <div className='footer-left'>
           <div className='location'>
             <div className='location-boy'>
-              <a href='https://maps.app.goo.gl/fXg2t6trMPWHdd966'>
+              <a
+                href='https://maps.app.goo.gl/fXg2t6trMPWHdd966'
+                target='_blank'>
                 <img src='images/toos.jpg' alt='' />
               </a>
             </div>

@@ -6,14 +6,16 @@ import {
   fillProfile,
   getAllUserData,
   changePassword,
+  userLogin,
+  logout,
 } from '../../services/userServices';
 
 export const getCodeAgain = createAsyncThunk(
   'users/resend-code',
   async (arg) => {
     try {
-      const { data } = await resendCode(arg);
-      return data;
+      const { data } = await resendCode();
+      return Promise.resolve(data);
     } catch (err) {
       if (err.response) {
         console.log(err.response);
@@ -33,7 +35,6 @@ export const registerHandler = createAsyncThunk(
   async (arg, { getState }) => {
     const { history, value } = arg;
     const { phoneNumber } = value;
-    const state = getState();
     try {
       const { data, status } = await userRegister(value);
       const { code } = data;
@@ -58,6 +59,73 @@ export const registerHandler = createAsyncThunk(
           });
         }
         return Promise.reject(e.response);
+      }
+      if (e.response) {
+        console.log(e.response);
+      } else if (e.message) {
+        console.log(e.message);
+      } else if (e.request) {
+        console.log(e.request);
+      }
+    }
+  }
+);
+
+export const loginHandler = createAsyncThunk('user/login', async (arg) => {
+  console.log(arg);
+  const { phoneNumber, history } = arg;
+  try {
+    const { status } = await userLogin(arg);
+    console.log(status);
+    if (status === 200) {
+      toast.success('login was successful', {
+        position: 'top-right',
+      });
+      localStorage.setItem('phoneNumber');
+      history.push('/');
+    }
+  } catch (e) {
+    console.log(e);
+    if (e.response) {
+      console.log(e.response);
+    } else if (e.message) {
+      console.log(e.message);
+    } else if (e.request) {
+      console.log(e.request);
+    }
+  }
+});
+
+export const changePasswordFromPanelHandler = createAsyncThunk(
+  'user/changePass',
+  async (arg) => {
+    console.log(arg);
+  }
+);
+
+export const logoutHandler = createAsyncThunk(
+  'user/logout',
+  async (history) => {
+    try {
+      const { data, status } = await logout();
+      console.log(data);
+      history.push('/');
+      localStorage.removeItem('phoneNumber');
+      // if (status === 200) {
+      //   toast.success('logout was successfull', {
+      //     position: 'top-right',
+      //     closeButton: true,
+      //   });
+      // }
+    } catch (err) {
+      if (err.response) {
+        console.log(err.response);
+      }
+      if (err.request) {
+        console.log(err.request);
+      }
+      if (err.massage) {
+        console.log(err.massage);
       }
     }
   }
@@ -85,6 +153,7 @@ export const fillProfileHandler = createAsyncThunk(
       const { status } = await fillProfile(user, phoneNumber);
       if (status === 200) {
         history.push('/');
+        window.location.reload();
         toast.success(' ثبت نام موفقیت آمیز بود ', {
           position: 'top-right',
           closeOnClick: true,
@@ -189,7 +258,6 @@ export const getAllUsers = createAsyncThunk('user/get-user', async () => {
 const initialState = {
   userInfo: {},
   code: '',
-  isLogedIn: false,
   phoneNumber: '',
 };
 
@@ -199,7 +267,7 @@ const userReducer = createSlice({
   extraReducers: {
     [getCodeAgain.fulfilled]: (state, action) => {
       console.log('done!');
-      console.log(action.payload);
+      console.log(action);
       state.code = action.payload.code;
     },
     [getCodeAgain.rejected]: (state, action) => {
@@ -219,7 +287,7 @@ const userReducer = createSlice({
       state.phoneNumber = action.payload.value.phoneNumber;
     },
     [registerHandler.rejected]: (state, action) => {
-      console.log(action.payload);
+      console.log(action.meta.arg.value);
     },
     [forgotPasswordHandler.fulfilled]: (state, action) => {
       const { data, code } = action.payload;
@@ -238,6 +306,16 @@ const userReducer = createSlice({
     },
     [getAllUsers.pending]: () => {
       console.log('pending');
+    },
+    [logoutHandler.fulfilled]: () => {
+      console.log('logout');
+      localStorage.removeItem('phoneNumber');
+    },
+    [logoutHandler.rejected]: () => {
+      console.log('logout rejucted');
+    },
+    [logoutHandler.pending]: () => {
+      console.log('logout pending');
     },
   },
 });

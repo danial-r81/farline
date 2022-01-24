@@ -39,7 +39,8 @@
 }
 
 .footer-main {
-  background-color: var(--dark-grey);
+  /* background-color: var(--dark-grey); */
+  background-color: #2c2f33;
   color: #e0fbfc;
   width: 100%;
   padding: 1rem 0;

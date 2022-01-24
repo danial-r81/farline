@@ -13,6 +13,17 @@ const Nav = () => {
 
   const closeMenu = () => {
     document.querySelector('.top-nav').classList.remove('show-menu');
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        for (let index = 0; index < menuItems.length; index++) {
+          if (menuItems[index].classList.contains('active')) {
+            menuItems[index].classList.remove('active');
+          }
+        }
+        item.classList.add('active');
+      });
+    });
   };
 
   return (
@@ -51,17 +62,29 @@ const Nav = () => {
           </div>
           <ul className='menu'>
             <li className='menu-item'>
-              <NavLink to='/' className='menu-link' onClick={closeMenu}>
-                خانه
+              <NavLink
+                to='/'
+                className='menu-link'
+                onClick={closeMenu}
+                activeClassName='active-item'>
+                صفحه اصلی
               </NavLink>
             </li>
             <li class='menu-item'>
-              <NavLink to='/courses' className='menu-link' onClick={closeMenu}>
+              <NavLink
+                to='/courses'
+                className='menu-link'
+                onClick={closeMenu}
+                activeClassName='active-item'>
                 دوره ها
               </NavLink>
             </li>
             <li class='menu-item'>
-              <NavLink to='/teachers' className='menu-link' onClick={closeMenu}>
+              <NavLink
+                to='/teachers'
+                className='menu-link'
+                onClick={closeMenu}
+                activeClassName='active-item'>
                 اساتید
               </NavLink>
             </li>
@@ -69,12 +92,17 @@ const Nav = () => {
               <NavLink
                 to='/contact-us'
                 className='menu-link'
-                onClick={closeMenu}>
+                onClick={closeMenu}
+                activeClassName='active-item'>
                 ارتباط با ما
               </NavLink>
             </li>
             <li class='menu-item'>
-              <NavLink to='/edu-cal' className='menu-link' onClick={closeMenu}>
+              <NavLink
+                to='/edu-cal'
+                className='menu-link'
+                onClick={closeMenu}
+                activeClassName='active-item'>
                 نقشه راه
               </NavLink>
             </li>

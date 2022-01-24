@@ -1,5 +1,8 @@
 import config from './config.json';
 import http from './httpService';
+import qs from 'qs';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
 export const userRegister = (user) => {
   return http.post(`${config.baseUrl}/api/user/create/`, JSON.stringify(user));
@@ -12,16 +15,23 @@ export const fillProfile = (user, phoneNumber) => {
   );
 };
 
-export const userLogin = (user, phoneNumber) => {
-  console.log(phoneNumber);
-  return http.post(
-    `${config.baseUrl}/api/user/login/${phoneNumber}`,
-    JSON.stringify(user)
-  );
+export const userLogin = (data) => {
+  // const { phoneNumber, password } = data;
+  const user = {
+    username: data.phoneNumber,
+    password: data.password,
+  };
+  console.log(Cookies.get('csrftoken'));
+  return http.post(`${config.baseUrl}/api/login/`, JSON.stringify(user), {
+    headers: {
+      'X-CSRFTOKEN': Cookies.get('csrftoken'),
+    },
+  });
 };
 
-export const resendCode = (phoneNumber) => {
-  console.log(phoneNumber);
+export const resendCode = () => {
+  // console.log(phoneNumber);
+  const phoneNumber = localStorage.getItem('phoneNumber');
   return http.post(`${config.baseUrl}/api/user/code/again/${phoneNumber}/`);
 };
 
@@ -40,6 +50,20 @@ export const changePassword = (phoneNumber, password) => {
 
   return http.post(
     `${config.baseUrl}/api/user/change/password/${phoneNumber}/`,
+    JSON.stringify({ password, danial })
+  );
+};
+
+export const logout = () => {
+  return http.post(`${config.baseUrl}/api/logout/`, null, {
+    headers: Cookies.get('csrftoken'),
+  });
+};
+
+export const changePasswordFromPanel = (value) => {
+  const { password, danial } = value;
+  return http.post(
+    `${config.baseUrl}/user/change/password/${value.phoneNumber}`,
     JSON.stringify({ password, danial })
   );
 };

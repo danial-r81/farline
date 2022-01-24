@@ -1,6 +1,5 @@
-body {
-  background-color: #262626;
-}
+@import url('../../main-style/style.css');
+
 .main-one-part-container {
   display: flex;
   align-items: center;
@@ -10,18 +9,19 @@ body {
 }
 .title-header {
   margin-top: 20px;
-  background-color: #bbb;
+  background-color: var(--Gblack);
   width: 85%;
   text-align: center;
   border-radius: 20px;
   padding: 20px 0;
   font-size: 20px;
+  color: var(--white);
 }
 .show-one-part {
   margin-top: 70px;
   display: flex;
   align-items: center;
-  background-color: #bbb;
+  background-color: transparent;
   justify-content: space-around;
   width: 75%;
   border-radius: 10px;
@@ -29,7 +29,7 @@ body {
 }
 
 .show-one-part img {
-  width: 38%;
+  width: 48%;
 }
 .show-one-part span {
   width: 62%;
@@ -45,14 +45,19 @@ body {
   flex-direction: column;
 }
 .part h2 {
-  background-color: #fff;
-  border-radius: 30% 70% 30% 70% / 100% 0% 100% 0%;
+  background-color: var(--Gblack);
+  border-radius: 10px;
+  color: var(--fosfori);
   margin: 20px;
   margin-left: auto;
   padding: 20px;
   font-size: 15px;
   text-align: center;
   width: 25%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .part .ti-btn {
@@ -67,21 +72,20 @@ body {
   margin-left: 20px;
   border-radius: 10px;
   outline: none;
-  border: none;
+  border: 2px solid var(--Gblack);
+  background-color: transparent;
 }
 .btn:hover {
   cursor: pointer;
-  background-color: transparent;
-  border: 1px solid #fff;
-
-  color: #fff;
+  background-color: var(--Gblack);
+  color: var(--fosfori);
   transition: all 0.3s ease-in-out;
 }
 .part .border {
   width: 90%;
   height: 5px;
   border-radius: 2px;
-  background-color: #bbb;
+  background-color: var(--Gblack);
 }
 video {
   width: 80%;
@@ -97,7 +101,7 @@ video {
 .video-container {
   padding-top: 20px;
   width: 30%;
-  background-color: #bbb;
+  background-color: rgb(240, 240, 240);
   margin: 25px;
   border-radius: 10px;
   display: flex;
