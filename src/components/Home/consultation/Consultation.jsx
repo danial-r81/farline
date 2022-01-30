@@ -4,11 +4,14 @@ import { Form, Formik } from 'formik';
 import { Input } from '../../forms/Input';
 import http from '../../../services/httpService';
 import config from '../../../services/config.json';
+import { getGuide } from '../../../services/userServices';
+import { toast } from 'react-toastify';
 
 export const Consultation = () => {
   const InitialValues = {
     name: '',
     phone: '',
+    title: '',
   };
 
   const validationSchema = Yup.object({
@@ -19,13 +22,18 @@ export const Consultation = () => {
         /^(\+98|0098|98|0)?9\d{9}$/g,
         'شماره مبایل وارد شده معتبر نمی باشد'
       ),
+    title: Yup.string().required('پر کردن این فیلد الزامی است'),
   });
 
-  const onSubmit = (value) => {
-    http
-      .post(`${config.baseUrl}/api/giude/`, JSON.stringify(value))
-      .then((res) => console.log(res))
-      .catch((e) => console.log(e));
+  const onSubmit = async (value) => {
+    const { status } = await getGuide(value);
+    if (status === 201) {
+      toast.success('درخواست مشاوره شما ثبت شد', {
+        position: 'top-right',
+        closeButton: true,
+        closeOnClick: true,
+      });
+    }
   };
 
   return (
@@ -38,11 +46,12 @@ export const Consultation = () => {
           validationSchema={validationSchema}
           onSubmit={onSubmit}>
           <Form className='consultation-form'>
+            <Input id='title' type='text' name='title' placeholder='عنوان' />
             <Input
               id='phonenumber'
               type='tel'
               name='phone'
-              placeholder='شماره مبایل'
+              placeholder='شماره موبایل'
             />
             <Input
               id='name'

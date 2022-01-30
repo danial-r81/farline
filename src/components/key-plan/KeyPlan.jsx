@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './val-edu-style.css';
+import './key-plan.css';
 
-export const EduCal = () => {
+export const KeyPlan = () => {
   return (
     <div class='main-val-container'>
       <div class='header-val-content'>
@@ -11,7 +11,7 @@ export const EduCal = () => {
       <div class='val-container'>
         <div class='row-1 row'>
           <div class='img'>
-            <img src='images/val.png' alt='' />
+            <img src='images/Exploring.gif' alt='' />
           </div>
           <span>سلام بنده فتاح زاده هستم مشاور </span>
         </div>

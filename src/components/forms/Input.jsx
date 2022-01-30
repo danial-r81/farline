@@ -27,6 +27,7 @@ export const Input = ({
           name={name}
           id={name}
           placeholder={placeholder}
+          className='input'
           {...rest}
         />
       )}

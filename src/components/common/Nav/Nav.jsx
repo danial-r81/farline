@@ -13,7 +13,7 @@ const Nav = () => {
 
   const closeMenu = () => {
     document.querySelector('.top-nav').classList.remove('show-menu');
-    const menuItems = document.querySelectorAll('.menu-item');
+    const menuItems = document.querySelectorAll('.menu-link');
     menuItems.forEach((item) => {
       item.addEventListener('click', () => {
         for (let index = 0; index < menuItems.length; index++) {
@@ -25,6 +25,11 @@ const Nav = () => {
       });
     });
   };
+
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('nav');
+    header.classList.toggle('sticky', window.scrollY > 0);
+  });
 
   return (
     <header dir='ltr' id='header'>
@@ -48,7 +53,7 @@ const Nav = () => {
             </div>
             {firstName && lastName ? (
               <div className='username'>
-                <Link to='/profile'>{`${firstName} ${lastName}`}</Link>
+                <Link to='/profile/bought-courses'>{`${firstName} ${lastName}`}</Link>
               </div>
             ) : (
               <div className='login'>
@@ -62,29 +67,17 @@ const Nav = () => {
           </div>
           <ul className='menu'>
             <li className='menu-item'>
-              <NavLink
-                to='/'
-                className='menu-link'
-                onClick={closeMenu}
-                activeClassName='active-item'>
+              <NavLink to='/' className='menu-link' onClick={closeMenu}>
                 صفحه اصلی
               </NavLink>
             </li>
             <li class='menu-item'>
-              <NavLink
-                to='/courses'
-                className='menu-link'
-                onClick={closeMenu}
-                activeClassName='active-item'>
+              <NavLink to='/courses' className='menu-link' onClick={closeMenu}>
                 دوره ها
               </NavLink>
             </li>
             <li class='menu-item'>
-              <NavLink
-                to='/teachers'
-                className='menu-link'
-                onClick={closeMenu}
-                activeClassName='active-item'>
+              <NavLink to='/teachers' className='menu-link' onClick={closeMenu}>
                 اساتید
               </NavLink>
             </li>
@@ -92,17 +85,12 @@ const Nav = () => {
               <NavLink
                 to='/contact-us'
                 className='menu-link'
-                onClick={closeMenu}
-                activeClassName='active-item'>
+                onClick={closeMenu}>
                 ارتباط با ما
               </NavLink>
             </li>
             <li class='menu-item'>
-              <NavLink
-                to='/edu-cal'
-                className='menu-link'
-                onClick={closeMenu}
-                activeClassName='active-item'>
+              <NavLink to='/key-plan' className='menu-link' onClick={closeMenu}>
                 نقشه راه
               </NavLink>
             </li>

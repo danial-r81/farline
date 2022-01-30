@@ -75,7 +75,7 @@ body {
   position: relative;
   padding: 15px 0;
 }
-.input-container input {
+.input-container .input {
   width: 90%;
   padding: 5px 0;
   border: none;
@@ -109,7 +109,7 @@ input::placeholder {
   color: var(--white);
   background-color: var(--Gblack);
   padding: 7px 15px;
-  border: 2px dotted var(--fosfori);
+  border: 2px solid var(--fosfori);
   font-family: 'BYekan';
   font-size: 16px;
   border-radius: 5px;
@@ -118,6 +118,11 @@ input::placeholder {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
 }
 .submit:hover {
   background: var(--fosfori);

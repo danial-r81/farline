@@ -1,11 +1,15 @@
 import { Formik, Form } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changePasswordFromPanelHandler } from '../../../redux/features/userInfo';
 import * as Yup from 'yup';
+import { Input } from '../../forms/Input';
+import { useElementScroll } from 'framer-motion';
+import { toast } from 'react-toastify';
 
 export const EditAccount = () => {
   const dispatch = useDispatch();
+  const password = useSelector((state) => state.userReducer.userInfo.password);
 
   const initialValues = {
     password: '',
@@ -22,12 +26,23 @@ export const EditAccount = () => {
       .oneOf([Yup.ref('newPassword'), ''], 'پسوورد ها با هم برابر نیستند'),
   });
 
-  const onSubmit = () => {
-    dispatch(changePasswordFromPanelHandler());
+  const onSubmit = (value) => {
+    if (value.password !== password) {
+      toast.error('پسوورد شما اشتباه است', {
+        position: 'top-right',
+        closeButton: true,
+        closeOnClick: true,
+      });
+    } else {
+      dispatch(changePasswordFromPanelHandler({ value }));
+    }
   };
 
   return (
     <div class='pas-conainer'>
+      <div className='change-pas-img'>
+        <img src='../images/Security-On.gif' alt='' />
+      </div>
       <div class='forgot-password'>
         <h1 class='txt-pass'>تغییر رمز عبور</h1>
         <Formik
@@ -35,27 +50,29 @@ export const EditAccount = () => {
           validationSchema={validationSchema}
           onSubmit={onSubmit}>
           <Form>
-            <input
+            <Input
               className='password-input'
               type='password'
               placeholder='رمز قبلی'
               name='password'
             />
-            <input
+            <Input
               className='password-input'
               type='password'
               placeholder='رمز جدید '
               name='newPassword'
             />
-            <input
+            <Input
               className='password-input'
               type='password'
               placeholder='تکرار رمز جدید'
               name='confirmNewPassword'
             />
-            <button type='submit' className='change-pas-btn'>
-              تایید
-            </button>
+            <div className='pas-btn-container'>
+              <button type='submit' className='change-pas-btn'>
+                تایید
+              </button>
+            </div>
           </Form>
         </Formik>
       </div>

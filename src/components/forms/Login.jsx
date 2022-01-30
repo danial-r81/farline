@@ -93,7 +93,7 @@ const Login = ({ history }) => {
             id='phonenumber'
             type='tel'
             name='phoneNumber'
-            placeholder='شماره مبایل'
+            placeholder='شماره موبایل'
           />
           <Input
             id='password'

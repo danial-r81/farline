@@ -16,6 +16,10 @@ export const Panel = () => {
 
   return (
     <div className='panel-contain'>
+      <div className='user-logo'>
+        <img src='../images/user.png' alt='' />
+        <i className='fa fa-shopping-cart'></i>
+      </div>
       <PanelNav />
       <div className='panel-main'>
         <div className='panel-bar'>

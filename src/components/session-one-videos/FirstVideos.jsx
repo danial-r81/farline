@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 const FirstVideos = ({ name, topic, url, categorey }) => {
   return (
@@ -6,9 +7,9 @@ const FirstVideos = ({ name, topic, url, categorey }) => {
       <div className='border'></div>
       <div className='ti-btn'>
         <h2>{categorey}</h2>
-        <button className='btn' type='button'>
+        <Link to='/all-one-part-videos' className='btn' type='button'>
           مشاهده همه
-        </button>
+        </Link>
       </div>
       <div className='general courses-video-container'>
         <div className='video-container'>

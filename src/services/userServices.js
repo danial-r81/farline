@@ -1,7 +1,5 @@
 import config from './config.json';
 import http from './httpService';
-import qs from 'qs';
-import axios from 'axios';
 import Cookies from 'js-cookie';
 
 export const userRegister = (user) => {
@@ -61,9 +59,20 @@ export const logout = () => {
 };
 
 export const changePasswordFromPanel = (value) => {
-  const { password, danial } = value;
+  const danial = 'fdgfdhj67867sdfsf2343nh';
+  const { newPassword } = value.value;
+  const phoneNumber = localStorage.getItem('phoneNumber');
+  console.log(newPassword);
   return http.post(
-    `${config.baseUrl}/user/change/password/${value.phoneNumber}`,
-    JSON.stringify({ password, danial })
+    `${config.baseUrl}/api/user/change/password/${phoneNumber}/`,
+    JSON.stringify({ password: newPassword, danial })
   );
+};
+
+export const getTeachers = () => {
+  return http.get(`${config.baseUrl}/api/teachers/`);
+};
+
+export const getGuide = (value) => {
+  return http.post(`${config.baseUrl}/api/giude/`, JSON.stringify(value));
 };

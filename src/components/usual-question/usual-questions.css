@@ -1,0 +1,143 @@
+.main-container-question {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  margin-top: 4rem;
+}
+.header-question {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+}
+.header-question h1 {
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+.header-question p {
+  font-size: 25px;
+}
+.border-question {
+  background-color: #2bdbc2;
+  padding: 4px;
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 70%;
+  text-align: center;
+}
+.questions {
+  width: 80%;
+  margin: 150px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.accordion {
+  width: 100%;
+}
+.questions h2 {
+  margin-bottom: 30px;
+  text-align: right;
+  font-size: 18px;
+  width: 100%;
+}
+.accordion-title i {
+  padding: 10px;
+  font-size: 15px;
+}
+.accordion .accordion-title {
+  background: #051a1c;
+  font-size: 18px;
+  padding: 10px;
+  color: #2bdbc2;
+  cursor: pointer;
+  text-align: right;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.accordion .accordion-title i {
+  transition: all 0.3s ease-in-out;
+}
+.accordion .accordion-title::before {
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+}
+
+.accordion .accordion-title.active::before {
+  margin-left: 16px;
+}
+.accordion .accordion-title.active i {
+  transform: rotate(-90deg);
+}
+.accordion .accordion-content {
+  margin-bottom: 10px;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  text-align: right;
+}
+
+@media screen and (max-width: 700px) {
+  .header-question {
+    width: 100%;
+  }
+  .header-question h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .header-question p {
+    font-size: 20px;
+  }
+
+  .questions {
+    width: 100%;
+  }
+
+  .questions h2 {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  .accordion .accordion-content {
+    font-size: 15px;
+  }
+  .accordion .accordion-title {
+    font-size: 13px;
+    padding: 4px;
+  }
+}
+@media screen and (max-width: 430px) {
+  .header-question {
+    width: 100%;
+  }
+  .header-question h1 {
+    font-size: 25px;
+  }
+  .header-question p {
+    font-size: 15px;
+  }
+  .questions {
+    width: 100%;
+  }
+  .questions h2 {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .accordion .accordion-title {
+    font-size: 11px;
+    padding: 2px;
+  }
+  .accordion .accordion-content {
+    font-size: 12px;
+  }
+}

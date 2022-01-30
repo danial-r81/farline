@@ -8,6 +8,7 @@ import {
   changePassword,
   userLogin,
   logout,
+  changePasswordFromPanel,
 } from '../../services/userServices';
 
 export const getCodeAgain = createAsyncThunk(
@@ -99,7 +100,18 @@ export const loginHandler = createAsyncThunk('user/login', async (arg) => {
 export const changePasswordFromPanelHandler = createAsyncThunk(
   'user/changePass',
   async (arg) => {
-    console.log(arg);
+    try {
+      const response = await changePasswordFromPanel(arg);
+      console.log(response);
+    } catch (e) {
+      if (e.response) {
+        console.log(e.response);
+      } else if (e.message) {
+        console.log(e.message);
+      } else if (e.request) {
+        console.log(e.request);
+      }
+    }
   }
 );
 
@@ -151,6 +163,7 @@ export const fillProfileHandler = createAsyncThunk(
 
     try {
       const { status } = await fillProfile(user, phoneNumber);
+      console.log(status);
       if (status === 200) {
         history.push('/');
         window.location.reload();
@@ -276,9 +289,9 @@ const userReducer = createSlice({
     },
 
     [fillProfileHandler.fulfilled]: (state, action) => {
-      Object.assign(state.userInfo, action.payload.user);
+      Object.assign(state.userInfo, action.meta.arg.value);
       state.isLogedIn = true;
-      console.log(action.payload);
+      console.log(action);
       console.log(state.code);
     },
     [registerHandler.fulfilled]: (state, action) => {

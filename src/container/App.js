@@ -4,6 +4,14 @@ import { ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-scroll';
 const App = () => {
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 400) {
+      document.querySelector('.to-top').classList.add('show-back-to-top');
+    } else {
+      document.querySelector('.to-top').classList.remove('show-back-to-top');
+    }
+  });
+
   return (
     <Router>
       <div className='toosclass'>
@@ -22,9 +30,9 @@ const App = () => {
           theme='colored'
           limit={1}
         />
-        {/* <Link className='back-to-top' to='header' smooth={true} duration={1000}>
-          <i className='fa fa-arrow-up'></i>
-        </Link> */}
+        <a href='#' className='to-top'>
+          <i className='fa fa-chevron-up'></i>
+        </a>
       </div>
     </Router>
   );

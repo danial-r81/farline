@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import MediaQuery from 'react-responsive';
 import 'swiper/swiper.min.css';
@@ -7,100 +7,15 @@ import 'swiper/swiper-bundle';
 import { Teacher } from './Teacher';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTeachersInfo } from '../../../redux/features/teachers';
 
 export const TeacherGallery = () => {
-  const teachers = [
-    // {
-    //   name: 'teacher',
-    //   lesson: 'زمین شناسی',
-    //   image: 'images/teacher.png',
-    // },
-    {
-      name: 'teacher',
-      lesson: 'ریاضی',
-      image: 'images/teacher.png',
-    },
-    // {
-    //   name: 'teacher',
-    //   lesson: 'ریاضی آمار',
-    //   image: 'images/teacher.png',
-    // },
-    {
-      name: 'teacher',
-      lesson: 'آمار و گسسته',
-      image: 'images/teacher.png',
-    },
-    {
-      name: 'teacher',
-      lesson: 'فیزیک',
-      image: 'images/teacher.png',
-    },
-    {
-      name: 'teacher',
-      lesson: 'هندسه',
-      image: 'images/teacher.png',
-    },
-    // {
-    //   name: 'teacher',
-    //   lesson: 'جامعه شناسی',
-    //   image: 'images/teacher.png',
-    // },
-    // {
-    //   name: 'teacher',
-    //   lesson: 'زبان',
-    //   image: 'images/teacher.png',
-    // },
-    // {
-    //   name: 'teacher',
-    //   lesson: 'زیست شناسی',
-    //   image: 'images/teacher.png',
-    // },
-    // {
-    //   name: 'teacher',
-    //   lesson: 'دین و زندگی',
-    //   image: 'images/teacher.png',
-    // },
-    {
-      name: 'teacher',
-      lesson: 'فلسفه و منطق',
-      image: 'images/teacher.png',
-    },
-    // {
-    //   name: 'teacher',
-    //   lesson: 'حسابان',
-    //   image: 'images/teacher.png',
-    // },
-    // {
-    //   name: 'teacher',
-    //   lesson: 'عربی',
-    //   image: 'images/teacher.png',
-    // },
-    // {
-    //   name: 'teacher',
-    //   lesson: 'تاریخ و جغرافی',
-    //   image: 'images/teacher.png',
-    // },
-    // {
-    //   name: 'teacher',
-    //   lesson: 'روانشناسی و اقتصاد',
-    //   image: 'images/teacher.png',
-    // },
-    // {
-    //   name: 'teacher',
-    //   lesson: 'شیمی',
-    //   image: 'images/teacher.png',
-    // },
-    // {
-    //   name: 'teacher',
-    //   lesson: 'ادبیات فارسی',
-    //   image: 'images/teacher.png',
-    // },
-    // {
-    //   name: 'teacher',
-    //   lesson: 'علوم و فنون',
-    //   image: 'images/teacher.png',
-    // },
-  ];
+  const dispatch = useDispatch();
+  const teachers = useSelector((state) => state.teacherReducer.teachers);
+  useEffect(() => {
+    dispatch(getTeachersInfo());
+  }, []);
 
   return (
     <div className='teacher-gallery'>

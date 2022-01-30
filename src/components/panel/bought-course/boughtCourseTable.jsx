@@ -1,78 +1,13 @@
 import React from 'react';
 import './boughtCourses.css';
+import Box from './Box';
 
 export const BoughtCourseTable = () => {
   return (
     <section className='table-container'>
-      <div>در حال حاضر کلاس خریداری شده ای موجد نمی باشد</div>
-      {/* <div className='tbl-header'> */}
-      {/* <table>
-        <thead>
-          <tr>
-            <th>نام درس</th>
-            <th>نام استاد</th>
-            <th>قیمت</th>
-            <th>وضعیت دوره</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ریاضی</td>
-            <td>رسولی</td>
-            <td>$1.38</td>
-            <td>به اتمام رسیده</td>
-          </tr>
-          <tr>
-            <td>ریاضی</td>
-            <td>رسولی</td>
-            <td>$2.38</td>
-            <td>به اتمام رسیده</td>
-          </tr>
-          <tr>
-            <td>ریاضی</td>
-            <td>رسولی</td>
-            <td>$3.22</td>
-            <td>به اتمام رسیده</td>
-          </tr>
-          <tr>
-            <td>ریاضی</td>
-            <td>رسولی</td>
-            <td>$3.22</td>
-            <td>به اتمام رسیده</td>
-          </tr>
-        </tbody>
-      </table> */}
-      {/* </div> */}
-      {/* <div className='tbl-content'>
-        <table>
-          <tbody>
-            <tr>
-              <td>ریاضی</td>
-              <td>رسولی</td>
-              <td>$1.38</td>
-              <td>به اتمام رسیده</td>
-            </tr>
-            <tr>
-              <td>ریاضی</td>
-              <td>رسولی</td>
-              <td>$2.38</td>
-              <td>به اتمام رسیده</td>
-            </tr>
-            <tr>
-              <td>ریاضی</td>
-              <td>رسولی</td>
-              <td>$3.22</td>
-              <td>به اتمام رسیده</td>
-            </tr>
-            <tr>
-              <td>ریاضی</td>
-              <td>رسولی</td>
-              <td>$3.22</td>
-              <td>به اتمام رسیده</td>
-            </tr>
-          </tbody>
-        </table>
-      </div> */}
+      <Box cardname='دوره های شما' icon='	fa fa-video-camera' />
+      <Box cardname='امور مالی' icon='fa fa-money' />
+      <Box cardname='برنامه مطالعاتی' icon='fa fa-map-signs' />
     </section>
   );
 };

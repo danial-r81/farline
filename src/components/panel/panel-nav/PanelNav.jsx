@@ -18,13 +18,14 @@ const PanelNav = ({ history }) => {
       <div className='Hmenu' onClick={toggleMenu}>
         <i className='fa fa-bars'></i>
       </div>
+
       <ul>
         <li>
           <button>
             {/* <span className='icon icon-film'></span> */}
             <NavLink to='/profile/bought-courses' className='panel-title'>
-              <i className='fa fa-film'></i>
-              <p>کلاس های خریداری شده</p>
+              <i className='	fa fa-coffee'></i>
+              <p>میز مطالعه</p>
             </NavLink>
           </button>
         </li>
@@ -33,18 +34,8 @@ const PanelNav = ({ history }) => {
             {/* <span className='icon icon-film'></span> */}
             {/* <span className='panel-title'>دوره ها</span> */}
             <NavLink to='/profile/courses' className='panel-title'>
-              <i className='fa fa-film'></i>
-              <p>دوره ها</p>
-            </NavLink>
-          </button>
-        </li>
-        <li>
-          <button>
-            {/* <span className='icon icon-film'></span> */}
-            {/* <span className='panel-title'>سفارش ها</span> */}
-            <NavLink to='/profile/orders' className='panel-title'>
-              <i className='fa fa-shopping-cart'></i>
-              <p>سفارش ها</p>
+              <i className='	fa fa-book'></i>
+              <p>درس های من</p>
             </NavLink>
           </button>
         </li>
@@ -54,7 +45,7 @@ const PanelNav = ({ history }) => {
             {/* <span className='panel-title'>ویرایش حساب</span> */}
             <NavLink to='/profile/edit-account' className='panel-title'>
               <i className='fa fa-edit'></i>
-              <p>سفارش ها</p>
+              <p>تغییر رمز عبور</p>
             </NavLink>
           </button>
         </li>

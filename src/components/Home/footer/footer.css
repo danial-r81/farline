@@ -1,9 +1,11 @@
-:root {
+/* :root {
   --white: #f6f6f6;
   --light-grey: #c6c6c6;
   --grey: #949494;
   --dark-grey: #262626;
-}
+} */
+
+@import url('../../../main-style/style.css');
 
 * {
   font-family: 'BYekan';
@@ -39,8 +41,7 @@
 }
 
 .footer-main {
-  /* background-color: var(--dark-grey); */
-  background-color: #2c2f33;
+  background-color: var(--Gblack);
   color: #e0fbfc;
   width: 100%;
   padding: 1rem 0;
@@ -85,6 +86,10 @@
   text-decoration: none;
   font-family: 'BYekan';
   color: #e0fbfc;
+}
+
+.footer-items ul li a:hover {
+  color: var(--fosfori);
 }
 
 .footer-items ul {

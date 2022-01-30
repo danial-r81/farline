@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './footer.css';
 export const Footer = () => {
@@ -36,22 +37,19 @@ export const Footer = () => {
           <div className='footer-items'>
             <ul>
               <li>
-                <a href='#'> اساتید طوس کلاس</a>
+                <Link to='/teachers'> اساتید طوس کلاس</Link>
               </li>
               <li>
-                <a href='#'>تقویم آموزشی</a>
+                <Link to='/key-plan'>نقشه راه</Link>
               </li>
               <li>
-                <a href='#'>درباره ما</a>
+                <Link to='/about-us'>درباره ما</Link>
               </li>
               <li>
-                <a href='#'>تماس با مشاورین</a>
+                <Link to='/usual-questions'>سوالات متداول</Link>
               </li>
               <li>
-                <a href='#'>سوالات متداول</a>
-              </li>
-              <li>
-                <a href='#'>قوانین سایت</a>
+                <Link to='/provisions'>قوانین سایت</Link>
               </li>
             </ul>
           </div>

@@ -16,8 +16,12 @@ import ForgotPassCode from '../components/forms/ForgotPassCode';
 import { useSelector } from 'react-redux';
 import PageNotFound from '../components/404/PageNotFound';
 import FirstVideosContainer from '../components/session-one-videos/FirstVideosContainer';
-import { EduCal } from '../components/educational-calendor/EduCal';
+import { EduCal, KeyPlan } from '../components/key-plan/KeyPlan';
 import { AccessDenied } from '../components/access-denied/AccessDenied';
+import AboutUs from '../components/about-us/AboutUs';
+import Provisions from '../components/provisions/Provisions';
+import UsualQuestions from '../components/usual-question/UsualQuestions';
+import AllPartVideo from '../components/all-one-part-video/AllPartVideo';
 
 const ToosClass = () => {
   const { is_active } = useSelector((state) => state.userReducer.userInfo);
@@ -35,9 +39,13 @@ const ToosClass = () => {
           <Route path='/change-password' component={ChangePassword} />
           <Route path='/contact-us' component={Contact} />
           <Route path='/teachers' component={TeacherGallery} />
-          <Route path='/edu-cal' component={EduCal} />
+          <Route path='/key-plan' component={KeyPlan} />
           <Route path='/part-one-videos' component={FirstVideosContainer} />
           <Route path='/profile' component={is_active ? Panel : AccessDenied} />
+          <Route path='/about-us' component={AboutUs} />
+          <Route path='/provisions' component={Provisions} />
+          <Route path='/usual-questions' component={UsualQuestions} />
+          <Route path='/all-one-part-videos' component={AllPartVideo} />
           <Route path='/' exact component={HomePage} />
           <Route path='*' component={PageNotFound} />
         </Switch>

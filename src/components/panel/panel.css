@@ -68,8 +68,8 @@
   cursor: pointer;
 }
 
-.panel-nav ul li:nth-child(6) {
-  margin-top: 16rem;
+.panel-nav ul li:nth-child(5) {
+  margin-top: 24rem;
 }
 i {
   cursor: pointer;
@@ -291,20 +291,31 @@ i {
 .pas-conainer {
   width: 100%;
   height: 91.5vh;
-  /* background: url('./pass.jpg');
-  background-repeat: no-repeat;
-  background-size: contain; */
-  background-color: #373a36;
+  background-color: var(--white);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  flex-direction: row-reverse;
+}
+
+.pas-conainer .change-pas-img {
+  width: 40%;
+}
+
+.change-pas-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.pas-conainer form {
+  width: 60%;
 }
 .forgot-password {
-  width: 30rem;
-  height: 20rem;
+  width: 40%;
+  padding: 3rem 0rem;
   display: flex;
   flex-direction: column;
-  background-color: #a79e9ef3;
+  background-color: var(--Gblack);
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -313,58 +324,86 @@ i {
   justify-content: center;
   align-items: center;
 }
+
+.forgot-password .error {
+  margin-right: 0;
+}
 .forgot-password h1 {
-  position: relative;
-  top: -35px;
   text-align: center;
   font-size: 30px;
-  color: rgba(230, 234, 238, 0.959);
+  color: var(--fosfori);
 }
 .password-input {
   margin: 5px 0;
-  padding: 7px 25px;
-  border-radius: 10px;
   border: none;
   outline: none;
-  text-align: right;
   font-size: 15px;
-  transition: 0.3s;
-  background-color: #373a36;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
+  background-color: transparent;
+  border-bottom: 2px solid var(--fosfori);
+  color: var(--white);
+}
+
+.password-input::placeholder {
+  color: var(--fosfori);
+}
+
+.pas-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .change-pas-btn {
-  position: relative;
   padding: 5px 30px;
   border: none;
   transition: 0.3s;
   cursor: pointer;
   border-radius: 5px;
   font-size: 17px;
-  top: 15px;
-  background-color: #e6e2dd;
+  background-color: transparent;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
+  border: 2px solid var(--fosfori);
+  color: var(--fosfori);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.password-input:hover,
-.password-input.hovered {
-  background-color: #e6e2dd;
-}
+
 .change-pas-btn:hover {
-  background-color: rgba(85, 79, 79, 0.596);
-  color: #e6e2dd;
+  background-color: var(--fosfori);
+  color: var(--Gblack);
+}
+
+.user-logo {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  /* width: 50px; */
+  height: 50px;
+  margin-right: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.user-logo i {
+  font-size: 45px;
+}
+
+.user-logo img {
+  width: 100%;
+  height: 100%;
+  margin-right: 35px;
+}
+
+@media screen and (max-width: 900px) {
+  .forgot-password h1 {
+    font-size: 22px;
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -374,5 +413,18 @@ i {
 
   .panel-main {
     height: 93.5vh;
+  }
+
+  .pas-conainer {
+    margin-top: 2rem;
+    flex-direction: column;
+  }
+
+  .change-pas-img {
+    display: none;
+  }
+
+  .forgot-password {
+    width: 90%;
   }
 }

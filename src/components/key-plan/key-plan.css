@@ -2,7 +2,6 @@
 
 .main-val-container {
   width: 100%;
-  background-color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,11 +39,6 @@
   border-radius: 10px;
   transition: all 0.5s ease-in-out;
   /* background-color: var(--orang); */
-}
-.row-1:hover {
-  transform: translatey(-10px);
-  cursor: pointer;
-  box-shadow: 5px 5px 10px var(--light-grey);
 }
 .row-1 span {
   font-size: 20px;
