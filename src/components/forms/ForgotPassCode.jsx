@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router';
-import { toast } from 'react-toastify';
 import { getCodeAgain } from '../../redux/features/userInfo';
+import Toast from '../../toasts/toasts';
 
 const GetCode = ({ history }) => {
   const dispatch = useDispatch();
@@ -40,10 +40,7 @@ const GetCode = ({ history }) => {
       history.push('/change-password');
       console.log('ok');
     } else {
-      toast.error('کد وارد شده صحیح نمی بشد', {
-        position: 'top-right',
-        closeButton: true,
-      });
+      Toast.toastError('کد وارد شده صحیح نمی بشد');
     }
   };
 

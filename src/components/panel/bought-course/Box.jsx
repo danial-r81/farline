@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Box = ({ cardname, icon }) => {
   return (
     <div class='box'>

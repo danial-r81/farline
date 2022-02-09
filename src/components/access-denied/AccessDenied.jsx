@@ -1,9 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './access-denied.css';
 
-export const AccessDenied = () => {
+const AccessDenied = () => {
   return (
     <div className='access-denied-container'>
       <div className='access-denied-text'>
@@ -16,3 +15,5 @@ export const AccessDenied = () => {
     </div>
   );
 };
+
+export default AccessDenied;

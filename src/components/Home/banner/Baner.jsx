@@ -1,5 +1,3 @@
-// import { Navigation, Pagination } from 'swiper';
-// Direct React component imports
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import 'swiper/swiper.min.css';
 

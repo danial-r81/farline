@@ -1,11 +1,9 @@
 import { Formik, Form } from 'formik';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePasswordFromPanelHandler } from '../../../redux/features/userInfo';
 import * as Yup from 'yup';
 import { Input } from '../../forms/Input';
-import { useElementScroll } from 'framer-motion';
-import { toast } from 'react-toastify';
+import Toast from '../../../toasts/toasts';
 
 export const EditAccount = () => {
   const dispatch = useDispatch();
@@ -28,11 +26,7 @@ export const EditAccount = () => {
 
   const onSubmit = (value) => {
     if (value.password !== password) {
-      toast.error('پسوورد شما اشتباه است', {
-        position: 'top-right',
-        closeButton: true,
-        closeOnClick: true,
-      });
+      Toast.toastError('پسوورد شما اشتباه است');
     } else {
       dispatch(changePasswordFromPanelHandler({ value }));
     }

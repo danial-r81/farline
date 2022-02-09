@@ -1,10 +1,9 @@
-import React from 'react';
 import { Route, Switch } from 'react-router';
 import { BoughtCourseTable } from '../bought-course/BoughtCourseTable';
-import { PanelCourses } from '../courses/PanelCourses';
+import PanelCourses from '../courses/PanelCourses';
 import { EditAccount } from '../edit-account/EditAccount';
 import Orders from '../orders/Orders';
-import { Suggestion } from '../suggestion/Suggestion';
+import Suggestion from '../suggestion/Suggestion';
 import { PanelLayout } from './PanelLayout';
 
 export const PanelRoutes = () => {

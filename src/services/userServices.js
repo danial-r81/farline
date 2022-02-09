@@ -76,3 +76,7 @@ export const getTeachers = () => {
 export const getGuide = (value) => {
   return http.post(`${config.baseUrl}/api/giude/`, JSON.stringify(value));
 };
+
+export const getCoursesKinds = () => {
+  return http.get(`${config.baseUrl}/api/kinds/`);
+};

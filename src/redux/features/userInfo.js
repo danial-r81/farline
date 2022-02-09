@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+import Toasts from '../../toasts/toasts';
 import {
   resendCode,
   userRegister,
@@ -50,7 +50,7 @@ export const registerHandler = createAsyncThunk(
     } catch (e) {
       if (e.response) {
         if (e.response.status === 400) {
-          toast.warn('کاربر با این مشخصات موجود است', {
+          Toasts.toastWarning('کاربر با این مشخصات موجود است', {
             position: 'top-right',
             autoClose: 3000,
             hideProgressBar: false,
@@ -79,9 +79,7 @@ export const loginHandler = createAsyncThunk('user/login', async (arg) => {
     const { status } = await userLogin(arg);
     console.log(status);
     if (status === 200) {
-      toast.success('login was successful', {
-        position: 'top-right',
-      });
+      Toasts.toastSuccess('login was successful');
       localStorage.setItem('phoneNumber');
       history.push('/');
     }
@@ -167,10 +165,7 @@ export const fillProfileHandler = createAsyncThunk(
       if (status === 200) {
         history.push('/');
         window.location.reload();
-        toast.success(' ثبت نام موفقیت آمیز بود ', {
-          position: 'top-right',
-          closeOnClick: true,
-        });
+        Toasts.toastSuccess(' ثبت نام موفقیت آمیز بود ');
         return {
           user,
         };
@@ -228,7 +223,7 @@ export const changePasswordHandler = createAsyncThunk(
       const { status } = await changePassword(phoneNumber, password);
       if (status === 200) {
         history.push('/');
-        toast.success('رمز عبور با موفقیت تغییر یافت', {
+        Toasts.toastSuccess('رمز عبور با موفقیت تغییر یافت', {
           position: 'top-right',
           closeOnClick: true,
         });

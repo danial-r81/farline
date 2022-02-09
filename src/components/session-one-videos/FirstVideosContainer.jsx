@@ -1,4 +1,3 @@
-import React from 'react';
 import FirstVideos from './FirstVideos';
 
 import './one-part-style.css';

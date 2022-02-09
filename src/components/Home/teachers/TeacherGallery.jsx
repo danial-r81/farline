@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import MediaQuery from 'react-responsive';
-import 'swiper/swiper.min.css';
-import 'swiper/swiper-bundle.min.css';
-import 'swiper/swiper-bundle';
 import { Teacher } from './Teacher';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTeachersInfo } from '../../../redux/features/teachers';
+import { teachersInfo } from '../../../redux/features/teachers';
 
+import 'swiper/swiper.min.css';
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper-bundle';
 export const TeacherGallery = () => {
   const dispatch = useDispatch();
   const teachers = useSelector((state) => state.teacherReducer.teachers);
   useEffect(() => {
-    dispatch(getTeachersInfo());
+    dispatch(teachersInfo());
   }, []);
 
   return (

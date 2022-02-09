@@ -9,7 +9,7 @@ import { PanelCourses } from './courses/PanelCourses';
 import { Suggestion } from './suggestion/Suggestion';
 import { EditAccount } from './edit-account/EditAccount';
 import { PanelRoutes } from './PanelLayout/PanelRoutes';
-export const Panel = () => {
+const Panel = () => {
   const { firstName, lastName } = useSelector(
     (state) => state.userReducer.userInfo
   );
@@ -36,3 +36,5 @@ export const Panel = () => {
     </div>
   );
 };
+
+export default Panel;

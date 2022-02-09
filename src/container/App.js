@@ -2,7 +2,6 @@ import ToosClass from './ToosClass';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from 'react-scroll';
 const App = () => {
   window.addEventListener('scroll', () => {
     if (window.pageYOffset > 400) {

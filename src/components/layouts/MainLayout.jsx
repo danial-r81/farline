@@ -2,9 +2,9 @@ import { Fragment, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router';
 import { getAllUsers } from '../../redux/features/userInfo';
-import Nav from '../common/Nav/Nav';
 
-const MainLayout = ({ children, history }) => {
+import Nav from '../common/Nav/Nav';
+const MainLayout = ({ children }) => {
   const dispatch = useDispatch();
 
   const phoneNumber = localStorage.getItem('phoneNumber');

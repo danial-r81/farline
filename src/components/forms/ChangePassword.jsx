@@ -1,6 +1,5 @@
 import { Form, Formik } from 'formik';
 import { motion } from 'framer-motion';
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router';
 import * as Yup from 'yup';

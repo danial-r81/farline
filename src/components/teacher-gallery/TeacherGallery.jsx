@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Teacher } from './Teacher';
 import http from '../../services/httpService';
 import config from '../../services/config.json';
 
 import './teacher.css';
-export const TeacherGallery = () => {
+const TeacherGallery = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     http
@@ -29,3 +29,5 @@ export const TeacherGallery = () => {
     </div>
   );
 };
+
+export default TeacherGallery;

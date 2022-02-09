@@ -1,23 +1,20 @@
+import { useEffect } from 'react';
 import { Form, Formik } from 'formik';
 import { NavLink } from 'react-router-dom';
 import { Input } from './Input';
 import { withRouter } from 'react-router';
 import * as Yup from 'yup';
-import { useDispatch, useStore } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 import http from '../../services/httpService';
 import config from '../../services/config.json';
-// import { useCookies } from 'react-cookie';
-import Cookies from 'js-cookie';
+import { loginHandler } from '../../redux/features/userInfo';
 
 import './form.css';
-import { useEffect, useState } from 'react';
-import { loginHandler } from '../../redux/features/userInfo';
 
 const Login = ({ history }) => {
   const dispatch = useDispatch();
 
-  // const [cookies, setCookie, removeCookie] = useCookies();
   const initialValues = { phoneNumber: '', password: '' };
   const validationSchema = Yup.object({
     phoneNumber: Yup.string()

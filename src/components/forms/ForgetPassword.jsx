@@ -1,14 +1,13 @@
 import { Form, Formik } from 'formik';
 import { motion } from 'framer-motion';
 import * as Yup from 'yup';
-import React from 'react';
-import './form.css';
 import { Input } from './Input';
 import { useDispatch } from 'react-redux';
 import { forgotPasswordHandler } from '../../redux/features/userInfo';
 import { withRouter } from 'react-router';
 
-const ForgerPassword = ({ history }) => {
+import './form.css';
+const ForgetPassword = ({ history }) => {
   const dispatch = useDispatch();
 
   const FormVariant = {
@@ -83,4 +82,4 @@ const ForgerPassword = ({ history }) => {
   );
 };
 
-export default withRouter(ForgerPassword);
+export default withRouter(ForgetPassword);

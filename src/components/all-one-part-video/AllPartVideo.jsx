@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import http from '../../services/httpService';
 import config from '../../services/config.json';
 import './all-videos.css';
 
 const AllPartVideo = () => {
-  const course_indexes = [1, 2, 3, 4];
-  useEffect(() => {
-    course_indexes.map((index) => {
-      http
-        .get(`${config.baseUrl}/api/courses/${index}/`)
-        .then((res) => console.log(res))
-        .catch((e) => console.log(e));
-    });
-  }, []);
+  // const course_indexes = [1, 2, 3, 4];
+  // useEffect(() => {
+  //   course_indexes.map((index) => {
+  //     http
+  //       .get(`${config.baseUrl}/api/courses/${index}/`)
+  //       .then((res) => console.log(res))
+  //       .catch((e) => console.log(e));
+  //   });
+  // }, []);
   return (
     <main className='main-container-video'>
       <section className='one-part-general'>

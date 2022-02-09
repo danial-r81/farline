@@ -1,8 +1,6 @@
-import React from 'react';
-
 import './key-plan.css';
 
-export const KeyPlan = () => {
+const KeyPlan = () => {
   return (
     <div class='main-val-container'>
       <div class='header-val-content'>
@@ -48,3 +46,5 @@ export const KeyPlan = () => {
     </div>
   );
 };
+
+export default KeyPlan;

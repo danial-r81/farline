@@ -1,7 +1,7 @@
-import './nav.css';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import './nav.css';
 const Nav = () => {
   const { firstName, lastName } = useSelector(
     (state) => state.userReducer.userInfo

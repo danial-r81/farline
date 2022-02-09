@@ -1,11 +1,8 @@
-import React from 'react';
 import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
 import { Input } from '../../forms/Input';
-import http from '../../../services/httpService';
-import config from '../../../services/config.json';
 import { getGuide } from '../../../services/userServices';
-import { toast } from 'react-toastify';
+import Toast from '../../../toasts/toasts';
 
 export const Consultation = () => {
   const InitialValues = {
@@ -28,11 +25,7 @@ export const Consultation = () => {
   const onSubmit = async (value) => {
     const { status } = await getGuide(value);
     if (status === 201) {
-      toast.success('درخواست مشاوره شما ثبت شد', {
-        position: 'top-right',
-        closeButton: true,
-        closeOnClick: true,
-      });
+      Toast.toastSuccess('درخواست مشاوره شما ثبت شد');
     }
   };
 

@@ -1,27 +1,29 @@
 import { AnimatePresence } from 'framer-motion';
 import { Route, Switch } from 'react-router';
-import CompleteProfile from '../components/forms/CompleteProfile';
-import Login from '../components/forms/Login';
-import Register from '../components/forms/Register';
-import MainLayout from '../components/layouts/MainLayout';
-import GetCode from '../components/forms/GetCode';
-import { Topics } from '../components/courses/Topics';
-import { HomePage } from '../components/Home/HomePage';
-import ForgerPassword from '../components/forms/ForgerPassword';
-import { Contact } from '../components/contact-us/Contact';
-import { TeacherGallery } from '../components/teacher-gallery/TeacherGallery';
-import { Panel } from '../components/panel/Panel';
-import ChangePassword from '../components/forms/ChangePassword';
-import ForgotPassCode from '../components/forms/ForgotPassCode';
 import { useSelector } from 'react-redux';
-import PageNotFound from '../components/404/PageNotFound';
-import FirstVideosContainer from '../components/session-one-videos/FirstVideosContainer';
-import { EduCal, KeyPlan } from '../components/key-plan/KeyPlan';
-import { AccessDenied } from '../components/access-denied/AccessDenied';
-import AboutUs from '../components/about-us/AboutUs';
-import Provisions from '../components/provisions/Provisions';
-import UsualQuestions from '../components/usual-question/UsualQuestions';
-import AllPartVideo from '../components/all-one-part-video/AllPartVideo';
+import {
+  HomePage,
+  MainLayout,
+  AboutUs,
+  TeacherGallery,
+  Login,
+  Register,
+  GetCode,
+  CompleteProfile,
+  ForgetPassword,
+  ForgotPassCode,
+  ChangePassword,
+  Panel,
+  Contact,
+  Topics,
+  FirstVideosContainer,
+  PageNotFound,
+  AccessDenied,
+  AllPartVideo,
+  Provisions,
+  UsualQuestions,
+  KeyPlan,
+} from '../components/index';
 
 const ToosClass = () => {
   const { is_active } = useSelector((state) => state.userReducer.userInfo);
@@ -35,7 +37,7 @@ const ToosClass = () => {
           <Route path='/fill-profile' component={CompleteProfile} />
           <Route path='/login' component={Login} />
           <Route path='/courses' component={Topics} />
-          <Route path='/forget-password' component={ForgerPassword} />
+          <Route path='/forget-password' component={ForgetPassword} />
           <Route path='/change-password' component={ChangePassword} />
           <Route path='/contact-us' component={Contact} />
           <Route path='/teachers' component={TeacherGallery} />

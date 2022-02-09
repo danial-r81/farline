@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import Collapsible from 'react-collapsible';
+import { useEffect, useState } from 'react';
 import http from '../../services/httpService';
 import config from '../../services/config.json';
 

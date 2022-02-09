@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logoutHandler } from '../../../redux/features/userInfo';
@@ -8,8 +7,6 @@ const PanelNav = ({ history }) => {
   const dispatch = useDispatch();
   const toggleMenu = () => {
     const menu = document.querySelector('.panel-nav');
-    // const menuLinks = document.querySelectorAll('.paner-nav a');
-    // menu
     menu.classList.toggle('show');
   };
 

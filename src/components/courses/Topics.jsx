@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import './courses.css';
+import { useEffect, useState } from 'react';
 import { Topic } from './Topic';
 import http from '../../services/httpService';
 import config from '../../services/config.json';
 
-export const Topics = () => {
+import './courses.css';
+const Topics = () => {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
     http.get(`${config.baseUrl}/api/courses/`).then((res) => {
@@ -24,3 +24,5 @@ export const Topics = () => {
     </section>
   );
 };
+
+export default Topics;

@@ -1,40 +1,35 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import SwiperCore, { Pagination, Navigation } from 'swiper';
 import MediaQuery from 'react-responsive';
 import { motion } from 'framer-motion';
+import { Topic } from '../../courses/Topic';
+import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { coursesKinds } from '../../../redux/features/courses';
+
 import 'swiper/swiper.min.css';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper-bundle';
-import { Topic } from '../../courses/Topic';
-import { Course } from './Course';
-import { NavLink } from 'react-router-dom';
-import http from '../../../services/httpService';
-import config from '../../../services/config.json';
-
 SwiperCore.use([Pagination, Navigation]);
 
 export const Courses = () => {
-  const [courses, setCourses] = useState([]);
+  const dispatch = useDispatch();
   useEffect(() => {
-    http
-      .get(`${config.baseUrl}/api/kinds/`)
-      .then((res) => {
-        console.log(res);
-        setCourses(res.data);
-      })
-      .catch((er) => console.log(er));
+    dispatch(coursesKinds());
   }, []);
+
+  const courses = useSelector((state) => state.coursesReducer.courses);
 
   return (
     <Fragment>
-      <MediaQuery minWidth={1000}>
+      <MediaQuery minWidth={1100}>
         <div className='home-courses'>
           <h2>دوره های آموزشی</h2>
           <Swiper
-            slidesPerView={3}
+            slidesPerView={4}
             spaceBetween={30}
-            slidesPerGroup={3}
+            slidesPerGroup={4}
             loop={true}
             loopFillGroupWithBlank={true}
             pagination={{
@@ -55,7 +50,7 @@ export const Courses = () => {
           </motion.div>
         </div>
       </MediaQuery>
-      <MediaQuery maxWidth={999} minWidth={721}>
+      <MediaQuery maxWidth={1099} minWidth={721}>
         <div className='home-courses'>
           <h2>دوره های آموزشی</h2>
           <Swiper

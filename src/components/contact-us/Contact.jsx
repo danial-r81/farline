@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react';
-import { motion } from 'framer-motion';
 
 import './contact.css';
 import ContactBox from './ContactBox';
-export const Contact = () => {
+const Contact = () => {
   return (
     <div className='contact-us-container'>
       <div className='title'>
@@ -64,3 +63,5 @@ export const Contact = () => {
     </div>
   );
 };
+
+export default Contact;
