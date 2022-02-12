@@ -31,6 +31,7 @@ const GetCode = ({ history }) => {
       },
     },
   };
+  const phoneNumber = localStorage.getItem('phoneNumber');
 
   const goToFillAccount = () => {
     const input = document.querySelector('.input-code').value;
@@ -51,7 +52,7 @@ const GetCode = ({ history }) => {
         animate='visible'
         exit='exit'>
         <div className='get-code-text'>
-          کد ارسال شده به شماره {userNumber} را وارد کنید{' '}
+          کد ارسال شده به شماره {phoneNumber} را وارد کنید{' '}
         </div>
         <input className='input-code' type='text' />
         <button className='submit' type='submit' onClick={goToFillAccount}>

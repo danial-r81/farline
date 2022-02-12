@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+// import { useHistory } from 'react-router';
 import Toasts from '../../toasts/toasts';
+import Cookies from 'js-cookie';
 import {
   resendCode,
   userRegister,
@@ -10,6 +12,7 @@ import {
   logout,
   changePasswordFromPanel,
 } from '../../services/userServices';
+import { useHistory } from 'react-router';
 
 export const getCodeAgain = createAsyncThunk(
   'users/resend-code',
@@ -116,17 +119,17 @@ export const changePasswordFromPanelHandler = createAsyncThunk(
 export const logoutHandler = createAsyncThunk(
   'user/logout',
   async (history) => {
+    // const history = useHistory();
+    console.log(history);
     try {
-      const { data, status } = await logout();
-      console.log(data);
-      history.push('/');
-      localStorage.removeItem('phoneNumber');
-      // if (status === 200) {
-      //   toast.success('logout was successfull', {
-      //     position: 'top-right',
-      //     closeButton: true,
-      //   });
-      // }
+      const { status } = await logout();
+      console.log(status);
+      if (status === 200) {
+        await history.replace('/');
+        window.location.reload();
+        localStorage.removeItem('phoneNumber');
+        Cookies.remove('sessionid');
+      }
     } catch (err) {
       if (err.response) {
         console.log(err.response);
@@ -144,11 +147,13 @@ export const logoutHandler = createAsyncThunk(
 export const fillProfileHandler = createAsyncThunk(
   'user/fill-profile',
   async (arg, { getState }) => {
+    console.log(arg);
     const state = getState();
     const danial = 'fdgfdhj67867sdfsf2343nh';
-    const { history } = arg;
     const { firstName, lastName, password, grade } = arg.value;
-    const { phoneNumber, nationalCode } = state.userReducer.userInfo;
+    const { history } = arg;
+    const { nationalCode } = state.userReducer.userInfo;
+    const phoneNumber = localStorage.getItem('phoneNumber');
     const user = {
       firstName,
       lastName,
@@ -158,17 +163,16 @@ export const fillProfileHandler = createAsyncThunk(
       nationalCode,
       danial,
     };
+    console.log(user);
 
     try {
-      const { status } = await fillProfile(user, phoneNumber);
+      const { status } = await fillProfile(user);
       console.log(status);
       if (status === 200) {
         history.push('/');
-        window.location.reload();
         Toasts.toastSuccess(' ثبت نام موفقیت آمیز بود ');
-        return {
-          user,
-        };
+        window.location.reload();
+        return Promise.resolve(user);
       }
     } catch (e) {
       if (e.response) {
@@ -289,6 +293,10 @@ const userReducer = createSlice({
       console.log(action);
       console.log(state.code);
     },
+    [fillProfileHandler.rejected]: (state, action) => {
+      console.log('error!!!!');
+      console.log(action);
+    },
     [registerHandler.fulfilled]: (state, action) => {
       Object.assign(state.userInfo, action.payload.value);
       state.code = action.payload.code;
@@ -317,7 +325,7 @@ const userReducer = createSlice({
     },
     [logoutHandler.fulfilled]: () => {
       console.log('logout');
-      localStorage.removeItem('phoneNumber');
+      // localStorage.removeItem('phoneNumber');
     },
     [logoutHandler.rejected]: () => {
       console.log('logout rejucted');

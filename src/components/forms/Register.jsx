@@ -11,24 +11,25 @@ const Register = ({ history }) => {
 
   const FormVariant = {
     hidden: {
-      y: '-50vh',
-      opacity: 0,
+      y: '-80vh',
+      opacity: 1,
     },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
         delay: 0.3,
+        duration: 1,
         type: 'spring',
         stiffness: 100,
       },
     },
     exit: {
-      y: '120vh',
-      opacity: 0,
+      y: '100vh',
       transition: {
         ease: 'easeInOut',
-        delay: 0.5,
+        duration: 5,
+        type: 'spring',
       },
     },
   };
@@ -62,7 +63,8 @@ const Register = ({ history }) => {
           variants={FormVariant}
           initial='hidden'
           animate='visible'
-          exit='exit'>
+          // exit='exit'
+        >
           <h1 className='header'>ثبت نام</h1>
           <Input type='text' name='nationalCode' placeholder='کد ملی' />
           <Input type='text' name='phoneNumber' placeholder='شماره موبایل' />

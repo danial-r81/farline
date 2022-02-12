@@ -6,7 +6,9 @@ export const userRegister = (user) => {
   return http.post(`${config.baseUrl}/api/user/create/`, JSON.stringify(user));
 };
 
-export const fillProfile = (user, phoneNumber) => {
+export const fillProfile = (user) => {
+  const phoneNumber = localStorage.getItem('phoneNumber');
+  console.log(phoneNumber, user);
   return http.post(
     `${config.baseUrl}/api/user/update/${phoneNumber}/`,
     JSON.stringify(user)
@@ -14,7 +16,6 @@ export const fillProfile = (user, phoneNumber) => {
 };
 
 export const userLogin = (data) => {
-  // const { phoneNumber, password } = data;
   const user = {
     username: data.phoneNumber,
     password: data.password,
@@ -53,7 +54,7 @@ export const changePassword = (phoneNumber, password) => {
 };
 
 export const logout = () => {
-  return http.post(`${config.baseUrl}/api/logout/`, null, {
+  return http.get(`${config.baseUrl}/api/logout/`, {
     headers: Cookies.get('csrftoken'),
   });
 };

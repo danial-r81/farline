@@ -51,7 +51,7 @@ const Login = ({ history }) => {
   const FormVariant = {
     hidden: {
       y: '-50vh',
-      opacity: 0,
+      opacity: 1,
     },
     visible: {
       y: 0,
@@ -64,11 +64,11 @@ const Login = ({ history }) => {
       },
     },
     exit: {
-      y: 100,
-      opacity: 0.7,
+      y: '100vh',
       transition: {
         ease: 'easeInOut',
-        delay: 5,
+        duration: 5,
+        type: 'spring',
       },
     },
   };
@@ -84,7 +84,8 @@ const Login = ({ history }) => {
           variants={FormVariant}
           initial='hidden'
           animate='visible'
-          exit='exit'>
+          // exit='exit'
+          >
           <h1 className='header'>ورود</h1>
           <Input
             id='phonenumber'

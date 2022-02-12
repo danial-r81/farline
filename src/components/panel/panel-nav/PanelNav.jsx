@@ -58,7 +58,7 @@ const PanelNav = ({ history }) => {
         </li>
         <li>
           <button onClick={() => dispatch(logoutHandler(history))}>
-            <a href=''>
+            <a href='' onClick={(e) => e.preventDefault()}>
               {/* <span className='icon icon-exit'></span> */}
               <i className='fa fa-sign-out'></i>
               <p>خروج</p>

@@ -104,7 +104,6 @@ input::placeholder {
 .submit {
   margin: 10px auto;
   display: block;
-  width: 105px;
   border: none;
   color: var(--white);
   background-color: var(--Gblack);
@@ -154,6 +153,7 @@ input::placeholder {
 
 .get-code-text {
   text-align: center;
+  color: var(--white);
 }
 
 .input-code {
@@ -195,7 +195,7 @@ input::placeholder {
 }
 
 .resend-code-text {
-  margin: 0;
+  color: var(--white);
 }
 
 .forget-code {
@@ -214,9 +214,14 @@ input::placeholder {
   margin: auto;
   padding: 10px;
   border: none;
-  border-bottom: 2px solid rgb(155, 155, 155);
+  border-bottom: 2px solid var(--fosfori);
   outline: none;
   background-color: transparent;
+  color: var(--white);
+}
+
+.input-container select option {
+  color: var(--black);
 }
 
 .change-password {

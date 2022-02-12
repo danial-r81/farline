@@ -1,5 +1,5 @@
 import { AnimatePresence } from 'framer-motion';
-import { Route, Switch } from 'react-router';
+import { Route, Switch, useLocation } from 'react-router';
 import { useSelector } from 'react-redux';
 import {
   HomePage,
@@ -26,11 +26,12 @@ import {
 } from '../components/index';
 
 const ToosClass = () => {
+  const location = useLocation();
   const { is_active } = useSelector((state) => state.userReducer.userInfo);
   return (
     <MainLayout>
-      <AnimatePresence exitBeforeEnter>
-        <Switch>
+      <AnimatePresence>
+        <Switch location={location} key={location.key}>
           <Route path='/register' component={Register} />
           <Route path='/get-code' component={GetCode} />
           <Route path='/enter-code' component={ForgotPassCode} />

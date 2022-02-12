@@ -1,14 +1,15 @@
 import { Form, Formik } from 'formik';
 import { motion } from 'framer-motion';
-import { withRouter } from 'react-router';
+import { useHistory, withRouter } from 'react-router';
 import { Input } from './Input';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { fillProfileHandler } from '../../redux/features/userInfo';
 
 import './form.css';
-const CompleteProfile = ({ history }) => {
+const CompleteProfile = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const userRegisterInfo = useSelector((state) => state.userReducer.userInfo);
 
   console.log(userRegisterInfo);
