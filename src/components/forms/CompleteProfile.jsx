@@ -1,48 +1,19 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, Formik } from 'formik';
 import { motion } from 'framer-motion';
-import { useHistory, withRouter } from 'react-router';
-import { Input } from './Input';
-import * as Yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { withRouter } from 'react-router';
 import { fillProfileHandler } from '../../redux/features/userInfo';
+import { Input } from './Input';
+import useForm from '../../hooks/useValidation';
+import FormVariants from './form-variants/formVariants';
 
 import './form.css';
-const CompleteProfile = () => {
+const CompleteProfile = ({ history }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
   const userRegisterInfo = useSelector((state) => state.userReducer.userInfo);
 
   console.log(userRegisterInfo);
-
-  const FormVariant = {
-    hidden: {
-      y: '-50vh',
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        delay: 0.3,
-        type: 'spring',
-        stiffness: 100,
-      },
-    },
-    exit: {
-      y: '120vh',
-      opacity: 0,
-      transition: {
-        ease: 'easeInOut',
-        delay: 0.5,
-      },
-    },
-  };
-
-  const options = ['دهم', 'یازدهم', 'دوازدهم'];
-
-  const grades = options.map((option) => (
-    <option value={option}>{option}</option>
-  ));
 
   const initialValues = {
     firstName: '',
@@ -52,19 +23,7 @@ const CompleteProfile = () => {
     confirmPassword: '',
   };
 
-  const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required('پرکردن این فیلد الزامی است'),
-    lastName: Yup.string().required('پرکردن این فیلد الزامی است'),
-    grade: Yup.string()
-      .required('انتخاب پایه تحصیلی الزامی است')
-      .oneOf(options),
-    password: Yup.string()
-      .required('پرکردن این فیلد الزامی است')
-      .min(8, 'گذرواژه نمی تواند کمتر از 8 کارکتر باشد'),
-    confirmPassword: Yup.string()
-      .required('پرکردن این فیلد الزامی است')
-      .oneOf([Yup.ref('password'), ''], 'پسوورد ها با هم برابر نیستند'),
-  });
+  const [validationSchema, grades] = useForm('complete-profile');
 
   const onSubmit = (value) => {
     dispatch(fillProfileHandler({ value, history }));
@@ -78,10 +37,9 @@ const CompleteProfile = () => {
       <Form className='form'>
         <motion.div
           className='form-container'
-          variants={FormVariant}
+          variants={FormVariants}
           initial='hidden'
-          animate='visible'
-          exit='exit'>
+          animate='visible'>
           <h1 className='header'>تکمیل اطلاعات</h1>
           <Input type='text' name='firstName' placeholder='نام' />
           <Input type='text' name='lastName' placeholder='نام خانوادگی' />

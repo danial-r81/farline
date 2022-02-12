@@ -2,8 +2,8 @@ import { Fragment, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router';
 import { getAllUsers } from '../../redux/features/userInfo';
+import Nav from '../Nav/Nav';
 
-import Nav from '../common/Nav/Nav';
 const MainLayout = ({ children }) => {
   const dispatch = useDispatch();
 
@@ -17,7 +17,6 @@ const MainLayout = ({ children }) => {
   return (
     <Fragment>
       <Nav />
-      {/* {history.location.pathname === '/profile' ? null : <Nav />} */}
       {children}
     </Fragment>
   );

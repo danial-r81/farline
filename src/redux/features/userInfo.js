@@ -53,14 +53,7 @@ export const registerHandler = createAsyncThunk(
     } catch (e) {
       if (e.response) {
         if (e.response.status === 400) {
-          Toasts.toastWarning('کاربر با این مشخصات موجود است', {
-            position: 'top-right',
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-          });
+          Toasts.toastWarning('کاربر با این مشخصات موجود است');
         }
         return Promise.reject(e.response);
       }
@@ -125,7 +118,7 @@ export const logoutHandler = createAsyncThunk(
       const { status } = await logout();
       console.log(status);
       if (status === 200) {
-        await history.replace('/');
+        history.push('/');
         window.location.reload();
         localStorage.removeItem('phoneNumber');
         Cookies.remove('sessionid');
@@ -188,12 +181,13 @@ export const fillProfileHandler = createAsyncThunk(
 
 export const forgotPasswordHandler = createAsyncThunk(
   'user/forgot-password',
-  async (arg, { getState }) => {
-    const state = getState();
+  async (arg) => {
     const { history, phoneNumber } = arg;
     try {
       const { data, status } = await resendCode(phoneNumber);
       const { code } = data;
+      console.log(code);
+      console.log(data);
 
       if (status === 201) {
         history.push('/enter-code');
@@ -306,6 +300,7 @@ const userReducer = createSlice({
       console.log(action.meta.arg.value);
     },
     [forgotPasswordHandler.fulfilled]: (state, action) => {
+      console.log(action);
       const { data, code } = action.payload;
       Object.assign(state.userInfo, data);
       state.code = code;

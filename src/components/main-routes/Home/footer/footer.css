@@ -1,0 +1,149 @@
+@import url('../../../../main-style/style.css');
+
+* {
+  font-family: 'BYekan';
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.section-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.section ul {
+  height: 100%;
+}
+
+.section-items li {
+  margin: top 5px;
+  padding: 0 50px 0 50px;
+  list-style: none;
+}
+
+.section-items li a {
+  text-decoration: none;
+  color: #293241;
+}
+
+.footer-main {
+  background-color: var(--Gblack);
+  color: #e0fbfc;
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-main p {
+  margin: 0;
+}
+
+.footer-right {
+  width: 66%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-main div p {
+  line-height: 20px;
+  font-family: 'BYekan';
+  text-align: right;
+}
+
+.footer-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-items ul li {
+  padding-bottom: 20px;
+  list-style: none;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 50vw;
+}
+
+.footer-items ul li a {
+  text-decoration: none;
+  font-family: 'BYekan';
+  color: #e0fbfc;
+}
+
+.footer-items ul li a:hover {
+  color: var(--fosfori);
+}
+
+.footer-items ul {
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.detail {
+  display: flex;
+}
+.location {
+  width: 225px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.location-boy,
+.location-girl {
+  width: 100%;
+  margin: 5px 0;
+}
+.location img {
+  width: 100%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.footer-left {
+  display: flex;
+  padding: 2rem 1rem;
+}
+.footer-main i {
+  margin-left: 10px;
+}
+.item a img {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  left: 35px;
+  top: 2630px;
+  object-fit: cover;
+}
+
+.location-girl a img {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  left: 35px;
+  top: 2780px;
+  object-fit: cover;
+}
+.footer-main i {
+  margin-left: 10px;
+}
+
+.detail {
+  align-items: center;
+}

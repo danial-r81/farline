@@ -28,9 +28,9 @@ export const userLogin = (data) => {
   });
 };
 
-export const resendCode = () => {
+export const resendCode = (phoneNumber) => {
   // console.log(phoneNumber);
-  const phoneNumber = localStorage.getItem('phoneNumber');
+  // const phoneNumber = localStorage.getItem('phoneNumber');
   return http.post(`${config.baseUrl}/api/user/code/again/${phoneNumber}/`);
 };
 
