@@ -1,139 +1,42 @@
 import { useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
-import MediaQuery from 'react-responsive';
-import { Teacher } from './Teacher';
-import { motion } from 'framer-motion';
-import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import MediaQuery from 'react-responsive';
+
 import { teachersInfo } from '../../../../redux/features/teachers';
+import CreateSwiper from './CreateSwiper';
 
-import 'swiper/swiper.min.css';
-import 'swiper/swiper-bundle.min.css';
-import 'swiper/swiper-bundle';
 export const TeacherGallery = () => {
-  const dispatch = useDispatch();
-  const teachers = useSelector((state) => state.teacherReducer.teachers);
-  useEffect(() => {
-    dispatch(teachersInfo());
-  }, []);
+   const dispatch = useDispatch();
+   const teachers = useSelector((state) => state.teacherReducer.teachers);
+   useEffect(() => {
+      dispatch(teachersInfo());
+   }, []);
 
-  return (
-    <div className='teacher-gallery'>
-      <MediaQuery minWidth={1117}>
-        <h2 className='teacher-header'>اساتید</h2>
-        <Swiper
-          slidesPerView={5}
-          spaceBetween={30}
-          loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          className='teacher-swiper'>
-          {teachers.map((teacher) => (
-            <SwiperSlide>
-              <Teacher teacher={teacher} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <motion.div className='all-courses'>
-          <NavLink to='/teachers'>
-            <button>برای مشاهده تمامی اساتید کلیک کنید</button>
-          </NavLink>
-        </motion.div>
-      </MediaQuery>
-      <MediaQuery maxWidth={1118} minWidth={926}>
-        <h2 className='teacher-header'>اساتید</h2>
-        <Swiper
-          slidesPerView={4}
-          spaceBetween={30}
-          loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          className='teacher-swiper'>
-          {teachers.map((teacher) => (
-            <SwiperSlide>
-              <Teacher teacher={teacher} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <motion.div className='all-courses'>
-          <NavLink to='/teachers'>
-            <button>برای مشاهده تمامی اساتید کلیک کنید</button>
-          </NavLink>
-        </motion.div>
-      </MediaQuery>
-      <MediaQuery maxWidth={925} minWidth={735}>
-        <h2 className='teacher-header'>اساتید</h2>
-        <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
-          loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          className='teacher-swiper'>
-          {teachers.map((teacher) => (
-            <SwiperSlide>
-              <Teacher teacher={teacher} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <motion.div className='all-courses'>
-          <NavLink to='/teachers'>
-            <button>برای مشاهده تمامی اساتید کلیک کنید</button>
-          </NavLink>
-        </motion.div>
-      </MediaQuery>
-      <MediaQuery maxWidth={734} minWidth={529}>
-        <h2 className='teacher-header'>اساتید</h2>
-        <Swiper
-          slidesPerView={2}
-          spaceBetween={30}
-          loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          className='teacher-swiper'>
-          {teachers.map((teacher) => (
-            <SwiperSlide>
-              <Teacher teacher={teacher} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <motion.div className='all-courses'>
-          <NavLink to='/teachers'>
-            <button>برای مشاهده تمامی اساتید کلیک کنید</button>
-          </NavLink>
-        </motion.div>
-      </MediaQuery>
-      <MediaQuery maxWidth={528}>
-        <h2 className='teacher-header'>اساتید</h2>
-        <Swiper
-          slidesPerView={1}
-          spaceBetween={30}
-          loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          className='teacher-swiper'>
-          {teachers.map((teacher) => (
-            <SwiperSlide>
-              <Teacher teacher={teacher} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <motion.div className='all-courses'>
-          <NavLink to='/teachers'>
-            <button>برای مشاهده تمامی اساتید کلیک کنید</button>
-          </NavLink>
-        </motion.div>
-      </MediaQuery>
-    </div>
-  );
+   return (
+      <div className='teacher-gallery'>
+         <CreateSwiper teachers={teachers} slidesPerView={5} minWidth={1240} />
+         <CreateSwiper
+            teachers={teachers}
+            slidesPerView={4}
+            maxWidth={1240}
+            minWidth={1030}
+         />
+
+         <CreateSwiper
+            teachers={teachers}
+            slidesPerView={3}
+            maxWidth={1030}
+            minWidth={820}
+         />
+
+         <CreateSwiper
+            teachers={teachers}
+            slidesPerView={2}
+            maxWidth={820}
+            minWidth={529}
+         />
+
+         <CreateSwiper teachers={teachers} slidesPerView={1} maxWidth={528} />
+      </div>
+   );
 };
