@@ -1,19 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
-import { Teacher } from './Teacher';
 import { NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import MediaQuery from 'react-responsive';
 
 // css files for swiper
 import 'swiper/swiper.min.css';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper-bundle';
+import SliderItem from './SliderItem';
 
-const CreateSwiper = ({ teachers, slidesPerView, minWidth, maxWidth }) => {
+const CreateSlider = ({
+   items,
+   topic,
+   slidesPerView,
+   minWidth,
+   maxWidth,
+   sliderAs,
+}) => {
    return (
       <MediaQuery minWidth={minWidth} maxWidth={maxWidth}>
-         <h2 className='teacher-header'>اساتید</h2>
+         <h2 className='teacher-header'>{topic}</h2>
          <Swiper
             slidesPerView={slidesPerView}
             spaceBetween={30}
@@ -23,19 +30,28 @@ const CreateSwiper = ({ teachers, slidesPerView, minWidth, maxWidth }) => {
             }}
             navigation={true}
             className='teacher-swiper'>
-            {teachers.map((teacher) => (
+            {items.map((item) => (
                <SwiperSlide>
-                  <Teacher teacher={teacher} />
+                  <SliderItem item={item} sliderAs={sliderAs} />
                </SwiperSlide>
             ))}
          </Swiper>
-         <motion.div className='all-courses'>
+         <div className='all-courses'>
             <NavLink to='/teachers'>
                <button>برای مشاهده تمامی اساتید کلیک کنید</button>
             </NavLink>
-         </motion.div>
+         </div>
       </MediaQuery>
    );
 };
 
-export default CreateSwiper;
+CreateSlider.propTypes = {
+   items: PropTypes.array.isRequired,
+   topic: PropTypes.string.isRequired,
+   slidesPerView: PropTypes.number.isRequired,
+   minWidth: PropTypes.number.isRequired,
+   maxWidth: PropTypes.number.isRequired,
+   sliderAs: PropTypes.string.isRequired,
+};
+
+export default CreateSlider;
