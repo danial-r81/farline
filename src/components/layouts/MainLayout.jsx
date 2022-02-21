@@ -1,6 +1,7 @@
 import { Fragment, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, withRouter } from 'react-router';
+import { getHomePageCovers } from '../../redux/features/covers';
 import { getAllUsers } from '../../redux/features/userInfo';
 import Nav from '../Nav/Nav';
 
@@ -14,6 +15,7 @@ const MainLayout = ({ children }) => {
       if (phoneNumber) {
          dispatch(getAllUsers());
       }
+      dispatch(getHomePageCovers());
    }, []);
    return (
       <Fragment>

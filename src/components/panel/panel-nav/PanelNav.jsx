@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { logoutHandler } from '../../../redux/features/userInfo';
 import { withRouter } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
+import { useHistory } from 'react-router';
 
 import {
    dashbordLogo,
@@ -13,8 +14,9 @@ import {
    cartLogo,
 } from '../../../assets/index';
 
-const PanelNav = ({ history }) => {
+const PanelNav = () => {
    const dispatch = useDispatch();
+   const history = useHistory();
 
    return (
       <div className='panel-nav'>
