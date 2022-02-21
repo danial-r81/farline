@@ -9,6 +9,7 @@ const Nav = () => {
    );
 
    const mobileMenuToggler = () => {
+      document.querySelector('.mobile-menu').classList.toggle('close-btn');
       document.querySelector('.top-nav').classList.toggle('show-menu');
    };
 
@@ -26,11 +27,6 @@ const Nav = () => {
                <span className='bar'></span>
             </button>
             <section className='top-nav'>
-               <button>
-                  <span className='bar'></span>
-                  <span className='bar'></span>
-                  <span className='bar'></span>
-               </button>
                <div className='left-flex'>
                   <div className='logo'>
                      <a href='#'>
@@ -55,7 +51,8 @@ const Nav = () => {
                         to='/'
                         className='menu-link'
                         exact
-                        activeClassName='active'>
+                        activeClassName='active'
+                        onClick={mobileMenuToggler}>
                         صفحه اصلی
                      </NavLink>
                   </li>
@@ -64,7 +61,7 @@ const Nav = () => {
                         to='/courses'
                         className='menu-link'
                         exact
-                        activeStyle={{ color: 'red' }}>
+                        onClick={mobileMenuToggler}>
                         دوره ها
                      </NavLink>
                   </li>
@@ -73,7 +70,7 @@ const Nav = () => {
                         to='/teachers'
                         className='menu-link'
                         exact
-                        activeStyle={{ color: 'red' }}>
+                        onClick={mobileMenuToggler}>
                         اساتید
                      </NavLink>
                   </li>
@@ -82,7 +79,7 @@ const Nav = () => {
                         to='/contact-us'
                         className='menu-link'
                         exact
-                        activeStyle={{ color: 'red' }}>
+                        onClick={mobileMenuToggler}>
                         ارتباط با ما
                      </NavLink>
                   </li>
@@ -91,7 +88,7 @@ const Nav = () => {
                         to='/key-plan'
                         className='menu-link'
                         exact
-                        activeStyle={{ color: 'red' }}>
+                        onClick={mobileMenuToggler}>
                         نقشه راه
                      </NavLink>
                   </li>
