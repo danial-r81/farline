@@ -1,0 +1,67 @@
+@import url('../../../main-style/style.css');
+
+.table-container {
+   display: flex;
+   justify-content: center;
+   height: 60vh;
+   margin-top: 7rem;
+}
+
+.card {
+   position: relative;
+   width: 100%;
+   height: 130px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.box {
+   position: relative;
+   width: 28%;
+   height: 100%;
+   margin: 0 30px;
+   padding: 10px;
+}
+
+.card .boxs {
+   position: relative;
+   background: var(--Gblack);
+   width: 100%;
+   height: 80px;
+   border-radius: 10px;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   cursor: pointer;
+   transition: 0.3s;
+}
+
+.boxs .cardname {
+   color: var(--white);
+}
+
+.number {
+   position: relative;
+   font-size: 2.5em;
+   color: rgb(31, 35, 39);
+}
+
+.cardname {
+   color: rgba(88, 97, 97, 0.945);
+   font-size: 1.3em;
+   margin-top: 5px;
+}
+
+.boxs i {
+   font-size: 1.8em;
+   color: rgb(124, 123, 121);
+}
+
+.boxs:hover {
+   transform: translateY(-4px);
+   -webkit-transform: translateY(-4px);
+   -moz-transform: translateY(-4px);
+   -ms-transform: translateY(-4px);
+   -o-transform: translateY(-4px);
+   box-shadow: 4px 4px 5px rgb(204, 204, 204);
+}

@@ -1,25 +1,25 @@
 import { Route, Switch } from 'react-router';
-import { BoughtCourseTable } from '../bought-course/BoughtCourseTable';
+import { Dashbord } from '../dashbord/Dashbord';
 import PanelCourses from '../courses/PanelCourses';
 import { EditAccount } from '../edit-account/EditAccount';
-import Orders from '../orders/Orders';
+import Cart from '../cart/Cart';
 import Suggestion from '../suggestion/Suggestion';
 import { PanelLayout } from './PanelLayout';
 
 export const PanelRoutes = () => {
-  return (
-    <PanelLayout>
-      <Switch>
-        <Route
-          path='/profile/bought-courses'
-          exact
-          component={BoughtCourseTable}
-        />
-        <Route path='/profile/edit-account' exact component={EditAccount} />
-        <Route path='/profile/courses' exact component={PanelCourses} />
-        <Route path='/profile/orders' exact component={Orders} />
-        <Route path='/profile/suggested-courses' exact component={Suggestion} />
-      </Switch>
-    </PanelLayout>
-  );
+   return (
+      <PanelLayout>
+         <Switch>
+            <Route path='/profile/dashbord' exact component={Dashbord} />
+            <Route path='/profile/edit-account' exact component={EditAccount} />
+            <Route path='/profile/courses' exact component={PanelCourses} />
+            <Route path='/profile/cart' exact component={Cart} />
+            <Route
+               path='/profile/suggested-courses'
+               exact
+               component={Suggestion}
+            />
+         </Switch>
+      </PanelLayout>
+   );
 };
