@@ -30,6 +30,7 @@ export const Courses = () => {
             slidesPerView={4}
             items={courses}
             sliderAs='course'
+            btnTopic='دوره ها'
          />
          <CreateSlider
             maxWidth={1100}
@@ -38,6 +39,7 @@ export const Courses = () => {
             slidesPerView={3}
             items={courses}
             sliderAs='course'
+            btnTopic='دوره ها'
          />
          <CreateSlider
             maxWidth={820}
@@ -46,6 +48,7 @@ export const Courses = () => {
             slidesPerView={2}
             items={courses}
             sliderAs='course'
+            btnTopic='دوره ها'
          />
          <CreateSlider
             maxWidth={580}
@@ -54,6 +57,7 @@ export const Courses = () => {
             slidesPerView={1}
             items={courses}
             sliderAs='course'
+            btnTopic='دوره ها'
          />
       </Fragment>
    );

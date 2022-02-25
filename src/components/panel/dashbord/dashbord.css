@@ -1,12 +1,5 @@
 @import url('../../../main-style/style.css');
 
-.table-container {
-   display: flex;
-   justify-content: center;
-   height: 60vh;
-   margin-top: 7rem;
-}
-
 .card {
    position: relative;
    width: 100%;

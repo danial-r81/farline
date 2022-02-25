@@ -39,17 +39,17 @@ const Panel = () => {
                      </div>
                   ) : null}
 
-                  <div className='cart' as={Link} to='/profile/cart'>
+                  {/* <div className='cart' as={Link} to='/profile/cart'>
                      <Link to='/profile/cart'>
                         <img src={CartLogo} alt='' />
                      </Link>
-                  </div>
+                  </div> */}
                </div>
                <div className='Hmenu' onClick={toggleMenu}>
                   <img src={hamMenuLogo} alt='' />
                </div>
             </div>
-            <div classNameName='panel-table'>
+            <div className='panel-table'>
                <PanelRoutes />
             </div>
          </div>

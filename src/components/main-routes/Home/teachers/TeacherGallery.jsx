@@ -19,6 +19,7 @@ export const TeacherGallery = () => {
             minWidth={1240}
             topic='اساتید'
             sliderAs='teacher'
+            btnTopic='اساتید'
          />
          <CreateSliser
             items={teachers}
@@ -27,6 +28,7 @@ export const TeacherGallery = () => {
             minWidth={1030}
             topic='اساتید'
             sliderAs='teacher'
+            btnTopic='اساتید'
          />
 
          <CreateSliser
@@ -36,6 +38,7 @@ export const TeacherGallery = () => {
             minWidth={820}
             topic='اساتید'
             sliderAs='teacher'
+            btnTopic='اساتید'
          />
 
          <CreateSliser
@@ -45,6 +48,7 @@ export const TeacherGallery = () => {
             minWidth={529}
             topic='اساتید'
             sliderAs='teacher'
+            btnTopic='اساتید'
          />
 
          <CreateSliser

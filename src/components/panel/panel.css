@@ -192,12 +192,12 @@ i {
    cursor: pointer;
 }
 
-.cart {
+/* .cart {
    width: 50px;
    height: 50px;
    margin-left: 20px;
    cursor: pointer;
-}
+} */
 
 .cart img {
    width: 100%;
@@ -361,6 +361,10 @@ i {
    margin-right: 35px;
 }
 
+.icon-books:before {
+   content: '\e920';
+}
+
 @media (max-width: 991px) {
    .panel-nav {
       right: -300px;
@@ -376,6 +380,10 @@ i {
    .panel-main.active {
       right: 265px;
       left: -300px;
+   }
+
+   .table-container {
+      margin: 50px 1rem;
    }
 }
 
@@ -413,10 +421,6 @@ i {
    }
    .panel-username {
       font-size: 18px;
-   }
-   .cart {
-      width: 40px;
-      height: 40px;
    }
    .orders {
       font-size: 23px;
