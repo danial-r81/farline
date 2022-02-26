@@ -1,88 +1,184 @@
-@import url('../../../main-style/style.css');
-
-* {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-}
-/* 
-body {
-  background-color: var(--light-blue);
-} */
-
-.no-courses {
-   width: 100%;
-   height: 40vh;
+.select-container {
    display: flex;
    justify-content: center;
    align-items: center;
-   font-size: 25px;
-   color: var(--light-grey);
+   margin-top: 10rem;
 }
 
-.courses {
-   padding: 2rem;
-   margin-top: 5rem;
-}
-
-.courses-container {
-   display: grid;
-   grid-template-columns: 1fr;
-   gap: 100px;
-   width: auto;
-   margin: auto;
-   row-gap: 1rem;
-   justify-items: center;
-   border-radius: 8px;
-   border-radius: 15px;
-   -webkit-border-radius: 15px;
-   -moz-border-radius: 15px;
-   -ms-border-radius: 15px;
-   -o-border-radius: 15px;
-   overflow: hidden;
-}
-
-.courses-container .item {
-   padding: 1rem 1rem 1.5rem;
-   border-radius: 10px;
-   -webkit-border-radius: 10px;
-   -moz-border-radius: 10px;
-   -ms-border-radius: 10px;
-   -o-border-radius: 10px;
-}
-
-.image {
-   height: 100%;
-}
-.image img {
-   cursor: pointer;
-   width: 100%;
-   object-fit: cover;
-   height: 100%;
-}
-.name {
+.circle-menu {
+   width: 35em;
+   height: 35em;
+   border-radius: 50%;
    display: flex;
    justify-content: center;
    align-items: center;
-   margin-top: 1em;
+   list-style: none;
+   border: 2px solid var(--Gblack);
+   position: relative;
+}
+
+.circle {
+   width: 8em;
+   height: 8em;
+   display: flex;
+   background-color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border: 2px solid var(--Gblack);
+   border-radius: 50%;
+   position: absolute;
+   transition: all 0.3s;
    cursor: pointer;
+   text-align: center;
 }
 
-/* ====== responsiv ======= */
-@media screen and (min-width: 650px) {
-   .courses-container {
-      grid-template-columns: 1fr 1fr;
-   }
+.circle .item-value {
+   color: black;
 }
 
-@media screen and (min-width: 900px) {
-   .courses-container {
-      grid-template-columns: 1fr 1fr 1fr;
-   }
+.circle:hover .item-value {
+   color: var(--white);
 }
 
-@media screen and (min-width: 1300px) {
-   .courses-container {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-   }
+.item-value {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.pointer {
+   transform: rotate(-45deg);
+   background: none;
+   position: relative;
+   border-radius: 50% 8% 50% 50%;
+}
+
+.pointer::before {
+   content: '';
+   position: absolute;
+   transform: rotate(45deg);
+   font-size: 20px;
+}
+
+.general-lessons:hover {
+   background-color: var(--fosfori);
+   border-color: var(--fosfori);
+}
+
+.general-lessons:hover ~ .pointer {
+   transform: rotate(-45deg);
+   background-color: var(--fosfori);
+   border-color: var(--fosfori);
+}
+
+.humanity-lessons:hover {
+   background-color: var(--orange);
+   border-color: var(--orange);
+}
+
+.humanity-lessons:hover ~ .pointer {
+   transform: rotate(-225deg);
+   -webkit-transform: rotate(-225deg);
+   -moz-transform: rotate(-225deg);
+   -ms-transform: rotate(-225deg);
+   -o-transform: rotate(-225deg);
+   border-color: var(--orange);
+   background-color: var(--orange);
+}
+
+.math-lessons:hover {
+   background-color: var(--red);
+   border-color: var(--red);
+}
+.math-lessons:hover a {
+   color: var(--white);
+}
+
+.math-lessons:hover ~ .pointer {
+   transform: rotate(45deg);
+   -webkit-transform: rotate(45deg);
+   -moz-transform: rotate(45deg);
+   -ms-transform: rotate(45deg);
+   -o-transform: rotate(45deg);
+   background-color: var(--red);
+   border-color: var(--red);
+}
+
+.experiential-lessons:hover {
+   background-color: var(--dark-blue);
+   border-color: var(--dark-blue);
+}
+
+.experiential-lessons:hover a {
+   color: var(--white);
+}
+
+.experiential-lessons:hover ~ .pointer {
+   transform: rotate(-132deg);
+   -webkit-transform: rotate(-132deg);
+   -moz-transform: rotate(-132deg);
+   -ms-transform: rotate(-132deg);
+   -o-transform: rotate(-132deg);
+   background-color: var(--dark-blue);
+   border-color: var(--dark-blue);
+}
+
+.tenth-grade:hover {
+   border-color: var(--red);
+   background-color: var(--red);
+}
+
+.tenth-grade:hover ~ .pointer {
+   border-color: var(--red);
+   background-color: var(--red);
+}
+
+.eleventh-grade:hover {
+   background-color: var(--fosfori);
+   border-color: var(--fosfori);
+}
+
+.eleventh-grade:hover ~ .pointer {
+   transform: rotate(80deg);
+   -webkit-transform: rotate(80deg);
+   -moz-transform: rotate(80deg);
+   -ms-transform: rotate(80deg);
+   -o-transform: rotate(80deg);
+   background-color: var(--fosfori);
+   border-color: var(--fosfori);
+}
+.tweleve-grade:hover {
+   border-color: var(--orange);
+   background-color: var(--orange);
+}
+
+.tweleve-grade:hover ~ .pointer {
+   transform: rotate(-165deg);
+   -webkit-transform: rotate(-165deg);
+   -moz-transform: rotate(-165deg);
+   -ms-transform: rotate(-165deg);
+   -o-transform: rotate(-165deg);
+   border-color: var(--orange);
+   background-color: var(--orange);
+}
+
+.item-course {
+   width: 250px;
+   height: 250px;
+}
+
+.internal-items {
+   width: 100%;
+   height: 100%;
+}
+
+.internal-items img {
+   width: 100%;
+   height: 100%;
+}
+
+.item-course h3 {
+   text-align: center;
 }

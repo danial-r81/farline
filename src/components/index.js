@@ -23,7 +23,7 @@ export { default as TeacherGallery } from './main-routes/teacher-gallery/Teacher
 export { default as Contact } from './main-routes/contact-us/Contact';
 
 // courses
-export { default as Topics } from './main-routes/courses/Topics';
+export { default as Courses } from './main-routes/courses/Courses';
 
 // first videos
 export { default as FirstVideosContainer } from './session-one-videos/FirstVideosContainer';

@@ -1,10 +1,5 @@
 import { Fragment, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import SwiperCore, { Pagination, Navigation } from 'swiper';
-import MediaQuery from 'react-responsive';
-import { motion } from 'framer-motion';
-import Topic from '../../courses/Topic';
-import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { coursesKinds } from '../../../../redux/features/courses';
 
@@ -21,7 +16,7 @@ export const Courses = () => {
    }, []);
 
    const courses = useSelector((state) => state.coursesReducer.courses);
-
+   console.log(courses);
    return (
       <Fragment>
          <CreateSlider
