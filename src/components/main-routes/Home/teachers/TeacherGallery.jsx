@@ -20,6 +20,7 @@ export const TeacherGallery = () => {
             topic='اساتید'
             sliderAs='teacher'
             btnTopic='اساتید'
+            goTo='/teachers'
          />
          <CreateSliser
             items={teachers}
@@ -29,6 +30,7 @@ export const TeacherGallery = () => {
             topic='اساتید'
             sliderAs='teacher'
             btnTopic='اساتید'
+            goTo='/teachers'
          />
 
          <CreateSliser
@@ -39,6 +41,7 @@ export const TeacherGallery = () => {
             topic='اساتید'
             sliderAs='teacher'
             btnTopic='اساتید'
+            goTo='/teachers'
          />
 
          <CreateSliser
@@ -49,6 +52,7 @@ export const TeacherGallery = () => {
             topic='اساتید'
             sliderAs='teacher'
             btnTopic='اساتید'
+            goTo='/teachers'
          />
 
          <CreateSliser
@@ -57,6 +61,7 @@ export const TeacherGallery = () => {
             maxWidth={528}
             topic='اساتید'
             sliderAs='teacher'
+            goTo='/teachers'
          />
       </div>
    );

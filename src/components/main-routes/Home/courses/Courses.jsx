@@ -26,6 +26,7 @@ export const Courses = () => {
             items={courses}
             sliderAs='course'
             btnTopic='دوره ها'
+            goTo='/courses'
          />
          <CreateSlider
             maxWidth={1100}
@@ -35,6 +36,7 @@ export const Courses = () => {
             items={courses}
             sliderAs='course'
             btnTopic='دوره ها'
+            goTo='/courses'
          />
          <CreateSlider
             maxWidth={820}
@@ -44,6 +46,7 @@ export const Courses = () => {
             items={courses}
             sliderAs='course'
             btnTopic='دوره ها'
+            goTo='/courses'
          />
          <CreateSlider
             maxWidth={580}
@@ -53,6 +56,7 @@ export const Courses = () => {
             items={courses}
             sliderAs='course'
             btnTopic='دوره ها'
+            goTo='/courses'
          />
       </Fragment>
    );

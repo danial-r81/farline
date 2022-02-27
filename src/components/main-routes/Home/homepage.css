@@ -16,13 +16,6 @@
    -o-border-radius: 10px 10px 0 0;
 }
 
-.home-page h2 {
-   margin: 2rem;
-   text-align: center;
-   position: relative;
-   color: #767e7e;
-   font-size: 25px;
-}
 .home-courses {
    border-radius: 15px;
    margin: 0 2rem;
@@ -39,17 +32,17 @@
    -ms-border-radius: 5px;
    -o-border-radius: 5px;
 }
-.all-courses {
+.slider-btn {
    display: flex;
    justify-content: center;
    align-items: center;
+   margin: 35px 0;
 }
 
-.all-courses button {
+.slider-btn button {
    border-radius: 8px;
-   background: #d9d9d9;
-   box-shadow: 6px 6px 12px #b8b8b8, -6px -6px 12px #fafafa;
    border: none;
+   background-color: var(--red);
    padding: 8px 25px;
    border-radius: 5px;
    -webkit-border-radius: 5px;
@@ -60,7 +53,7 @@
    font-size: 20px;
    cursor: pointer;
 }
-.all-courses button a {
+.slider-btn a button {
    text-decoration: none;
    color: var(--white);
 }
@@ -78,10 +71,29 @@
    background-color: var(--Gblack);
    padding: 20px 13px 35px;
    border-radius: 10px;
+   /* width: 200px;
+   height: 200px; */
+}
+
+.slider-item .image {
+   width: 100%;
+   height: 100%;
+   display: flex;
+}
+
+.slider-item .image img {
+   width: 100%;
+   height: 100%;
 }
 
 .course-item .name {
    color: var(--white);
+   margin-top: 1.5rem;
+   text-align: center;
+}
+
+.swiper-button-next {
+   color: var(--white) !important;
 }
 
 .banner {
@@ -129,7 +141,7 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-   color: var(--black);
+   color: var(--fosfori) !important;
    font-size: 16px;
 }
 
@@ -174,6 +186,7 @@
 
 .teacher-swiper {
    margin: 0 4rem;
+   padding: 0 27px;
 }
 
 .lesson {
@@ -182,14 +195,17 @@
 }
 .name {
    color: var(--black);
+   text-align: center;
 }
 .swiper-pagination {
    display: none !important;
 }
 
-.teacher-header {
-   /* color: var(--white) !important; */
-   color: #767e7e;
+.slider-header {
+   margin: 4rem;
+   text-align: center;
+   font-size: 25px;
+   color: var(--Gblack) !important;
 }
 
 .all-courses button {
@@ -249,7 +265,7 @@
    -moz-border-radius: 10px;
    -ms-border-radius: 10px;
    -o-border-radius: 10px;
-   padding: 4rem 5rem;
+   padding: 4rem 7rem;
    padding-bottom: 3rem;
    /* background-image: url('./cons.jpg'); */
    z-index: 10;
@@ -416,7 +432,7 @@
       margin: 0 1.5rem;
    }
 
-   .all-courses button {
+   .slider-btn button {
       font-size: 17px;
    }
    .banner-slide img {
@@ -425,7 +441,7 @@
    }
    .banner-gallery {
       margin-top: -5rem;
-      margin-bottom: -2rem;
+      margin-bottom: -3rem;
    }
    .banner-slide {
       padding: 0;
@@ -439,6 +455,10 @@
 }
 
 @media screen and (max-width: 450px) {
+   .teacher-swiper {
+      margin: 0 0.5rem;
+   }
+
    .home-courses,
    .teacher-gallery,
    .consultation-container {
@@ -452,15 +472,15 @@
    .mySwiper {
       margin: 3rem 0 !important;
    }
-   .home-courses h2 {
+   .slider-header {
       font-size: 22px;
-      margin: 0;
+      margin: 1.5rem 0;
    }
    .name {
       font-size: 14px;
    }
 
-   .all-courses button {
+   .slider-btn button {
       font-size: 13px;
       margin: 0 17px;
    }

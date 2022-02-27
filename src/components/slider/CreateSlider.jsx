@@ -18,10 +18,11 @@ const CreateSlider = ({
    maxWidth,
    sliderAs,
    btnTopic,
+   goTo,
 }) => {
    return (
       <MediaQuery minWidth={minWidth} maxWidth={maxWidth}>
-         <h2 className='teacher-header'>{topic}</h2>
+         <h2 className='slider-header'>{topic}</h2>
          <Swiper
             slidesPerView={slidesPerView}
             spaceBetween={30}
@@ -37,8 +38,8 @@ const CreateSlider = ({
                </SwiperSlide>
             ))}
          </Swiper>
-         <div className='all-courses'>
-            <NavLink to='/teachers'>
+         <div className='slider-btn'>
+            <NavLink to={goTo}>
                <button>برای مشاهده تمامی {btnTopic} کلیک کنید</button>
             </NavLink>
          </div>
@@ -54,6 +55,7 @@ CreateSlider.propTypes = {
    maxWidth: PropTypes.number.isRequired,
    sliderAs: PropTypes.string.isRequired,
    btnTopic: PropTypes.string.isRequired,
+   goTo: PropTypes.string.isRequired,
 };
 
 export default CreateSlider;

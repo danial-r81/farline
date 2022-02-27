@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 import config from '../../services/config.json';
 
 const SliderItem = ({ item, sliderAs }) => {
+   console.log(item);
    return (
-      <div className={sliderAs === 'teacher' ? 'teacher-item' : 'course-item'}>
+      <div
+         className={`slider-item ${
+            sliderAs === 'teacher' ? 'teacher-item' : 'course-item'
+         }`}>
          <div className='image'>
             <img src={`${config.baseUrl}${item.picture}`} alt={item.title} />
          </div>
