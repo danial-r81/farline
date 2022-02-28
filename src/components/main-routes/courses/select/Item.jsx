@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router';
+import { useNavigate } from 'react-router';
 import {
    getCourses,
    setShowSelectGrade,
@@ -16,9 +16,9 @@ const Item = ({
    animate,
    exit,
    value,
-   history,
 }) => {
    const dispatch = useDispatch();
+   const history = useNavigate();
    let { topic, grade } = useSelector((state) => state.coursesReducer);
    const { showSelectTopic } = useSelector((state) => state.coursesReducer);
    const onClickForTopic = () => dispatch(setShowSelectGrade());
@@ -54,4 +54,4 @@ const Item = ({
    );
 };
 
-export default withRouter(Item);
+export default Item;

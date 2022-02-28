@@ -1,18 +1,26 @@
-const FormVariant = {
-  hidden: {
-    y: '-50vh',
-    opacity: 1,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.3,
-      duration: 1,
-      type: 'spring',
-      stiffness: 100,
-    },
-  },
+export const FormVariant = {
+   hidden: {
+      opacity: 0,
+      x: '5vw',
+   },
+   visible: {
+      scale: 1,
+      opacity: 1,
+      x: 0,
+      transition: {
+         ease: 'easeInOut',
+         duration: 0.8,
+      },
+   },
+   exit: {
+      scale: 0.95,
+      opacity: 0,
+
+      transition: {
+         ease: 'easeInOut',
+         duration: 0.8,
+      },
+   },
 };
 
 export default FormVariant;

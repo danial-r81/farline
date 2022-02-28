@@ -28,9 +28,8 @@ export const userLogin = (data) => {
    });
 };
 
-export const resendCode = (phoneNumber) => {
-   // console.log(phoneNumber);
-   // const phoneNumber = localStorage.getItem('phoneNumber');
+export const resendCode = () => {
+   const phoneNumber = localStorage.getItem('phoneNumber');
    return http.post(`${config.baseUrl}/api/user/code/again/${phoneNumber}/`);
 };
 
@@ -40,7 +39,8 @@ export const forgotPassword = (phoneNumber) => {
    );
 };
 
-export const getAllUserData = (phoneNumber) => {
+export const getAllUserData = () => {
+   const phoneNumber = localStorage.getItem('phoneNumber');
    return http.get(`${config.baseUrl}/api/user/info/${phoneNumber}/`);
 };
 

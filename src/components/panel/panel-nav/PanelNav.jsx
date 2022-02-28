@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { logoutHandler } from '../../../redux/features/userInfo';
 import { withRouter } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 
 import {
    dashbordLogo,
@@ -16,7 +16,7 @@ import {
 
 const PanelNav = () => {
    const dispatch = useDispatch();
-   const history = useHistory();
+   const history = useNavigate();
 
    return (
       <div className='panel-nav'>
@@ -81,4 +81,4 @@ const PanelNav = () => {
    );
 };
 
-export default withRouter(PanelNav);
+export default PanelNav;

@@ -3,7 +3,7 @@ import './dashbord.css';
 import Box from './Box';
 import { courseLogo, diaryLogo, moneyBagLogo } from '../../../assets';
 
-export const Dashbord = () => {
+const Dashbord = () => {
    return (
       <section className='table-container'>
          <div class='card'>
@@ -35,3 +35,5 @@ export const Dashbord = () => {
       </section>
    );
 };
+
+export default Dashbord;

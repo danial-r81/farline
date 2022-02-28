@@ -1,13 +1,13 @@
 import { Fragment, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory, withRouter } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import { getHomePageCovers } from '../../redux/features/covers';
 import { getAllUsers } from '../../redux/features/userInfo';
 import Nav from '../Nav/Nav';
 
 const MainLayout = ({ children }) => {
    const dispatch = useDispatch();
-   const history = useHistory();
+   const { pathname } = useLocation();
 
    const phoneNumber = localStorage.getItem('phoneNumber');
 
@@ -19,10 +19,10 @@ const MainLayout = ({ children }) => {
    }, []);
    return (
       <Fragment>
-         {history.location.pathname.includes('profile') ? null : <Nav />}
+         {pathname.includes('/profile') ? null : <Nav />}
          {children}
       </Fragment>
    );
 };
 
-export default withRouter(MainLayout);
+export default MainLayout;

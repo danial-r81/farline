@@ -1,21 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import PanelNav from './panel-nav/PanelNav';
-import { PanelRoutes } from './PanelLayout/PanelRoutes';
-import CartLogo from '../../assets/cart.png';
 import { hamMenuLogo, logo } from '../../assets';
-import { Link } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router';
 
 import './panel.css';
 
 const Panel = () => {
+   const navigate = useNavigate();
+   const { pathname } = useLocation();
    const { firstName, lastName } = useSelector(
       (state) => state.userReducer.userInfo
    );
 
-   let menu = document.querySelector('.Hmenu');
-   let nav = document.querySelector('.panel-nav');
-   let main = document.querySelector('.panel-main');
+   if (pathname === '/profile') navigate('/profile/dashbord');
 
    const toggleMenu = () => {
       const main = document.querySelector('.panel-main');
@@ -38,19 +36,13 @@ const Panel = () => {
                         <div className='panel-username'>{`${firstName} ${lastName}`}</div>
                      </div>
                   ) : null}
-
-                  {/* <div className='cart' as={Link} to='/profile/cart'>
-                     <Link to='/profile/cart'>
-                        <img src={CartLogo} alt='' />
-                     </Link>
-                  </div> */}
                </div>
                <div className='Hmenu' onClick={toggleMenu}>
                   <img src={hamMenuLogo} alt='' />
                </div>
             </div>
             <div className='panel-table'>
-               <PanelRoutes />
+               <Outlet />
             </div>
          </div>
       </div>

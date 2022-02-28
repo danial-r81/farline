@@ -12,13 +12,13 @@ import {
    logout,
    changePasswordFromPanel,
 } from '../../services/userServices';
-import { useHistory } from 'react-router';
 
 export const getCodeAgain = createAsyncThunk(
    'users/resend-code',
    async (arg) => {
       try {
          const { data } = await resendCode();
+         console.log(data);
          return Promise.resolve(data);
       } catch (err) {
          if (err.response) {
@@ -37,14 +37,15 @@ export const getCodeAgain = createAsyncThunk(
 export const registerHandler = createAsyncThunk(
    'user/register',
    async (arg, { getState }) => {
-      const { history, value } = arg;
+      const { navigate, value } = arg;
       const { phoneNumber } = value;
       try {
          const { data, status } = await userRegister(value);
          const { code } = data;
          if (status === 201) {
             localStorage.setItem('phoneNumber', phoneNumber);
-            history.push('/get-code');
+            console.log(navigate);
+            navigate('/get-code');
             return {
                value,
                code,
@@ -70,14 +71,14 @@ export const registerHandler = createAsyncThunk(
 
 export const loginHandler = createAsyncThunk('user/login', async (arg) => {
    console.log(arg);
-   const { phoneNumber, history } = arg;
+   const { phoneNumber, navigate } = arg;
    try {
       const { status } = await userLogin(arg);
       console.log(status);
       if (status === 200) {
          Toasts.toastSuccess('login was successful');
-         localStorage.setItem('phoneNumber');
-         history.push('/');
+         localStorage.setItem('phoneNumber', phoneNumber);
+         navigate('/');
       }
    } catch (e) {
       console.log(e);
@@ -111,18 +112,18 @@ export const changePasswordFromPanelHandler = createAsyncThunk(
 
 export const logoutHandler = createAsyncThunk(
    'user/logout',
-   async (history) => {
-      console.log(history);
+   async (navigate) => {
+      console.log(navigate);
       try {
          const { status } = await logout();
          console.log(status);
          //  if (status === 200) {
-         history.replace('/');
+         navigate('/');
          window.location.reload();
          localStorage.removeItem('phoneNumber');
          Cookies.remove('sessionid');
          //  }
-         return Promise.resolve(history);
+         return Promise.resolve(navigate);
       } catch (err) {
          if (err.response) {
             console.log(err.response);
@@ -142,9 +143,10 @@ export const fillProfileHandler = createAsyncThunk(
    async (arg, { getState }) => {
       console.log(arg);
       const state = getState();
-      const danial = 'fdgfdhj67867sdfsf2343nh';
+      // const danial = ;
+      // console.log(danial);
       const { firstName, lastName, password, grade } = arg.value;
-      const { history } = arg;
+      const { navigate } = arg;
       const { nationalCode } = state.userReducer.userInfo;
       const phoneNumber = localStorage.getItem('phoneNumber');
       const user = {
@@ -154,7 +156,7 @@ export const fillProfileHandler = createAsyncThunk(
          grade,
          phoneNumber,
          nationalCode,
-         danial,
+         danial: process.env.REACT_APP_VALIDATION_CODE,
       };
       console.log(user);
 
@@ -162,9 +164,9 @@ export const fillProfileHandler = createAsyncThunk(
          const { status } = await fillProfile(user);
          console.log(status);
          if (status === 200) {
-            history.push('/');
+            navigate('/');
             Toasts.toastSuccess(' ثبت نام موفقیت آمیز بود ');
-            window.location.reload();
+            // window.location.reload();
             return Promise.resolve(user);
          }
       } catch (e) {
@@ -182,7 +184,7 @@ export const fillProfileHandler = createAsyncThunk(
 export const forgotPasswordHandler = createAsyncThunk(
    'user/forgot-password',
    async (arg) => {
-      const { history, phoneNumber } = arg;
+      const { navigate, phoneNumber } = arg;
       try {
          const { data, status } = await resendCode(phoneNumber);
          const { code } = data;
@@ -190,7 +192,7 @@ export const forgotPasswordHandler = createAsyncThunk(
          console.log(data);
 
          if (status === 201) {
-            history.push('/enter-code');
+            navigate('/enter-code');
             const { data, status } = await getAllUserData(phoneNumber);
             if (status === 200) {
                return {
@@ -216,15 +218,12 @@ export const forgotPasswordHandler = createAsyncThunk(
 export const changePasswordHandler = createAsyncThunk(
    'user/change-password',
    async (arg) => {
-      const { phoneNumber, password, history } = arg;
+      const { phoneNumber, password, navigate } = arg;
       try {
          const { status } = await changePassword(phoneNumber, password);
          if (status === 200) {
-            history.push('/');
-            Toasts.toastSuccess('رمز عبور با موفقیت تغییر یافت', {
-               position: 'top-right',
-               closeOnClick: true,
-            });
+            navigate('/');
+            Toasts.toastSuccess('رمز عبور با موفقیت تغییر یافت');
          }
       } catch (err) {
          if (err.response) {
@@ -242,9 +241,9 @@ export const changePasswordHandler = createAsyncThunk(
 
 export const getAllUsers = createAsyncThunk('user/get-user', async () => {
    try {
-      const phoneNumber = localStorage.getItem('phoneNumber');
-      const { data, status } = await getAllUserData(phoneNumber);
+      const { data, status } = await getAllUserData();
       if (status === 200) {
+         console.log('okkk');
          return Promise.resolve(data);
       }
    } catch (err) {
@@ -264,12 +263,20 @@ export const getAllUsers = createAsyncThunk('user/get-user', async () => {
 const initialState = {
    userInfo: {},
    code: '',
-   phoneNumber: '',
+   isCodeValid: false,
 };
 
 const userReducer = createSlice({
    name: 'user',
    initialState: initialState,
+   reducers: {
+      checkUseOnceCode: (state, action) => {
+         console.log(action);
+         if (action.payload.values.code === action.payload.code) {
+            state.isCodeValid = true;
+         }
+      },
+   },
    extraReducers: {
       [getCodeAgain.fulfilled]: (state, action) => {
          console.log('done!');
@@ -292,9 +299,11 @@ const userReducer = createSlice({
          console.log(action);
       },
       [registerHandler.fulfilled]: (state, action) => {
+         // const { navigate } = action.meta.arg;
+         console.log(action);
          Object.assign(state.userInfo, action.payload.value);
          state.code = action.payload.code;
-         state.phoneNumber = action.payload.value.phoneNumber;
+         // navigate('/get-code');
       },
       [registerHandler.rejected]: (state, action) => {
          console.log(action.meta.arg.value);
@@ -333,7 +342,6 @@ const userReducer = createSlice({
    },
 });
 
-export const { userRegisterHandler, completePrfileHandler } =
-   userReducer.actions;
+export const { checkUseOnceCode } = userReducer.actions;
 
 export default userReducer.reducer;

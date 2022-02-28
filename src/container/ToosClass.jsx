@@ -1,4 +1,4 @@
-import { Route, Switch, useLocation } from 'react-router';
+import { Route, useLocation, Routes } from 'react-router';
 import { useSelector } from 'react-redux';
 import {
    HomePage,
@@ -26,42 +26,48 @@ import {
 import { AnimatePresence } from 'framer-motion';
 import CourseItem from '../components/main-routes/courses/course-item/CourseItem';
 import SelectedCourses from '../components/main-routes/courses/selected-courses/SelectedCourses';
+import Dashbord from '../components/panel/dashbord/Dashbord';
+import EditAccount from '../components/panel/edit-account/EditAccount';
+import PanelCourses from '../components/panel/courses/PanelCourses';
+import Cart from '../components/panel/cart/Cart';
+import Suggestion from '../components/panel/suggestion/Suggestion';
 
 const ToosClass = () => {
    const { is_active } = useSelector((state) => state.userReducer.userInfo);
    const location = useLocation();
    return (
-      <AnimatePresence exitBeforeEnter>
-         <MainLayout>
-            <Switch location={location} key={location.key}>
-               <Route path='/register' component={Register} />
-               <Route path='/get-code' component={GetCode} />
-               <Route path='/enter-code' component={ForgotPassCode} />
-               <Route path='/fill-profile' component={CompleteProfile} />
-               <Route path='/login' component={Login} />
-               <Route path='/courses' component={Courses} />
-               <Route path='/forget-password' component={ForgetPassword} />
-               <Route path='/change-password' component={ChangePassword} />
-               <Route path='/contact-us' component={Contact} />
-               <Route path='/teachers' component={TeacherGallery} />
-               <Route path='/key-plan' component={KeyPlan} />
-               <Route
-                  path='/part-one-videos'
-                  component={FirstVideosContainer}
-               />
+      <MainLayout>
+         <AnimatePresence exitBeforeEnter>
+            <Routes location={location} key={location.key}>
+               <Route path='/register' element={<Register />} />
+               <Route path='/get-code' element={<GetCode />} />
+               <Route path='/enter-code' element={<ForgotPassCode />} />
+               <Route path='/fill-profile' element={<CompleteProfile />} />
+               <Route path='/login' element={<Login />} />
+               <Route path='/courses' element={<Courses />} />
+               <Route path='/forget-password' element={<ForgetPassword />} />
+               <Route path='/change-password' element={<ChangePassword />} />
+               <Route path='/contact-us' element={<Contact />} />
+               <Route path='/teachers' element={<TeacherGallery />} />
+               <Route path='/key-plan' element={<KeyPlan />} />
                <Route
                   path='/profile'
-                  component={is_active ? Panel : AccessDenied}
-               />
-               <Route path='/about-us' component={AboutUs} />
-               <Route path='/provisions' component={Provisions} />
-               <Route path='/usual-questions' component={UsualQuestions} />
-               <Route path='/all-courses' component={SelectedCourses} />
-               <Route path='/' exact component={HomePage} />
-               <Route path='*' component={PageNotFound} />
-            </Switch>
-         </MainLayout>
-      </AnimatePresence>
+                  element={is_active ? <Panel /> : <AccessDenied />}>
+                  <Route path='dashbord' element={<Dashbord />} />
+                  <Route path='edit-account' element={<EditAccount />} />
+                  <Route path='courses' element={<PanelCourses />} />
+                  <Route path='cart' element={<Cart />} />
+                  <Route path='suggested-courses' element={<Suggestion />} />
+               </Route>
+               <Route path='/about-us' element={<AboutUs />} />
+               <Route path='/provisions' element={<Provisions />} />
+               <Route path='/usual-questions' element={<UsualQuestions />} />
+               <Route path='/all-courses' element={<SelectedCourses />} />
+               <Route path='/' element={<HomePage />} />
+               {/* <Route path='*' element={<PageNotFound />} /> */}
+            </Routes>
+         </AnimatePresence>
+      </MainLayout>
    );
 };
 

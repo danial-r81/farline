@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import config from '../../services/config.json';
 
 const SliderItem = ({ item, sliderAs }) => {
-   console.log(item);
+   // console.log(item);
    return (
       <div
          className={`slider-item ${
