@@ -25,9 +25,6 @@ export { default as Contact } from './main-routes/contact-us/Contact';
 // courses
 export { default as Courses } from './main-routes/courses/Courses';
 
-// first videos
-export { default as FirstVideosContainer } from './session-one-videos/FirstVideosContainer';
-
 // key plan
 export { default as KeyPlan } from './main-routes/key-plan/KeyPlan';
 
@@ -45,6 +42,3 @@ export { default as Provisions } from './provisions/Provisions';
 
 // UsualQuestions
 export { default as UsualQuestions } from './usual-question/UsualQuestions';
-
-// AllPartVideo
-export { default as AllPartVideo } from './all-one-part-video/AllPartVideo';

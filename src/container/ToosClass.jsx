@@ -15,16 +15,13 @@ import {
    Panel,
    Contact,
    Courses,
-   FirstVideosContainer,
    PageNotFound,
    AccessDenied,
-   AllPartVideo,
    Provisions,
    UsualQuestions,
    KeyPlan,
 } from '../components/index';
 import { AnimatePresence } from 'framer-motion';
-import CourseItem from '../components/main-routes/courses/course-item/CourseItem';
 import SelectedCourses from '../components/main-routes/courses/selected-courses/SelectedCourses';
 import Dashbord from '../components/panel/dashbord/Dashbord';
 import EditAccount from '../components/panel/edit-account/EditAccount';
@@ -44,7 +41,7 @@ const ToosClass = () => {
                <Route path='/enter-code' element={<ForgotPassCode />} />
                <Route path='/fill-profile' element={<CompleteProfile />} />
                <Route path='/login' element={<Login />} />
-               <Route path='/courses' element={<Courses />} />
+               <Route path='/select-topic' element={<Courses />} />
                <Route path='/forget-password' element={<ForgetPassword />} />
                <Route path='/change-password' element={<ChangePassword />} />
                <Route path='/contact-us' element={<Contact />} />
@@ -64,7 +61,7 @@ const ToosClass = () => {
                <Route path='/usual-questions' element={<UsualQuestions />} />
                <Route path='/all-courses' element={<SelectedCourses />} />
                <Route path='/' element={<HomePage />} />
-               {/* <Route path='*' element={<PageNotFound />} /> */}
+               <Route path='*' element={<PageNotFound />} />
             </Routes>
          </AnimatePresence>
       </MainLayout>

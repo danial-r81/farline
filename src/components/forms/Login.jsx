@@ -12,7 +12,7 @@ import './form.css';
 
 const Login = () => {
    const dispatch = useDispatch();
-   const history = useNavigate();
+   const navigate = useNavigate();
 
    useEffect(() => {
       http
@@ -31,7 +31,7 @@ const Login = () => {
          });
    }, []);
    const onSubmit = (value) => {
-      dispatch(loginHandler(value, history));
+      dispatch(loginHandler({ value, navigate }));
    };
 
    return (

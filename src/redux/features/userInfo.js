@@ -71,14 +71,16 @@ export const registerHandler = createAsyncThunk(
 
 export const loginHandler = createAsyncThunk('user/login', async (arg) => {
    console.log(arg);
-   const { phoneNumber, navigate } = arg;
+   const { value, navigate } = arg;
+   const { phoneNumber } = value;
    try {
-      const { status } = await userLogin(arg);
+      const { status } = await userLogin(value);
       console.log(status);
       if (status === 200) {
          Toasts.toastSuccess('login was successful');
          localStorage.setItem('phoneNumber', phoneNumber);
          navigate('/');
+         window.location.reload();
       }
    } catch (e) {
       console.log(e);

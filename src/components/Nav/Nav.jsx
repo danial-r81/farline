@@ -58,7 +58,7 @@ const Nav = () => {
                   </li>
                   <li class='menu-item'>
                      <NavLink
-                        to='/courses'
+                        to='/select-topic'
                         className='menu-link'
                         exact
                         onClick={mobileMenuToggler}>
