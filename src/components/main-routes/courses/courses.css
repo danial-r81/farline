@@ -21,11 +21,12 @@
    width: 8em;
    height: 8em;
    display: flex;
-   background-color: white;
+   background: #e65c00;
+   background: -webkit-linear-gradient(to right, #f9d423, #e65c00);
+   background: linear-gradient(to right, #f9d423, #e65c00);
    display: flex;
    justify-content: center;
    align-items: center;
-   border: 2px solid var(--Gblack);
    border-radius: 50%;
    position: absolute;
    transition: all 0.3s;
@@ -52,6 +53,13 @@
    transform: rotate(-45deg);
    background: none;
    position: relative;
+   border-radius: 50% 8% 50% 50%;
+   background: #0f2027;
+   background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
+   background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+}
+
+.pointer:hover {
    border-radius: 50% 8% 50% 50%;
 }
 

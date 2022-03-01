@@ -5,10 +5,10 @@ import { getCodeAgain } from '../../redux/features/userInfo';
 import Toast from '../../toasts/toasts';
 import FormVariant from './form-variants/formVariants';
 
-const GetCode = () => {
+const ForgotPassCode = () => {
    const dispatch = useDispatch();
    const phoneNumber = localStorage.getItem('phoneNumber');
-   const history = useNavigate();
+   const navigate = useNavigate();
 
    const code = useSelector((state) => state.userReducer.code);
 
@@ -17,7 +17,7 @@ const GetCode = () => {
       console.log(input);
       console.log(code);
       if (input === code) {
-         history.push('/change-password');
+         navigate('/change-password');
          console.log('ok');
       } else {
          Toast.toastError('کد وارد شده صحیح نمی بشد');
@@ -58,4 +58,4 @@ const GetCode = () => {
    );
 };
 
-export default GetCode;
+export default ForgotPassCode;

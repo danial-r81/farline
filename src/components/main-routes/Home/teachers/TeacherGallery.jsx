@@ -61,6 +61,7 @@ export const TeacherGallery = () => {
             maxWidth={528}
             topic='اساتید'
             sliderAs='teacher'
+            btnTopic='اساتید'
             goTo='/teachers'
          />
       </div>

@@ -60,8 +60,6 @@
 
 .banner-container {
    width: 100%;
-   /* height: 600px; */
-   /* background-color: aqua; */
 }
 .item .name {
    text-align: center;
@@ -71,8 +69,6 @@
    background-color: var(--Gblack);
    padding: 20px 13px 35px;
    border-radius: 10px;
-   /* width: 200px;
-   height: 200px; */
 }
 
 .slider-item .image {
@@ -118,13 +114,15 @@
 
 .banner-slide {
    width: 100%;
-   /* height: 400px; */
 }
 
 .banner-slide img {
    width: 100%;
-   height: 400px;
-   /* object-fit: contain; */
+   border-radius: 20px;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   -ms-border-radius: 20px;
+   -o-border-radius: 20px;
 }
 
 .mySwiper {
@@ -210,9 +208,6 @@
 
 .all-courses button {
    border-radius: 8px;
-   /* background: #dee2e6;
-  border: 6px solid var(--dark-grey);
-  box-shadow: 9px 9px 18px #2a2a2a, -9px -9px 18px #424242; */
    background-color: #c00;
    color: #fefefe;
    margin-top: 2rem;
@@ -227,8 +222,6 @@
 
 .consultation-container {
    border-radius: 15px;
-   /* background: var(--light-grey);
-  box-shadow: 9px 9px 18px #3b4146, -9px -9px 18px #575f68; */
    background-color: white;
    padding: 1rem 10px;
    margin: 1rem 2rem;
@@ -236,8 +229,6 @@
    -moz-border-radius: 15px;
    -ms-border-radius: 15px;
    -o-border-radius: 15px;
-   /* border: 10px solid var(--dark-grey); */
-   /* background-image: url('images/cons/jpeg');s */
    position: relative;
    display: flex;
    overflow: hidden;
@@ -257,19 +248,17 @@
    margin-right: -15%;
    margin: 4rem 25rem;
    border-radius: 8px;
-   /* background: var(--light-grey); */
-   /* box-shadow: 8px 8px 24px #9ca3aa, -8px -8px 24px #bec7d0; */
    background-color: var(--yellow);
    border-radius: 10px;
    -webkit-border-radius: 10px;
    -moz-border-radius: 10px;
    -ms-border-radius: 10px;
    -o-border-radius: 10px;
-   padding: 4rem 7rem;
+   padding: 4rem;
    padding-bottom: 3rem;
-   /* background-image: url('./cons.jpg'); */
    z-index: 10;
    margin-right: -10%;
+   width: 32%;
 }
 
 .consultation .error {
@@ -277,11 +266,10 @@
 }
 
 .consultation h2 {
-   /* color: var(--dark-grey); */
-   /* color: #e6e6e6; */
    color: var(--black);
-   font-size: 26px;
+   font-size: 21px;
    margin-top: 5px;
+   text-align: center;
 }
 
 .cons-btn {
@@ -292,9 +280,6 @@
 }
 
 .cons-btn button {
-   /*background-color: var(--dark-grey);
-  color: var(--white);
-  */
    background-color: transparent;
    color: var(--black);
    border-radius: 5px;
@@ -331,7 +316,6 @@
    width: 30px;
    height: 30px;
    background-color: var(--violet-2);
-   /* margin-right: 20px; */
    position: fixed;
    bottom: 20px;
    right: 20px;
@@ -341,7 +325,6 @@
    align-items: center;
    display: none;
 }
-
 .back-to-top i {
    color: var(--white);
 }
@@ -354,6 +337,7 @@
 @media screen and (max-width: 1147px) {
    .consultation {
       margin-right: 0.3rem;
+      width: 37%;
    }
    .consultation-container img {
       width: 80%;
@@ -366,10 +350,6 @@
 
    .consultation-container img {
       display: none;
-   }
-
-   .consultation-container {
-      background: var(--white);
    }
 
    .consultation {
@@ -437,20 +417,14 @@
    }
    .banner-slide img {
       object-fit: contain;
-      height: 23rem;
-   }
-   .banner-gallery {
-      margin-top: -5rem;
-      margin-bottom: -3rem;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
    }
    .banner-slide {
       padding: 0;
-   }
-}
-
-@media screen and (max-width: 550px) {
-   .banner-slide img {
-      height: 19rem;
    }
 }
 
@@ -474,7 +448,7 @@
    }
    .slider-header {
       font-size: 22px;
-      margin: 1.5rem 0;
+      margin: 2rem 0 10px 0;
    }
    .name {
       font-size: 14px;
@@ -485,10 +459,10 @@
       margin: 0 17px;
    }
 
-   .banner-slide img {
-      height: 15rem;
+   .swiper-button-next::after,
+   .swiper-button-prev::after {
+      font-size: 20px;
    }
-
    .footer-container {
       margin: 1rem 0;
       border-bottom: 2px solid var(--white);

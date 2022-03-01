@@ -143,8 +143,8 @@ export const fillProfileHandler = createAsyncThunk(
    async (arg, { getState }) => {
       console.log(arg);
       const state = getState();
-      // const danial = ;
-      // console.log(danial);
+      const danial = process.env.REACT_APP_VALIDATION_CODE;
+      console.log(danial);
       const { firstName, lastName, password, grade } = arg.value;
       const { navigate } = arg;
       const { nationalCode } = state.userReducer.userInfo;
@@ -156,7 +156,7 @@ export const fillProfileHandler = createAsyncThunk(
          grade,
          phoneNumber,
          nationalCode,
-         danial: process.env.REACT_APP_VALIDATION_CODE,
+         danial,
       };
       console.log(user);
 
@@ -165,8 +165,8 @@ export const fillProfileHandler = createAsyncThunk(
          console.log(status);
          if (status === 200) {
             navigate('/');
+            window.location.reload();
             Toasts.toastSuccess(' ثبت نام موفقیت آمیز بود ');
-            // window.location.reload();
             return Promise.resolve(user);
          }
       } catch (e) {
@@ -190,9 +190,11 @@ export const forgotPasswordHandler = createAsyncThunk(
          const { code } = data;
          console.log(code);
          console.log(data);
+         console.log(status);
 
          if (status === 201) {
             navigate('/enter-code');
+            localStorage.setItem('phoneNumber', phoneNumber);
             const { data, status } = await getAllUserData(phoneNumber);
             if (status === 200) {
                return {

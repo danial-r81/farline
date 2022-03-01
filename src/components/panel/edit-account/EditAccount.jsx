@@ -2,7 +2,7 @@ import { Formik, Form } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePasswordFromPanelHandler } from '../../../redux/features/userInfo';
 import * as Yup from 'yup';
-import { Input } from '../../forms/Input';
+import Input from '../../forms/Input';
 import Toast from '../../../toasts/toasts';
 
 const EditAccount = () => {

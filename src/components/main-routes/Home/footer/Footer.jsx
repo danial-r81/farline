@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import FotterBg from '../../../../assets/layered-waves-haikei.svg';
 
 import './footer.css';
 export const Footer = () => {

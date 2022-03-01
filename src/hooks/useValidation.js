@@ -3,10 +3,9 @@ import * as Yup from 'yup';
 
 const useValidation = (action) => {
    let validationSchema;
+
    const options = ['دهم', 'یازدهم', 'دوازدهم'];
-   const grades = options.map((option) => (
-      <option value={option}>{option}</option>
-   ));
+
    const firstName = Yup.string().required('پرکردن این فیلد الزامی است');
    const lastName = Yup.string().required('پرکردن این فیلد الزامی است');
    const phoneNumber = Yup.string()
@@ -55,7 +54,7 @@ const useValidation = (action) => {
             password,
             confirmPassword,
          });
-         return [validationSchema, grades];
+         return validationSchema;
       case 'change-password':
          validationSchema = Yup.object({
             password,

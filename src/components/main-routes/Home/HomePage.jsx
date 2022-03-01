@@ -8,18 +8,17 @@ import { FirstSessions } from './first-sessions/FirstSessions';
 
 import './homepage.css';
 const HomePage = () => {
-  return (
-    <Fragment>
-      <div className='home-page'>
-        <Baner />
-        <Courses />
-        <TeacherGallery />
-        <FirstSessions />
-        <Consultation />
-      </div>
-      <Footer />
-    </Fragment>
-  );
+   return (
+      <Fragment>
+         <div className='home-page'>
+            <Baner />
+            <Courses />
+            <TeacherGallery />
+            <Consultation />
+         </div>
+         <Footer />
+      </Fragment>
+   );
 };
 
 export default HomePage;

@@ -1,27 +1,10 @@
 import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+import { EffectFade, Navigation, Pagination } from 'swiper';
 import config from '../../../../services/config.json';
 import 'swiper/swiper.min.css';
 
 export function Baner() {
-   // const banner = [
-   //   {
-   //     image: 'images/banner/banner-3.png',
-   //   },
-   //   {
-   //     image: 'images/banner/banner-2.jpg',
-   //   },
-   //   {
-   //     image: 'images/banner/banner-1.png',
-   //   },
-   //   {
-   //     image: 'images/banner/banner-4.png',
-   //   },
-   //   {
-   //     image: 'images/banner/banner-5.png',
-   //   },
-   // ];
-
    const banners = useSelector((state) => state.coverReducer.covers);
    console.log(banners);
 
@@ -29,6 +12,7 @@ export function Baner() {
       <>
          <Swiper
             slidesPerView={1}
+            effect={'fade'}
             spaceBetween={30}
             loop={true}
             pagination={{

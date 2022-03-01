@@ -1,22 +1,17 @@
-import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { checkUseOnceCode, getCodeAgain } from '../../redux/features/userInfo';
-import Toast from '../../toasts/toasts';
+import { getCodeAgain } from '../../redux/features/userInfo';
 import FormContainer from './form-container/FormContainer';
-import FormVariant from './form-variants/formVariants';
-import { Input } from './Input';
+import Input from './Input';
 
 const GetCode = () => {
    const dispatch = useDispatch();
    const navigate = useNavigate();
    const { code } = useSelector((state) => state.userReducer);
-   const { isCodeValid } = useSelector((state) => state.userReducer);
    const phoneNumber = localStorage.getItem('phoneNumber');
 
    const onSubmit = (values) => {
-      dispatch(checkUseOnceCode({ values, code, navigate }));
-      if (isCodeValid) navigate('/fill-profile');
+      if (values.code === code) navigate('/fill-profile');
    };
 
    return (

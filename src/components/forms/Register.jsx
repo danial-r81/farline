@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import { Input } from './Input';
+import Input from './Input';
 import { useDispatch } from 'react-redux';
 import { registerHandler } from '../../redux/features/userInfo';
 import FormContainer from './form-container/FormContainer';
