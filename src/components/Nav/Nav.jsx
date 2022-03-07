@@ -58,11 +58,11 @@ const Nav = () => {
                   </li>
                   <li class='menu-item'>
                      <NavLink
-                        to='/select-topic'
+                        to='/news'
                         className='menu-link'
                         exact
                         onClick={mobileMenuToggler}>
-                        دوره ها
+                        تازه های فرتاک
                      </NavLink>
                   </li>
                   <li class='menu-item'>

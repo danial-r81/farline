@@ -1,18 +1,25 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getCoursesPackageHandler } from '../../../redux/features/courses';
 import { Baner } from './banner/Baner';
-import { Courses } from './courses/Courses';
 import { Footer } from './footer/Footer';
 import { TeacherGallery } from './teachers/TeacherGallery';
 import { Consultation } from './consultation/Consultation';
-import { FirstSessions } from './first-sessions/FirstSessions';
 
 import './homepage.css';
+import CoursesPacks from './courses/courses-packages/CoursesPacks';
 const HomePage = () => {
+   const dispatch = useDispatch();
+
+   useEffect(() => {
+      dispatch(getCoursesPackageHandler());
+   });
+
    return (
       <Fragment>
          <div className='home-page'>
             <Baner />
-            <Courses />
+            <CoursesPacks />
             <TeacherGallery />
             <Consultation />
          </div>

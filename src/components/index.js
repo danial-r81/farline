@@ -23,7 +23,7 @@ export { default as TeacherGallery } from './main-routes/teacher-gallery/Teacher
 export { default as Contact } from './main-routes/contact-us/Contact';
 
 // courses
-export { default as Courses } from './main-routes/courses/Courses';
+export { default as Courses } from './main-routes/Home/courses/Courses';
 
 // key plan
 export { default as KeyPlan } from './main-routes/key-plan/KeyPlan';

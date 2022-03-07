@@ -1,58 +1,29 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { getSelectedCourses } from '../../services/coursesServices';
-import { getCoursesKinds } from '../../services/userServices';
+import { getCoursesPackages } from '../../services/coursesServices';
 
-export const coursesKinds = createAsyncThunk('get/kinds', async () => {
-   try {
-      const { data } = await getCoursesKinds();
-      return Promise.resolve(data);
-   } catch (e) {
-      console.log(e);
-   }
-});
-
-export const getCourses = createAsyncThunk('get/courses', async (arg) => {
-   try {
-      const { topic, grade, history } = arg;
-      const { data, status } = await getSelectedCourses(grade, topic);
-
-      if (status === 200) {
-         localStorage.setItem('g', grade);
-         localStorage.setItem('t', topic);
-         history.push('/all-courses');
-         return Promise.resolve(data);
-      }
-   } catch (e) {
-      if (e.response) {
-         console.log(e.response);
-      } else if (e.message) {
-         console.log(e.message);
-      } else if (e.request) {
-         console.log(e.request);
+export const getCoursesPackageHandler = createAsyncThunk(
+   'getcourses',
+   async () => {
+      try {
+         const { data, status } = await getCoursesPackages();
+         console.log(data);
+         if (status === 200) {
+            return { data };
+         }
+      } catch (er) {
+         console.log(er);
       }
    }
-});
+);
 
 const coursesReducer = createSlice({
    name: 'courses',
    initialState: {
-      courses: [],
-      showSelectTopic: true,
-      grade: 1,
-      topic: 1,
-   },
-   reducers: {
-      setShowSelectGrade: (state) => {
-         console.log('changed');
-         state.showSelectTopic = false;
-      },
+      coursePackages: [],
    },
    extraReducers: {
-      [coursesKinds.fulfilled]: (state, action) => {
-         state.courses = action.payload;
-      },
-      [getCourses.fulfilled]: (state, action) => {
-         state.courses = action.payload;
+      [getCoursesPackageHandler.fulfilled]: (state, action) => {
+         state.coursePackages = action.payload.data;
       },
    },
 });

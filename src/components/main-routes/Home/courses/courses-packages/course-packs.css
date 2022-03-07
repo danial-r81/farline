@@ -1,0 +1,109 @@
+.courses-boxes-container {
+   width: 100%;
+   height: 500px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.courses-boxes {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   width: 100%;
+}
+
+.courses-boxes-title h3 {
+   font-size: 24px;
+}
+
+/* .title-border-bottom {
+   position: relative;
+}
+
+.border-bottom-container {
+   position: absolute;
+   width: 100%;
+   height: 4px;
+   bottom: -11px;
+}
+
+.border-bottom {
+   position: absolute;
+   height: 100%;
+   background: red;
+   border-radius: 7px;
+   -webkit-border-radius: 7px;
+   -moz-border-radius: 7px;
+   -ms-border-radius: 7px;
+   -o-border-radius: 7px;
+}
+
+.border-bottom-1 {
+   width: 20%;
+}
+.border-bottom-2 {
+   width: 15%;
+   right: 25%;
+} */
+
+.course-box {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   background: #f0f0f0;
+   border-radius: 12px;
+   padding: 30px 25px;
+   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.18);
+   cursor: pointer;
+   transition: all 0.3s ease-in-out;
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -ms-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   -webkit-border-radius: 12px;
+   -moz-border-radius: 12px;
+   -ms-border-radius: 12px;
+   -o-border-radius: 12px;
+}
+
+.course-box:hover {
+   transform: translateY(-4px);
+   -webkit-transform: translateY(-4px);
+   -moz-transform: translateY(-4px);
+   -ms-transform: translateY(-4px);
+   -o-transform: translateY(-4px);
+   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+.courses-boxes-title {
+   margin: 3rem 0;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+
+.course-box-img {
+   width: 250px;
+   height: 250px;
+   overflow: hidden;
+   border-radius: 12px;
+   -webkit-border-radius: 12px;
+   -moz-border-radius: 12px;
+   -ms-border-radius: 12px;
+   -o-border-radius: 12px;
+}
+
+.course-box-text {
+   margin-top: 1rem;
+}
+.course-box-text p {
+   font-size: 20px;
+}
+
+.course-box-img img {
+   width: 100%;
+   height: 100%;
+}
