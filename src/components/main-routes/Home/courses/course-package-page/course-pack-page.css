@@ -26,7 +26,6 @@
    justify-content: center;
    align-items: center;
    margin: 60px 0;
-   background: var(--yellow);
 }
 
 .filter-items {
@@ -41,5 +40,19 @@
    background: none;
    font-size: 20px;
    cursor: pointer;
-   color: var(--Gblack);
+   padding: 5px 10px;
+   border-radius: 7px;
+}
+
+.filter-item button.active {
+   background: #eaeaea;
+}
+
+.loader {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 35vh;
+   color: blue;
 }
