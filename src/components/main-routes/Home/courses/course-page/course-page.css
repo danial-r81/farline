@@ -1,0 +1,344 @@
+.courses-item-container {
+   width: 95%;
+   margin: auto;
+}
+.course-item-right {
+   width: 25%;
+   height: 500px;
+   box-shadow: 0 0 5px 1px #e0e0e0;
+   position: fixed;
+   border-radius: 10px;
+}
+.course-item-detail {
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.detail-price {
+   height: 20%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 10px;
+}
+.border-price {
+   width: 80%;
+   height: 5px;
+   background-color: aqua;
+   border-radius: 10px;
+   margin-bottom: 20px;
+}
+.detail-price i {
+   margin: 0 0 0 20px;
+   font-size: 30px;
+}
+.detail-price span {
+   font-size: 20px;
+}
+.ditails-courses {
+   height: 50%;
+   display: flex;
+   align-items: flex-start;
+   justify-content: center;
+   flex-direction: column;
+   margin-bottom: 20px;
+}
+
+.ditails-courses div {
+   margin: 20px 0;
+}
+.ditail-name-course i {
+   margin: 0 0 0 20px;
+   font-size: 30px;
+}
+.ditail-name-course span {
+   font-size: 20px;
+}
+.ditail-teacher i {
+   margin: 0 0 0 20px;
+   font-size: 30px;
+}
+.ditail-teacher span {
+   font-size: 20px;
+}
+.ditail-number i {
+   margin: 0 0 0 20px;
+   font-size: 30px;
+}
+.ditail-number span {
+   font-size: 20px;
+}
+.ditail-time i {
+   margin: 0 0 0 20px;
+   font-size: 30px;
+}
+.ditail-time span {
+   font-size: 20px;
+}
+.ditail-buy-course {
+   width: 90%;
+   height: 20%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.ditail-buy-course button {
+   width: 100%;
+   padding: 10px;
+   border-radius: 10px;
+   outline: none;
+   background-color: green;
+   cursor: pointer;
+   font-size: 20px;
+   color: #fff;
+   border: none;
+}
+.course-item-left {
+   width: 70%;
+   box-shadow: 0 0 5px 1px #e0e0e0;
+   border-radius: 10px;
+   margin: 20px 30% 20px 50px;
+}
+.course-item-content-top {
+   width: 100%;
+}
+.item-video {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 20px;
+}
+.item-video video {
+   width: 50%;
+   border-radius: 10px;
+}
+.item-description {
+   width: 100%;
+   padding: 20px;
+}
+.item-description h3 {
+   font-size: 30px;
+   margin-bottom: 20px;
+}
+.item-description span {
+   line-height: 30px;
+   font-size: 20px;
+}
+.course-item-content-bottom {
+   width: 90%;
+   margin: auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.item-ditail-sessions {
+   width: 100%;
+   height: 70px;
+   padding: 10px;
+   margin-bottom: 20px;
+   border: 2px dotted #c0c0c0;
+   border-radius: 10px;
+   list-style: none;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.ditail-sessions-right {
+   width: 20%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.ditail-sessions-left {
+   width: 18%;
+   height: 90%;
+   margin-left: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.number-circle {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 40px;
+   height: 40px;
+   border: 2px solid #c0c0c0;
+   border-radius: 50%;
+   padding: 10px 15px;
+   font-size: 20px;
+}
+.session-title h3 {
+   font-size: 20px;
+}
+
+.play-icon {
+   padding: 10px;
+   border-right: 1px solid #c0c0c0;
+}
+.play-icon i {
+   margin-right: 20px;
+   font-size: 20px;
+}
+.detail-courses-btn {
+   width: 100px;
+   height: 50px;
+   background-color: transparent;
+   outline: none;
+   border: 1px solid #c0c0c0;
+   color: #c0c0c0;
+   border-radius: 10px;
+   cursor: pointer;
+   z-index: 10;
+}
+@media screen and (max-width: 1200px) {
+   .ditail-sessions-right {
+      width: 30%;
+   }
+   .ditail-sessions-left {
+      width: 30%;
+   }
+   .detail-price span {
+      font-size: 18px;
+      text-align: center;
+   }
+   .ditail-name-course {
+      font-size: 18px;
+      text-align: center;
+   }
+   .ditail-teacher span {
+      font-size: 18px;
+      text-align: center;
+   }
+   .ditail-number span {
+      font-size: 18px;
+      text-align: center;
+   }
+   .ditail-time span {
+      font-size: 18px;
+      text-align: center;
+   }
+   .border-price {
+      margin-bottom: 30px;
+   }
+   .course-item-detail {
+      padding: 10px;
+   }
+   .ditails-courses div {
+      display: flex;
+   }
+}
+@media screen and (max-width: 800px) {
+   .courses-item-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+   }
+   .course-item-right {
+      position: relative;
+      width: 100%;
+      margin: 20px 0;
+   }
+   .course-item-left {
+      width: 100%;
+      margin: 20px 0;
+   }
+   .ditail-sessions-right {
+      width: 25%;
+   }
+   .ditail-sessions-left {
+      width: 25%;
+   }
+   .session-title h3 {
+      margin-right: 15px;
+      font-size: 18px;
+   }
+   .session-time h3 {
+      margin-left: 15px;
+      font-size: 18px;
+   }
+   .item-description h3 {
+      font-size: 28px;
+   }
+   .item-description span {
+      font-size: 20px;
+   }
+   .ditail-buy-course {
+      width: 60%;
+   }
+   .item-video {
+      margin: 4rem 0;
+   }
+   .border-price {
+      width: 60%;
+   }
+}
+
+@media screen and (max-width: 695px) {
+   .ditail-sessions-right {
+      width: 35%;
+   }
+   .ditail-sessions-left {
+      width: 30%;
+   }
+
+   .session-title h3 {
+      margin-right: 12px;
+      font-size: 20px;
+   }
+   .session-time h3 {
+      margin-left: 12px;
+      font-size: 20px;
+   }
+   .item-description h3 {
+      font-size: 25px;
+   }
+   .item-description span {
+      font-size: 18px;
+   }
+}
+@media screen and (max-width: 530px) {
+   .item-ditail-sessions {
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+   }
+   .ditail-sessions-right {
+      width: 100%;
+      margin-bottom: 10px;
+
+      justify-content: flex-start;
+   }
+   .ditail-sessions-left {
+      width: 100%;
+
+      justify-content: flex-end;
+   }
+   .number-circle {
+      width: 37px;
+      height: 37px;
+   }
+   .session-title h3 {
+      margin-right: 10px;
+      font-size: 18px;
+   }
+   .session-time h3 {
+      margin-left: 10px;
+      font-size: 18px;
+   }
+   .item-description h3 {
+      font-size: 20px;
+   }
+   .item-description span {
+      font-size: 15px;
+   }
+}

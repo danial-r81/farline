@@ -145,8 +145,7 @@ export const fillProfileHandler = createAsyncThunk(
    async (arg, { getState }) => {
       console.log(arg);
       const state = getState();
-      const danial = process.env.REACT_APP_VALIDATION_CODE;
-      console.log(danial);
+      const VALIDATION_CODE = process.env.REACT_APP_VALIDATION_CODE;
       const { firstName, lastName, password, grade } = arg.value;
       const { navigate } = arg;
       const { nationalCode } = state.userReducer.userInfo;
@@ -158,7 +157,7 @@ export const fillProfileHandler = createAsyncThunk(
          grade,
          phoneNumber,
          nationalCode,
-         danial,
+         VALIDATION_CODE,
       };
       console.log(user);
 

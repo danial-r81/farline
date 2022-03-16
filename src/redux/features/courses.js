@@ -3,6 +3,8 @@ import {
    getCoursesPackages,
    getCoursPack,
    getCourseItems,
+   getCourse,
+   getCourseSessions,
 } from '../../services/coursesServices';
 
 export const getCoursesPackageHandler = createAsyncThunk(
@@ -73,12 +75,59 @@ export const getCoursesItemsHandler = createAsyncThunk(
    }
 );
 
+export const getCourseHandler = createAsyncThunk('get-course', async (arg) => {
+   const { code, navigate } = arg;
+   try {
+      const { data, status } = await getCourse(code);
+      if (status === 200) {
+         console.log(status);
+         console.log(data);
+         localStorage.setItem('course_code', code);
+         navigate(`/courses/${data.path}`);
+         return { data };
+      }
+   } catch (er) {
+      console.log(er);
+   }
+});
+
+export const getCourseAfterRefresh = createAsyncThunk(
+   'get-course-ar',
+   async (arg) => {
+      try {
+         const { data, status } = await getCourse(arg);
+         if (status === 200) {
+            return { data };
+         }
+      } catch (er) {
+         console.log(er);
+      }
+   }
+);
+
+export const getCourseSessionsHandler = createAsyncThunk(
+   'get-sessions',
+   async (arg) => {
+      try {
+         const { data, status } = await getCourseSessions(arg);
+         if (status === 200) {
+            console.log(data);
+            return { data };
+         }
+      } catch (er) {
+         console.log(er);
+      }
+   }
+);
+
 const coursesReducer = createSlice({
    name: 'courses',
    initialState: {
       coursePackages: [],
       coursePackageItems: [],
       coursesItems: [],
+      courseSessions: [],
+      course: {},
       packageTitle: '',
       firstButtonClassName: '',
       loading: false,
@@ -104,6 +153,15 @@ const coursesReducer = createSlice({
       [getCoursesItemsHandler.fulfilled]: (state, action) => {
          state.coursesItems = action.payload;
          state.loading = false;
+      },
+      [getCourseHandler.fulfilled]: (state, action) => {
+         state.course = action.payload.data;
+      },
+      [getCourseAfterRefresh.fulfilled]: (state, action) => {
+         state.course = action.payload.data;
+      },
+      [getCourseSessionsHandler.fulfilled]: (state, action) => {
+         state.courseSessions = action.payload.data;
       },
    },
 });

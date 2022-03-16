@@ -35,7 +35,7 @@ const PanelNav = () => {
                   <NavLink to='/profile/courses' className='panel-title'>
                      {/* <i className='fa fa-book'></i> */}
                      <img src={bookLogo} alt='' />
-                     <p>درس های من</p>
+                     <p>کلاس های من</p>
                   </NavLink>
                </button>
             </li>

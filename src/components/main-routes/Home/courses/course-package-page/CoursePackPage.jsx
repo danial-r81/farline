@@ -10,13 +10,8 @@ import { RingLoader } from 'react-spinners';
 import './course-pack-page.css';
 const CoursePackPage = () => {
    const dispatch = useDispatch();
-   const {
-      coursePackageItems,
-      coursesItems,
-      packageTitle,
-      loading,
-      firstButtonClassName,
-   } = useSelector((state) => state.coursesReducer);
+   const { coursePackageItems, coursesItems, packageTitle, loading } =
+      useSelector((state) => state.coursesReducer);
    const courseId = localStorage.getItem('course_id');
    const courseItemButtons = document.querySelectorAll('.filter-btn');
    useEffect(() => {

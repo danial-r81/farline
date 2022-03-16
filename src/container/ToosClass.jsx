@@ -28,6 +28,7 @@ import PanelCourses from '../components/panel/courses/PanelCourses';
 import Cart from '../components/panel/cart/Cart';
 import Suggestion from '../components/panel/suggestion/Suggestion';
 import CoursePackPage from '../components/main-routes/Home/courses/course-package-page/CoursePackPage';
+import CoursePage from '../components/main-routes/Home/courses/course-page/CoursePage';
 
 const ToosClass = () => {
    const { is_active } = useSelector((state) => state.userReducer.userInfo);
@@ -48,6 +49,10 @@ const ToosClass = () => {
                <Route
                   path='/courses/:packageName'
                   element={<CoursePackPage />}
+               />
+               <Route
+                  path='/courses/:pakageName/:course'
+                  element={<CoursePage />}
                />
                <Route path='/key-plan' element={<KeyPlan />} />
                <Route
