@@ -23,8 +23,13 @@ const PanelNav = () => {
          <ul>
             <li>
                <button>
-                  <NavLink to='/profile/dashbord' className='panel-title'>
-                     {/* <i className='fa fa-coffee'></i> */}
+                  <NavLink
+                     to='/profile/dashbord'
+                     className={(navData) =>
+                        navData.isActive
+                           ? 'panel-title active-panel-menu'
+                           : 'panel-title'
+                     }>
                      <img src={dashbordLogo} alt='' />
                      <p>میز مطالعه</p>
                   </NavLink>
@@ -32,8 +37,13 @@ const PanelNav = () => {
             </li>
             <li>
                <button>
-                  <NavLink to='/profile/courses' className='panel-title'>
-                     {/* <i className='fa fa-book'></i> */}
+                  <NavLink
+                     to='/profile/courses'
+                     className={(navData) =>
+                        navData.isActive
+                           ? 'panel-title active-panel-menu'
+                           : 'panel-title'
+                     }>
                      <img src={bookLogo} alt='' />
                      <p>کلاس های من</p>
                   </NavLink>
@@ -41,8 +51,13 @@ const PanelNav = () => {
             </li>
             <li>
                <button>
-                  <NavLink to='/profile/edit-account' className='panel-title'>
-                     {/* <i className='fa fa-edit'></i> */}
+                  <NavLink
+                     to='/profile/edit-account'
+                     className={(navData) =>
+                        navData.isActive
+                           ? 'panel-title active-panel-menu'
+                           : 'panel-title'
+                     }>
                      <img src={changePassword} alt='' />
                      <p>تغییر رمز عبور</p>
                   </NavLink>
@@ -52,8 +67,11 @@ const PanelNav = () => {
                <button>
                   <NavLink
                      to='/profile/suggested-courses'
-                     className='panel-title'>
-                     {/* <i className='fa fa-fire'></i> */}
+                     className={(navData) =>
+                        navData.isActive
+                           ? 'panel-title active-panel-menu'
+                           : 'panel-title'
+                     }>
                      <img src={discountLogo} alt='' />
                      <p>دوره های پیشنهادی</p>
                   </NavLink>
@@ -61,7 +79,13 @@ const PanelNav = () => {
             </li>
             <li>
                <button>
-                  <NavLink to='/profile/cart' className='panel-title'>
+                  <NavLink
+                     to='/profile/cart'
+                     className={(navData) =>
+                        navData.isActive
+                           ? 'panel-title active-panel-menu'
+                           : 'panel-title'
+                     }>
                      <img src={cartLogo} alt='' />
                      <p>سبد خرید</p>
                   </NavLink>
@@ -70,7 +94,6 @@ const PanelNav = () => {
             <li>
                <button onClick={() => dispatch(logoutHandler(history))}>
                   <a href='' onClick={(e) => e.preventDefault()}>
-                     {/* <i className='fa fa-sign-out'></i> */}
                      <img src={logoutLogo} alt='' />
                      <p>خروج</p>
                   </a>
