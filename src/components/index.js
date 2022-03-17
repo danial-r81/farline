@@ -13,6 +13,9 @@ export { default as ForgetPassword } from './forms/ForgetPassword';
 export { default as ForgotPassCode } from './forms/ForgotPassCode';
 export { default as ChangePassword } from './forms/ChangePassword';
 
+//fartak news
+export { default as FartakNews } from './main-routes/fartak-news/FartakNews';
+
 // panel
 export { default as Panel } from './panel/Panel';
 

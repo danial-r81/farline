@@ -58,7 +58,7 @@ const Nav = () => {
                   </li>
                   <li class='menu-item'>
                      <NavLink
-                        to='/news'
+                        to='/fartak-news'
                         className='menu-link'
                         exact
                         onClick={mobileMenuToggler}>

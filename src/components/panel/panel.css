@@ -158,6 +158,8 @@ a.active-panel-menu {
    position: absolute;
    left: 35px;
    top: 18px;
+   cursor: pointer;
+   z-index: 20;
 }
 .panel-logo img {
    width: 100%;

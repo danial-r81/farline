@@ -5,6 +5,7 @@ import { hamMenuLogo, logo } from '../../assets';
 import { Outlet, useLocation, useNavigate } from 'react-router';
 
 import './panel.css';
+import { Link } from 'react-router-dom';
 
 const Panel = () => {
    const navigate = useNavigate();
@@ -26,9 +27,9 @@ const Panel = () => {
       <div className='panel-contain'>
          <PanelNav />
          <div className='panel-main'>
-            <div className='panel-logo'>
+            <Link to='/' className='panel-logo'>
                <img src={logo} alt='' />
-            </div>
+            </Link>
             <div className='panel-bar'>
                <div className='left-bar'>
                   {firstName && lastName ? (

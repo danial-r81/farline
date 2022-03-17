@@ -20,6 +20,7 @@ import {
    Provisions,
    UsualQuestions,
    KeyPlan,
+   FartakNews,
 } from '../components/index';
 import { AnimatePresence } from 'framer-motion';
 import Dashbord from '../components/panel/dashbord/Dashbord';
@@ -67,6 +68,7 @@ const ToosClass = () => {
                <Route path='/about-us' element={<AboutUs />} />
                <Route path='/provisions' element={<Provisions />} />
                <Route path='/usual-questions' element={<UsualQuestions />} />
+               <Route path='/fartak-news' element={<FartakNews />} />
                <Route path='/' element={<HomePage />} />
                <Route path='*' element={<PageNotFound />} />
             </Routes>
