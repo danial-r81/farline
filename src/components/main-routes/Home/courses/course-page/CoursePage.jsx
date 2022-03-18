@@ -10,14 +10,9 @@ import { addCourseToCartHandler } from '../../../../../redux/features/cart';
 import './course-page.css';
 const CoursePage = () => {
    const dispatch = useDispatch();
-   const { course, courseSessions } = useSelector(
-      (state) => state.coursesReducer
-   );
+   const { course, courseSessions } = useSelector((state) => state.courses);
    const phoneNumber = localStorage.getItem('phoneNumber');
    const code = localStorage.getItem('course_code');
-   console.log(phoneNumber);
-   console.log(code);
-   console.log(courseSessions);
 
    useEffect(() => {
       dispatch(getCourseAfterRefresh(localStorage.getItem('course_code')));

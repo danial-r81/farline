@@ -12,7 +12,6 @@ export const getCoursesPackageHandler = createAsyncThunk(
    async () => {
       try {
          const { data, status } = await getCoursesPackages();
-         console.log(data);
          if (status === 200) {
             return { data };
          }
@@ -28,7 +27,6 @@ export const getCoursePackHandler = createAsyncThunk(
       const { navigate, item } = arg;
       try {
          const { data, status } = await getCoursPack(item.code);
-         console.log(data);
          if (status === 200) {
             localStorage.setItem('course_id', item.code);
             navigate(`/courses/${item.path}`);
@@ -43,13 +41,11 @@ export const getCoursePackHandler = createAsyncThunk(
 export const getCoursePackAfterRefresh = createAsyncThunk(
    'get-package-items-ar',
    async (arg, { dispatch }) => {
-      console.log(arg);
       try {
          const { data, status } = await getCoursPack(arg);
          const firstItemOfData = data[0].code;
          if (status === 200) {
             dispatch(getCoursesItemsHandler(firstItemOfData));
-            console.log('data', data);
             return { data };
          }
       } catch (er) {
@@ -61,12 +57,9 @@ export const getCoursePackAfterRefresh = createAsyncThunk(
 export const getCoursesItemsHandler = createAsyncThunk(
    'get-courses-items',
    async (arg) => {
-      console.log(arg);
       try {
          const { data, status } = await getCourseItems(arg);
-         console.log(data);
          if (status === 200) {
-            console.log('done');
             return data;
          }
       } catch (er) {
@@ -80,8 +73,6 @@ export const getCourseHandler = createAsyncThunk('get-course', async (arg) => {
    try {
       const { data, status } = await getCourse(code);
       if (status === 200) {
-         console.log(status);
-         console.log(data);
          localStorage.setItem('course_code', code);
          navigate(`/courses/${data.path}`);
          return { data };
@@ -111,7 +102,6 @@ export const getCourseSessionsHandler = createAsyncThunk(
       try {
          const { data, status } = await getCourseSessions(arg);
          if (status === 200) {
-            console.log(data);
             return { data };
          }
       } catch (er) {
@@ -137,15 +127,12 @@ const coursesReducer = createSlice({
          state.coursePackages = action.payload.data;
       },
       [getCoursePackHandler.fulfilled]: (state, action) => {
-         console.log(action.payload);
          state.coursePackageItems = action.payload;
       },
       [getCoursePackAfterRefresh.fulfilled]: (state, action) => {
          state.coursePackageItems = action.payload.data;
          state.packageTitle = action.payload.data[0].package_title;
          state.firstButtonClassName = 'active';
-         console.log(state.coursePackageItems);
-         console.log('doe');
       },
       [getCoursesItemsHandler.pending]: (state, action) => {
          state.loading = true;

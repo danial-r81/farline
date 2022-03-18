@@ -18,8 +18,13 @@ export const addCourseToCartHandler = createAsyncThunk(
             Toast.toastSuccess('دوره به سبد خرید اضافه شد.');
             return { data };
          }
-      } catch (er) {
-         console.log(er);
+      } catch (e) {
+         if (e.response) {
+            console.log(e.response);
+            if (e.response.status === 400) {
+               Toast.toastWarning('این دوره در سبد خرید موجود است.');
+            }
+         }
       }
    }
 );
@@ -30,7 +35,6 @@ export const getUserCartHandler = createAsyncThunk(
       try {
          const { data, status } = await getUserCartItems(arg);
          if (status === 200) {
-            console.log(data);
             return { data };
          }
       } catch (er) {
@@ -45,7 +49,6 @@ export const deleteCourseHandler = createAsyncThunk(
       try {
          const { data, status } = await deleteCourse(arg);
          if (status === 204) {
-            console.log(data);
             window.location.reload();
             return { data };
          }
@@ -61,7 +64,6 @@ export const getTotalPriceHandler = createAsyncThunk(
       try {
          const { data, status } = await getTotalPrice(arg);
          if (status === 200) {
-            console.log(data);
             return { data };
          }
       } catch (er) {
@@ -92,17 +94,14 @@ const cartReducer = createSlice({
       totalPrice: '',
       totalCount: 0,
       disCountCode: '',
+      weekPlanImgUrl: '',
    },
    reducers: {
       setDisCountCode: (state, action) => {
          state.disCountCode = action.payload;
-         console.log(action);
       },
    },
    extraReducers: {
-      [addCourseToCartHandler.fulfilled]: (state, action) => {
-         console.log(action);
-      },
       [getUserCartHandler.fulfilled]: (state, action) => {
          state.cart = action.payload.data;
       },

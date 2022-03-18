@@ -6,7 +6,7 @@ import CreateSliser from '../../../slider/CreateSlider';
 
 export const TeacherGallery = () => {
    const dispatch = useDispatch();
-   const teachers = useSelector((state) => state.teacherReducer.teachers);
+   const teachers = useSelector((state) => state.teacher.teachers);
    useEffect(() => {
       dispatch(teachersInfo());
    }, []);

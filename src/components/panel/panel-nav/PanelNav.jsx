@@ -1,18 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logoutHandler } from '../../../redux/features/userInfo';
-import { withRouter } from 'react-router-dom';
-import MediaQuery from 'react-responsive';
 import { useNavigate } from 'react-router';
-
-import {
-   dashbordLogo,
-   bookLogo,
-   changePassword,
-   discountLogo,
-   logoutLogo,
-   cartLogo,
-} from '../../../assets/index';
 
 const PanelNav = () => {
    const dispatch = useDispatch();
@@ -30,7 +19,7 @@ const PanelNav = () => {
                            ? 'panel-title active-panel-menu'
                            : 'panel-title'
                      }>
-                     <img src={dashbordLogo} alt='' />
+                     <i class='bi bi-cup'></i>
                      <p>میز مطالعه</p>
                   </NavLink>
                </button>
@@ -44,7 +33,7 @@ const PanelNav = () => {
                            ? 'panel-title active-panel-menu'
                            : 'panel-title'
                      }>
-                     <img src={bookLogo} alt='' />
+                     <i class='bi bi-journal-text'></i>
                      <p>کلاس های من</p>
                   </NavLink>
                </button>
@@ -58,7 +47,7 @@ const PanelNav = () => {
                            ? 'panel-title active-panel-menu'
                            : 'panel-title'
                      }>
-                     <img src={changePassword} alt='' />
+                     <i class='bi bi-key'></i>
                      <p>تغییر رمز عبور</p>
                   </NavLink>
                </button>
@@ -72,7 +61,7 @@ const PanelNav = () => {
                            ? 'panel-title active-panel-menu'
                            : 'panel-title'
                      }>
-                     <img src={discountLogo} alt='' />
+                     <i class='bi bi-gift'></i>
                      <p>دوره های پیشنهادی</p>
                   </NavLink>
                </button>
@@ -86,15 +75,15 @@ const PanelNav = () => {
                            ? 'panel-title active-panel-menu'
                            : 'panel-title'
                      }>
-                     <img src={cartLogo} alt='' />
+                     <i class='bi bi-cart3'></i>
                      <p>سبد خرید</p>
                   </NavLink>
                </button>
             </li>
             <li>
                <button onClick={() => dispatch(logoutHandler(history))}>
-                  <a href='' onClick={(e) => e.preventDefault()}>
-                     <img src={logoutLogo} alt='' />
+                  <a href='#' onClick={(e) => e.preventDefault()}>
+                     <i class='bi bi-box-arrow-right'></i>
                      <p>خروج</p>
                   </a>
                </button>

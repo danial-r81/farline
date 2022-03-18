@@ -5,9 +5,7 @@ import Input from './Input';
 import FormContainer from './form-container/FormContainer';
 
 const ChangePassword = () => {
-   const phoneNumber = useSelector(
-      (state) => state.userReducer.userInfo.phoneNumber
-   );
+   const phoneNumber = useSelector((state) => state.user.userInfo.phoneNumber);
    const dispatch = useDispatch();
    const navigate = useNavigate();
 

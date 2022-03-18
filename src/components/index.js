@@ -13,6 +13,12 @@ export { default as ForgetPassword } from './forms/ForgetPassword';
 export { default as ForgotPassCode } from './forms/ForgotPassCode';
 export { default as ChangePassword } from './forms/ChangePassword';
 
+//course package page
+export { default as CoursePackPage } from './main-routes/Home/courses/course-package-page/CoursePackPage';
+
+//course page
+export { default as CoursePage } from './main-routes/Home/courses/course-page/CoursePage';
+
 //fartak news
 export { default as FartakNews } from './main-routes/fartak-news/FartakNews';
 
@@ -24,9 +30,6 @@ export { default as TeacherGallery } from './main-routes/teacher-gallery/Teacher
 
 // contact-us
 export { default as Contact } from './main-routes/contact-us/Contact';
-
-// courses
-export { default as Courses } from './main-routes/Home/courses/Courses';
 
 // key plan
 export { default as KeyPlan } from './main-routes/key-plan/KeyPlan';

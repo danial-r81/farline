@@ -10,7 +10,7 @@ import './cart.css';
 
 const Cart = () => {
    const dispatch = useDispatch();
-   const { cart } = useSelector((state) => state.cartReducer);
+   const { cart } = useSelector((state) => state.cart);
 
    const phoneNumber = localStorage.getItem('phoneNumber');
 

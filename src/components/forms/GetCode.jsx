@@ -7,7 +7,7 @@ import Input from './Input';
 const GetCode = () => {
    const dispatch = useDispatch();
    const navigate = useNavigate();
-   const { code } = useSelector((state) => state.userReducer);
+   const { code } = useSelector((state) => state.user);
    const phoneNumber = localStorage.getItem('phoneNumber');
 
    const onSubmit = (values) => {

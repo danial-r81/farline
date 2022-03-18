@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import config from '../../../services/config.json';
 
 const Teacher = ({ teacher }) => {
-   console.log(teacher);
    return (
       <div class='teacher-container'>
          <div class='teacher-1 teacher-edu'>

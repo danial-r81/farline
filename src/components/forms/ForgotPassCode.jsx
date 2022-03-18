@@ -10,15 +10,13 @@ const ForgotPassCode = () => {
    const phoneNumber = localStorage.getItem('phoneNumber');
    const navigate = useNavigate();
 
-   const code = useSelector((state) => state.userReducer.code);
+   const code = useSelector((state) => state.user.code);
 
    const goToChangePassword = () => {
       const input = document.querySelector('.input-code').value;
-      console.log(input);
-      console.log(code);
+
       if (input === code) {
          navigate('/change-password');
-         console.log('ok');
       } else {
          Toast.toastError('کد وارد شده صحیح نمی بشد');
       }

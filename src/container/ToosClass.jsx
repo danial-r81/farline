@@ -1,5 +1,6 @@
 import { Route, useLocation, Routes } from 'react-router';
 import { useSelector } from 'react-redux';
+import { AnimatePresence } from 'framer-motion';
 import {
    HomePage,
    MainLayout,
@@ -14,25 +15,25 @@ import {
    ChangePassword,
    Panel,
    Contact,
-   Courses,
    PageNotFound,
    AccessDenied,
    Provisions,
    UsualQuestions,
    KeyPlan,
    FartakNews,
+   CoursePackPage,
+   CoursePage,
 } from '../components/index';
-import { AnimatePresence } from 'framer-motion';
-import Dashbord from '../components/panel/dashbord/Dashbord';
-import EditAccount from '../components/panel/edit-account/EditAccount';
-import PanelCourses from '../components/panel/courses/PanelCourses';
-import Cart from '../components/panel/cart/Cart';
-import Suggestion from '../components/panel/suggestion/Suggestion';
-import CoursePackPage from '../components/main-routes/Home/courses/course-package-page/CoursePackPage';
-import CoursePage from '../components/main-routes/Home/courses/course-page/CoursePage';
+import {
+   Cart,
+   Dashbord,
+   EditAccount,
+   OnlineClasses,
+   Suggestions,
+} from '../components/panel/index';
 
 const ToosClass = () => {
-   const { is_active } = useSelector((state) => state.userReducer.userInfo);
+   const { is_active } = useSelector((state) => state.user.userInfo);
    const location = useLocation();
    return (
       <MainLayout>
@@ -61,9 +62,9 @@ const ToosClass = () => {
                   element={is_active ? <Panel /> : <AccessDenied />}>
                   <Route path='dashbord' element={<Dashbord />} />
                   <Route path='edit-account' element={<EditAccount />} />
-                  <Route path='courses' element={<PanelCourses />} />
+                  <Route path='courses' element={<OnlineClasses />} />
                   <Route path='cart' element={<Cart />} />
-                  <Route path='suggested-courses' element={<Suggestion />} />
+                  <Route path='suggested-courses' element={<Suggestions />} />
                </Route>
                <Route path='/about-us' element={<AboutUs />} />
                <Route path='/provisions' element={<Provisions />} />

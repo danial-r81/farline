@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import Input from './Input';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { loginHandler } from '../../redux/features/userInfo';
+import Input from './Input';
+import {
+   getCsrfTokenHandler,
+   loginHandler,
+} from '../../redux/features/userInfo';
 import FormContainer from './form-container/FormContainer';
-import http from '../../services/httpService';
-import config from '../../services/config.json';
 
 import './form.css';
 
@@ -15,20 +16,7 @@ const Login = () => {
    const navigate = useNavigate();
 
    useEffect(() => {
-      http
-         .get(`${config.baseUrl}/api/csrf/`)
-         .then((res) => {
-            console.log(res);
-         })
-         .catch((e) => {
-            if (e.response) {
-               console.log(e.response);
-            } else if (e.message) {
-               console.log(e.message);
-            } else if (e.request) {
-               console.log(e.request);
-            }
-         });
+      dispatch(getCsrfTokenHandler());
    }, []);
    const onSubmit = (value) => {
       dispatch(loginHandler({ value, navigate }));

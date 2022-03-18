@@ -1,15 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { ScaleLoader } from 'react-spinners';
 
 import './course-items.css';
 import CourseItem from './CourseItem';
 const CoursesItems = ({ coursesItems }) => {
-   const { loading } = useSelector((state) => state.coursesReducer);
    const CoursesContainer = () => (
       <section className='main-box-courses'>
-         {coursesItems.map((item) => (
-            <CourseItem item={item} />
+         {coursesItems.map((item, index) => (
+            <CourseItem item={item} key={index} />
          ))}
       </section>
    );
@@ -20,7 +17,6 @@ const CoursesItems = ({ coursesItems }) => {
       </div>
    );
 
-   console.log(coursesItems);
    return (
       <>{coursesItems.length !== 0 ? <CoursesContainer /> : <EmptyCourses />}</>
    );

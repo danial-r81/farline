@@ -32,8 +32,8 @@ const CreateSlider = ({
             }}
             navigation={true}
             className='teacher-swiper'>
-            {items.map((item) => (
-               <SwiperSlide>
+            {items.map((item, index) => (
+               <SwiperSlide key={index}>
                   <SliderItem item={item} sliderAs={sliderAs} />
                </SwiperSlide>
             ))}
@@ -51,8 +51,8 @@ CreateSlider.propTypes = {
    items: PropTypes.array.isRequired,
    topic: PropTypes.string.isRequired,
    slidesPerView: PropTypes.number.isRequired,
-   minWidth: PropTypes.number.isRequired,
-   maxWidth: PropTypes.number.isRequired,
+   minWidth: PropTypes.number,
+   maxWidth: PropTypes.number,
    sliderAs: PropTypes.string.isRequired,
    btnTopic: PropTypes.string.isRequired,
    goTo: PropTypes.string.isRequired,

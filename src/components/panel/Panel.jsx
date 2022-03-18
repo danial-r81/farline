@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import PanelNav from './panel-nav/PanelNav';
-import { hamMenuLogo, logo } from '../../assets';
+import logo from '../../assets/logo.png';
 import { Outlet, useLocation, useNavigate } from 'react-router';
 
 import './panel.css';
@@ -10,9 +10,7 @@ import { Link } from 'react-router-dom';
 const Panel = () => {
    const navigate = useNavigate();
    const { pathname } = useLocation();
-   const { firstName, lastName } = useSelector(
-      (state) => state.userReducer.userInfo
-   );
+   const { firstName, lastName } = useSelector((state) => state.user.userInfo);
 
    if (pathname === '/profile') navigate('/profile/dashbord');
 
@@ -39,7 +37,7 @@ const Panel = () => {
                   ) : null}
                </div>
                <div className='Hmenu' onClick={toggleMenu}>
-                  <img src={hamMenuLogo} alt='' />
+                  <i class='bi bi-list'></i>
                </div>
             </div>
             <div className='panel-table'>

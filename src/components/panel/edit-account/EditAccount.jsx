@@ -7,8 +7,7 @@ import Toast from '../../../toasts/toasts';
 
 const EditAccount = () => {
    const dispatch = useDispatch();
-   const password = useSelector((state) => state.userReducer.userInfo.password);
-   console.log(password);
+   const password = useSelector((state) => state.user.userInfo.password);
 
    const initialValues = {
       password: '',

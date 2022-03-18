@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getDiscountHandler } from '../../../../redux/features/cart';
@@ -6,9 +6,7 @@ import CartItem from '../cart-item/CartItem';
 
 const CartContainer = () => {
    const dispatch = useDispatch();
-   const { cart, totalPrice, totalCount } = useSelector(
-      (state) => state.cartReducer
-   );
+   const { cart, totalPrice, totalCount } = useSelector((state) => state.cart);
    const [disCountCode, setDisCountCode] = useState(null);
    const phoneNumber = localStorage.getItem('phoneNumber');
    return (

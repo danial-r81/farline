@@ -11,7 +11,7 @@ import './course-pack-page.css';
 const CoursePackPage = () => {
    const dispatch = useDispatch();
    const { coursePackageItems, coursesItems, packageTitle, loading } =
-      useSelector((state) => state.coursesReducer);
+      useSelector((state) => state.courses);
    const courseId = localStorage.getItem('course_id');
    const courseItemButtons = document.querySelectorAll('.filter-btn');
    useEffect(() => {

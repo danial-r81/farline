@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-// import { useHistory } from 'react-router';
 import Toasts from '../../toasts/toasts';
 import Cookies from 'js-cookie';
 import {
@@ -11,32 +10,29 @@ import {
    userLogin,
    logout,
    changePasswordFromPanel,
+   getCsrtToken,
 } from '../../services/userServices';
 
-export const getCodeAgain = createAsyncThunk(
-   'users/resend-code',
-   async (arg) => {
-      try {
-         const { data } = await resendCode();
-         console.log(data);
-         return Promise.resolve(data);
-      } catch (err) {
-         if (err.response) {
-            console.log(err.response);
-         }
-         if (err.request) {
-            console.log(err.request);
-         }
-         if (err.massage) {
-            console.log(err.massage);
-         }
+export const getCodeAgain = createAsyncThunk('users/resend-code', async () => {
+   try {
+      const { data } = await resendCode();
+      return Promise.resolve(data);
+   } catch (err) {
+      if (err.response) {
+         console.log(err.response);
+      }
+      if (err.request) {
+         console.log(err.request);
+      }
+      if (err.massage) {
+         console.log(err.massage);
       }
    }
-);
+});
 
 export const registerHandler = createAsyncThunk(
    'user/register',
-   async (arg, { getState }) => {
+   async (arg) => {
       const { navigate, value } = arg;
       const { phoneNumber } = value;
       try {
@@ -44,7 +40,6 @@ export const registerHandler = createAsyncThunk(
          const { code } = data;
          if (status === 201) {
             localStorage.setItem('phoneNumber', phoneNumber);
-            console.log(navigate);
             navigate('/get-code');
             return {
                value,
@@ -58,13 +53,20 @@ export const registerHandler = createAsyncThunk(
             }
             return Promise.reject(e.response);
          }
-         if (e.response) {
-            console.log(e.response);
-         } else if (e.message) {
-            console.log(e.message);
-         } else if (e.request) {
-            console.log(e.request);
+      }
+   }
+);
+
+export const getCsrfTokenHandler = createAsyncThunk(
+   'get-csrftoken',
+   async () => {
+      try {
+         const { data, status } = await getCsrtToken();
+         if (status === 200) {
+            return Promise.resolve(data);
          }
+      } catch (er) {
+         console.log(er);
       }
    }
 );
@@ -75,7 +77,6 @@ export const loginHandler = createAsyncThunk('user/login', async (arg) => {
    const { phoneNumber } = value;
    try {
       const { status } = await userLogin(value);
-      console.log(status);
       if (status === 200) {
          Toasts.toastSuccess('login was successful');
          localStorage.setItem('phoneNumber', phoneNumber);
@@ -86,10 +87,6 @@ export const loginHandler = createAsyncThunk('user/login', async (arg) => {
       console.log(e);
       if (e.response) {
          console.log(e.response);
-      } else if (e.message) {
-         console.log(e.message);
-      } else if (e.request) {
-         console.log(e.request);
       }
    }
 });
@@ -99,14 +96,9 @@ export const changePasswordFromPanelHandler = createAsyncThunk(
    async (arg) => {
       try {
          const response = await changePasswordFromPanel(arg);
-         console.log(response);
       } catch (e) {
          if (e.response) {
             console.log(e.response);
-         } else if (e.message) {
-            console.log(e.message);
-         } else if (e.request) {
-            console.log(e.request);
          }
       }
    }
@@ -115,10 +107,8 @@ export const changePasswordFromPanelHandler = createAsyncThunk(
 export const logoutHandler = createAsyncThunk(
    'user/logout',
    async (navigate) => {
-      console.log(navigate);
       try {
          const { status } = await logout();
-         console.log(status);
          //  if (status === 200) {
          navigate('/');
          window.location.reload();
@@ -130,12 +120,6 @@ export const logoutHandler = createAsyncThunk(
          if (err.response) {
             console.log(err.response);
          }
-         if (err.request) {
-            console.log(err.request);
-         }
-         if (err.massage) {
-            console.log(err.massage);
-         }
       }
    }
 );
@@ -143,7 +127,6 @@ export const logoutHandler = createAsyncThunk(
 export const fillProfileHandler = createAsyncThunk(
    'user/fill-profile',
    async (arg, { getState }) => {
-      console.log(arg);
       const state = getState();
       const VALIDATION_CODE = process.env.REACT_APP_VALIDATION_CODE;
       const { firstName, lastName, password, grade } = arg.value;
@@ -159,11 +142,9 @@ export const fillProfileHandler = createAsyncThunk(
          nationalCode,
          VALIDATION_CODE,
       };
-      console.log(user);
 
       try {
          const { status } = await fillProfile(user);
-         console.log(status);
          if (status === 200) {
             navigate('/');
             window.location.reload();
@@ -173,10 +154,6 @@ export const fillProfileHandler = createAsyncThunk(
       } catch (e) {
          if (e.response) {
             console.log(e.response);
-         } else if (e.message) {
-            console.log(e.message);
-         } else if (e.request) {
-            console.log(e.request);
          }
       }
    }
@@ -189,9 +166,6 @@ export const forgotPasswordHandler = createAsyncThunk(
       try {
          const { data, status } = await resendCode(phoneNumber);
          const { code } = data;
-         console.log(code);
-         console.log(data);
-         console.log(status);
 
          if (status === 201) {
             navigate('/enter-code');
@@ -207,12 +181,6 @@ export const forgotPasswordHandler = createAsyncThunk(
       } catch (err) {
          if (err.response) {
             console.log(err.response);
-         }
-         if (err.request) {
-            console.log(err.request);
-         }
-         if (err.massage) {
-            console.log(err.massage);
          }
       }
    }
@@ -232,12 +200,6 @@ export const changePasswordHandler = createAsyncThunk(
          if (err.response) {
             console.log(err.response);
          }
-         if (err.request) {
-            console.log(err.request);
-         }
-         if (err.massage) {
-            console.log(err.massage);
-         }
       }
    }
 );
@@ -246,18 +208,11 @@ export const getAllUsers = createAsyncThunk('user/get-user', async () => {
    try {
       const { data, status } = await getAllUserData();
       if (status === 200) {
-         console.log('okkk');
          return Promise.resolve(data);
       }
    } catch (err) {
       if (err.response) {
          console.log(err.response);
-      }
-      if (err.request) {
-         console.log(err.request);
-      }
-      if (err.massage) {
-         console.log(err.massage);
       }
    }
 });
@@ -274,7 +229,6 @@ const userReducer = createSlice({
    initialState: initialState,
    reducers: {
       checkUseOnceCode: (state, action) => {
-         console.log(action);
          if (action.payload.values.code === action.payload.code) {
             state.isCodeValid = true;
          }
@@ -282,65 +236,28 @@ const userReducer = createSlice({
    },
    extraReducers: {
       [getCodeAgain.fulfilled]: (state, action) => {
-         console.log('done!');
-         console.log(action);
          state.code = action.payload.code;
-      },
-      [getCodeAgain.rejected]: (state, action) => {
-         console.log('error');
-         console.log(action.payload);
       },
 
       [fillProfileHandler.fulfilled]: (state, action) => {
          Object.assign(state.userInfo, action.meta.arg.value);
          state.isLogedIn = true;
-         console.log(action);
-         console.log(state.code);
-      },
-      [fillProfileHandler.rejected]: (state, action) => {
-         console.log('error!!!!');
-         console.log(action);
       },
       [registerHandler.fulfilled]: (state, action) => {
-         // const { navigate } = action.meta.arg;
-         console.log(action);
          Object.assign(state.userInfo, action.payload.value);
          state.code = action.payload.code;
-         // navigate('/get-code');
-      },
-      [registerHandler.rejected]: (state, action) => {
-         console.log(action.meta.arg.value);
       },
       [forgotPasswordHandler.fulfilled]: (state, action) => {
-         console.log(action);
          const { data, code } = action.payload;
          Object.assign(state.userInfo, data);
          state.code = code;
       },
-      [forgotPasswordHandler.rejected]: (state, action) => {
-         console.log(action.meta);
-      },
       [getAllUsers.fulfilled]: (state, action) => {
-         console.log(action);
          Object.assign(state.userInfo, action.payload);
       },
-      [getAllUsers.rejected]: () => {
-         console.log('error');
-      },
-      [getAllUsers.pending]: () => {
-         console.log('pending');
-      },
-      [logoutHandler.fulfilled]: (state, action) => {
-         console.log('logout');
-         console.log(action);
+      [logoutHandler.fulfilled]: () => {
          localStorage.removeItem('phoneNumber');
          window.location.href = '/';
-      },
-      [logoutHandler.rejected]: () => {
-         console.log('logout rejucted');
-      },
-      [logoutHandler.pending]: () => {
-         console.log('logout pending');
       },
    },
 });

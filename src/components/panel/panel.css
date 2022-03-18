@@ -46,6 +46,7 @@
    border-bottom-right-radius: 30px;
    cursor: pointer;
    margin-top: 37px;
+   margin-right: 5px;
 }
 
 .panel-nav ul li a {
@@ -58,8 +59,9 @@
    cursor: pointer;
 }
 
-i {
+.panel-nav i {
    cursor: pointer;
+   font-size: 20px;
 }
 
 .panel-nav ul li a .icon {
@@ -117,13 +119,6 @@ i {
    -moz-transition: 0.3s;
    -ms-transition: 0.3s;
    -o-transition: 0.3s;
-}
-.panel-title:nth-child(6) {
-   padding: 0;
-}
-
-.panel-nav ul li:nth-child(6) {
-   margin-top: 200px;
 }
 
 .panel-main {
@@ -415,9 +410,6 @@ a.active-panel-menu {
    .forgot-password {
       width: 90%;
    }
-   .panel-nav ul li:nth-child(6) {
-      margin-top: 170px;
-   }
    .panel-username {
       font-size: 18px;
    }
@@ -433,6 +425,7 @@ a.active-panel-menu {
       font-size: 14px;
    }
    .panel-main.active .Hmenu {
-      left: 30px;
+      right: -98px;
+      color: #fff;
    }
 }

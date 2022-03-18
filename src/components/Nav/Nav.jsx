@@ -4,9 +4,7 @@ import logo from '../../assets/logo.png';
 
 import './nav.css';
 const Nav = () => {
-   const { firstName, lastName } = useSelector(
-      (state) => state.userReducer.userInfo
-   );
+   const { firstName, lastName } = useSelector((state) => state.user.userInfo);
 
    const mobileMenuToggler = () => {
       document.querySelector('.mobile-menu').classList.toggle('close-btn');
@@ -29,7 +27,7 @@ const Nav = () => {
             <section className='top-nav'>
                <div className='left-flex'>
                   <div className='logo'>
-                     <a href='#'>
+                     <a href='/'>
                         <img src={logo} alt='طوس کلاس' />
                      </a>
                   </div>
@@ -49,45 +47,49 @@ const Nav = () => {
                   <li className='menu-item'>
                      <NavLink
                         to='/'
-                        className='menu-link'
-                        exact
-                        activeClassName='active'
+                        className={(navData) =>
+                           navData.isActive ? 'menu-link active' : 'menu-link'
+                        }
                         onClick={mobileMenuToggler}>
                         صفحه اصلی
                      </NavLink>
                   </li>
-                  <li class='menu-item'>
+                  <li className='menu-item'>
                      <NavLink
                         to='/fartak-news'
-                        className='menu-link'
-                        exact
+                        className={(navData) =>
+                           navData.isActive ? 'menu-link active' : 'menu-link'
+                        }
                         onClick={mobileMenuToggler}>
                         تازه های فرتاک
                      </NavLink>
                   </li>
-                  <li class='menu-item'>
+                  <li className='menu-item'>
                      <NavLink
                         to='/teachers'
-                        className='menu-link'
-                        exact
+                        className={(navData) =>
+                           navData.isActive ? 'menu-link active' : 'menu-link'
+                        }
                         onClick={mobileMenuToggler}>
                         اساتید
                      </NavLink>
                   </li>
-                  <li class='menu-item'>
+                  <li className='menu-item'>
                      <NavLink
                         to='/contact-us'
-                        className='menu-link'
-                        exact
+                        className={(navData) =>
+                           navData.isActive ? 'menu-link active' : 'menu-link'
+                        }
                         onClick={mobileMenuToggler}>
                         ارتباط با ما
                      </NavLink>
                   </li>
-                  <li class='menu-item'>
+                  <li className='menu-item'>
                      <NavLink
                         to='/key-plan'
-                        className='menu-link'
-                        exact
+                        className={(navData) =>
+                           navData.isActive ? 'menu-link active' : 'menu-link'
+                        }
                         onClick={mobileMenuToggler}>
                         نقشه راه
                      </NavLink>

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import FotterBg from '../../../../assets/layered-waves-haikei.svg';
 
 import './footer.css';
 export const Footer = () => {
@@ -9,7 +8,7 @@ export const Footer = () => {
             <div className='footer-right'>
                <div className='footer-container'>
                   <div className='address-boy detail'>
-                     <i class='bi bi-geo-alt'></i>
+                     <i className='bi bi-geo-alt'></i>
                      <p>
                         میدان 9 دی ، جنب سرای محله عباسی ،ابتدای خیابان شیخ
                         محمدی شرقی ، کوچه مدرسه ، کوچه احدی ، دبیرستان غیردولتی
@@ -17,12 +16,12 @@ export const Footer = () => {
                      </p>
                   </div>
                   <div className='tel-boy detail'>
-                     <i class='bi bi-telephone'></i>
+                     <i className='bi bi-telephone'></i>
                      <p>021-55674354</p>
                   </div>
 
                   <div className='address-girl detail'>
-                     <i class='bi bi-geo-alt'></i>
+                     <i className='bi bi-geo-alt'></i>
                      <p>
                         خیابان قلعه مرغی ، میدان شهدای مدافع حرم ، ابتدای نواب
                         جنوب به شمال ، خیابان شیخ محمدی شرقی ، کوچه مدرسه ،
@@ -30,7 +29,7 @@ export const Footer = () => {
                      </p>
                   </div>
                   <div className='tel-girl detail'>
-                     <i class='bi bi-telephone'></i>
+                     <i className='bi bi-telephone'></i>
                      <p>021-91301962</p>
                   </div>
                </div>
@@ -59,8 +58,9 @@ export const Footer = () => {
                   <div className='location-boy'>
                      <a
                         href='https://maps.app.goo.gl/fXg2t6trMPWHdd966'
-                        target='_blank'>
-                        <img src='images/toos.jpg' alt='' />
+                        target='_blank'
+                        rel='noreferrer'>
+                        <img src='images/toos.jpg' alt='fartak-location' />
                      </a>
                   </div>
                </div>

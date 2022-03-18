@@ -11,7 +11,6 @@ const ForgetPassword = () => {
 
    const onSubmit = (values) => {
       const { phoneNumber } = values;
-      console.log(phoneNumber);
       dispatch(forgotPasswordHandler({ phoneNumber, navigate }));
    };
 

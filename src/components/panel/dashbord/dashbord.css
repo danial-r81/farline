@@ -3,6 +3,7 @@
 .card {
    position: relative;
    width: 100%;
+   max-width: 1349px;
    height: 130px;
    display: flex;
    justify-content: space-between;
@@ -47,7 +48,7 @@
 
 .boxs i {
    font-size: 1.8em;
-   color: rgb(124, 123, 121);
+   color: var(--white);
 }
 
 .boxs:hover {

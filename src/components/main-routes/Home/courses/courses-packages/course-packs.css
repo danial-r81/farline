@@ -18,42 +18,12 @@
    font-size: 24px;
 }
 
-/* .title-border-bottom {
-   position: relative;
-}
-
-.border-bottom-container {
-   position: absolute;
-   width: 100%;
-   height: 4px;
-   bottom: -11px;
-}
-
-.border-bottom {
-   position: absolute;
-   height: 100%;
-   background: red;
-   border-radius: 7px;
-   -webkit-border-radius: 7px;
-   -moz-border-radius: 7px;
-   -ms-border-radius: 7px;
-   -o-border-radius: 7px;
-}
-
-.border-bottom-1 {
-   width: 20%;
-}
-.border-bottom-2 {
-   width: 15%;
-   right: 25%;
-} */
-
 .course-box {
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
-   background: #f0f0f0;
+   background: var(--Gblack);
    border-radius: 12px;
    padding: 30px 25px;
    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.18);
@@ -101,6 +71,7 @@
 }
 .course-box-text p {
    font-size: 20px;
+   color: var(--fosfori);
 }
 
 .course-box-img img {

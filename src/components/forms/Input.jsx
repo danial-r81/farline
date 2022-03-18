@@ -33,7 +33,7 @@ Input.propTypes = {
    type: PropTypes.string.isRequired,
    name: PropTypes.string.isRequired,
    id: PropTypes.string,
-   grades: PropTypes.element.isRequired,
+   grades: PropTypes.element,
    placeholder: PropTypes.string.isRequired,
 };
 

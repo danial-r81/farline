@@ -1,12 +1,10 @@
 import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
-import { EffectFade, Navigation, Pagination } from 'swiper';
 import config from '../../../../services/config.json';
 import 'swiper/swiper.min.css';
 
 export function Baner() {
-   const banners = useSelector((state) => state.coverReducer.covers);
-   console.log(banners);
+   const banners = useSelector((state) => state.cover.covers);
 
    return (
       <>
@@ -20,11 +18,11 @@ export function Baner() {
             }}
             navigation={true}
             className='banner-gallery'>
-            {banners?.map((item) => (
-               <SwiperSlide className='banner-slide'>
+            {banners?.map((item, index) => (
+               <SwiperSlide key={index} className='banner-slide'>
                   <img
                      src={`${config.baseUrl}${item.picture}`}
-                     alt=''
+                     alt='fartak-banner'
                      className='banner-img'
                   />
                </SwiperSlide>

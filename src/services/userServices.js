@@ -15,6 +15,10 @@ export const fillProfile = (user) => {
    );
 };
 
+export const getCsrtToken = () => {
+   return http.get(`${config.baseUrl}/api/csrf/`);
+};
+
 export const userLogin = (data) => {
    const user = {
       username: data.phoneNumber,

@@ -4,13 +4,15 @@ import teacherReducer from '../features/teachers';
 import coursesReducer from '../features/courses';
 import coverReducer from '../features/covers';
 import cartReducer from '../features/cart';
+import userPanelReducer from '../features/userPanel';
 
 export const store = configureStore({
    reducer: {
-      userReducer,
-      teacherReducer,
-      coursesReducer,
-      coverReducer,
-      cartReducer,
+      user: userReducer,
+      teacher: teacherReducer,
+      courses: coursesReducer,
+      cover: coverReducer,
+      cart: cartReducer,
+      panel: userPanelReducer,
    },
 });

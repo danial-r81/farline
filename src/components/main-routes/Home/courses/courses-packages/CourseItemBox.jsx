@@ -7,7 +7,6 @@ import config from '../../../../../services/config.json';
 const CourseItemBox = ({ item }) => {
    const dispatch = useDispatch();
    const navigate = useNavigate();
-   console.log(item);
    return (
       <div
          className='course-box'

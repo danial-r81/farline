@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { fillProfileHandler } from '../../redux/features/userInfo';
 import Input from './Input';

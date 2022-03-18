@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { getCoursesKinds, getTeachers } from '../../services/userServices';
+import { getTeachers } from '../../services/userServices';
 
 export const teachersInfo = createAsyncThunk('teacher-info', async () => {
    try {
@@ -19,9 +19,6 @@ const teacherReducer = createSlice({
       [teachersInfo.fulfilled]: (state, action) => {
          state.teachers = action.payload;
       },
-      // [coursesKinds.fulfilled]: (state, action) => {
-      //   state.teachers = action.payload;
-      // },
    },
 });
 
