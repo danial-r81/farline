@@ -1,31 +1,28 @@
 .cuorse-container {
    width: 90%;
-   /* height: 100%; */
-   /* background-color: #837373; */
    margin: 10px auto;
    padding: 20px 0;
    display: flex;
    flex-direction: column;
-   /* justify-content: flex-end; */
    border-radius: 5px;
+   margin-top: 4rem;
 }
 
 .title-cuorse {
-   width: 250px;
-   height: 40px;
-   position: relative;
+   height: 80px;
+   width: 100%;
    margin: auto;
    display: flex;
    justify-content: center;
    align-items: center;
-   position: relative;
-   background-color: #c9c6c6a4;
+   background-color: var(--dark-liver);
    border-radius: 3px;
 }
 
 .title-cuorse h2 {
    direction: rtl;
    font-size: 22px;
+   color: var(--snow);
 }
 
 .box-cuorse-container {
@@ -34,36 +31,45 @@
    display: grid;
    margin: 50px auto;
    grid-template-columns: 1fr 1fr 1fr;
-   transform: translateY(35px);
-   overflow: hidden;
+   gap: 100px;
 }
 
 .box-container {
    width: 100%;
-   height: 100%;
    display: flex;
    justify-content: center;
-   position: relative;
    margin: 20px auto;
-   /* background-color: rgb(124, 72, 72); */
+   /*background-color: var(--Gblack);
+   */
+   border: 2px solid #bbb;
+   padding: 20px 0;
+   border-radius: 10px;
+   transition: all 0.3s ease-in-out;
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -ms-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+}
+.box-container:hover {
+   box-shadow: 3px 3px 5px #c0c0c0;
+   transform: translateY(-6px);
+   -webkit-transform: translateY(-6px);
+   -moz-transform: translateY(-6px);
+   -ms-transform: translateY(-6px);
+   -o-transform: translateY(-6px);
+   cursor: pointer;
 }
 
 .box-course-1 {
    width: 240px;
    cursor: pointer;
-   height: 250px;
-   position: relative;
-   border: 1px solid black;
    border-radius: 7px;
-   /* background: #000; */
 }
 
 .img-box {
-   position: relative;
    display: flex;
    justify-content: center;
    width: 100%;
-   height: 100%;
 }
 
 .img-box img {
@@ -74,12 +80,17 @@
 }
 
 .box-course-1 h2 {
-   transform: translate(0, -60px);
-   font-size: 20px;
    display: flex;
    justify-content: center;
 }
-
+.detail-course-box {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   /* color: var(--fosfori); */
+   color: var(--Gblack);
+}
 @media (max-width: 991px) {
    .box-cuorse-container {
       grid-template-columns: 1fr 1fr;

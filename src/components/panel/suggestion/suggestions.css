@@ -1,0 +1,11 @@
+.suggestion-container {
+   width: 100%;
+   height: 100vh;
+}
+
+.suggestions {
+   width: 100%;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   justify-items: center;
+}

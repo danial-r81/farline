@@ -1,6 +1,164 @@
 @import url('../../main-style/style.css');
 
-header {
+.nav {
+   width: 100%;
+   height: 30vh;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   direction: ltr;
+}
+/* ========= Nav Top ======== */
+.nav-top {
+   width: 90%;
+   height: 30%;
+   background-color: var(--jet);
+   margin: 0;
+   padding: 0;
+   margin-top: 30px;
+}
+
+.top-nav-container {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-direction: row-reverse;
+}
+
+.top-nav-container .nav-right {
+   width: 10%;
+   font-size: 19px;
+}
+
+.nav-right a {
+   /* background-color: var(--dark-liver); */
+   border-radius: 6px;
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   -ms-border-radius: 6px;
+   -o-border-radius: 6px;
+}
+
+.menu-link {
+   background-color: var(--honeydew);
+   padding: 7px 15px;
+   color: var(--jet) !important;
+   border-radius: 6px;
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   -ms-border-radius: 6px;
+   -o-border-radius: 6px;
+}
+
+.logo-container {
+   width: 100%;
+   height: 100%;
+}
+
+.logo-container img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+}
+
+.nav-left {
+   width: 14%;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: flex-start;
+}
+
+.nav-center {
+   width: 60px;
+   height: 60px;
+}
+
+.nav-center img {
+   width: 100%;
+   height: 100%;
+}
+
+.nav-left i {
+   font-size: 30px;
+   cursor: pointer;
+}
+
+.cart-icon {
+   position: relative;
+}
+
+.cart-icon::before {
+   content: '';
+   position: absolute;
+   width: 8px;
+   height: 8px;
+   background-color: #c00;
+   border-radius: 50%;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   -ms-border-radius: 50%;
+   -o-border-radius: 50%;
+   top: 10px;
+   left: 17px;
+}
+
+.nav-left .login-btn {
+   padding: 7px 15px;
+   background-color: var(--honeydew);
+
+   border-radius: 7px;
+   -webkit-border-radius: 7px;
+   -moz-border-radius: 7px;
+   -ms-border-radius: 7px;
+   -o-border-radius: 7px;
+}
+
+.login-btn a {
+   text-decoration: none;
+   color: var(--prussian-blue);
+   font-weight: 900;
+}
+/* ======= Nav Bottom ====== */
+
+.nav-bottom {
+   width: 100%;
+   height: 40%;
+   display: flex;
+   justify-content: center;
+}
+
+.nav-bottom .menu-items {
+   width: 70%;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   flex-direction: row-reverse;
+   height: 100%;
+   background-color: var(--celadon-blue);
+   border-bottom-left-radius: 30px;
+   border-bottom-right-radius: 30px;
+   list-style: none;
+   color: #fff;
+}
+
+.menu-items li a {
+   color: #fff;
+}
+
+/* .menu-items li:nth-child(1) a {
+   background-color: #fbcb09;
+   color: #242424;
+   border-radius: 6px;
+   padding: 5px 10px;
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   -ms-border-radius: 6px;
+   -o-border-radius: 6px;
+} */
+
+/* header {
    width: 100%;
    height: auto;
 }
@@ -142,12 +300,12 @@ nav.sticky {
 
 .menu-item:hover .menu-link {
    color: var(--white);
-   background-color: var(--Gblack);
+   background-color: var(--dark-liver);
 }
 
 .menu-link.active {
-   color: var(--fosfori) !important;
-   background-color: var(--Gblack);
+   color: var(--electric-blue) !important;
+   background-color: var(--dark-liver);
 }
 
 .menu .menu-link {
@@ -168,7 +326,6 @@ nav.sticky {
    display: none;
 }
 
-/* ======== responsiv ======== */
 
 @media screen and (max-width: 1200px) {
    .left-flex {
@@ -316,11 +473,6 @@ nav.sticky {
    }
 }
 
-/* @media screen and (max-width: 400px) {
-   .close-btn {
-      left: 92%;
-   }
-} */
 @keyframes closeMenu {
    0% {
       transform: translateX(0);
@@ -338,19 +490,4 @@ nav.sticky {
       left: 92%;
    }
 }
-/* @keyframes openMenu {
-   0% {
-      transform: translateX(-90vw);
-      -webkit-transform: translateX(-90vw);
-      -moz-transform: translateX(-90vw);
-      -ms-transform: translateX(-90vw);
-      -o-transform: translateX(-90vw);
-   }
-   100% {
-      transform: translateX(90vw);
-      -webkit-transform: translateX(90vw);
-      -moz-transform: translateX(90vw);
-      -ms-transform: translateX(90vw);
-      -o-transform: translateX(90vw);
-   }
-} */
+ */

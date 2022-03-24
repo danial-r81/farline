@@ -30,6 +30,7 @@ import {
    EditAccount,
    OnlineClasses,
    Suggestions,
+   MyCoursesContainer,
 } from '../components/panel/index';
 
 const ToosClass = () => {
@@ -65,6 +66,7 @@ const ToosClass = () => {
                   <Route path='courses' element={<OnlineClasses />} />
                   <Route path='cart' element={<Cart />} />
                   <Route path='suggested-courses' element={<Suggestions />} />
+                  <Route path='my-courses' element={<MyCoursesContainer />} />
                </Route>
                <Route path='/about-us' element={<AboutUs />} />
                <Route path='/provisions' element={<Provisions />} />

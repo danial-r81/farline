@@ -1,0 +1,40 @@
+.my-courses-container {
+   width: 100%;
+   height: 100vh;
+}
+
+.my-courses {
+   width: 100%;
+   height: 100%;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   justify-items: center;
+   align-items: flex-start;
+}
+
+.my-courses-box {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background: aquamarine;
+   padding: 20px;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.my-course-name {
+   margin: 10px 0;
+}
+
+.my-course-img {
+   width: 200px;
+   height: 200px;
+   border-radius: 10px;
+   overflow: hidden;
+}
+
+.my-course-img img {
+   width: 100%;
+   height: 100%;
+}

@@ -5,7 +5,13 @@ import {
    getCoursesItemsHandler,
 } from '../../../../../redux/features/courses';
 import CoursesItems from '../coursesItems/CoursesItems';
-import { RingLoader } from 'react-spinners';
+import {
+   ClimbingBoxLoader,
+   HashLoader,
+   PropagateLoader,
+   PuffLoader,
+   RingLoader,
+} from 'react-spinners';
 
 import './course-pack-page.css';
 const CoursePackPage = () => {
@@ -54,7 +60,7 @@ const CoursePackPage = () => {
          </div>
          {loading ? (
             <div className='loader'>
-               <RingLoader size={100} color={'#051a1c'} loading={loading} />
+               <HashLoader size={120} color={'#051a1c'} loading={loading} />
             </div>
          ) : (
             <CoursesItems coursesItems={coursesItems} />

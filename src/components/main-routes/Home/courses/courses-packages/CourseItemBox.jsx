@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { getCoursePackHandler } from '../../../../../redux/features/courses';
+import { FaSchool } from 'react-icons/fa';
 import config from '../../../../../services/config.json';
 
 const CourseItemBox = ({ item }) => {
@@ -11,9 +12,7 @@ const CourseItemBox = ({ item }) => {
       <div
          className='course-box'
          onClick={() => dispatch(getCoursePackHandler({ item, navigate }))}>
-         <div className='course-box-img'>
-            <img src={`${config.baseUrl}${item.picture}`} alt='' />
-         </div>
+         <FaSchool className='course-icon' />
          <div className='course-box-text'>
             <p> {item.show_title}</p>
          </div>

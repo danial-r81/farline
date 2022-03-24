@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import PanelNav from './panel-nav/PanelNav';
-import logo from '../../assets/logo.png';
 import { Outlet, useLocation, useNavigate } from 'react-router';
 
 import './panel.css';
@@ -26,7 +25,7 @@ const Panel = () => {
          <PanelNav />
          <div className='panel-main'>
             <Link to='/' className='panel-logo'>
-               <img src={logo} alt='' />
+               <img src='../images/logo.png' alt='' />
             </Link>
             <div className='panel-bar'>
                <div className='left-bar'>

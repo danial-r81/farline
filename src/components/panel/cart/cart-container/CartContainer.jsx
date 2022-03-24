@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getDiscountHandler } from '../../../../redux/features/cart';
 import CartItem from '../cart-item/CartItem';
+import { GiTicket } from 'react-icons/gi';
 
 const CartContainer = () => {
    const dispatch = useDispatch();
@@ -22,16 +23,19 @@ const CartContainer = () => {
             ))}
          </table>
          <div className='total-price '>
-            <table>
-               <tr>
-                  <td>تعداد محصول</td>
-                  <td>{totalCount}</td>
-               </tr>
-               <tr>
-                  <td>مبلغ کل</td>
-                  <td> {totalPrice} تومان</td>
-               </tr>
-            </table>
+            <div className='total-price-detail'>
+               <div className='products-number panel-details'>
+                  <span className='product-count'>تعداد محصول : </span>
+                  <span className='product-count-value'>{totalCount}</span>
+               </div>
+               <div className='price-detail panel-details'>
+                  <span className='product-price'>مبلغ کل :</span>
+                  <span className='product-prict-value'>
+                     {' '}
+                     {totalPrice} تومان
+                  </span>
+               </div>
+            </div>
             <div className='discount-code'>
                <input
                   className='discount-input'
@@ -40,13 +44,14 @@ const CartContainer = () => {
                   placeholder='کد تخفیف خود را وارد کنید'
                   onChange={(e) => setDisCountCode(e.target.value)}
                />
-               <button
-                  type='submit'
+               <div
+                  className='discount'
                   onClick={() =>
                      dispatch(getDiscountHandler({ phoneNumber, disCountCode }))
                   }>
-                  اعمال
-               </button>
+                  <GiTicket />
+                  <button type='submit'>اعمال</button>
+               </div>
             </div>
             <div className='checkout'>
                <button className='checkout-btn'>پرداخت</button>

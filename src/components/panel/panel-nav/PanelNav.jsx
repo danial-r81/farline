@@ -2,7 +2,8 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logoutHandler } from '../../../redux/features/userInfo';
 import { useNavigate } from 'react-router';
-
+import { BiCoffee, BiCartAlt, BiLockOpenAlt } from 'react-icons/bi';
+import { BsEasel, BsEmojiWink, BsDoorOpen } from 'react-icons/bs';
 const PanelNav = () => {
    const dispatch = useDispatch();
    const history = useNavigate();
@@ -19,7 +20,7 @@ const PanelNav = () => {
                            ? 'panel-title active-panel-menu'
                            : 'panel-title'
                      }>
-                     <i class='bi bi-cup'></i>
+                     <BiCoffee />
                      <p>میز مطالعه</p>
                   </NavLink>
                </button>
@@ -33,7 +34,7 @@ const PanelNav = () => {
                            ? 'panel-title active-panel-menu'
                            : 'panel-title'
                      }>
-                     <i class='bi bi-journal-text'></i>
+                     <BsEasel />
                      <p>کلاس های من</p>
                   </NavLink>
                </button>
@@ -47,7 +48,7 @@ const PanelNav = () => {
                            ? 'panel-title active-panel-menu'
                            : 'panel-title'
                      }>
-                     <i class='bi bi-key'></i>
+                     <BiLockOpenAlt />
                      <p>تغییر رمز عبور</p>
                   </NavLink>
                </button>
@@ -61,7 +62,7 @@ const PanelNav = () => {
                            ? 'panel-title active-panel-menu'
                            : 'panel-title'
                      }>
-                     <i class='bi bi-gift'></i>
+                     <BsEmojiWink />
                      <p>دوره های پیشنهادی</p>
                   </NavLink>
                </button>
@@ -75,7 +76,7 @@ const PanelNav = () => {
                            ? 'panel-title active-panel-menu'
                            : 'panel-title'
                      }>
-                     <i class='bi bi-cart3'></i>
+                     <BiCartAlt />
                      <p>سبد خرید</p>
                   </NavLink>
                </button>
@@ -83,7 +84,7 @@ const PanelNav = () => {
             <li>
                <button onClick={() => dispatch(logoutHandler(history))}>
                   <a href='#' onClick={(e) => e.preventDefault()}>
-                     <i class='bi bi-box-arrow-right'></i>
+                     <BsDoorOpen />
                      <p>خروج</p>
                   </a>
                </button>

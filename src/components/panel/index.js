@@ -12,3 +12,6 @@ export { default as EditAccount } from './edit-account/EditAccount';
 
 //cart
 export { default as Cart } from './cart/Cart';
+
+// my courses
+export { default as MyCoursesContainer } from './my-courses/MyCoursesContainer';

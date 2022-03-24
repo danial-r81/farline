@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { BsGeoFill } from 'react-icons/bs';
 
 import './footer.css';
 export const Footer = () => {
@@ -8,7 +9,7 @@ export const Footer = () => {
             <div className='footer-right'>
                <div className='footer-container'>
                   <div className='address-boy detail'>
-                     <i className='bi bi-geo-alt'></i>
+                     <BsGeoFill />
                      <p>
                         میدان 9 دی ، جنب سرای محله عباسی ،ابتدای خیابان شیخ
                         محمدی شرقی ، کوچه مدرسه ، کوچه احدی ، دبیرستان غیردولتی

@@ -21,7 +21,7 @@ const ContactBox = ({
             ease: 'backIn',
             stifness: 500,
          }}>
-         <i className={icon}></i>
+         {icon}
          <p className='text'>{text}</p>
       </motion.div>
    );
@@ -30,7 +30,7 @@ const ContactBox = ({
 ContactBox.propTypes = {
    transitionDelay: PropTypes.number.isRequired,
    className: PropTypes.string.isRequired,
-   icon: PropTypes.string.isRequired,
+   // icon: PropTypes.string.isRequired,
    initial: PropTypes.string.isRequired,
    animate: PropTypes.string.isRequired,
    text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,

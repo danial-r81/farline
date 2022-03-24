@@ -1,17 +1,15 @@
 :root {
-   --light-blue: #00b4d8;
-   --dark-blue: #03045e;
-   --white: #fff;
-   --light-grey: #dee2e6;
-   --grey: #adb5bd;
-   --dark-grey: #495057;
-   --black: #212529;
-   --yellow: rgb(254, 208, 61);
-   --Gblack: #051a1c;
-   --fosfori: #2bdbc2;
-   --red: #c00;
-   --blue: #2bd1db;
-   --orange: #c04848;
+   --snow: #eceaead7;
+   --dark-liver: #484349;
+   --jet: #333533;
+   --davys-grey: #575757;
+   /* --persian-green: #18a999; */
+   /* --electric-blue: #8af3ff; */
+   --powder-blue: #a8dadc;
+   --celadon-blue: #457b9d;
+   --honeydew: #f1faee;
+   --imperial-red: #e63946;
+   --prussian-blue: #1d3557;
 }
 * {
    font-family: 'BYekan';

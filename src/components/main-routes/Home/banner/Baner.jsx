@@ -6,6 +6,15 @@ import 'swiper/swiper.min.css';
 export function Baner() {
    const banners = useSelector((state) => state.cover.covers);
 
+   // const banners = [
+   //    {
+   //       img: 'images/project-a.jpg',
+   //    },
+   //    {
+   //       img: 'images/project-b.jpg',
+   //    },
+   // ];
+
    return (
       <>
          <Swiper
@@ -25,6 +34,7 @@ export function Baner() {
                      alt='fartak-banner'
                      className='banner-img'
                   />
+                  {/* <img src={item.img} alt='' className='banner-img' /> */}
                </SwiperSlide>
             ))}
          </Swiper>

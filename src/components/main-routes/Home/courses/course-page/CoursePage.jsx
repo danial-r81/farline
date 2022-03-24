@@ -8,6 +8,7 @@ import {
 import { addCourseToCartHandler } from '../../../../../redux/features/cart';
 
 import './course-page.css';
+import Sessions from './Sessions';
 const CoursePage = () => {
    const dispatch = useDispatch();
    const { course, courseSessions } = useSelector((state) => state.courses);
@@ -19,92 +20,84 @@ const CoursePage = () => {
       dispatch(getCourseSessionsHandler(code));
    }, []);
 
+   const fixOnScroll = () => {
+      const courseDetails = document.querySelector('.course-price');
+      console.log('client top', window.scrollY);
+      if (window.scrollY >= 200) {
+         courseDetails?.classList.add('sticky');
+      } else {
+         courseDetails?.classList.remove('sticky');
+      }
+      console.log(window.innerWidth);
+      if (window.innerWidth < 790) {
+         courseDetails?.classList.remove('sticky');
+      }
+   };
+
+   window.addEventListener('scroll', fixOnScroll);
+
    return (
-      <div className='courses-item-container'>
-         <section className='course-item-right'>
-            <div className='course-item-detail'>
-               <div className='detail-price'>
-                  <i className='fa fa-android'></i>
-                  <span>قیمت این دوره : {course.price} تومان</span>
-               </div>
-               <div className='border-price'></div>
-               <div className='ditails-courses'>
-                  <div className='ditail-name-course'>
-                     <i className='fa fa-android'></i>
-                     <span> نام دوره : {course.title_persion}</span>
-                  </div>
-                  <div className='ditail-teacher'>
-                     <i className='fa fa-android'></i>
-                     <span>مدرس دوره : {course.teacher_name}</span>
-                  </div>
-                  <div className='ditail-number'>
-                     <i className='fa fa-android'></i>
-                     <span>تعداد قسمت‌ها : {course.count_session}</span>
-                  </div>
-                  <div className='ditail-time'>
-                     <i className='fa fa-android'></i>
-                     <span>مدت زمان دوره : {course.time}</span>
-                  </div>
-               </div>
-               <div
-                  className='ditail-buy-course'
-                  onClick={() =>
-                     dispatch(addCourseToCartHandler({ phoneNumber, code }))
-                  }>
-                  <button>خرید دوره</button>
-               </div>
+      <div class='course-container'>
+         <div class='course-info'>
+            <div class='course-img'>
+               <img src='../../images/1.png' alt='' />
             </div>
-         </section>
-         <section className='course-item-left'>
-            <div className='course-item-content-top'>
-               <div className='item-video'>
-                  {/* <video
-                     controls
-                     poster='photo/Slide1.PNG'
-                     src={courseSessions[0].text}></video> */}
-               </div>
-               <div className='item-description'>
-                  <h3>موضوع جلسه مورد نظر</h3>
-                  <span>
-                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
-                     و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه
-                     روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای
-                     شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
-                     بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه
-                     درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می
-                     طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه
-                     ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی
-                     ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری
-                     موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و
-                     زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی
-                     سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار
-                     گیرد.
-                  </span>
-               </div>
+            <div class='course-info-text'>
+               <p>
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
+                  با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و
+                  مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
+                  تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای
+                  کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و
+                  آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم
+                  افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص
+                  طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این
+                  صورت می توان امید داشت که تمام و دشواری موجود در ارائه
+                  راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل
+                  حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای
+                  موجود طراحی اساسا مورد استفاده قرار گیرد.{' '}
+               </p>
             </div>
-            <ul className='course-item-content-bottom'>
-               <li className='item-ditail-sessions'>
-                  <div className='ditail-sessions-right'>
-                     <div className='session-number'>
-                        <div className='number-circle'>1</div>
-                     </div>
-                     <div className='session-title'>
-                        <h3>موضوع قسمت</h3>
-                     </div>
-                  </div>
-                  <div className='ditail-sessions-left'>
-                     <div className='session-time'>
-                        <h3>00 : 00</h3>
-                     </div>
-                     <div className='session-play'>
-                        <div className='play-icon'>
-                           <i className='fa fa-play'></i>
-                        </div>
-                     </div>
-                  </div>
-               </li>
-            </ul>
-         </section>
+         </div>
+         <div class='course-data'>
+            <div class='course-price'>
+               <div class='course-detils'>
+                  <h2>
+                     نام دوره : <span> ریاضی 1 </span>
+                  </h2>
+
+                  <h2>
+                     مدرس دوره: <span> استاد فشاری</span>
+                  </h2>
+
+                  <h2>
+                     تعداد قسمت: <span>104 </span>
+                  </h2>
+
+                  <h2>
+                     مدت زمان دوره: <span>00:00:00</span>
+                  </h2>
+
+                  <h2>
+                     دانشجوهای ثبت نام کرده: <span> 110</span>
+                  </h2>
+
+                  <h2>
+                     قیمت دوره : <span> 150،000 </span>تومان
+                  </h2>
+               </div>
+               {/* <!-- <div class="course-info-price">
+
+                </div> --> */}
+               <button>خرید دوره</button>
+            </div>
+
+            <div class='course-sessions'>
+               {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item) => (
+                  <Sessions />
+               ))}
+            </div>
+         </div>
       </div>
    );
 };

@@ -1,0 +1,116 @@
+.online-room-container {
+   width: 95%;
+   height: auto;
+   margin: 30px auto;
+   display: flex;
+   flex-direction: column;
+   direction: ltr;
+}
+
+.title-online {
+   width: 95%;
+   margin: auto;
+   border-radius: 5px;
+   background-color: rgba(201, 201, 201, 0.774);
+   display: flex;
+   flex-direction: row-reverse;
+   justify-content: space-around;
+   padding: 10px;
+}
+
+.title-online h2 {
+   color: rgb(92, 92, 92);
+   font-size: 18px;
+}
+
+.details-online h2:nth-child(2),
+.details-online h2:nth-child(3) {
+   position: relative;
+   right: 40px;
+}
+
+.details-online {
+   width: 95%;
+   margin: 5px auto;
+   display: flex;
+   border-radius: 5px;
+   background-color: rgba(230, 228, 228, 0.774);
+   flex-direction: row-reverse;
+   justify-content: space-around;
+   padding: 10px;
+   align-items: center;
+}
+
+.details-online h2 {
+   color: rgb(92, 92, 92);
+   font-size: 18px;
+}
+
+.details-online a {
+   margin-top: 14px;
+   color: rgb(92, 92, 92);
+   font-size: 18px;
+   text-decoration: none;
+   padding: 10px 30px;
+   margin: auto 0;
+   border-radius: 3px;
+   background-color: skyblue;
+}
+
+@media (max-width: 991px) {
+   .title-online h2,
+   .details-online h2,
+   .details-online a {
+      font-size: 16px;
+   }
+   .details-online a {
+      font-size: 14px;
+      padding: 10px 30px;
+      margin: auto 0;
+   }
+}
+
+@media (max-width: 620px) {
+   .title-online h2,
+   .details-online h2,
+   .details-online a {
+      font-size: 14px;
+   }
+   .details-online a {
+      font-size: 12px;
+      padding: 8px 12px;
+      margin: auto 0;
+   }
+   .details-online h2:nth-child(2),
+   .details-online h2:nth-child(3) {
+      position: relative;
+      right: 10px;
+   }
+   .details-online a {
+      font-size: 13px;
+      padding: 8px 12px;
+      margin: auto 0;
+   }
+}
+
+@media (max-width: 360px) {
+   .title-online h2,
+   .details-online h2,
+   .details-online a {
+      font-size: 10px;
+   }
+   .details-online a {
+      font-size: 8px;
+      padding: 6px 10px;
+      margin: auto 0;
+   }
+   .details-online h2:nth-child(2),
+   .details-online h2:nth-child(3) {
+      position: relative;
+      right: 5px;
+   }
+   .details-online a {
+      position: relative;
+      right: 4px;
+   }
+}

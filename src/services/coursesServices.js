@@ -20,3 +20,15 @@ export const getCourse = (code) => {
 export const getCourseSessions = (code) => {
    return http.get(`${config.baseUrl}/api/get_session/${code}/`);
 };
+
+export const getNewsCourses = () => {
+   return http.get(`${config.baseUrl}/api/fresh_course/`);
+};
+
+export const getMyCourses = (phoneNumber) => {
+   return http.get(`${config.baseUrl}/api/user_courses/${phoneNumber}/`);
+};
+
+export const getSuggestedCourses = (phoneNumber) => {
+   return http.get(`${config.baseUrl}/api/suggested_course/${phoneNumber}/`);
+};

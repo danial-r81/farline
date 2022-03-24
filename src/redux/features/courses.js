@@ -5,6 +5,9 @@ import {
    getCourseItems,
    getCourse,
    getCourseSessions,
+   getNewsCourses,
+   getMyCourses,
+   getSuggestedCourses,
 } from '../../services/coursesServices';
 
 export const getCoursesPackageHandler = createAsyncThunk(
@@ -110,6 +113,64 @@ export const getCourseSessionsHandler = createAsyncThunk(
    }
 );
 
+export const getNewsCoursesHandler = createAsyncThunk(
+   'get-news-courses',
+   async () => {
+      try {
+         const { data, status } = await getNewsCourses();
+         console.log(data);
+         if (status === 200) {
+            return { data };
+         }
+      } catch (er) {}
+   }
+);
+
+export const getMyCoursesHandler = createAsyncThunk(
+   'get-my-courses',
+   async (arg) => {
+      const { phoneNumber, navigate } = arg;
+      try {
+         const { data, status } = await getMyCourses(phoneNumber);
+         console.log(data);
+         if (status === 200) {
+            navigate('/profile/my-courses ');
+            return { data };
+         }
+      } catch (er) {
+         console.log(er);
+      }
+   }
+);
+
+export const getMyCoursesHandlerAfterRefresh = createAsyncThunk(
+   'get-my-courses-ar',
+   async (arg) => {
+      try {
+         const { data, status } = await getMyCourses(arg);
+         if (status === 200) {
+            return { data };
+         }
+      } catch (er) {
+         console.log(er);
+      }
+   }
+);
+
+export const getSuggetsedCoursesHandler = createAsyncThunk(
+   'get-suggestions',
+   async (arg) => {
+      try {
+         const { data, status } = await getSuggestedCourses(arg);
+         if (status === 200) {
+            return { data };
+         }
+      } catch (er) {
+         console.log(er);
+      }
+   }
+);
+
 const coursesReducer = createSlice({
    name: 'courses',
    initialState: {
@@ -117,6 +178,9 @@ const coursesReducer = createSlice({
       coursePackageItems: [],
       coursesItems: [],
       courseSessions: [],
+      newsCourses: [],
+      myCourses: [],
+      suggestedCourses: [],
       course: {},
       packageTitle: '',
       firstButtonClassName: '',
@@ -149,6 +213,19 @@ const coursesReducer = createSlice({
       },
       [getCourseSessionsHandler.fulfilled]: (state, action) => {
          state.courseSessions = action.payload.data;
+      },
+      [getNewsCoursesHandler.fulfilled]: (state, action) => {
+         console.log(action);
+         state.newsCourses = action.payload.data;
+      },
+      [getMyCoursesHandler.fulfilled]: (state, action) => {
+         state.myCourses = action.payload.data;
+      },
+      [getMyCoursesHandlerAfterRefresh.fulfilled]: (state, action) => {
+         state.myCourses = action.payload.data;
+      },
+      [getSuggetsedCoursesHandler.fulfilled]: (state, action) => {
+         state.suggestedCourses = action.payload.data;
       },
    },
 });

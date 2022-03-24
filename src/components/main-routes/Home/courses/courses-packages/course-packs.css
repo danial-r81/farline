@@ -16,6 +16,7 @@
 
 .courses-boxes-title h3 {
    font-size: 24px;
+   color: var(--celadon-blue);
 }
 
 .course-box {
@@ -23,9 +24,9 @@
    justify-content: center;
    align-items: center;
    flex-direction: column;
-   background: var(--Gblack);
+   background: var(--celadon-blue);
    border-radius: 12px;
-   padding: 30px 25px;
+   padding: 3rem 4rem;
    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.18);
    cursor: pointer;
    transition: all 0.3s ease-in-out;
@@ -39,6 +40,11 @@
    -o-border-radius: 12px;
 }
 
+.course-icon {
+   color: #fff;
+   font-size: 6rem;
+}
+
 .course-box:hover {
    transform: translateY(-4px);
    -webkit-transform: translateY(-4px);
@@ -46,6 +52,15 @@
    -ms-transform: translateY(-4px);
    -o-transform: translateY(-4px);
    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.22);
+   background-color: var(--snow);
+}
+
+.course-box:hover svg {
+   color: var(--celadon-blue);
+}
+
+.course-box:hover p {
+   color: var(--celadon-blue);
 }
 
 .courses-boxes-title {
@@ -71,7 +86,7 @@
 }
 .course-box-text p {
    font-size: 20px;
-   color: var(--fosfori);
+   color: var(--snow);
 }
 
 .course-box-img img {
