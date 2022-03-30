@@ -15,18 +15,10 @@ export const TeacherGallery = () => {
       <div className='teacher-gallery'>
          <CreateSliser
             items={teachers}
-            slidesPerView={5}
-            minWidth={1240}
-            topic='اساتید'
-            sliderAs='teacher'
-            btnTopic='اساتید'
-            goTo='/teachers'
-         />
-         <CreateSliser
-            items={teachers}
             slidesPerView={4}
-            maxWidth={1240}
-            minWidth={1030}
+            minWidth={1240}
+            // maxWidth={1240}
+            // minWidth={1030}
             topic='اساتید'
             sliderAs='teacher'
             btnTopic='اساتید'
@@ -36,8 +28,8 @@ export const TeacherGallery = () => {
          <CreateSliser
             items={teachers}
             slidesPerView={3}
-            maxWidth={1030}
-            minWidth={820}
+            maxWidth={1240}
+            minWidth={940}
             topic='اساتید'
             sliderAs='teacher'
             btnTopic='اساتید'
@@ -47,7 +39,7 @@ export const TeacherGallery = () => {
          <CreateSliser
             items={teachers}
             slidesPerView={2}
-            maxWidth={820}
+            maxWidth={940}
             minWidth={529}
             topic='اساتید'
             sliderAs='teacher'
@@ -58,7 +50,7 @@ export const TeacherGallery = () => {
          <CreateSliser
             items={teachers}
             slidesPerView={1}
-            maxWidth={528}
+            maxWidth={529}
             topic='اساتید'
             sliderAs='teacher'
             btnTopic='اساتید'

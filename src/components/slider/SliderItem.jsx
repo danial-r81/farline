@@ -2,22 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import config from '../../services/config.json';
 
-const SliderItem = ({ item, sliderAs }) => {
-   // console.log(item);
+import './slider.css';
+const SliderItem = ({ item }) => {
+   console.log(item);
    return (
-      <div
-         className={`slider-item ${
-            sliderAs === 'teacher' ? 'teacher-item' : 'course-item'
-         }`}>
-         <div className='image'>
-            <img src={`${config.baseUrl}${item.picture}`} alt={item.title} />
+      <div className='teacher-gallery-item'>
+         <img
+            className='teacher-img'
+            src={`${config.baseUrl}${item.picture}`}
+            alt=''
+         />
+         <div className='teacher-information'>
+            <div className='teacher-name'>{item.name}</div>
+            <div className='teacher-reshte'>{item.reshte_text}</div>
          </div>
-         <div className='name'>
-            {sliderAs === 'teacher' ? item.name : item.title}
-         </div>
-         {sliderAs === 'teacher' ? (
-            <div className='lesson'>{item.text}</div>
-         ) : null}
       </div>
    );
 };

@@ -31,6 +31,7 @@ import {
    OnlineClasses,
    Suggestions,
    MyCoursesContainer,
+   FinancialServices,
 } from '../components/panel/index';
 
 const ToosClass = () => {
@@ -67,6 +68,10 @@ const ToosClass = () => {
                   <Route path='cart' element={<Cart />} />
                   <Route path='suggested-courses' element={<Suggestions />} />
                   <Route path='my-courses' element={<MyCoursesContainer />} />
+                  <Route
+                     path='financial-services'
+                     element={<FinancialServices />}
+                  />
                </Route>
                <Route path='/about-us' element={<AboutUs />} />
                <Route path='/provisions' element={<Provisions />} />

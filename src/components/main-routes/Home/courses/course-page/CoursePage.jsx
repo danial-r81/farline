@@ -20,21 +20,21 @@ const CoursePage = () => {
       dispatch(getCourseSessionsHandler(code));
    }, []);
 
-   const fixOnScroll = () => {
-      const courseDetails = document.querySelector('.course-price');
-      console.log('client top', window.scrollY);
-      if (window.scrollY >= 200) {
-         courseDetails?.classList.add('sticky');
-      } else {
-         courseDetails?.classList.remove('sticky');
-      }
-      console.log(window.innerWidth);
-      if (window.innerWidth < 790) {
-         courseDetails?.classList.remove('sticky');
-      }
-   };
+   // const fixOnScroll = () => {
+   //    const courseDetails = document.querySelector('.course-price');
+   //    console.log('client top', window.scrollY);
+   //    if (window.scrollY >= 200) {
+   //       courseDetails?.classList.add('sticky');
+   //    } else {
+   //       courseDetails?.classList.remove('sticky');
+   //    }
+   //    console.log(window.innerWidth);
+   //    if (window.innerWidth < 790) {
+   //       courseDetails?.classList.remove('sticky');
+   //    }
+   // };
 
-   window.addEventListener('scroll', fixOnScroll);
+   // window.addEventListener('scroll', fixOnScroll);
 
    return (
       <div class='course-container'>

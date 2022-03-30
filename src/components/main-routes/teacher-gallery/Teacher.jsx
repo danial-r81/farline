@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import config from '../../../services/config.json';
 
 const Teacher = ({ teacher }) => {
+   console.log(teacher);
    return (
       <div class='teacher-container'>
          <div class='teacher-1 teacher-edu'>
@@ -16,7 +17,7 @@ const Teacher = ({ teacher }) => {
                      <div class='resume'>
                         <div className='resume-part-one'>
                            <h1>مدرک تحصیلی</h1>
-                           <div>{teacher.reshte}</div>
+                           <div>{teacher.reshte_text}</div>
                         </div>
                         <div className='resume-part-two'>
                            <h3>مدارس تدریس شده</h3>

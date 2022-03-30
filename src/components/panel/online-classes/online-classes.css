@@ -37,7 +37,7 @@
    background-color: rgba(230, 228, 228, 0.774);
    flex-direction: row-reverse;
    justify-content: space-around;
-   padding: 10px;
+   padding: 12px;
    align-items: center;
 }
 
@@ -48,13 +48,14 @@
 
 .details-online a {
    margin-top: 14px;
-   color: rgb(92, 92, 92);
+   color: var(--jet);
    font-size: 18px;
    text-decoration: none;
    padding: 10px 30px;
    margin: auto 0;
-   border-radius: 3px;
-   background-color: skyblue;
+   border-radius: 9px;
+   border: 1px solid var(--jet);
+   background-color: var(--yellow);
 }
 
 @media (max-width: 991px) {

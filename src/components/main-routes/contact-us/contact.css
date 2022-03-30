@@ -16,12 +16,11 @@
    align-items: center;
    justify-content: center;
    text-align: center;
-
    padding: 20px;
 }
 .title h1 {
    font-size: 45px;
-   color: var(--Gblack);
+   color: var(--jet);
 }
 
 .column {
@@ -32,6 +31,14 @@
    align-items: center;
    flex-direction: column;
    margin: 10px;
+}
+.column svg {
+   font-size: 35px;
+   transition: all 0.3s ease-in-out;
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -ms-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
 }
 .contact {
    display: flex;
@@ -48,8 +55,12 @@
    -ms-transition: all 0.5s ease;
    -o-transition: all 0.5s ease;
 }
-.gmail {
-   border: 2px solid #ea4335;
+
+.instagram svg {
+   color: var(--jet);
+}
+.instagram:hover svg {
+   color: var(--white);
 }
 .gmail p {
    font-size: 15px !important;
@@ -60,23 +71,26 @@
 .web-site p {
    font-family: cursive;
 }
+.gmail {
+   border: 2px solid var(--jet);
+}
 .telegram {
-   border: 2px solid #0077ff;
+   border: 2px solid var(--jet);
 }
 .instagram {
-   border: 2px solid #ff0066;
+   border: 2px solid var(--jet);
 }
 .phone {
-   border: 2px solid #009933;
+   border: 2px solid var(--jet);
 }
 .web-site {
-   border: 2px solid var(--grey);
+   border: 2px solid var(--jet);
 }
 .gmail i {
    color: #ea4335;
 }
 .telegram i {
-   color: #0077ff;
+   color: var(--jet);
 }
 .instagram i {
    color: #ff0066;
@@ -93,7 +107,7 @@
    border: none;
 }
 .telegram:hover {
-   background-color: #0077ff;
+   background-color: #35ade1;
    box-shadow: 10px 10px 20px rgb(201, 201, 201);
    border: none;
 }
@@ -110,7 +124,7 @@
    border: none;
 }
 .phone:hover {
-   background-color: #009933;
+   background-color: #31e05d;
    box-shadow: 10px 10px 20px rgb(201, 201, 201);
    border: none;
 }
@@ -134,6 +148,10 @@
 .contact:hover i,
 .contact:hover p,
 .contact:hover a {
+   color: var(--white);
+}
+
+.contact:hover svg {
    color: var(--white);
 }
 

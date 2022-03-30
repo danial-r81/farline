@@ -20,7 +20,9 @@ const Cart = () => {
    }, []);
 
    const EmptyCart = () => (
-      <div className='empty-cart'>سبد خرید شما خالی است!</div>
+      <div className='empty-cart'>
+         <p>سبد خرید شما خالی است!</p>
+      </div>
    );
 
    return (

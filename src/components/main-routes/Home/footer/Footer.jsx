@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BsGeoFill } from 'react-icons/bs';
+import { BsGeoFill, BsTelephone } from 'react-icons/bs';
 
 import './footer.css';
 export const Footer = () => {
@@ -17,12 +17,14 @@ export const Footer = () => {
                      </p>
                   </div>
                   <div className='tel-boy detail'>
-                     <i className='bi bi-telephone'></i>
+                     {/* <i className='bi bi-telephone'></i> */}
+                     <BsTelephone />
                      <p>021-55674354</p>
                   </div>
 
                   <div className='address-girl detail'>
-                     <i className='bi bi-geo-alt'></i>
+                     <BsGeoFill />
+
                      <p>
                         خیابان قلعه مرغی ، میدان شهدای مدافع حرم ، ابتدای نواب
                         جنوب به شمال ، خیابان شیخ محمدی شرقی ، کوچه مدرسه ،
@@ -30,7 +32,8 @@ export const Footer = () => {
                      </p>
                   </div>
                   <div className='tel-girl detail'>
-                     <i className='bi bi-telephone'></i>
+                     <BsTelephone />
+
                      <p>021-91301962</p>
                   </div>
                </div>

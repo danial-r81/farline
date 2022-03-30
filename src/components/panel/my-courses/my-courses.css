@@ -17,14 +17,22 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   background: aquamarine;
    padding: 20px;
    border-radius: 10px;
    cursor: pointer;
+   border: 2px solid var(--yellow);
 }
 
 .my-course-name {
    margin: 10px 0;
+}
+
+.my-course-teacher-name {
+   font-size: 19px;
+}
+
+.my-course-name p {
+   font-size: 20px;
 }
 
 .my-course-img {

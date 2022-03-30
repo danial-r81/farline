@@ -1,54 +1,32 @@
-:root {
-   --white: #f8f9fa;
-   --light-grey: #dee2e6;
-   --grey: #adb5bd;
-   --dark-grey: #495057;
-   --black: #212529;
-   --yellow: #fed03d;
-   --Gblack: #051a1c;
-   --fosfori: #2bdbc2;
-   --red: #c00;
-   --blue: #2bd1db;
-}
-
-body {
-   direction: rtl;
-   /* background-color: var(--blue); */
-}
-
-* {
-   font-family: 'BYekan';
-}
+@import url('../../main-style/style.css');
 
 .form {
    width: 100% !important;
-   height: 100vh !important;
+   height: 100% !important;
+   margin-top: 50px;
    display: flex;
    justify-content: center;
-   align-items: center;
+   align-items: flex-start;
    border-radius: 10px;
-   background: var(--white);
+   direction: rtl;
 }
 
 .form-container {
    width: 90%;
    padding: 2rem 0.5rem;
    border-radius: 10px;
-   /* background: var(--light-grey); */
-   background: var(--Gblack);
+   background: var(--jet);
    border-radius: 20px;
    -webkit-border-radius: 20px;
    -moz-border-radius: 20px;
    -ms-border-radius: 20px;
    -o-border-radius: 20px;
-   margin-top: 2rem;
 }
 
 .header {
    text-align: center;
-   color: var(--blue);
+   color: var(--white);
    font-size: 1.35rem;
-   font-family: 'BYekan';
    padding-bottom: 34px;
    position: relative;
 }
@@ -61,7 +39,7 @@ body {
    bottom: 11px;
    right: 50%;
    transform: translate(50%, -50%);
-   background-color: var(--fosfori);
+   background-color: var(--yellow);
    -webkit-transform: translate(50%, -50%);
    -moz-transform: translate(50%, -50%);
    -ms-transform: translate(50%, -50%);
@@ -80,7 +58,7 @@ body {
    padding: 5px 0;
    border: none;
    color: var(--white);
-   border-bottom: 2px solid var(--fosfori);
+   border-bottom: 2px solid var(--yellow);
    outline: none;
    margin: auto;
    background-color: transparent;
@@ -106,10 +84,9 @@ input::placeholder {
    display: block;
    border: none;
    color: var(--white);
-   background-color: var(--Gblack);
+   background-color: var(--jet);
    padding: 7px 28px;
-   border: 2px solid var(--fosfori);
-   font-family: 'BYekan';
+   border: 2px solid var(--yellow);
    font-size: 16px;
    border-radius: 5px;
    -webkit-border-radius: 5px;
@@ -124,8 +101,8 @@ input::placeholder {
    -o-transition: all 0.2s ease-in-out;
 }
 .submit:hover {
-   background: var(--fosfori);
-   color: var(--Gblack);
+   background: var(--yellow);
+   color: var(--jet);
    /* border: 2px dotted var(--Gblack); */
 }
 
@@ -133,7 +110,6 @@ input::placeholder {
    color: rgb(184, 61, 61);
    margin-right: 5%;
    margin-top: 4px;
-   /* margin-left: auto; */
 }
 
 .btns {
@@ -146,9 +122,10 @@ input::placeholder {
    display: block;
    margin: 1rem auto;
 }
-.register:hover {
+.register:hover,
+.forget-code:hover {
    text-decoration: none;
-   color: var(--fosfori);
+   color: var(--yellow);
 }
 
 .get-code-text {
@@ -202,10 +179,6 @@ input::placeholder {
    color: var(--white);
    /* margin-left: auto */
    text-align: center;
-}
-.forget-code:hover {
-   text-decoration: none;
-   color: var(--fosfori);
 }
 
 .input-container select {

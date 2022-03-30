@@ -2,18 +2,14 @@ import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import config from '../../../../services/config.json';
 import 'swiper/swiper.min.css';
+import { Navigation } from 'swiper';
 
+import 'swiper/swiper.min.css';
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper-bundle';
+import { useNavigate } from 'react-router';
 export function Baner() {
    const banners = useSelector((state) => state.cover.covers);
-
-   // const banners = [
-   //    {
-   //       img: 'images/project-a.jpg',
-   //    },
-   //    {
-   //       img: 'images/project-b.jpg',
-   //    },
-   // ];
 
    return (
       <>
@@ -25,6 +21,7 @@ export function Baner() {
             pagination={{
                clickable: true,
             }}
+            modules={[Navigation]}
             navigation={true}
             className='banner-gallery'>
             {banners?.map((item, index) => (

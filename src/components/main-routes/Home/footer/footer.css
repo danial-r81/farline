@@ -1,9 +1,5 @@
 @import url('../../../../main-style/style.css');
 
-* {
-   font-family: 'BYekan';
-}
-
 .main {
    display: flex;
    justify-content: center;
@@ -34,12 +30,13 @@
 }
 
 .footer-main {
-   background-color: var(--celadon-blue);
+   background-color: var(--jet);
    color: #e0fbfc;
    width: 100%;
    padding: 1rem 0;
    display: flex;
    justify-content: space-around;
+   direction: rtl;
 }
 
 .footer-main p {
@@ -75,6 +72,11 @@
    width: 50vw;
 }
 
+.footer-container svg {
+   font-size: 21px;
+   margin-left: 14px;
+}
+
 .footer-items ul li a {
    text-decoration: none;
    font-family: 'BYekan';
@@ -82,7 +84,7 @@
 }
 
 .footer-items ul li a:hover {
-   color: var(--fosfori);
+   color: var(--yellow);
 }
 
 .footer-items ul {

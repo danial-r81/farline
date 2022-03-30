@@ -1,15 +1,8 @@
 :root {
    --snow: #eceaead7;
-   --dark-liver: #484349;
    --jet: #333533;
-   --davys-grey: #575757;
-   /* --persian-green: #18a999; */
-   /* --electric-blue: #8af3ff; */
-   --powder-blue: #a8dadc;
-   --celadon-blue: #457b9d;
-   --honeydew: #f1faee;
-   --imperial-red: #e63946;
-   --prussian-blue: #1d3557;
+   --yellow: #ffc300;
+   --light-jet: #646464;
 }
 * {
    font-family: 'BYekan';

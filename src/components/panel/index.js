@@ -15,3 +15,6 @@ export { default as Cart } from './cart/Cart';
 
 // my courses
 export { default as MyCoursesContainer } from './my-courses/MyCoursesContainer';
+
+// financial services
+export { default as FinancialServices } from './financial-services/FinancialServices';

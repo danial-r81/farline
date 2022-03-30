@@ -95,7 +95,8 @@ export const changePasswordFromPanelHandler = createAsyncThunk(
    'user/changePass',
    async (arg) => {
       try {
-         const response = await changePasswordFromPanel(arg);
+         // const { data, status } = await changePasswordFromPanel(arg);
+         console.log(arg);
       } catch (e) {
          if (e.response) {
             console.log(e.response);
@@ -110,7 +111,7 @@ export const logoutHandler = createAsyncThunk(
       try {
          const { status } = await logout();
          //  if (status === 200) {
-         navigate('/');
+         navigate('/', { replace: true });
          window.location.reload();
          localStorage.removeItem('phoneNumber');
          Cookies.remove('sessionid');

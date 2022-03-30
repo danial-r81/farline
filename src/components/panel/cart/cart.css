@@ -26,14 +26,14 @@ tr:first-child {
    border-bottom: none;
 }
 tr {
-   border-bottom: 2px solid red;
+   border-bottom: 2px solid var(--yellow);
 }
 
 th {
    text-align: right;
    padding-right: 10px;
    color: aliceblue;
-   background: var(--Gblack);
+   background: var(--jet);
    height: 45px;
    font-weight: normal;
    font-size: 18px;
@@ -91,7 +91,7 @@ td a {
 }
 
 .total-price table {
-   border-top: 3px solid var(--Gblack);
+   border-top: 3px solid var(--jet);
    width: 100%;
    max-width: 300px;
    margin-top: 20px;
@@ -122,10 +122,10 @@ td a {
 
 .checkout-btn {
    padding: 10px 40px;
-   background-color: var(--Gblack);
+   background-color: var(--jet);
    border-radius: 5px;
    text-decoration: none;
-   color: var(--white);
+   color: var(--yellow);
    transition: 0.3s;
    cursor: pointer;
    outline: none;
@@ -133,8 +133,8 @@ td a {
 }
 
 .checkout-btn:hover {
-   background-color: var(--Gblack);
-   color: var(--fosfori);
+   background-color: var(--yellow);
+   color: var(--jet);
 }
 
 .trash-shop-contain {
@@ -142,7 +142,7 @@ td a {
 }
 
 .trash-shop {
-   color: red;
+   color: rgb(235, 92, 92);
    font-size: 22px;
 }
 
@@ -151,12 +151,13 @@ td a {
 }
 
 .discount {
-   background: cadetblue;
+   background: var(--jet);
    display: flex;
+   color: var(--yellow);
    justify-content: center;
    align-items: center;
    font-size: 17px;
-   margin-right: 2rem;
+   margin-right: 1rem;
    padding: 3px 20px;
    border-radius: 7px;
    cursor: pointer;
@@ -164,9 +165,11 @@ td a {
 
 .discount button {
    border: none;
+   color: var(--yellow);
+
    background: none;
    font-size: 17px;
-   margin-right: 9px;
+   margin-right: 8px;
    cursor: pointer;
 }
 
@@ -178,9 +181,10 @@ td a {
 }
 
 .discount-code input {
-   border: 2px solid darkcyan;
+   border: 2px solid var(--jet);
    width: 200px;
    outline: none;
+
    padding-right: 10px;
    border-radius: 5px;
    -webkit-border-radius: 5px;
@@ -190,9 +194,19 @@ td a {
 }
 
 .discount-code input::placeholder {
-   color: darkcyan;
+   color: var(--jet);
 }
-
+.empty-cart {
+   width: 100%;
+   height: 80vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.empty-cart p {
+   color: #c6c6c6;
+   font-size: 1.8rem;
+}
 /* .discount-code button {
    border: 2px solid darkcyan;
    color: var(--white);

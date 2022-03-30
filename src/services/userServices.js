@@ -66,15 +66,16 @@ export const logout = () => {
 };
 
 export const changePasswordFromPanel = (value) => {
-   const validationCode = process.env.REACT_APP_VALIDATION_CODE;
-   console.log(validationCode);
-   const { newPassword } = value.value;
+   const VALIDATION_CODE = process.env.REACT_APP_VALIDATION_CODE;
+   console.log(VALIDATION_CODE);
+   const { oldPassword, password } = value.value;
    const phoneNumber = localStorage.getItem('phoneNumber');
-   console.log(newPassword);
    return http.post(
       `${config.baseUrl}/api/user/change/password/${phoneNumber}/`,
-      JSON.stringify({ password: newPassword })
+      JSON.stringify({ old_password: oldPassword, password, VALIDATION_CODE })
    );
+
+   // old_password, password, VALIDATION_CODE
 };
 
 export const getTeachers = () => {

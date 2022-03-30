@@ -25,11 +25,7 @@ const EditAccount = () => {
    });
 
    const onSubmit = (value) => {
-      if (value.password !== password) {
-         Toast.toastError('پسوورد شما اشتباه است');
-      } else {
-         dispatch(changePasswordFromPanelHandler({ value }));
-      }
+      dispatch(changePasswordFromPanelHandler({ value }));
    };
 
    return (
@@ -48,7 +44,7 @@ const EditAccount = () => {
                      className='password-input'
                      type='password'
                      placeholder='رمز قبلی'
-                     name='password'
+                     name='oldPassword'
                   />
                   <Input
                      className='password-input'

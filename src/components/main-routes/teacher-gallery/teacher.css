@@ -7,7 +7,7 @@
 }
 
 .header-name {
-   background-color: var(--Gblack);
+   background-color: var(--jet);
    border-radius: 10px;
    height: 80px;
    width: 100%;
@@ -19,7 +19,7 @@
 }
 .header-name .title {
    font-family: 'BYekan';
-   color: var(--fosfori);
+   color: var(--yellow);
    font-size: 35px;
 }
 .main-gallery {

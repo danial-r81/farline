@@ -9,15 +9,15 @@
 }
 
 .fa-bars {
-   color: var(--Gblack);
+   color: var(--jet);
 }
 
 .panel-nav {
    width: 250px;
    height: 100%;
    position: fixed;
-   background-color: rgb(31, 35, 39);
-   border-right: 20px solid rgb(31, 35, 39);
+   background-color: var(--jet);
+   border-right: 20px solid var(--jet);
    transition: 0.5s;
    overflow: hidden;
 }
@@ -63,7 +63,9 @@
    cursor: pointer;
    font-size: 20px;
 }
-
+.panel-nav ul li button a svg {
+   color: var(--yellow);
+}
 .panel-nav ul li a .icon {
    display: block;
    position: relative;
@@ -116,7 +118,7 @@
    font-size: 18px;
 }
 .panel-nav ul li button p:hover {
-   color: var(--fosfori);
+   color: var(--yellow);
    transition: 0.3s;
    -webkit-transition: 0.3s;
    -moz-transition: 0.3s;
@@ -138,7 +140,7 @@
 }
 
 a.active-panel-menu {
-   color: var(--fosfori) !important;
+   color: var(--yellow) !important;
 }
 .panel-bar {
    position: absolute;
@@ -274,8 +276,9 @@ a.active-panel-menu {
    padding: 3rem 0rem;
    display: flex;
    flex-direction: column;
-   background-color: var(--Gblack);
+   background-color: var(--jet);
    border-radius: 15px;
+   /* border: 2px solid var(--yellow); */
    -webkit-border-radius: 15px;
    -moz-border-radius: 15px;
    -ms-border-radius: 15px;
@@ -290,7 +293,7 @@ a.active-panel-menu {
 .forgot-password h1 {
    text-align: center;
    font-size: 30px;
-   color: var(--fosfori);
+   color: #fff;
 }
 .password-input {
    margin: 5px 0;
@@ -298,12 +301,12 @@ a.active-panel-menu {
    outline: none;
    font-size: 15px;
    background-color: transparent;
-   border-bottom: 2px solid var(--fosfori);
+   border-bottom: 2px solid var(--yellow);
    color: var(--white);
 }
 
 .password-input::placeholder {
-   color: var(--fosfori);
+   color: var(--white);
 }
 
 .pas-btn-container {
@@ -324,16 +327,16 @@ a.active-panel-menu {
    -moz-border-radius: 5px;
    -ms-border-radius: 5px;
    -o-border-radius: 5px;
-   border: 2px solid var(--fosfori);
-   color: var(--fosfori);
+   border: 2px solid var(--yellow);
+   color: var(--yellow);
    display: flex;
    justify-content: center;
    align-items: center;
 }
 
 .change-pas-btn:hover {
-   background-color: var(--fosfori);
-   color: var(--Gblack);
+   background-color: var(--yellow);
+   color: var(--jet);
 }
 
 .user-logo {

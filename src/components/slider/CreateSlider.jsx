@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+import { Navigation } from 'swiper';
 import { NavLink } from 'react-router-dom';
+// import {AwesomeButton} from 'react-awesome-button'
 import MediaQuery from 'react-responsive';
 
 // css files for swiper
 import 'swiper/swiper.min.css';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper-bundle';
+// import 'swiper/css/navigation';
 import SliderItem from './SliderItem';
 
 const CreateSlider = ({
@@ -31,7 +34,8 @@ const CreateSlider = ({
                clickable: true,
             }}
             navigation={true}
-            className='teacher-swiper'>
+            className='teacher-swiper'
+            modules={[Navigation]}>
             {items.map((item, index) => (
                <SwiperSlide key={index}>
                   <SliderItem item={item} sliderAs={sliderAs} />
