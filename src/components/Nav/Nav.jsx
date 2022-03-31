@@ -1,11 +1,12 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/Capture1634-removebg-preview.png';
 
 import './nav.css';
 const Nav = () => {
    const { firstName, lastName } = useSelector((state) => state.user.userInfo);
+   const { cartItemsCount } = useSelector((state) => state.cart);
 
    const menuTogglerHandler = () => {
       const menu = document.querySelector('.nav-bottom');
@@ -32,6 +33,9 @@ const Nav = () => {
                      </div>
                   )}
                   <Link to='profile/cart' class='cart-icon'>
+                     {cartItemsCount !== 0 ? (
+                        <div className='cart-items'>{cartItemsCount}</div>
+                     ) : null}
                      <i class='bi bi-cart'></i>
                   </Link>
                </div>

@@ -1,9 +1,16 @@
 import Teacher from './Teacher';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getTeachersHandler } from '../../../redux/features/teachers';
 
 import './teacher.css';
-import { useSelector } from 'react-redux';
 const TeacherGallery = () => {
+   const dispatch = useDispatch();
    const { teachers } = useSelector((state) => state.teacher);
+
+   useEffect(() => {
+      dispatch(getTeachersHandler());
+   }, []);
 
    return (
       <div className='teacher-gallery-container'>

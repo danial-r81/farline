@@ -1,11 +1,10 @@
 .cuorse-container {
    width: 90%;
-   margin: 10px auto;
-   padding: 20px 0;
+   margin: 0 auto;
+   padding: 0;
    display: flex;
    flex-direction: column;
    border-radius: 5px;
-   margin-top: 4rem;
 }
 
 .title-cuorse {
@@ -15,14 +14,18 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color: var(--dark-liver);
-   border-radius: 3px;
+   background-color: var(--jet);
+   border-radius: 10px;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   -ms-border-radius: 10px;
+   -o-border-radius: 10px;
 }
 
 .title-cuorse h2 {
    direction: rtl;
    font-size: 22px;
-   color: var(--snow);
+   color: var(--yellow);
 }
 
 .box-cuorse-container {

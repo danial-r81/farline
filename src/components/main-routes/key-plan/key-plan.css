@@ -6,7 +6,7 @@
    align-items: center;
    justify-content: center;
    flex-direction: column;
-   padding: 4rem 0;
+   padding: 0;
 }
 .header-val-content {
    display: flex;
@@ -34,11 +34,18 @@
    margin-top: 50px;
    margin-bottom: 50px;
    width: 70%;
-   flex-direction: row-reverse;
+   flex-direction: row;
    justify-content: space-around;
    border-radius: 10px;
    transition: all 0.5s ease-in-out;
-   /* background-color: var(--orang); */
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   -ms-border-radius: 10px;
+   -o-border-radius: 10px;
+   -webkit-transition: all 0.5s ease-in-out;
+   -moz-transition: all 0.5s ease-in-out;
+   -ms-transition: all 0.5s ease-in-out;
+   -o-transition: all 0.5s ease-in-out;
 }
 .row-1 span {
    font-size: 20px;

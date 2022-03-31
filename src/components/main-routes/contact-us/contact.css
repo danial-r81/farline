@@ -2,7 +2,6 @@
 
 .contact-us-container {
    width: 100%;
-   padding: 4rem 0;
 }
 
 .main-contact {
@@ -33,7 +32,7 @@
    margin: 10px;
 }
 .column svg {
-   font-size: 35px;
+   font-size: 45px;
    transition: all 0.3s ease-in-out;
    -webkit-transition: all 0.3s ease-in-out;
    -moz-transition: all 0.3s ease-in-out;
@@ -55,64 +54,60 @@
    -ms-transition: all 0.5s ease;
    -o-transition: all 0.5s ease;
 }
-
-.instagram svg {
-   color: var(--jet);
-}
-.instagram:hover svg {
-   color: var(--white);
-}
-.gmail p {
-   font-size: 15px !important;
-}
 .gmail p,
 .telegram p,
 .instagram p,
 .web-site p {
    font-family: cursive;
 }
-.gmail {
-   border: 2px solid var(--jet);
-}
-.telegram {
-   border: 2px solid var(--jet);
-}
-.instagram {
-   border: 2px solid var(--jet);
-}
 .phone {
    border: 2px solid var(--jet);
 }
-.web-site {
+.gmail,
+.web-site,
+.instagram,
+.telegram {
    border: 2px solid var(--jet);
 }
-.gmail i {
-   color: #ea4335;
+.gmail svg,
+.web-site svg,
+.instagram svg,
+.telegram svg {
+   transform: translateY(10px);
 }
-.telegram i {
-   color: var(--jet);
+.phone svg {
+   transform: translateY(30px);
+   -webkit-transform: translateY(30px);
+   -moz-transform: translateY(30px);
+   -ms-transform: translateY(30px);
+   -o-transform: translateY(30px);
 }
-.instagram i {
-   color: #ff0066;
+.gmail:hover svg,
+.web-site:hover svg,
+.instagram:hover svg,
+.telegram:hover svg,
+.phone:hover svg {
+   transform: translateY(0);
+   -webkit-transform: translateY(0);
+   -moz-transform: translateY(0);
+   -ms-transform: translateY(0);
+   -o-transform: translateY(0);
 }
-.phone i {
-   color: #009933;
-}
-.web-site i {
-   color: var(--grey);
+.gmail:hover,
+.telegram:hover,
+.instagram:hover,
+.phone:hover,
+.web-site:hover {
+   box-shadow: 10px 10px 20px rgb(201, 201, 201);
+   border: none;
 }
 .gmail:hover {
    background-color: #ea4335;
-   box-shadow: 10px 10px 20px rgb(201, 201, 201);
-   border: none;
 }
 .telegram:hover {
    background-color: #35ade1;
-   box-shadow: 10px 10px 20px rgb(201, 201, 201);
-   border: none;
 }
 .instagram:hover {
-   /* background-color: #ff0066; */
    background: rgb(245, 133, 41);
    background: linear-gradient(
       17deg,
@@ -120,18 +115,12 @@
       rgba(221, 42, 123, 1) 53%,
       rgba(81, 91, 212, 1) 94%
    );
-   box-shadow: 10px 10px 20px rgb(201, 201, 201);
-   border: none;
 }
 .phone:hover {
    background-color: #31e05d;
-   box-shadow: 10px 10px 20px rgb(201, 201, 201);
-   border: none;
 }
 .web-site:hover {
    background-color: var(--grey);
-   box-shadow: 10px 10px 20px rgb(201, 201, 201);
-   border: none;
 }
 .contact i {
    font-size: 50px;

@@ -8,6 +8,7 @@ const CartItem = ({ cartItem }) => {
    const dispatch = useDispatch();
    const phoneNumber = localStorage.getItem('phoneNumber');
    const code = cartItem.code;
+   console.log(cartItem);
 
    return (
       <tr>
@@ -26,11 +27,11 @@ const CartItem = ({ cartItem }) => {
          <td className='trash-shop-contain '>
             {' '}
             <a
-               href='# '
                className='trash-shop '
-               onClick={() =>
-                  dispatch(deleteCourseHandler({ phoneNumber, code }))
-               }>
+               onClick={(e) => {
+                  e.preventDefault();
+                  dispatch(deleteCourseHandler({ phoneNumber, code }));
+               }}>
                <BsXCircle />
             </a>{' '}
          </td>

@@ -26,3 +26,7 @@ export const getDiscount = (phoneNumber, disCountCode) => {
       `${config.baseUrl}/api/apply_coupon/${phoneNumber}/${disCountCode}/`
    );
 };
+
+export const getCartCount = (phoneNumber) => {
+   return http.get(`${config.baseUrl}/api/stuff/count/${phoneNumber}/`);
+};

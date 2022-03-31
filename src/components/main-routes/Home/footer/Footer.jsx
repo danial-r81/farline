@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BsGeoFill, BsTelephone } from 'react-icons/bs';
-
+import logo from '../../../../assets/logo__1_-removebg-preview.png';
 import './footer.css';
 export const Footer = () => {
    return (
@@ -56,6 +56,9 @@ export const Footer = () => {
                      </li>
                   </ul>
                </div>
+            </div>
+            <div className='footer-logo-container'>
+               <img src={logo} alt='' className='footer-logo' />
             </div>
             <div className='footer-left'>
                <div className='location'>

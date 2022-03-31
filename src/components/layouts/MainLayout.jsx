@@ -1,6 +1,7 @@
 import { Fragment, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { getCartItemsCountHandler } from '../../redux/features/cart';
 import { getCoursesPackageHandler } from '../../redux/features/courses';
 import { getHomePageCovers } from '../../redux/features/covers';
 import { getAllUsers } from '../../redux/features/userInfo';
@@ -18,6 +19,7 @@ const MainLayout = ({ children }) => {
       }
       dispatch(getHomePageCovers());
       dispatch(getCoursesPackageHandler());
+      dispatch(getCartItemsCountHandler(phoneNumber));
    }, []);
    return (
       <Fragment>

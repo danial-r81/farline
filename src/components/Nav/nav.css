@@ -3,7 +3,7 @@
 .nav {
    width: 90%;
    height: 30vh;
-   margin: 30px auto;
+   margin: 30px auto 0;
    display: flex;
    align-items: center;
    flex-direction: column;
@@ -72,6 +72,20 @@
 
 .cart-icon {
    position: relative;
+}
+
+.cart-items {
+   position: absolute;
+   width: 14px;
+   height: 14px;
+   background: rgb(231, 44, 44);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50%;
+   top: 0;
+   right: -6px;
+   font-size: 13px;
 }
 
 .nav-left .login-btn {

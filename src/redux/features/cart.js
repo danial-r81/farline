@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {
    addCourseToCart,
    deleteCourse,
+   getCartCount,
    getDiscount,
    getTotalPrice,
    getUserCartItems,
@@ -10,12 +11,15 @@ import Toast from '../../toasts/toasts';
 
 export const addCourseToCartHandler = createAsyncThunk(
    'add-cart',
-   async (arg) => {
+   async (arg, { dispatch }) => {
       console.log(arg);
+      const phoneNumber = localStorage.getItem('phoneNumber');
       try {
          const { data, status } = await addCourseToCart(arg);
          if (status === 201) {
             Toast.toastSuccess('دوره به سبد خرید اضافه شد.');
+            // window.location.reload();
+            dispatch(getCartItemsCountHandler(phoneNumber));
             return { data };
          }
       } catch (e) {
@@ -29,11 +33,26 @@ export const addCourseToCartHandler = createAsyncThunk(
    }
 );
 
+export const getCartItemsCountHandler = createAsyncThunk(
+   'get-cart-count',
+   async (arg) => {
+      try {
+         const { data, status } = await getCartCount(arg);
+         if (status === 200) {
+            return Promise.resolve(data);
+         }
+      } catch (er) {
+         console.log(er);
+      }
+   }
+);
+
 export const getUserCartHandler = createAsyncThunk(
    'get-user-cart',
    async (arg) => {
       try {
          const { data, status } = await getUserCartItems(arg);
+         console.log(data);
          if (status === 200) {
             return { data };
          }
@@ -45,11 +64,13 @@ export const getUserCartHandler = createAsyncThunk(
 
 export const deleteCourseHandler = createAsyncThunk(
    'delete-course',
-   async (arg) => {
+   async (arg, { dispatch }) => {
+      console.log(arg);
       try {
          const { data, status } = await deleteCourse(arg);
          if (status === 204) {
             window.location.reload();
+            // dispatch(getUserCartHandler(arg));
             return { data };
          }
       } catch (er) {
@@ -95,6 +116,7 @@ const cartReducer = createSlice({
       totalCount: 0,
       disCountCode: '',
       weekPlanImgUrl: '',
+      cartItemsCount: '',
    },
    reducers: {
       setDisCountCode: (state, action) => {
@@ -111,6 +133,10 @@ const cartReducer = createSlice({
       },
       [deleteCourseHandler.fulfilled]: (state, action) => {
          console.log('item deleted');
+      },
+      [getCartItemsCountHandler.fulfilled]: (state, action) => {
+         console.log(action);
+         state.cartItemsCount = action.payload.count;
       },
    },
 });

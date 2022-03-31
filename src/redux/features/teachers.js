@@ -1,10 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getTeachers } from '../../services/userServices';
 
-export const teachersInfo = createAsyncThunk('teacher-info', async () => {
+export const getTeachersHandler = createAsyncThunk('teacher-info', async () => {
    try {
-      const { data } = await getTeachers();
-      return data;
+      const { data, status } = await getTeachers();
+      if (status) {
+         return { data };
+      }
    } catch (e) {
       console.log(e);
    }
@@ -16,8 +18,8 @@ const teacherReducer = createSlice({
       teachers: [],
    },
    extraReducers: {
-      [teachersInfo.fulfilled]: (state, action) => {
-         state.teachers = action.payload;
+      [getTeachersHandler.fulfilled]: (state, action) => {
+         state.teachers = action.payload.data;
       },
    },
 });

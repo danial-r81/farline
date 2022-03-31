@@ -31,7 +31,7 @@ const EditAccount = () => {
    return (
       <div class='pas-conainer'>
          <div className='change-pas-img'>
-            <img src='../images/Security-On.gif' alt='' />
+            <img src='../images/Forgot-password.gif' alt='' />
          </div>
          <div class='forgot-password'>
             <h1 class='txt-pass'>تغییر رمز عبور</h1>

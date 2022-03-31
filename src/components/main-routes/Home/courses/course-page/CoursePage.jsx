@@ -14,27 +14,13 @@ const CoursePage = () => {
    const { course, courseSessions } = useSelector((state) => state.courses);
    const phoneNumber = localStorage.getItem('phoneNumber');
    const code = localStorage.getItem('course_code');
+   console.log(courseSessions);
+   console.log(course);
 
    useEffect(() => {
       dispatch(getCourseAfterRefresh(localStorage.getItem('course_code')));
       dispatch(getCourseSessionsHandler(code));
    }, []);
-
-   // const fixOnScroll = () => {
-   //    const courseDetails = document.querySelector('.course-price');
-   //    console.log('client top', window.scrollY);
-   //    if (window.scrollY >= 200) {
-   //       courseDetails?.classList.add('sticky');
-   //    } else {
-   //       courseDetails?.classList.remove('sticky');
-   //    }
-   //    console.log(window.innerWidth);
-   //    if (window.innerWidth < 790) {
-   //       courseDetails?.classList.remove('sticky');
-   //    }
-   // };
-
-   // window.addEventListener('scroll', fixOnScroll);
 
    return (
       <div class='course-container'>
@@ -63,38 +49,43 @@ const CoursePage = () => {
             <div class='course-price'>
                <div class='course-detils'>
                   <h2>
-                     نام دوره : <span> ریاضی 1 </span>
+                     نام دوره : <span> {course.title_persion} </span>
                   </h2>
 
                   <h2>
-                     مدرس دوره: <span> استاد فشاری</span>
+                     مدرس دوره: <span> {course.teacher_name}</span>
                   </h2>
 
                   <h2>
-                     تعداد قسمت: <span>104 </span>
+                     تعداد قسمت: <span>{course.count_session} </span>
                   </h2>
 
                   <h2>
-                     مدت زمان دوره: <span>00:00:00</span>
+                     مدت زمان دوره: <span>{course.time}</span>
                   </h2>
 
                   <h2>
-                     دانشجوهای ثبت نام کرده: <span> 110</span>
+                     دانشجوهای ثبت نام کرده: <span> {course.count_user}</span>
                   </h2>
 
                   <h2>
-                     قیمت دوره : <span> 150،000 </span>تومان
+                     قیمت دوره : <span> {course.price} </span>تومان
                   </h2>
                </div>
                {/* <!-- <div class="course-info-price">
 
                 </div> --> */}
-               <button>خرید دوره</button>
+               <button
+                  onClick={() =>
+                     dispatch(addCourseToCartHandler({ code, phoneNumber }))
+                  }>
+                  خرید دوره
+               </button>
             </div>
 
             <div class='course-sessions'>
-               {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item) => (
-                  <Sessions />
+               {courseSessions.map((session) => (
+                  <Sessions session={session} />
                ))}
             </div>
          </div>

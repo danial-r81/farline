@@ -24,7 +24,8 @@ const Contact = () => {
                   initial={{ x: '10vw', opacity: 0 }}
                   animate={{ x: '0', opacity: 1 }}
                   icon={<BsFillEnvelopeFill />}
-                  text='toosclass@gmail.com'
+                  text='farlineedu@gmail.com'
+                  link='https://www.farlineedu@gmail.com'
                />
                <ContactBox
                   className='phone'
@@ -46,7 +47,8 @@ const Contact = () => {
                   initial={{ y: '-10vh', opacity: 0 }}
                   animate={{ y: '0', opacity: 1 }}
                   icon={<AiOutlineGlobal />}
-                  text='www.fatahzadehedu.com'
+                  text='fatahzadehedu.com'
+                  link='https://www.fatahzadehedu.com'
                />
             </div>
             <div className='column part-3'>
@@ -56,7 +58,8 @@ const Contact = () => {
                   initial={{ x: '-10vw', opacity: 0 }}
                   animate={{ x: '0', opacity: 1 }}
                   icon={<BsInstagram />}
-                  text='toosclass_com'
+                  text='farline_edu'
+                  link='https://instagram.com/farline_edu?utm_medium=copy_link'
                />
                <ContactBox
                   className='telegram bottom'
@@ -64,7 +67,8 @@ const Contact = () => {
                   initial={{ x: '-10vw', opacity: 0 }}
                   animate={{ x: '0', opacity: 1 }}
                   icon={<BsTelegram />}
-                  text='fatahzadehedu_com'
+                  text='farline_edu'
+                  link='https://t.me/farline_edu'
                />
             </div>
          </section>

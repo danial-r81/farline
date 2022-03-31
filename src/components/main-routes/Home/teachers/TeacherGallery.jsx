@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { teachersInfo } from '../../../../redux/features/teachers';
+import { getTeachersHandler } from '../../../../redux/features/teachers';
 import CreateSliser from '../../../slider/CreateSlider';
 
 export const TeacherGallery = () => {
    const dispatch = useDispatch();
    const teachers = useSelector((state) => state.teacher.teachers);
    useEffect(() => {
-      dispatch(teachersInfo());
+      dispatch(getTeachersHandler());
    }, []);
 
    return (

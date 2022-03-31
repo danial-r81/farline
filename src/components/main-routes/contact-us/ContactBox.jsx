@@ -9,9 +9,12 @@ const ContactBox = ({
    animate,
    icon,
    text,
+   link,
 }) => {
    return (
-      <motion.div
+      <motion.a
+         href={link}
+         target='_blank'
          className={`contact ${className}`}
          initial={initial}
          animate={animate}
@@ -23,7 +26,7 @@ const ContactBox = ({
          }}>
          {icon}
          <p className='text'>{text}</p>
-      </motion.div>
+      </motion.a>
    );
 };
 
