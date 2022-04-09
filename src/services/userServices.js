@@ -32,8 +32,8 @@ export const userLogin = (data) => {
    });
 };
 
-export const resendCode = (phoneNumber) => {
-   // const phoneNumber = localStorage.getItem('phoneNumber');
+export const resendCode = () => {
+   const phoneNumber = localStorage.getItem('phoneNumber');
    return http.post(`${config.baseUrl}/api/user/code/again/${phoneNumber}/`);
 };
 

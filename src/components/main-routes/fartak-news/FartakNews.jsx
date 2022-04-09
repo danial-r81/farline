@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getNewsCoursesHandler } from '../../../redux/features/courses';
+import CourseBox from '../../course-box/CourseBox';
 
 import './fartak-news.css';
 import NewsCourses from './NewsCourses';
@@ -19,9 +20,9 @@ const FartakNews = () => {
             <h2>دوره های جدید فرتاک </h2>
          </div>
          <div className='box-cuorse-container'>
-            {/* {newsCourses.map((course) => (
-               <NewsCourses course={course} />
-            ))} */}
+            {newsCourses.map((course) => (
+               <CourseBox course={course} />
+            ))}
          </div>
       </div>
    );

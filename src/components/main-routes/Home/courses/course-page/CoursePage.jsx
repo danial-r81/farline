@@ -6,6 +6,7 @@ import {
    getCourseSessionsHandler,
 } from '../../../../../redux/features/courses';
 import { addCourseToCartHandler } from '../../../../../redux/features/cart';
+import config from '../../../../../services/config.json';
 
 import './course-page.css';
 import Sessions from './Sessions';
@@ -26,7 +27,7 @@ const CoursePage = () => {
       <div class='course-container'>
          <div class='course-info'>
             <div class='course-img'>
-               <img src='../../images/1.png' alt='' />
+               <img src={`${config.baseUrl}${course.picture}`} alt='' />
             </div>
             <div class='course-info-text'>
                <p>

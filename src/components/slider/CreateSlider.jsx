@@ -13,19 +13,10 @@ import 'swiper/swiper-bundle';
 // import 'swiper/css/navigation';
 import SliderItem from './SliderItem';
 
-const CreateSlider = ({
-   items,
-   topic,
-   slidesPerView,
-   minWidth,
-   maxWidth,
-   sliderAs,
-   btnTopic,
-   goTo,
-}) => {
+const CreateSlider = ({ items, slidesPerView, minWidth, maxWidth }) => {
    return (
       <MediaQuery minWidth={minWidth} maxWidth={maxWidth}>
-         <h2 className='slider-header'>{topic}</h2>
+         <h2 className='slider-header'>اساتید فرتاک</h2>
          <Swiper
             slidesPerView={slidesPerView}
             spaceBetween={30}
@@ -38,13 +29,13 @@ const CreateSlider = ({
             modules={[Navigation]}>
             {items.map((item, index) => (
                <SwiperSlide key={index}>
-                  <SliderItem item={item} sliderAs={sliderAs} />
+                  <SliderItem item={item} />
                </SwiperSlide>
             ))}
          </Swiper>
          <div className='slider-btn'>
-            <NavLink to={goTo}>
-               <button>برای مشاهده تمامی {btnTopic} کلیک کنید</button>
+            <NavLink to='/teachers'>
+               <button>برای مشاهده تمامی اساتید کلیک کنید</button>
             </NavLink>
          </div>
       </MediaQuery>
@@ -53,13 +44,9 @@ const CreateSlider = ({
 
 CreateSlider.propTypes = {
    items: PropTypes.array.isRequired,
-   topic: PropTypes.string.isRequired,
    slidesPerView: PropTypes.number.isRequired,
    minWidth: PropTypes.number,
    maxWidth: PropTypes.number,
-   sliderAs: PropTypes.string.isRequired,
-   btnTopic: PropTypes.string.isRequired,
-   goTo: PropTypes.string.isRequired,
 };
 
 export default CreateSlider;

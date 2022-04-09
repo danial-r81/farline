@@ -32,7 +32,7 @@ export { default as TeacherGallery } from './main-routes/teacher-gallery/Teacher
 export { default as Contact } from './main-routes/contact-us/Contact';
 
 // key plan
-export { default as KeyPlan } from './main-routes/key-plan/KeyPlan';
+export { default as StudyMap } from './main-routes/key-plan/StudyMap';
 
 // 404 page
 export { default as PageNotFound } from './404/PageNotFound';

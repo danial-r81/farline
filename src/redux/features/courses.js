@@ -118,7 +118,6 @@ export const getNewsCoursesHandler = createAsyncThunk(
    async () => {
       try {
          const { data, status } = await getNewsCourses();
-         console.log(data);
          if (status === 200) {
             return { data };
          }
@@ -132,7 +131,6 @@ export const getMyCoursesHandler = createAsyncThunk(
       const { phoneNumber, navigate } = arg;
       try {
          const { data, status } = await getMyCourses(phoneNumber);
-         console.log(data);
          if (status === 200) {
             navigate('/profile/my-courses ');
             return { data };
@@ -215,7 +213,6 @@ const coursesReducer = createSlice({
          state.courseSessions = action.payload.data;
       },
       [getNewsCoursesHandler.fulfilled]: (state, action) => {
-         console.log(action);
          state.newsCourses = action.payload.data;
       },
       [getMyCoursesHandler.fulfilled]: (state, action) => {

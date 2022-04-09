@@ -4,6 +4,7 @@
    grid-template-columns: 1fr 1fr 1fr;
    justify-items: center;
    padding: 35px 0;
+   gap: 40px 0;
 }
 
 .box-all {

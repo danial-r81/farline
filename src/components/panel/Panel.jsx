@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import PanelNav from './panel-nav/PanelNav';
 import { Outlet, useLocation, useNavigate } from 'react-router';
 import logo from '../../assets/logo__1_-removebg-preview.png';
+import { CgMenu } from 'react-icons/cg';
 
 import './panel.css';
 import { Link } from 'react-router-dom';
@@ -25,9 +26,6 @@ const Panel = () => {
       <div className='panel-contain'>
          <PanelNav />
          <div className='panel-main'>
-            <Link to='/' className='panel-logo'>
-               <img src={logo} alt='' />
-            </Link>
             <div className='panel-bar'>
                <div className='left-bar'>
                   {firstName && lastName ? (
@@ -35,9 +33,12 @@ const Panel = () => {
                         <div className='panel-username'>{`${firstName} ${lastName}`}</div>
                      </div>
                   ) : null}
+                  <Link to='/' className='panel-logo'>
+                     <img src={logo} alt='' />
+                  </Link>
                </div>
                <div className='Hmenu' onClick={toggleMenu}>
-                  <i class='bi bi-list'></i>
+                  <CgMenu />
                </div>
             </div>
             <div className='panel-table'>

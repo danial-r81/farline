@@ -65,6 +65,7 @@
 
 .course-box:hover p {
    color: var(--jet);
+   text-align: center;
 }
 
 .courses-boxes-title {
@@ -100,18 +101,30 @@
 
 @media screen and (max-width: 1270px) {
    .course-box {
-      width: 30%;
+      width: 25%;
+   }
+   .course-box-text p {
+      font-size: 15px;
+   }
+   .course-box svg {
+      font-size: 3rem;
    }
 }
 
 @media screen and (max-width: 990px) {
    .courses-boxes {
       flex-direction: column;
-      width: 60%;
+      width: 100%;
    }
    .course-box {
-      width: 100%;
+      width: 42%;
       margin: 18px 0;
+   }
+   .course-box svg {
+      font-size: 2rem;
+   }
+   .course-box-text p {
+      font-size: 13px;
    }
 }
 @media screen and (max-width: 570px) {
@@ -121,5 +134,11 @@
    }
    .course-box {
       width: 100%;
+   }
+   .courses-boxes-title {
+      margin: 18px 0;
+   }
+   .courses-boxes-title h3 {
+      font-size: 19px;
    }
 }

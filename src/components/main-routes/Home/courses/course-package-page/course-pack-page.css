@@ -3,7 +3,6 @@
 .courses-package-container {
    width: 100%;
    height: 100vh;
-   margin-top: 2rem;
    direction: rtl;
 }
 
@@ -60,4 +59,18 @@
    align-items: center;
    height: 35vh;
    color: blue;
+}
+
+@media screen and (max-width: 1000px) {
+   .filter-items {
+      width: 65%;
+   }
+}
+@media screen and (max-width: 500px) {
+   .filter-items {
+      width: 100%;
+   }
+   .filter-item button {
+      font-size: 17px;
+   }
 }

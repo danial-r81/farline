@@ -7,26 +7,27 @@ import {
    getTotalPrice,
    getUserCartItems,
 } from '../../services/cartServices';
+import { getWeekPlan } from '../../services/userPanelServices';
 import Toast from '../../toasts/toasts';
 
 export const addCourseToCartHandler = createAsyncThunk(
    'add-cart',
    async (arg, { dispatch }) => {
-      console.log(arg);
       const phoneNumber = localStorage.getItem('phoneNumber');
       try {
          const { data, status } = await addCourseToCart(arg);
          if (status === 201) {
             Toast.toastSuccess('دوره به سبد خرید اضافه شد.');
-            // window.location.reload();
             dispatch(getCartItemsCountHandler(phoneNumber));
             return { data };
          }
       } catch (e) {
          if (e.response) {
-            console.log(e.response);
             if (e.response.status === 400) {
                Toast.toastWarning('این دوره در سبد خرید موجود است.');
+            }
+            if (e.response.status === 404) {
+               Toast.toastWarning('ابتدا وارد حساب کاربری خود شوید');
             }
          }
       }
@@ -65,12 +66,12 @@ export const getUserCartHandler = createAsyncThunk(
 export const deleteCourseHandler = createAsyncThunk(
    'delete-course',
    async (arg, { dispatch }) => {
-      console.log(arg);
+      const { phoneNumber, code } = arg;
       try {
-         const { data, status } = await deleteCourse(arg);
+         const { data, status } = await deleteCourse(phoneNumber, code);
          if (status === 204) {
-            window.location.reload();
-            // dispatch(getUserCartHandler(arg));
+            dispatch(getUserCartHandler(phoneNumber)); // get cart items
+            dispatch(getCartItemsCountHandler(phoneNumber)); // get cart items counts
             return { data };
          }
       } catch (er) {
@@ -103,7 +104,9 @@ export const getDiscountHandler = createAsyncThunk(
             window.location.reload();
          }
       } catch (er) {
-         console.log(er);
+         if (er.response.status === 404) {
+            Toast.toastError('کد تخفیف وارد شده معتبر نمی باشد');
+         }
       }
    }
 );
@@ -115,7 +118,6 @@ const cartReducer = createSlice({
       totalPrice: '',
       totalCount: 0,
       disCountCode: '',
-      weekPlanImgUrl: '',
       cartItemsCount: '',
    },
    reducers: {
@@ -131,11 +133,7 @@ const cartReducer = createSlice({
          state.totalPrice = action.payload.data.total;
          state.totalCount = action.payload.data.count;
       },
-      [deleteCourseHandler.fulfilled]: (state, action) => {
-         console.log('item deleted');
-      },
       [getCartItemsCountHandler.fulfilled]: (state, action) => {
-         console.log(action);
          state.cartItemsCount = action.payload.count;
       },
    },

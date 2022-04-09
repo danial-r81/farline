@@ -3,6 +3,7 @@
    --jet: #333533;
    --yellow: #ffc300;
    --light-jet: #646464;
+   --white: #f8f9fa;
 }
 * {
    font-family: 'BYekan';
@@ -14,6 +15,11 @@ a {
 
 html {
    scroll-behavior: smooth;
+}
+
+.fartak {
+   max-width: 1700px;
+   margin: auto;
 }
 
 ::-webkit-scrollbar {

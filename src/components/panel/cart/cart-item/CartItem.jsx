@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteCourseHandler } from '../../../../redux/features/cart';
 import config from '../../../../services/config.json';
-import { BsXCircle } from 'react-icons/bs';
+import { BsTrash, BsXCircle } from 'react-icons/bs';
 
 const CartItem = ({ cartItem }) => {
    const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const CartItem = ({ cartItem }) => {
                   e.preventDefault();
                   dispatch(deleteCourseHandler({ phoneNumber, code }));
                }}>
-               <BsXCircle />
+               <BsTrash className='trash-icon' />
             </a>{' '}
          </td>
          <td className='shop-price '>{cartItem.price} تومان</td>

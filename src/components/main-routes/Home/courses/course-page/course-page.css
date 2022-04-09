@@ -12,20 +12,25 @@
 .course-info {
    width: 95%;
    height: 95%;
-   margin: 10px auto 10px auto;
-   border: 2px solid var(--jet);
+   margin: 10px auto;
    color: var(--jet);
    border-radius: 9px;
    display: flex;
    flex-direction: row-reverse;
    justify-content: space-between;
+   background-color: var(--snow);
 }
 
 .course-img {
-   width: 350px;
+   width: 200px;
    height: 200px;
    margin: 10px;
-   border-radius: 5px;
+   border-radius: 10px;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   -ms-border-radius: 10px;
+   -o-border-radius: 10px;
+   overflow: hidden;
 }
 
 .course-img img {
@@ -33,7 +38,6 @@
    height: 100%;
    background-repeat: no-repeat;
    background-size: cover;
-   border-radius: 10px;
    object-fit: contain;
 }
 

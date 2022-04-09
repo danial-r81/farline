@@ -16,10 +16,10 @@ const MainLayout = ({ children }) => {
    useEffect(() => {
       if (phoneNumber) {
          dispatch(getAllUsers());
+         dispatch(getCartItemsCountHandler(phoneNumber));
       }
       dispatch(getHomePageCovers());
       dispatch(getCoursesPackageHandler());
-      dispatch(getCartItemsCountHandler(phoneNumber));
    }, []);
    return (
       <Fragment>

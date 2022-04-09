@@ -12,20 +12,17 @@ import {
    changePasswordFromPanel,
    getCsrtToken,
 } from '../../services/userServices';
+import { getUserCartHandler } from './cart';
 
 export const getCodeAgain = createAsyncThunk('users/resend-code', async () => {
    try {
-      const { data } = await resendCode();
+      const { data, status } = await resendCode();
+      console.log(data);
+      console.log(status);
       return Promise.resolve(data);
    } catch (err) {
       if (err.response) {
          console.log(err.response);
-      }
-      if (err.request) {
-         console.log(err.request);
-      }
-      if (err.massage) {
-         console.log(err.massage);
       }
    }
 });
@@ -71,25 +68,27 @@ export const getCsrfTokenHandler = createAsyncThunk(
    }
 );
 
-export const loginHandler = createAsyncThunk('user/login', async (arg) => {
-   console.log(arg);
-   const { value, navigate } = arg;
-   const { phoneNumber } = value;
-   try {
-      const { status } = await userLogin(value);
-      if (status === 200) {
-         Toasts.toastSuccess('login was successful');
-         localStorage.setItem('phoneNumber', phoneNumber);
-         navigate('/');
-         window.location.reload();
-      }
-   } catch (e) {
-      console.log(e);
-      if (e.response) {
-         console.log(e.response);
+export const loginHandler = createAsyncThunk(
+   'user/login',
+   async (arg, { dispatch }) => {
+      const { value, navigate } = arg;
+      const { phoneNumber } = value;
+      try {
+         const { status } = await userLogin(value);
+         if (status === 200) {
+            localStorage.setItem('phoneNumber', phoneNumber);
+            window.location.reload();
+            navigate('/');
+            dispatch(getAllUsers());
+            dispatch(getUserCartHandler(phoneNumber));
+         }
+      } catch (e) {
+         if (e.response.status === 400) {
+            Toasts.toastError('نام کاربری یا رمز عبور اشتباه است');
+         }
       }
    }
-});
+);
 
 export const changePasswordFromPanelHandler = createAsyncThunk(
    'user/changePass',
@@ -109,14 +108,14 @@ export const logoutHandler = createAsyncThunk(
    'user/logout',
    async (navigate) => {
       try {
-         const { status } = await logout();
+         // const { status } = await logout();
          //  if (status === 200) {
          navigate('/', { replace: true });
          window.location.reload();
          localStorage.removeItem('phoneNumber');
          Cookies.remove('sessionid');
          //  }
-         return Promise.resolve(navigate);
+         // return { navigate };
       } catch (err) {
          if (err.response) {
             console.log(err.response);
@@ -256,10 +255,11 @@ const userReducer = createSlice({
       [getAllUsers.fulfilled]: (state, action) => {
          Object.assign(state.userInfo, action.payload);
       },
-      [logoutHandler.fulfilled]: () => {
-         localStorage.removeItem('phoneNumber');
-         window.location.href = '/';
-      },
+      // [logoutHandler.fulfilled]: (state, action) => {
+      //    localStorage.removeItem('phoneNumber');
+      //    console.log(action);
+      //    const navigate
+      // },
    },
 });
 

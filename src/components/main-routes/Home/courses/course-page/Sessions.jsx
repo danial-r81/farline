@@ -1,18 +1,19 @@
 import React from 'react';
+import { BiArrowFromTop } from 'react-icons/bi';
 
 const Sessions = ({ session }) => {
-   const accor = document.querySelectorAll('.ourse-session-container');
-   accor.forEach((item) => {
-      item.addEventListener('click', function () {
-         item.classList.toggle('active');
-         const content = item.nextElementSibling;
-         if (content.style.height) {
-            content.style.height = null;
-         } else {
-            content.style.height = content.scrollHeight + 'px';
-         }
-      });
-   });
+   // const accor = document.querySelectorAll('.course-session-container');
+   // accor.forEach((item) => {
+   //    item.addEventListener('click', function () {
+   //       item.classList.toggle('active');
+   //       const content = item.nextElementSibling;
+   //       if (content.style.height) {
+   //          content.style.height = null;
+   //       } else {
+   //          content.style.height = content.scrollHeight + 'px';
+   //       }
+   //    });
+   // });
    return (
       <div class='course-session-container'>
          <div class='course-session-container-num'>
@@ -25,10 +26,10 @@ const Sessions = ({ session }) => {
          </div>
          <div class='course-session-container-timer'>
             <div class='course-sessions-timer'>
-               <h3>00:00:00</h3>
+               <h3>{session.time}</h3>
             </div>
             <div class='course-sessions-icon'>
-               <i class='bi bi-chevron-down'></i>
+               <BiArrowFromTop />
             </div>
          </div>
       </div>

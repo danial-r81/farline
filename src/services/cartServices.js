@@ -11,9 +11,9 @@ export const getUserCartItems = (phoneNumber) => {
    return http.get(`${config.baseUrl}/api/get_cart/${phoneNumber}/`);
 };
 
-export const deleteCourse = (arg) => {
+export const deleteCourse = (phoneNumber, code) => {
    return http.delete(
-      `${config.baseUrl}/api/delete/stuff/${arg.phoneNumber}/${arg.code}/`
+      `${config.baseUrl}/api/delete/stuff/${phoneNumber}/${code}/`
    );
 };
 

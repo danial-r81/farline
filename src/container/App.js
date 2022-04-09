@@ -1,20 +1,12 @@
-import ToosClass from './ToosClass';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Fartak from './Fartak';
 const App = () => {
-   // window.addEventListener('scroll', () => {
-   //    if (window.pageYOffset > 400) {
-   //       document.querySelector('.to-top').classList.add('show-back-to-top');
-   //    } else {
-   //       document.querySelector('.to-top').classList.remove('show-back-to-top');
-   //    }
-   // });
-
    return (
       <Router>
-         <div className='toosclass'>
-            <ToosClass />
+         <div className='fartak'>
+            <Fartak />
             <ToastContainer
                position='top-right'
                autoClose={3000}
@@ -29,9 +21,6 @@ const App = () => {
                theme='colored'
                limit={1}
             />
-            {/* <a href='#' className='to-top'>
-               <i className='fa fa-chevron-up'></i>
-            </a> */}
          </div>
       </Router>
    );

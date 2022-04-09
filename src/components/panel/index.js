@@ -13,6 +13,9 @@ export { default as EditAccount } from './edit-account/EditAccount';
 //cart
 export { default as Cart } from './cart/Cart';
 
+// week plan
+export { default as WeekPlan } from './week-plan/WeekPlan';
+
 // my courses
 export { default as MyCoursesContainer } from './my-courses/MyCoursesContainer';
 

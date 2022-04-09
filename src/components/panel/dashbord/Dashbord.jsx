@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getWeekPlanHandler } from '../../../redux/features/userPanel';
+import { getWeekPlansHandler } from '../../../redux/features/userPanel';
 import {
    BsInboxes,
    BsCreditCard,
@@ -16,10 +16,6 @@ const Dashbord = () => {
    const navigate = useNavigate();
    const phoneNumber = localStorage.getItem('phoneNumber');
 
-   useEffect(() => {
-      dispatch(getWeekPlanHandler(phoneNumber));
-   }, []);
-
    return (
       <section className='table-container'>
          <div className='card'>
@@ -32,7 +28,13 @@ const Dashbord = () => {
                to='/my-courses'
             />
             <Box icon={<BsCreditCard />} text='امور مالی' />
-            <Box icon={<BsFillCalendar2WeekFill />} text='برنامه مطالعاتی' />
+            <Box
+               icon={<BsFillCalendar2WeekFill />}
+               text='برنامه مطالعاتی'
+               onClick={() => {
+                  dispatch(getWeekPlansHandler({ phoneNumber, navigate }));
+               }}
+            />
          </div>
       </section>
    );

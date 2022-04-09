@@ -106,18 +106,15 @@
 
 .banner-slide img {
    width: 100%;
-   /* height: 540px; */
    border-radius: 20px;
    -webkit-border-radius: 20px;
    -moz-border-radius: 20px;
    -ms-border-radius: 20px;
    -o-border-radius: 20px;
-   border: 2px solid var(--jet);
 }
 
 .mySwiper {
    margin: 0 0 2rem 0;
-   /* width: 100%; */
    padding: 30px;
 }
 
@@ -131,6 +128,18 @@
 .swiper-button-next {
    color: var(--jet) !important;
    font-size: 16px;
+   background: var(--white);
+   width: 30px;
+   height: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50%;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   -ms-border-radius: 50%;
+   -o-border-radius: 50%;
+   opacity: 1;
 }
 
 .swiper-button-prev {
@@ -147,7 +156,7 @@
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-   font-size: 26px;
+   font-size: 18px;
 }
 
 .home-courses .item {
@@ -266,7 +275,7 @@
 }
 
 .consultation h2 {
-   color: var(--snow);
+   color: var(--yellow);
    font-size: 21px;
    margin-top: 5px;
    text-align: center;
@@ -287,7 +296,7 @@
    -moz-border-radius: 5px;
    -ms-border-radius: 5px;
    -o-border-radius: 5px;
-   border: 1px solid var(--snow);
+   border: 1px solid var(--yellow);
    outline: none;
    padding: 5px 25px;
    cursor: pointer;
@@ -299,17 +308,15 @@
 }
 
 .cons-btn button:hover {
-   color: var(--white);
-   background-color: var(--black);
+   color: var(--yellow);
 }
 
 .consultation-form .input-container input {
    border-bottom: 1px solid var(--snow);
-   color: var(--snow);
 }
 
 .consultation-form .input-container input::placeholder {
-   color: var(--snow);
+   color: var(--yellow);
 }
 
 .back-to-top {
@@ -348,12 +355,24 @@
       padding: 15px 0;
    }
 
+   .swiper-button-prev,
+   .swiper-button-next {
+      width: 20px;
+      height: 20px;
+      top: 54%;
+   }
+
+   .swiper-button-next::after,
+   .swiper-button-prev::after {
+      font-size: 14px;
+   }
+
    .consultation-container img {
       display: none;
    }
 
    .consultation {
-      margin: 4rem 0rem;
+      margin: 1rem 0;
       background: var(--jet);
       width: 67%;
       padding: 4rem 2.5rem;
@@ -470,9 +489,16 @@
       margin: 0 17px;
    }
 
+   .swiper-button-prev,
+   .swiper-button-next {
+      width: 15px;
+      height: 15px;
+      top: 60%;
+   }
+
    .swiper-button-next::after,
    .swiper-button-prev::after {
-      font-size: 20px;
+      font-size: 10px;
    }
    .footer-container {
       margin: 1rem 0;

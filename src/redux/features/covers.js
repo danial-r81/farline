@@ -5,7 +5,7 @@ export const getHomePageCovers = createAsyncThunk('covers', async () => {
    try {
       const { data, status } = await getCovers();
       if (status === 200) {
-         return Promise.resolve(data);
+         return { data };
       }
    } catch (e) {
       console.log(e);
@@ -19,7 +19,7 @@ const coverReducer = createSlice({
    },
    extraReducers: {
       [getHomePageCovers.fulfilled]: (state, action) => {
-         state.covers = action.payload;
+         state.covers = action.payload.data;
       },
    },
 });

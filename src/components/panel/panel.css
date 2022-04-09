@@ -5,7 +5,6 @@
    height: 92vh;
    position: relative;
    direction: rtl;
-   overflow: hidden;
 }
 
 .fa-bars {
@@ -155,11 +154,7 @@ a.active-panel-menu {
 .panel-logo {
    width: 80px;
    height: 80px;
-   position: absolute;
-   left: 20px;
-   top: 18px;
    cursor: pointer;
-   z-index: 20;
 }
 .panel-logo img {
    width: 100%;
@@ -171,9 +166,6 @@ a.active-panel-menu {
    display: flex;
    justify-content: center;
    align-items: center;
-   flex-direction: row-reverse;
-   padding-left: 25px;
-   margin-left: 62px;
 }
 
 .Hmenu {
@@ -206,6 +198,11 @@ a.active-panel-menu {
 
 .panel-username {
    font-size: 21px;
+   background-color: var(--jet);
+   color: var(--yellow);
+   padding: 10px 20px;
+   margin: 0 12px;
+   border-radius: 15px;
 }
 
 .panel-user img {
@@ -219,6 +216,7 @@ a.active-panel-menu {
 
 .panel-table {
    width: 100%;
+   margin-top: 8rem;
 }
 
 .panel-courses {
@@ -362,8 +360,36 @@ a.active-panel-menu {
    margin-right: 35px;
 }
 
-.icon-books:before {
-   content: '\e920';
+.week-plan-container {
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   align-items: center;
+}
+
+.week-plan-title {
+   font-size: 21px;
+}
+.week-plan {
+   width: 80%;
+   height: 80%;
+   border-radius: 10px;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   -ms-border-radius: 10px;
+   -o-border-radius: 10px;
+}
+
+.week-plan img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+   border: 2px solid var(--jet);
+   border-radius: 10px;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   -ms-border-radius: 10px;
+   -o-border-radius: 10px;
 }
 
 @media (max-width: 991px) {
@@ -401,6 +427,9 @@ a.active-panel-menu {
       height: 150px;
       margin: 30px 0 5px 0;
    }
+   .panel-table {
+      margin-top: 1rem;
+   }
 
    .panel-main {
       height: 93.5vh;
@@ -418,7 +447,7 @@ a.active-panel-menu {
       width: 90%;
    }
    .panel-username {
-      font-size: 18px;
+      font-size: 14px;
    }
    .orders {
       font-size: 23px;
@@ -432,7 +461,7 @@ a.active-panel-menu {
       font-size: 14px;
    }
    .panel-main.active .Hmenu {
-      right: -98px;
+      right: -90 px;
       color: #fff;
    }
 }

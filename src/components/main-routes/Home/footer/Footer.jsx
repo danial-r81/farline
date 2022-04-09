@@ -40,7 +40,7 @@ export const Footer = () => {
                <div className='footer-items'>
                   <ul>
                      <li>
-                        <Link to='/teachers'> اساتید طوس کلاس</Link>
+                        <Link to='/teachers'> اساتید فرتاک</Link>
                      </li>
                      <li>
                         <Link to='/key-plan'>نقشه راه</Link>
@@ -57,9 +57,9 @@ export const Footer = () => {
                   </ul>
                </div>
             </div>
-            <div className='footer-logo-container'>
+            {/* <div className='footer-logo-container'>
                <img src={logo} alt='' className='footer-logo' />
-            </div>
+            </div> */}
             <div className='footer-left'>
                <div className='location'>
                   <div className='location-boy'>

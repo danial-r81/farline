@@ -20,11 +20,26 @@
    padding: 20px;
    border-radius: 10px;
    cursor: pointer;
-   border: 2px solid var(--jet);
+   border: 2px solid var(--yellow);
+   background: var(--snow);
+   transition: all 0.3s ease-in-out;
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -ms-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   width: 50%;
+}
+.my-courses-box:hover {
+   transform: translateY(-4px);
+   -webkit-transform: translateY(-4px);
+   -moz-transform: translateY(-4px);
+   -ms-transform: translateY(-4px);
+   -o-transform: translateY(-4px);
 }
 
 .my-course-name {
    margin: 10px 0;
+   text-align: center;
 }
 
 .my-course-teacher-name {
@@ -36,8 +51,6 @@
 }
 
 .my-course-img {
-   width: 200px;
-   height: 200px;
    border-radius: 10px;
    overflow: hidden;
 }
