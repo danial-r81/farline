@@ -131,7 +131,7 @@ export const fillProfileHandler = createAsyncThunk(
       const VALIDATION_CODE = process.env.REACT_APP_VALIDATION_CODE;
       const { firstName, lastName, password, grade } = arg.value;
       const { navigate } = arg;
-      const { nationalCode } = state.userReducer.userInfo;
+      const { nationalCode } = state.user.userInfo;
       const phoneNumber = localStorage.getItem('phoneNumber');
       const user = {
          firstName,

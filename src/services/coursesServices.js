@@ -32,3 +32,7 @@ export const getMyCourses = (phoneNumber) => {
 export const getSuggestedCourses = (phoneNumber) => {
    return http.get(`${config.baseUrl}/api/suggested_course/${phoneNumber}/`);
 };
+
+export const isCourseBought = (phoneNumber, code) => {
+   return http.get(`${config.baseUrl}/api/is_buy/${phoneNumber}/${code}/`);
+};

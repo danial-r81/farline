@@ -43,7 +43,7 @@ export const getCartItemsCountHandler = createAsyncThunk(
             return Promise.resolve(data);
          }
       } catch (er) {
-         console.log(er);
+         console.log(er.response);
       }
    }
 );

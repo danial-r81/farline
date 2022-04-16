@@ -1,15 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getDiscountHandler } from '../../../../redux/features/cart';
+import config from '../../../../services/config.json';
+import Toast from '../../../../toasts/toasts';
 import CartItem from '../cart-item/CartItem';
 import { GiTicket } from 'react-icons/gi';
+import { useNavigate } from 'react-router';
+import { paymentHandler } from '../../../../redux/features/userPanel';
 
 const CartContainer = () => {
    const dispatch = useDispatch();
+   // const navigate = useNavigate();
    const { cart, totalPrice, totalCount } = useSelector((state) => state.cart);
+   const { paymentUrl } = useSelector((state) => state.panel);
    const [disCountCode, setDisCountCode] = useState(null);
    const phoneNumber = localStorage.getItem('phoneNumber');
+   useEffect(() => {
+      dispatch(paymentHandler(phoneNumber));
+   }, []);
+
+   // const getPaidHandler = () => {
+   //    if (cart.length !== 0) {
+   //       navigate(`https://localhost:8000/api/zarin/request/${phoneNumber}/`);
+   //    } else {
+   //       Toast.toastWarning('سبد خرید خالی است.');
+   //    }
+   // };
    return (
       <>
          <table>
@@ -54,7 +71,9 @@ const CartContainer = () => {
                </div>
             </div>
             <div className='checkout'>
-               <button className='checkout-btn'>پرداخت</button>
+               <a href={paymentUrl} className='checkout-btn'>
+                  پرداخت
+               </a>
             </div>
          </div>
       </>

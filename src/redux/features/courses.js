@@ -8,6 +8,7 @@ import {
    getNewsCourses,
    getMyCourses,
    getSuggestedCourses,
+   isCourseBought,
 } from '../../services/coursesServices';
 
 export const getCoursesPackageHandler = createAsyncThunk(
@@ -66,24 +67,43 @@ export const getCoursesItemsHandler = createAsyncThunk(
             return data;
          }
       } catch (er) {
+         console.log(er.response);
+      }
+   }
+);
+
+export const getCourseHandler = createAsyncThunk(
+   'get-course',
+   async (arg, { dispatch }) => {
+      const { code, navigate, phoneNumber } = arg;
+      try {
+         const { data, status } = await getCourse(code);
+         if (status === 200) {
+            localStorage.setItem('course_code', code);
+            navigate(`/courses/${data.path}`);
+            return { data };
+         }
+      } catch (er) {
          console.log(er);
       }
    }
 );
 
-export const getCourseHandler = createAsyncThunk('get-course', async (arg) => {
-   const { code, navigate } = arg;
-   try {
-      const { data, status } = await getCourse(code);
-      if (status === 200) {
-         localStorage.setItem('course_code', code);
-         navigate(`/courses/${data.path}`);
-         return { data };
+export const isCourseBoughtHandler = createAsyncThunk(
+   'is-bought',
+   async (arg) => {
+      const { phoneNumber, code } = arg;
+      try {
+         const { data, status } = await isCourseBought(phoneNumber, code);
+         console.log(data);
+         if (status === 200) {
+            return { data };
+         }
+      } catch (er) {
+         console.log(er.response);
       }
-   } catch (er) {
-      console.log(er);
    }
-});
+);
 
 export const getCourseAfterRefresh = createAsyncThunk(
    'get-course-ar',
@@ -182,6 +202,7 @@ const coursesReducer = createSlice({
       course: {},
       packageTitle: '',
       firstButtonClassName: '',
+      isFree: false,
       loading: false,
    },
    extraReducers: {
@@ -223,6 +244,10 @@ const coursesReducer = createSlice({
       },
       [getSuggetsedCoursesHandler.fulfilled]: (state, action) => {
          state.suggestedCourses = action.payload.data;
+      },
+      [isCourseBoughtHandler.fulfilled]: (state, action) => {
+         console.log(action);
+         state.isFree = action.payload.data;
       },
    },
 });

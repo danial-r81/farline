@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import {
    getCourseAfterRefresh,
    getCourseSessionsHandler,
+   isCourseBoughtHandler,
 } from '../../../../../redux/features/courses';
 import { addCourseToCartHandler } from '../../../../../redux/features/cart';
 import config from '../../../../../services/config.json';
@@ -21,6 +22,7 @@ const CoursePage = () => {
    useEffect(() => {
       dispatch(getCourseAfterRefresh(localStorage.getItem('course_code')));
       dispatch(getCourseSessionsHandler(code));
+      dispatch(isCourseBoughtHandler({ phoneNumber, code }));
    }, []);
 
    return (

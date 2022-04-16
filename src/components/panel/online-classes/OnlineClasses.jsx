@@ -1,5 +1,8 @@
+import { useSelector } from 'react-redux';
 import './online-classes.css';
 const OnlineClasses = () => {
+   const { onlineClasses } = useSelector((state) => state.panel);
+   console.log(onlineClasses);
    return (
       <div class='online-room-container'>
          <div class='title-online'>

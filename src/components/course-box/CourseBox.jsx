@@ -9,11 +9,14 @@ const CourseBox = ({ course }) => {
    const navigate = useNavigate();
    const dispatch = useDispatch();
    const code = course.code;
+   const phoneNumber = localStorage.getItem('phoneNumber');
    const { pathname } = useLocation();
    return (
       <div
          className='my-courses-box'
-         onClick={() => dispatch(getCourseHandler({ navigate, code }))}>
+         onClick={() =>
+            dispatch(getCourseHandler({ navigate, code, phoneNumber }))
+         }>
          <div className='my-course-img'>
             <img src={`${config.baseUrl}${course.picture}`} alt='' />
          </div>
