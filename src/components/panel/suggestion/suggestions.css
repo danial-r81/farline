@@ -9,3 +9,17 @@
    grid-template-columns: 1fr 1fr 1fr;
    justify-items: center;
 }
+
+@media screen and (max-width: 770px) {
+   .suggestions {
+      margin-top: 7rem;
+      grid-template-columns: 1fr 1fr;
+   }
+}
+@media screen and (max-width: 550px) {
+   .suggestions {
+      margin-top: 8rem;
+      grid-template-columns: 1fr;
+      gap: 2rem 0;
+   }
+}

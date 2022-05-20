@@ -1,23 +1,24 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Sessions from './Sessions';
 import {
    getCourseAfterRefresh,
    getCourseSessionsHandler,
    isCourseBoughtHandler,
 } from '../../../../../redux/features/courses';
 import { addCourseToCartHandler } from '../../../../../redux/features/cart';
+import { BsCheckAll } from 'react-icons/bs';
 import config from '../../../../../services/config.json';
 
 import './course-page.css';
-import Sessions from './Sessions';
 const CoursePage = () => {
+   const [active, setActive] = useState('');
    const dispatch = useDispatch();
-   const { course, courseSessions } = useSelector((state) => state.courses);
+   const { course, courseSessions, isFree } = useSelector(
+      (state) => state.courses
+   );
    const phoneNumber = localStorage.getItem('phoneNumber');
    const code = localStorage.getItem('course_code');
-   console.log(courseSessions);
-   console.log(course);
 
    useEffect(() => {
       dispatch(getCourseAfterRefresh(localStorage.getItem('course_code')));
@@ -32,20 +33,7 @@ const CoursePage = () => {
                <img src={`${config.baseUrl}${course.picture}`} alt='' />
             </div>
             <div class='course-info-text'>
-               <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
-                  با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و
-                  مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
-                  تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای
-                  کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و
-                  آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم
-                  افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص
-                  طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این
-                  صورت می توان امید داشت که تمام و دشواری موجود در ارائه
-                  راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل
-                  حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای
-                  موجود طراحی اساسا مورد استفاده قرار گیرد.{' '}
-               </p>
+               <p>{course.Text}</p>
             </div>
          </div>
          <div class='course-data'>
@@ -75,20 +63,30 @@ const CoursePage = () => {
                      قیمت دوره : <span> {course.price} </span>تومان
                   </h2>
                </div>
-               {/* <!-- <div class="course-info-price">
-
-                </div> --> */}
-               <button
-                  onClick={() =>
-                     dispatch(addCourseToCartHandler({ code, phoneNumber }))
-                  }>
-                  خرید دوره
-               </button>
+               {!isFree ? (
+                  <button
+                     onClick={() =>
+                        dispatch(addCourseToCartHandler({ code, phoneNumber }))
+                     }>
+                     خرید دوره
+                  </button>
+               ) : (
+                  <div className='free-course'>
+                     <p>.شما این دوره را خریده اید</p>
+                     <BsCheckAll />
+                  </div>
+               )}
             </div>
 
+            {/* ====== Sessions ====== */}
             <div class='course-sessions'>
                {courseSessions.map((session) => (
-                  <Sessions session={session} />
+                  <Sessions
+                     session={session}
+                     active={active}
+                     setActive={setActive}
+                     isFree={isFree ? isFree : session.is_free}
+                  />
                ))}
             </div>
          </div>

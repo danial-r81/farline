@@ -7,25 +7,26 @@ import Toast from '../../../toasts/toasts';
 
 const EditAccount = () => {
    const dispatch = useDispatch();
-   const password = useSelector((state) => state.user.userInfo.password);
+   // const password = useSelector((state) => state.user.userInfo.password);
 
    const initialValues = {
+      oldPassword: '',
       password: '',
-      newPassword: '',
-      confirmNewPassword: '',
+      confirmPassword: '',
    };
    const validationSchema = Yup.object({
-      password: Yup.string().required('پر کردن این فیلد الزامی است'),
-      newPassword: Yup.string()
+      oldPassword: Yup.string().required('پر کردن این فیلد الزامی است'),
+      password: Yup.string()
          .required('پرکردن این فیلد الزامی است')
          .min(8, 'گذرواژه نمی تواند کمتر از 8 کارکتر باشد'),
-      confirmNewPassword: Yup.string()
+      confirmPassword: Yup.string()
          .required('پرکردن این فیلد الزامی است')
-         .oneOf([Yup.ref('newPassword'), ''], 'پسوورد ها با هم برابر نیستند'),
+         .oneOf([Yup.ref('password'), ''], 'پسوورد ها با هم برابر نیستند'),
    });
 
    const onSubmit = (value) => {
-      dispatch(changePasswordFromPanelHandler({ value }));
+      dispatch(changePasswordFromPanelHandler(value));
+      console.log(value);
    };
 
    return (
@@ -50,13 +51,13 @@ const EditAccount = () => {
                      className='password-input'
                      type='password'
                      placeholder='رمز جدید '
-                     name='newPassword'
+                     name='password'
                   />
                   <Input
                      className='password-input'
                      type='password'
                      placeholder='تکرار رمز جدید'
-                     name='confirmNewPassword'
+                     name='confirmPassword'
                   />
                   <div className='pas-btn-container'>
                      <button type='submit' className='change-pas-btn'>

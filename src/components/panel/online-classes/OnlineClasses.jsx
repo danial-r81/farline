@@ -1,8 +1,16 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getOnlineClassesHandler } from '../../../redux/features/userPanel';
 import './online-classes.css';
 const OnlineClasses = () => {
+   const dispatch = useDispatch();
    const { onlineClasses } = useSelector((state) => state.panel);
+   const phoneNumber = localStorage.getItem('phoneNumber');
    console.log(onlineClasses);
+
+   useEffect(() => {
+      dispatch(getOnlineClassesHandler(phoneNumber));
+   }, []);
    return (
       <div class='online-room-container'>
          <div class='title-online'>
@@ -11,12 +19,16 @@ const OnlineClasses = () => {
             <h2>کلاس بعد</h2>
             <h2>ورود به کلاس</h2>
          </div>
-         <div class='details-online'>
-            <h2>حسابان 2</h2>
-            <h2>24/6/1400</h2>
-            <h2>06/16 _ 15:30</h2>
-            <a href='#'>ورود به کلاس</a>
-         </div>
+         {onlineClasses.map((item) => (
+            <div class='details-online'>
+               <h2>{item.title} </h2>
+               <h2>{item.date}</h2>
+               <h2>{item.next_class}</h2>
+               <a target='_blank' href={item.link}>
+                  ورود به کلاس
+               </a>
+            </div>
+         ))}
       </div>
    );
 };

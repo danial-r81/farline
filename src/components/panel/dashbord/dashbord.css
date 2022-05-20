@@ -63,3 +63,55 @@
    -o-transform: translateY(-4px);
    box-shadow: 4px 4px 5px rgb(204, 204, 204);
 }
+
+.konkur-timer {
+   display: flex;
+   justify-content: flex-start;
+   border: 2px solid var(--jet);
+   background: var(--yellow);
+   padding: 20px 0;
+   margin: 10px 0px 0px 0px;
+   border-radius: 10px;
+   flex-direction: column;
+   width: 40%;
+}
+
+.konkur-timer .timer-text {
+   display: flex;
+   align-items: center;
+   padding: 12px;
+   border-radius: 7px;
+}
+
+.today {
+   justify-content: flex-start;
+}
+.timer-text p {
+   font-size: 20px;
+}
+
+@media screen and (max-width: 800px) {
+   .konkur-timer {
+      margin-top: 11rem;
+   }
+   .timer-text p {
+      font-size: 17px;
+   }
+}
+@media screen and (max-width: 550px) {
+   .konkur-timer {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      margin: 11rem auto 0;
+   }
+   .konkur-timer .timer-text {
+      width: 80%;
+      margin: 0;
+      padding: 15px 0;
+   }
+   .timer-text p {
+      font-size: 15px;
+   }
+}

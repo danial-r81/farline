@@ -43,7 +43,7 @@ export const Footer = () => {
                         <Link to='/teachers'> اساتید فرتاک</Link>
                      </li>
                      <li>
-                        <Link to='/key-plan'>نقشه راه</Link>
+                        <Link to='/study-map'>نقشه راه</Link>
                      </li>
                      <li>
                         <Link to='/about-us'>درباره ما</Link>

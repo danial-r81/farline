@@ -27,7 +27,7 @@
    -moz-transition: all 0.3s ease-in-out;
    -ms-transition: all 0.3s ease-in-out;
    -o-transition: all 0.3s ease-in-out;
-   width: 50%;
+   width: 55%;
 }
 .my-courses-box:hover {
    transform: translateY(-4px);
@@ -43,11 +43,11 @@
 }
 
 .my-course-teacher-name {
-   font-size: 19px;
+   font-size: 12px;
 }
 
 .my-course-name p {
-   font-size: 20px;
+   font-size: 14px;
 }
 
 .my-course-img {
@@ -58,4 +58,5 @@
 .my-course-img img {
    width: 100%;
    height: 100%;
+   border-radius: 10px;
 }

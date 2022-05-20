@@ -90,18 +90,27 @@
    /* color: var(--fosfori); */
    color: var(--Gblack);
 }
-@media (max-width: 1072px) {
+@media screen and (max-width: 1072px) {
    .box-cuorse-container {
       grid-template-columns: 1fr 1fr;
    }
 }
 
-@media (max-width: 700px) {
+@media screen and (max-width: 700px) {
+   .my-courses-box {
+      width: 48% !important;
+   }
    .box-cuorse-container {
       grid-template-columns: 1fr;
    }
    .box-course-1 {
       width: 230px;
       height: 300px;
+   }
+}
+
+@media screen and (max-width: 400px) {
+   .my-courses-box {
+      width: 75% !important;
    }
 }

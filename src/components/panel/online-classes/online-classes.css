@@ -59,6 +59,9 @@
 }
 
 @media (max-width: 991px) {
+   .online-room-container {
+      margin-top: 7rem;
+   }
    .title-online h2,
    .details-online h2,
    .details-online a {
@@ -75,11 +78,11 @@
    .title-online h2,
    .details-online h2,
    .details-online a {
-      font-size: 14px;
+      font-size: 12px;
    }
    .details-online a {
       font-size: 12px;
-      padding: 8px 12px;
+      padding: 4px 4px;
       margin: auto 0;
    }
    .details-online h2:nth-child(2),
@@ -87,22 +90,17 @@
       position: relative;
       right: 10px;
    }
-   .details-online a {
-      font-size: 13px;
-      padding: 8px 12px;
-      margin: auto 0;
-   }
 }
 
-@media (max-width: 360px) {
+@media screen and (max-width: 360px) {
    .title-online h2,
    .details-online h2,
    .details-online a {
       font-size: 10px;
    }
    .details-online a {
-      font-size: 8px;
-      padding: 6px 10px;
+      font-size: 12px;
+      padding: 4px 4px;
       margin: auto 0;
    }
    .details-online h2:nth-child(2),

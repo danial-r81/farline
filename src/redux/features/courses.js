@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import Toast from '../../toasts/toasts';
 import {
    getCoursesPackages,
    getCoursPack,
@@ -89,22 +90,6 @@ export const getCourseHandler = createAsyncThunk(
    }
 );
 
-export const isCourseBoughtHandler = createAsyncThunk(
-   'is-bought',
-   async (arg) => {
-      const { phoneNumber, code } = arg;
-      try {
-         const { data, status } = await isCourseBought(phoneNumber, code);
-         console.log(data);
-         if (status === 200) {
-            return { data };
-         }
-      } catch (er) {
-         console.log(er.response);
-      }
-   }
-);
-
 export const getCourseAfterRefresh = createAsyncThunk(
    'get-course-ar',
    async (arg) => {
@@ -114,7 +99,7 @@ export const getCourseAfterRefresh = createAsyncThunk(
             return { data };
          }
       } catch (er) {
-         console.log(er);
+         return { data: er.response.data };
       }
    }
 );
@@ -125,10 +110,11 @@ export const getCourseSessionsHandler = createAsyncThunk(
       try {
          const { data, status } = await getCourseSessions(arg);
          if (status === 200) {
+            console.log(data);
             return { data };
          }
       } catch (er) {
-         console.log(er);
+         console.log(er.response.status);
       }
    }
 );
@@ -141,7 +127,9 @@ export const getNewsCoursesHandler = createAsyncThunk(
          if (status === 200) {
             return { data };
          }
-      } catch (er) {}
+      } catch (er) {
+         return { data: er.response.data };
+      }
    }
 );
 
@@ -156,7 +144,8 @@ export const getMyCoursesHandler = createAsyncThunk(
             return { data };
          }
       } catch (er) {
-         console.log(er);
+         if (er.response.state >= 500)
+            Toast.toastError('مشکلی از سمت سرور رخ داده است');
       }
    }
 );
@@ -185,6 +174,21 @@ export const getSuggetsedCoursesHandler = createAsyncThunk(
          }
       } catch (er) {
          console.log(er);
+      }
+   }
+);
+
+export const isCourseBoughtHandler = createAsyncThunk(
+   'is-course-bought',
+   async (arg) => {
+      try {
+         const { phoneNumber, code } = arg;
+         const { data, status } = await isCourseBought(phoneNumber, code);
+         if (status === 200) {
+            return data;
+         }
+      } catch (er) {
+         console.log(er.response);
       }
    }
 );
@@ -246,8 +250,7 @@ const coursesReducer = createSlice({
          state.suggestedCourses = action.payload.data;
       },
       [isCourseBoughtHandler.fulfilled]: (state, action) => {
-         console.log(action);
-         state.isFree = action.payload.data;
+         state.isFree = action.payload.is_free;
       },
    },
 });

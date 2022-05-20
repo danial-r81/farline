@@ -196,9 +196,9 @@ input::placeholder {
    color: var(--black);
 }
 
-.change-password {
+/* .change-password {
    padding: 10px 0;
-}
+} */
 
 #grade {
    width: 91%;

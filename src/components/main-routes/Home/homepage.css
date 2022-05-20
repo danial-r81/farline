@@ -35,7 +35,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   margin: 35px 0;
+   margin: 50px 0;
 }
 
 .slider-btn a button {
@@ -485,7 +485,7 @@
    }
 
    .slider-btn button {
-      font-size: 13px;
+      font-size: 13px !important;
       margin: 0 17px;
    }
 
@@ -519,5 +519,8 @@
 
    .footer-right {
       flex-direction: column;
+   }
+   .footer-items ul {
+      align-items: center;
    }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import config from '../../../services/config.json';
+import { FaUserTie } from 'react-icons/fa';
 
 const MyCoursesBox = ({ course }) => {
    console.log(course);
@@ -12,6 +13,7 @@ const MyCoursesBox = ({ course }) => {
             <p>{course.title_persion}</p>
          </div>
          <div className='my-course-teacher-name'>
+            <FaUserTie />
             <p>{course.teacher_name}</p>
          </div>
       </div>

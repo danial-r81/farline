@@ -1,16 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { getWeekPlansHandler } from '../../../redux/features/userPanel';
+import {
+   getOnlineClassesHandler,
+   getWeekPlansHandler,
+} from '../../../redux/features/userPanel';
+import KunkorTimer from './timer-to-konkur/KunkorTimer';
+import Box from './Box';
 import {
    BsInboxes,
    BsCreditCard,
    BsFillCalendar2WeekFill,
 } from 'react-icons/bs';
-import Box from './Box';
 
 import './dashbord.css';
-import { getMyCoursesHandler } from '../../../redux/features/courses';
-import { useNavigate } from 'react-router';
 const Dashbord = () => {
    const dispatch = useDispatch();
    const navigate = useNavigate();
@@ -21,13 +24,18 @@ const Dashbord = () => {
          <div className='card'>
             <Box
                icon={<BsInboxes />}
-               text='دوره های شما'
+               text='کلاس های من'
                onClick={() =>
-                  dispatch(getMyCoursesHandler({ phoneNumber, navigate }))
+                  // dispatch(getOnlineClassesHandler({ phoneNumber, navigate }))
+                  navigate('/profile/courses')
                }
                to='/my-courses'
             />
-            <Box icon={<BsCreditCard />} text='امور مالی' />
+            <Box
+               icon={<BsCreditCard />}
+               text='امور مالی'
+               onClick={() => navigate('/profile/financial-services')}
+            />
             <Box
                icon={<BsFillCalendar2WeekFill />}
                text='برنامه مطالعاتی'
@@ -36,6 +44,7 @@ const Dashbord = () => {
                }}
             />
          </div>
+         <KunkorTimer />
       </section>
    );
 };

@@ -9,7 +9,7 @@ const Nav = () => {
    const { firstName, lastName, is_active } = useSelector(
       (state) => state.user.userInfo
    );
-   const { cartItemsCount } = useSelector((state) => state.cart);
+   const { cartItemsCount, cart } = useSelector((state) => state.cart);
 
    const menuTogglerHandler = () => {
       const menu = document.querySelector('.nav-bottom');
@@ -29,18 +29,26 @@ const Nav = () => {
                </div>
                <div className='nav-left'>
                   {firstName && lastName ? (
-                     <Link to='/profile'>{`${firstName} ${lastName}`}</Link>
+                     <Link to='/profile/dashbord'>{`${firstName} ${lastName}`}</Link>
                   ) : (
                      <div className='login-btn'>
                         <Link to='login'>ورود | ثبت نام</Link>
                      </div>
                   )}
-                  <Link to='profile/cart' className='cart-icon'>
+                  {/* <Link to='profile/cart' className='cart-icon'>
                      {cartItemsCount !== 0 && is_active ? (
                         <div className='cart-items'>{cartItemsCount}</div>
                      ) : null}
                      <BsCart2 />
-                  </Link>
+                  </Link> */}
+                  {is_active ? (
+                     <Link to='profile/cart' className='cart-icon'>
+                        {cart.length !== 0 && (
+                           <div className='cart-items'>{cartItemsCount}</div>
+                        )}
+                        <BsCart2 />
+                     </Link>
+                  ) : null}
                </div>
             </div>
          </div>

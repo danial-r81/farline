@@ -120,12 +120,6 @@
    text-align: center;
    padding: 20px;
 }
-.back .border-resume {
-   width: 60%;
-   height: 3px;
-   background-color: var(--grey);
-   border-radius: 10px;
-}
 
 .back h2 {
    margin-top: 20px;
@@ -140,7 +134,7 @@
    bottom: -20%;
    left: 50%;
    transform: translate(-50%, 50%);
-   background-color: var(--black);
+   background-color: var(--jet);
    -webkit-transform: translate(-50%, 50%);
    -moz-transform: translate(-50%, 50%);
    -ms-transform: translate(-50%, 50%);

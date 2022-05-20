@@ -11,19 +11,20 @@ import {
    logout,
    changePasswordFromPanel,
    getCsrtToken,
+   getUsualQuestions,
 } from '../../services/userServices';
 import { getUserCartHandler } from './cart';
+import Toast from '../../toasts/toasts';
 
 export const getCodeAgain = createAsyncThunk('users/resend-code', async () => {
    try {
-      const { data, status } = await resendCode();
-      console.log(data);
-      console.log(status);
-      return Promise.resolve(data);
-   } catch (err) {
-      if (err.response) {
-         console.log(err.response);
+      const phoneNumber = localStorage.getItem('phoneNumber');
+      const { data, status } = await resendCode(phoneNumber);
+      if (status === 201) {
+         return data;
       }
+   } catch (err) {
+      console.log(err.response);
    }
 });
 
@@ -44,11 +45,8 @@ export const registerHandler = createAsyncThunk(
             };
          }
       } catch (e) {
-         if (e.response) {
-            if (e.response.status === 400) {
-               Toasts.toastWarning('کاربر با این مشخصات موجود است');
-            }
-            return Promise.reject(e.response);
+         if (e.response.status === 400) {
+            Toasts.toastWarning('کاربر با این مشخصات موجود است');
          }
       }
    }
@@ -60,10 +58,10 @@ export const getCsrfTokenHandler = createAsyncThunk(
       try {
          const { data, status } = await getCsrtToken();
          if (status === 200) {
-            return Promise.resolve(data);
+            return data;
          }
       } catch (er) {
-         console.log(er);
+         console.log(er.response);
       }
    }
 );
@@ -71,15 +69,17 @@ export const getCsrfTokenHandler = createAsyncThunk(
 export const loginHandler = createAsyncThunk(
    'user/login',
    async (arg, { dispatch }) => {
+      console.log(arg);
       const { value, navigate } = arg;
       const { phoneNumber } = value;
       try {
          const { status } = await userLogin(value);
          if (status === 200) {
+            console.log('login');
             localStorage.setItem('phoneNumber', phoneNumber);
-            window.location.reload();
-            navigate('/');
-            dispatch(getAllUsers());
+            Toasts.toastSuccess('ورود موفقیت آمیز بود');
+            navigate('/', { replace: true });
+            dispatch(getAllUsers(phoneNumber));
             dispatch(getUserCartHandler(phoneNumber));
          }
       } catch (e) {
@@ -94,11 +94,10 @@ export const changePasswordFromPanelHandler = createAsyncThunk(
    'user/changePass',
    async (arg) => {
       try {
-         // const { data, status } = await changePasswordFromPanel(arg);
-         console.log(arg);
+         const { data, status } = await changePasswordFromPanel(arg);
       } catch (e) {
-         if (e.response) {
-            console.log(e.response);
+         if (e.response.status === 500) {
+            Toast.toastError('رمز قبلی وارد شده معتبر نمی باشد');
          }
       }
    }
@@ -108,17 +107,13 @@ export const logoutHandler = createAsyncThunk(
    'user/logout',
    async (navigate) => {
       try {
-         // const { status } = await logout();
-         //  if (status === 200) {
-         navigate('/', { replace: true });
-         window.location.reload();
          localStorage.removeItem('phoneNumber');
          Cookies.remove('sessionid');
-         //  }
-         // return { navigate };
+         navigate('/');
+         window.location.reload();
       } catch (err) {
          if (err.response) {
-            console.log(err.response);
+            Toast.toastError('خروج از حساب کاربری موفقیت آمیز نبود');
          }
       }
    }
@@ -144,17 +139,15 @@ export const fillProfileHandler = createAsyncThunk(
       };
 
       try {
-         const { status } = await fillProfile(user);
+         const { status } = await fillProfile(user, phoneNumber);
          if (status === 200) {
             navigate('/');
             window.location.reload();
             Toasts.toastSuccess(' ثبت نام موفقیت آمیز بود ');
-            return Promise.resolve(user);
+            return user;
          }
       } catch (e) {
-         if (e.response) {
-            console.log(e.response);
-         }
+         console.log(e.response);
       }
    }
 );
@@ -197,16 +190,14 @@ export const changePasswordHandler = createAsyncThunk(
             Toasts.toastSuccess('رمز عبور با موفقیت تغییر یافت');
          }
       } catch (err) {
-         if (err.response) {
-            console.log(err.response);
-         }
+         console.log(err.response);
       }
    }
 );
 
-export const getAllUsers = createAsyncThunk('user/get-user', async () => {
+export const getAllUsers = createAsyncThunk('user/get-user', async (arg) => {
    try {
-      const { data, status } = await getAllUserData();
+      const { data, status } = await getAllUserData(arg);
       if (status === 200) {
          return Promise.resolve(data);
       }
@@ -217,11 +208,26 @@ export const getAllUsers = createAsyncThunk('user/get-user', async () => {
    }
 });
 
+export const getUsualQuestionsHandler = createAsyncThunk(
+   'user/get-user-questions',
+   async () => {
+      try {
+         const { data, status } = await getUsualQuestions();
+         if (status === 200) {
+            return Promise.resolve(data);
+         }
+      } catch (err) {
+         console.log(err.response);
+      }
+   }
+);
+
 // initial state
 const initialState = {
    userInfo: {},
    code: '',
    isCodeValid: false,
+   usualQuestions: [],
 };
 
 const userReducer = createSlice({
@@ -236,6 +242,7 @@ const userReducer = createSlice({
    },
    extraReducers: {
       [getCodeAgain.fulfilled]: (state, action) => {
+         console.log(action.payload);
          state.code = action.payload.code;
       },
 
@@ -254,6 +261,9 @@ const userReducer = createSlice({
       },
       [getAllUsers.fulfilled]: (state, action) => {
          Object.assign(state.userInfo, action.payload);
+      },
+      [getUsualQuestionsHandler.fulfilled]: (state, action) => {
+         state.usualQuestions = action.payload;
       },
       // [logoutHandler.fulfilled]: (state, action) => {
       //    localStorage.removeItem('phoneNumber');

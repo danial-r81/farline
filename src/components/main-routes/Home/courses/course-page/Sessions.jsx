@@ -1,35 +1,44 @@
-import React from 'react';
-import { BiArrowFromTop } from 'react-icons/bi';
+import React, { useEffect } from 'react';
+import { BiArrowFromTop, BiLockAlt, BiLockOpenAlt } from 'react-icons/bi';
+import Toast from '../../../../../toasts/toasts';
 
-const Sessions = ({ session }) => {
-   // const accor = document.querySelectorAll('.course-session-container');
-   // accor.forEach((item) => {
-   //    item.addEventListener('click', function () {
-   //       item.classList.toggle('active');
-   //       const content = item.nextElementSibling;
-   //       if (content.style.height) {
-   //          content.style.height = null;
-   //       } else {
-   //          content.style.height = content.scrollHeight + 'px';
-   //       }
-   //    });
-   // });
+const Sessions = ({ session, active, setActive, isFree }) => {
+   const toggleSession = () => {
+      if (isFree) {
+         active === session.text ? setActive('') : setActive(session.text);
+      } else {
+         Toast.toastError('شما این دوره را خریداری نکرده اید.');
+      }
+   };
+
    return (
-      <div class='course-session-container'>
-         <div class='course-session-container-num'>
-            <div class='circle-course'>
-               <h2>{session.title}</h2>
+      <div
+         className={`${
+            isFree ? 'accordion-container free' : 'accordion-container'
+         }`}>
+         <div className='accordion-header'>
+            <div className='accordion-right'>
+               <div className='session-num'>
+                  <div>{session.title}</div>
+               </div>
+               <div className='session-title'>
+                  <p>{session.text}</p>
+                  {!isFree ? <BiLockAlt /> : <BiLockOpenAlt />}
+               </div>
             </div>
-            <div class='course-title'>
-               <h2>{session.text}</h2>
+            <div className='accordion-left'>
+               <div className='session-time'>{session.time}</div>
+               <BiArrowFromTop onClick={toggleSession} />
             </div>
          </div>
-         <div class='course-session-container-timer'>
-            <div class='course-sessions-timer'>
-               <h3>{session.time}</h3>
-            </div>
-            <div class='course-sessions-icon'>
-               <BiArrowFromTop />
+         <div
+            className={`${
+               active === session.text ? 'show-accor' : ''
+            } accordion-content`}>
+            <div className='session-video'>
+               <video controls controlsList='nodownload'>
+                  <source src={session.link} />
+               </video>
             </div>
          </div>
       </div>

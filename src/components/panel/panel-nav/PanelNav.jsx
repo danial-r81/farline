@@ -4,9 +4,10 @@ import { logoutHandler } from '../../../redux/features/userInfo';
 import { useNavigate } from 'react-router';
 import { BiCoffee, BiCartAlt, BiLockOpenAlt } from 'react-icons/bi';
 import { BsEasel, BsEmojiWink, BsDoorOpen } from 'react-icons/bs';
+import Cookies from 'js-cookie';
 const PanelNav = () => {
    const dispatch = useDispatch();
-   const history = useNavigate();
+   const navigate = useNavigate();
 
    return (
       <div className='panel-nav'>
@@ -28,14 +29,14 @@ const PanelNav = () => {
             <li>
                <button>
                   <NavLink
-                     to='/profile/courses'
+                     to='/profile/my-courses'
                      className={(navData) =>
                         navData.isActive
                            ? 'panel-title active-panel-menu'
                            : 'panel-title'
                      }>
                      <BsEasel />
-                     <p>کلاس های من</p>
+                     <p>دوره های من</p>
                   </NavLink>
                </button>
             </li>
@@ -82,7 +83,13 @@ const PanelNav = () => {
                </button>
             </li>
             <li>
-               <button onClick={() => dispatch(logoutHandler(history))}>
+               <button
+                  onClick={() => {
+                     navigate('/');
+                     window.location.reload();
+                     localStorage.removeItem('phoneNumber');
+                     Cookies.remove('sessionid');
+                  }}>
                   <a href='#' onClick={(e) => e.preventDefault()}>
                      <BsDoorOpen />
                      <p>خروج</p>

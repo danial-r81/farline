@@ -1,55 +1,52 @@
 import { useEffect, useState } from 'react';
-import http from '../../services/httpService';
-import config from '../../services/config.json';
+import { useSelector, useDispatch } from 'react-redux';
+import { getUsualQuestionsHandler } from '../../redux/features/userInfo';
+import { FiArrowDown, FiArrowUp } from 'react-icons/fi';
 
 import './usual-questions.css';
-
 const UsualQuestions = () => {
-   const [questions, setQuestions] = useState([]);
+   const [active, setActive] = useState('');
+   const dispatch = useDispatch();
+   const { usualQuestions } = useSelector((state) => state.user);
 
-   const accor = document.querySelectorAll('.accordion-title');
-   accor.forEach((item) => {
-      item.addEventListener('click', function () {
-         item.classList.toggle('active');
-         const content = item.nextElementSibling;
-         if (content.style.height) {
-            content.style.height = null;
-         } else {
-            content.style.height = content.scrollHeight + 'px';
-         }
-      });
-   });
+   const toggleQuestion = (item) => {
+      console.log(item);
+      active === item.question ? setActive('') : setActive(item.question);
+   };
 
    useEffect(() => {
-      http.get(`${config.baseUrl}/api/questions/`).then((res) => {
-         setQuestions(res.data);
-         console.log(res);
-      });
+      dispatch(getUsualQuestionsHandler());
    }, []);
 
    return (
-      <main class='main-container-question'>
-         <div class='header-question'>
+      <section className='main-container-question'>
+         <div className='header-question'>
             <h1>سوالات متداول</h1>
             <p>سوالات خود را از ما بپرسید</p>
-            <div class='border-question'></div>
+            <div className='border-question'></div>
          </div>
-         <div class='questions'>
-            <h2>شاید سوال شما هم باشد!</h2>
+         <div className='questions'>
+            <h2>!شاید سوال شما هم باشد</h2>
 
-            {questions.map((item) => (
-               <div class='accordion'>
-                  <div class='accordion-title'>
-                     <i class='fa fa-chevron-left'></i>
-                     {item.question}
+            {usualQuestions.map((item) => (
+               <div
+                  className={`accordion ${
+                     active === item.question ? 'show-answer' : ''
+                  }`}>
+                  <div className='accordion-title'>
+                     <FiArrowDown
+                        className='accordion-icon'
+                        onClick={() => toggleQuestion(item)}
+                     />
+                     <p>{item.question}</p>
                   </div>
-                  <div class='accordion-content'>
+                  <div className='accordion-answer'>
                      <p>{item.answer}</p>
                   </div>
                </div>
             ))}
          </div>
-      </main>
+      </section>
    );
 };
 

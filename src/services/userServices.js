@@ -6,8 +6,7 @@ export const userRegister = (user) => {
    return http.post(`${config.baseUrl}/api/user/create/`, JSON.stringify(user));
 };
 
-export const fillProfile = (user) => {
-   const phoneNumber = localStorage.getItem('phoneNumber');
+export const fillProfile = (user, phoneNumber) => {
    console.log(phoneNumber, user);
    return http.post(
       `${config.baseUrl}/api/user/update/${phoneNumber}/`,
@@ -24,7 +23,6 @@ export const userLogin = (data) => {
       username: data.phoneNumber,
       password: data.password,
    };
-   console.log(Cookies.get('csrftoken'));
    return http.post(`${config.baseUrl}/api/login/`, JSON.stringify(user), {
       headers: {
          'X-CSRFTOKEN': Cookies.get('csrftoken'),
@@ -32,8 +30,7 @@ export const userLogin = (data) => {
    });
 };
 
-export const resendCode = () => {
-   const phoneNumber = localStorage.getItem('phoneNumber');
+export const resendCode = (phoneNumber) => {
    return http.post(`${config.baseUrl}/api/user/code/again/${phoneNumber}/`);
 };
 
@@ -43,23 +40,19 @@ export const forgotPassword = (phoneNumber) => {
    );
 };
 
-export const getAllUserData = () => {
-   const phoneNumber = localStorage.getItem('phoneNumber');
+export const getAllUserData = (phoneNumber) => {
    return http.get(`${config.baseUrl}/api/user/info/${phoneNumber}/`);
 };
 
 export const changePassword = (phoneNumber, password) => {
-   const validationCode = process.env.REACT_APP_VALIDATION_CODE;
-   console.log(validationCode);
-
+   const VALIDATION_CODE = process.env.REACT_APP_VALIDATION_CODE;
    return http.post(
       `${config.baseUrl}/api/user/change/password/${phoneNumber}/`,
-      JSON.stringify({ password, danial: validationCode })
+      JSON.stringify({ oldPassword, VALIDATION_CODE })
    );
 };
 
 export const logout = () => {
-   console.log(Cookies.get('csrftoken'));
    return http.get(`${config.baseUrl}/api/logout/`, {
       headers: Cookies.get('csrftoken'),
    });
@@ -68,7 +61,7 @@ export const logout = () => {
 export const changePasswordFromPanel = (value) => {
    const VALIDATION_CODE = process.env.REACT_APP_VALIDATION_CODE;
    console.log(VALIDATION_CODE);
-   const { oldPassword, password } = value.value;
+   const { oldPassword, password } = value;
    const phoneNumber = localStorage.getItem('phoneNumber');
    return http.post(
       `${config.baseUrl}/api/user/change/password/${phoneNumber}/`,
@@ -92,4 +85,8 @@ export const getCoursesKinds = () => {
 
 export const getCovers = () => {
    return http.get(`${config.baseUrl}/api/covers/`);
+};
+
+export const getUsualQuestions = () => {
+   return http.get(`${config.baseUrl}/api/questions/`);
 };

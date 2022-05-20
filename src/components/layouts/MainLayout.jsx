@@ -15,7 +15,7 @@ const MainLayout = ({ children }) => {
 
    useEffect(() => {
       if (phoneNumber) {
-         dispatch(getAllUsers());
+         dispatch(getAllUsers(phoneNumber));
          dispatch(getCartItemsCountHandler(phoneNumber));
       }
       dispatch(getHomePageCovers());

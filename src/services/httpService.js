@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import Toast from '../toasts/toasts';
+import config from './config.json';
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 // axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -14,13 +15,16 @@ axios.interceptors.request.use(null, (error) => {
       error.response.status < 500;
    if (!expectedErrors) {
       console.log(error);
-      toast.error('مشکلی از سمت سرور رخ داده است.', {
-         position: 'top-right',
-         closeButton: true,
-      });
+      Toast.toastError('مشکلی از سمت سرور رخ داده است.');
    }
 
    return Promise.reject(error);
+});
+
+
+
+axios.create({
+   baseURL: config.baseUrl,
 });
 
 export default {
