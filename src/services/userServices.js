@@ -47,8 +47,8 @@ export const getAllUserData = (phoneNumber) => {
 export const changePassword = (phoneNumber, password) => {
    const VALIDATION_CODE = process.env.REACT_APP_VALIDATION_CODE;
    return http.post(
-      `${config.baseUrl}/api/user/change/password/${phoneNumber}/`,
-      JSON.stringify({ oldPassword, VALIDATION_CODE })
+      `${config.baseUrl}/api/user/change/password2/${phoneNumber}/`,
+      JSON.stringify({ password, VALIDATION_CODE })
    );
 };
 
