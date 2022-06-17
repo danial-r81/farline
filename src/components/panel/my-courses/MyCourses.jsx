@@ -3,7 +3,6 @@ import config from '../../../services/config.json';
 import { FaUserTie } from 'react-icons/fa';
 
 const MyCoursesBox = ({ course }) => {
-   console.log(course);
    return (
       <div className='my-courses-box'>
          <div className='my-course-img'>

@@ -193,12 +193,8 @@ input::placeholder {
 }
 
 .input-container select option {
-   color: var(--black);
+   color: var(--jet);
 }
-
-/* .change-password {
-   padding: 10px 0;
-} */
 
 #grade {
    width: 91%;

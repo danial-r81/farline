@@ -27,18 +27,18 @@ const CoursePage = () => {
    }, []);
 
    return (
-      <div class='course-container'>
-         <div class='course-info'>
-            <div class='course-img'>
+      <div className='course-container'>
+         <div className='course-info'>
+            <div className='course-img'>
                <img src={`${config.baseUrl}${course.picture}`} alt='' />
             </div>
-            <div class='course-info-text'>
+            <div className='course-info-text'>
                <p>{course.Text}</p>
             </div>
          </div>
-         <div class='course-data'>
-            <div class='course-price'>
-               <div class='course-detils'>
+         <div className='course-data'>
+            <div className='course-price'>
+               <div className='course-detils'>
                   <h2>
                      نام دوره : <span> {course.title_persion} </span>
                   </h2>
@@ -79,7 +79,7 @@ const CoursePage = () => {
             </div>
 
             {/* ====== Sessions ====== */}
-            <div class='course-sessions'>
+            <div className='course-sessions'>
                {courseSessions.map((session) => (
                   <Sessions
                      session={session}

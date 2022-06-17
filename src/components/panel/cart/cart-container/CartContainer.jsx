@@ -11,7 +11,6 @@ import { paymentHandler } from '../../../../redux/features/userPanel';
 
 const CartContainer = () => {
    const dispatch = useDispatch();
-   // const navigate = useNavigate();
    const { cart, totalPrice, totalCount } = useSelector((state) => state.cart);
    const { paymentUrl } = useSelector((state) => state.panel);
    const [disCountCode, setDisCountCode] = useState(null);
@@ -19,14 +18,6 @@ const CartContainer = () => {
    useEffect(() => {
       dispatch(paymentHandler(phoneNumber));
    }, []);
-
-   // const getPaidHandler = () => {
-   //    if (cart.length !== 0) {
-   //       navigate(`https://localhost:8000/api/zarin/request/${phoneNumber}/`);
-   //    } else {
-   //       Toast.toastWarning('سبد خرید خالی است.');
-   //    }
-   // };
    return (
       <>
          <table>

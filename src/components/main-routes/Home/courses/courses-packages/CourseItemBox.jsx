@@ -12,8 +12,6 @@ const CourseItemBox = ({ item }) => {
    const navigate = useNavigate();
    let icon = null;
 
-   console.log(item);
-
    switch (item.icon) {
       case 'FaSchool':
          icon = <FaSchool className='course-icon' />;

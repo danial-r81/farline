@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router';
+import React from 'react';
 
 const Box = ({ icon, text, onClick }) => {
    return (

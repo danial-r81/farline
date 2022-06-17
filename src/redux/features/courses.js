@@ -21,7 +21,9 @@ export const getCoursesPackageHandler = createAsyncThunk(
             return { data };
          }
       } catch (er) {
-         console.log(er);
+         if (er.response) {
+            return { data: [] };
+         }
       }
    }
 );
@@ -35,10 +37,12 @@ export const getCoursePackHandler = createAsyncThunk(
          if (status === 200) {
             localStorage.setItem('course_id', item.code);
             navigate(`/courses/${item.path}`);
-            return data;
+            return { data };
          }
       } catch (er) {
-         console.log(er);
+         if (er.response) {
+            return { data: [] };
+         }
       }
    }
 );
@@ -54,7 +58,9 @@ export const getCoursePackAfterRefresh = createAsyncThunk(
             return { data };
          }
       } catch (er) {
-         console.log(er);
+         if (er.response) {
+            return { data: [] };
+         }
       }
    }
 );
@@ -65,30 +71,31 @@ export const getCoursesItemsHandler = createAsyncThunk(
       try {
          const { data, status } = await getCourseItems(arg);
          if (status === 200) {
-            return data;
+            return { data };
          }
       } catch (er) {
-         console.log(er.response);
+         if (er.response) {
+            return { data: [] };
+         }
       }
    }
 );
 
-export const getCourseHandler = createAsyncThunk(
-   'get-course',
-   async (arg, { dispatch }) => {
-      const { code, navigate, phoneNumber } = arg;
-      try {
-         const { data, status } = await getCourse(code);
-         if (status === 200) {
-            localStorage.setItem('course_code', code);
-            navigate(`/courses/${data.path}`);
-            return { data };
-         }
-      } catch (er) {
-         console.log(er);
+export const getCourseHandler = createAsyncThunk('get-course', async (arg) => {
+   const { code, navigate } = arg;
+   try {
+      const { data, status } = await getCourse(code);
+      if (status === 200) {
+         localStorage.setItem('course_code', code);
+         navigate(`/courses/${data.path}`);
+         return { data };
+      }
+   } catch (er) {
+      if (er.response) {
+         return { data: {} };
       }
    }
-);
+});
 
 export const getCourseAfterRefresh = createAsyncThunk(
    'get-course-ar',
@@ -99,7 +106,9 @@ export const getCourseAfterRefresh = createAsyncThunk(
             return { data };
          }
       } catch (er) {
-         return { data: er.response.data };
+         if (er.response) {
+            return { data: {} };
+         }
       }
    }
 );
@@ -110,11 +119,12 @@ export const getCourseSessionsHandler = createAsyncThunk(
       try {
          const { data, status } = await getCourseSessions(arg);
          if (status === 200) {
-            console.log(data);
             return { data };
          }
       } catch (er) {
-         console.log(er.response.status);
+         if (er.response) {
+            return { data: [] };
+         }
       }
    }
 );
@@ -128,7 +138,9 @@ export const getNewsCoursesHandler = createAsyncThunk(
             return { data };
          }
       } catch (er) {
-         return { data: er.response.data };
+         if (er.response) {
+            return { data: [] };
+         }
       }
    }
 );
@@ -144,8 +156,10 @@ export const getMyCoursesHandler = createAsyncThunk(
             return { data };
          }
       } catch (er) {
-         if (er.response.state >= 500)
+         if (er.response.state >= 500) {
             Toast.toastError('مشکلی از سمت سرور رخ داده است');
+            return { data: [] };
+         }
       }
    }
 );
@@ -159,7 +173,9 @@ export const getMyCoursesHandlerAfterRefresh = createAsyncThunk(
             return { data };
          }
       } catch (er) {
-         console.log(er);
+         if (er.response) {
+            return { data: [] };
+         }
       }
    }
 );
@@ -173,7 +189,9 @@ export const getSuggetsedCoursesHandler = createAsyncThunk(
             return { data };
          }
       } catch (er) {
-         console.log(er);
+         if (er.response) {
+            return { data: [] };
+         }
       }
    }
 );
@@ -185,10 +203,12 @@ export const isCourseBoughtHandler = createAsyncThunk(
          const { phoneNumber, code } = arg;
          const { data, status } = await isCourseBought(phoneNumber, code);
          if (status === 200) {
-            return data;
+            return { data };
          }
       } catch (er) {
-         console.log(er.response);
+         if (er.response) {
+            return { data: { is_free: false } };
+         }
       }
    }
 );
@@ -214,7 +234,7 @@ const coursesReducer = createSlice({
          state.coursePackages = action.payload.data;
       },
       [getCoursePackHandler.fulfilled]: (state, action) => {
-         state.coursePackageItems = action.payload;
+         state.coursePackageItems = action.payload.data;
       },
       [getCoursePackAfterRefresh.fulfilled]: (state, action) => {
          state.coursePackageItems = action.payload.data;
@@ -225,7 +245,7 @@ const coursesReducer = createSlice({
          state.loading = true;
       },
       [getCoursesItemsHandler.fulfilled]: (state, action) => {
-         state.coursesItems = action.payload;
+         state.coursesItems = action.payload.data;
          state.loading = false;
       },
       [getCourseHandler.fulfilled]: (state, action) => {
@@ -250,7 +270,7 @@ const coursesReducer = createSlice({
          state.suggestedCourses = action.payload.data;
       },
       [isCourseBoughtHandler.fulfilled]: (state, action) => {
-         state.isFree = action.payload.is_free;
+         state.isFree = action.payload.data.is_free;
       },
    },
 });

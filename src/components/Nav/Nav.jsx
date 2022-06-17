@@ -35,12 +35,6 @@ const Nav = () => {
                         <Link to='login'>ورود | ثبت نام</Link>
                      </div>
                   )}
-                  {/* <Link to='profile/cart' className='cart-icon'>
-                     {cartItemsCount !== 0 && is_active ? (
-                        <div className='cart-items'>{cartItemsCount}</div>
-                     ) : null}
-                     <BsCart2 />
-                  </Link> */}
                   {is_active ? (
                      <Link to='profile/cart' className='cart-icon'>
                         {cart.length !== 0 && (

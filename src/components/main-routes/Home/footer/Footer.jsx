@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { BsGeoFill, BsTelephone } from 'react-icons/bs';
-import logo from '../../../../assets/logo__1_-removebg-preview.png';
 import './footer.css';
 export const Footer = () => {
    return (
@@ -17,7 +16,6 @@ export const Footer = () => {
                      </p>
                   </div>
                   <div className='tel-boy detail'>
-                     {/* <i className='bi bi-telephone'></i> */}
                      <BsTelephone />
                      <p>021-55674354</p>
                   </div>
@@ -57,9 +55,6 @@ export const Footer = () => {
                   </ul>
                </div>
             </div>
-            {/* <div className='footer-logo-container'>
-               <img src={logo} alt='' className='footer-logo' />
-            </div> */}
             <div className='footer-left'>
                <div className='location'>
                   <div className='location-boy'>

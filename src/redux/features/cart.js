@@ -43,7 +43,9 @@ export const getCartItemsCountHandler = createAsyncThunk(
             return Promise.resolve(data);
          }
       } catch (er) {
-         console.log(er.response);
+         if (er.response) {
+            return { count: '' };
+         }
       }
    }
 );
@@ -53,12 +55,13 @@ export const getUserCartHandler = createAsyncThunk(
    async (arg) => {
       try {
          const { data, status } = await getUserCartItems(arg);
-         console.log(data);
          if (status === 200) {
             return { data };
          }
       } catch (er) {
-         console.log(er);
+         if (er.response) {
+            return { data: [] };
+         }
       }
    }
 );
@@ -74,9 +77,7 @@ export const deleteCourseHandler = createAsyncThunk(
             dispatch(getCartItemsCountHandler(phoneNumber)); // get cart items counts
             return { data };
          }
-      } catch (er) {
-         console.log(er);
-      }
+      } catch (er) {}
    }
 );
 
@@ -89,7 +90,9 @@ export const getTotalPriceHandler = createAsyncThunk(
             return { data };
          }
       } catch (er) {
-         console.log(er);
+         if (er.response) {
+            return '';
+         }
       }
    }
 );
@@ -134,7 +137,9 @@ const cartReducer = createSlice({
          state.totalCount = action.payload.data.count;
       },
       [getCartItemsCountHandler.fulfilled]: (state, action) => {
-         state.cartItemsCount = action.payload.count;
+         if (action.payload !== undefined) {
+            state.cartItemsCount = action.payload.count;
+         }
       },
    },
 });

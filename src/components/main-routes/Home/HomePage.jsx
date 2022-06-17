@@ -5,9 +5,9 @@ import { Baner } from './banner/Baner';
 import { Footer } from './footer/Footer';
 import { TeacherGallery } from './teachers/TeacherGallery';
 import { Consultation } from './consultation/Consultation';
+import CoursesPacks from './courses/courses-packages/CoursesPacks';
 
 import './homepage.css';
-import CoursesPacks from './courses/courses-packages/CoursesPacks';
 const HomePage = () => {
    const dispatch = useDispatch();
 

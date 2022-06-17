@@ -4,11 +4,9 @@ import { getNewsCoursesHandler } from '../../../redux/features/courses';
 import CourseBox from '../../course-box/CourseBox';
 
 import './fartak-news.css';
-import NewsCourses from './NewsCourses';
 const FartakNews = () => {
    const dispatch = useDispatch();
    const { newsCourses } = useSelector((state) => state.courses);
-   // console.log(newsCourses);
 
    useEffect(() => {
       dispatch(getNewsCoursesHandler());

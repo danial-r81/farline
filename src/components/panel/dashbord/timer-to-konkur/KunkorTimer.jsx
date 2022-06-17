@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTimeLeftToKonkurHandler } from '../../../../redux/features/userPanel';
-import http from '../../../../services/httpService';
 
 const KunkorTimer = () => {
    const dispatch = useDispatch();

@@ -1,12 +1,9 @@
-import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { logoutHandler } from '../../../redux/features/userInfo';
 import { useNavigate } from 'react-router';
 import { BiCoffee, BiCartAlt, BiLockOpenAlt } from 'react-icons/bi';
 import { BsEasel, BsEmojiWink, BsDoorOpen } from 'react-icons/bs';
 import Cookies from 'js-cookie';
 const PanelNav = () => {
-   const dispatch = useDispatch();
    const navigate = useNavigate();
 
    return (

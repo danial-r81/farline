@@ -7,10 +7,9 @@ import CourseItem from './CourseItem';
 const CoursesItems = ({ coursesItems }) => {
    const CoursesContainer = () => (
       <section className='main-box-courses'>
-         {coursesItems.map((item, index) => {
-            console.log(item);
-            return <CourseBox course={item} key={index} />;
-         })}
+         {coursesItems.map((item, index) => (
+            <CourseBox course={item} key={index} />
+         ))}
       </section>
    );
 

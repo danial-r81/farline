@@ -5,7 +5,6 @@ import { getCourseHandler } from '../../redux/features/courses';
 import config from '../../services/config.json';
 
 const CourseBox = ({ course }) => {
-   console.log(course);
    const navigate = useNavigate();
    const dispatch = useDispatch();
    const code = course.code;

@@ -5,13 +5,7 @@ import {
    getCoursesItemsHandler,
 } from '../../../../../redux/features/courses';
 import CoursesItems from '../coursesItems/CoursesItems';
-import {
-   ClimbingBoxLoader,
-   HashLoader,
-   PropagateLoader,
-   PuffLoader,
-   RingLoader,
-} from 'react-spinners';
+import { HashLoader } from 'react-spinners';
 
 import './course-pack-page.css';
 const CoursePackPage = () => {

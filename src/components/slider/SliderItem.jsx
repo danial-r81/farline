@@ -4,7 +4,6 @@ import config from '../../services/config.json';
 
 import './slider.css';
 const SliderItem = ({ item }) => {
-   console.log(item);
    return (
       <div className='teacher-gallery-item'>
          <img

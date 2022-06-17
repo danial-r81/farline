@@ -6,21 +6,17 @@ const OnlineClasses = () => {
    const dispatch = useDispatch();
    const { onlineClasses } = useSelector((state) => state.panel);
    const phoneNumber = localStorage.getItem('phoneNumber');
-   console.log(onlineClasses);
 
-   useEffect(() => {
-      dispatch(getOnlineClassesHandler(phoneNumber));
-   }, []);
-   return (
-      <div class='online-room-container'>
-         <div class='title-online'>
+   const OnlineClassesContainer = () => (
+      <div className='online-room-container'>
+         <div className='title-online'>
             <h2>عنوان دوره</h2>
             <h2> تاریخ ثبت نام</h2>
             <h2>کلاس بعد</h2>
             <h2>ورود به کلاس</h2>
          </div>
          {onlineClasses.map((item) => (
-            <div class='details-online'>
+            <div className='details-online'>
                <h2>{item.title} </h2>
                <h2>{item.date}</h2>
                <h2>{item.next_class}</h2>
@@ -31,5 +27,10 @@ const OnlineClasses = () => {
          ))}
       </div>
    );
+
+   useEffect(() => {
+      dispatch(getOnlineClassesHandler(phoneNumber));
+   }, []);
+   return <>{onlineClasses.length !== 0 ? <OnlineClassesContainer /> : null}</>;
 };
 export default OnlineClasses;

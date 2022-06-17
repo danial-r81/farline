@@ -1,10 +1,10 @@
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Fartak from './Fartak';
 const App = () => {
    return (
-      <Router>
+      <HashRouter>
          <div className='fartak'>
             <Fartak />
             <ToastContainer
@@ -22,7 +22,7 @@ const App = () => {
                limit={1}
             />
          </div>
-      </Router>
+      </HashRouter>
    );
 };
 

@@ -7,8 +7,10 @@ export const getHomePageCovers = createAsyncThunk('covers', async () => {
       if (status === 200) {
          return { data };
       }
-   } catch (e) {
-      console.log(e);
+   } catch (er) {
+      if (er.response) {
+         return { data: [] };
+      }
    }
 });
 

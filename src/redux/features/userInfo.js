@@ -24,7 +24,9 @@ export const getCodeAgain = createAsyncThunk('users/resend-code', async () => {
          return data;
       }
    } catch (err) {
-      console.log(err.response);
+      if (err.response) {
+         return '';
+      }
    }
 });
 
@@ -60,9 +62,7 @@ export const getCsrfTokenHandler = createAsyncThunk(
          if (status === 200) {
             return data;
          }
-      } catch (er) {
-         console.log(er.response);
-      }
+      } catch (er) {}
    }
 );
 
@@ -146,9 +146,7 @@ export const fillProfileHandler = createAsyncThunk(
             Toasts.toastSuccess(' ثبت نام موفقیت آمیز بود ');
             return user;
          }
-      } catch (e) {
-         console.log(e.response);
-      }
+      } catch (e) {}
    }
 );
 
@@ -173,7 +171,7 @@ export const forgotPasswordHandler = createAsyncThunk(
          }
       } catch (err) {
          if (err.response) {
-            console.log(err.response);
+            return { data: {}, code: '' };
          }
       }
    }
@@ -190,7 +188,7 @@ export const changePasswordHandler = createAsyncThunk(
             Toasts.toastSuccess('رمز عبور با موفقیت تغییر یافت');
          }
       } catch (err) {
-         console.log(err.response);
+         Toast.toastError('مشکلی از سمت سرور رخ داده است.');
       }
    }
 );
@@ -199,11 +197,11 @@ export const getAllUsers = createAsyncThunk('user/get-user', async (arg) => {
    try {
       const { data, status } = await getAllUserData(arg);
       if (status === 200) {
-         return Promise.resolve(data);
+         return { data };
       }
    } catch (err) {
       if (err.response) {
-         console.log(err.response);
+         return { data: {} };
       }
    }
 });
@@ -214,10 +212,12 @@ export const getUsualQuestionsHandler = createAsyncThunk(
       try {
          const { data, status } = await getUsualQuestions();
          if (status === 200) {
-            return Promise.resolve(data);
+            return { data };
          }
       } catch (err) {
-         console.log(err.response);
+         if (err.response) {
+            return { data: [] };
+         }
       }
    }
 );
@@ -242,7 +242,6 @@ const userReducer = createSlice({
    },
    extraReducers: {
       [getCodeAgain.fulfilled]: (state, action) => {
-         console.log(action.payload);
          state.code = action.payload.code;
       },
 
@@ -260,10 +259,10 @@ const userReducer = createSlice({
          state.code = code;
       },
       [getAllUsers.fulfilled]: (state, action) => {
-         Object.assign(state.userInfo, action.payload);
+         Object.assign(state.userInfo, action.payload.data);
       },
       [getUsualQuestionsHandler.fulfilled]: (state, action) => {
-         state.usualQuestions = action.payload;
+         state.usualQuestions = action.payload.data;
       },
       // [logoutHandler.fulfilled]: (state, action) => {
       //    localStorage.removeItem('phoneNumber');

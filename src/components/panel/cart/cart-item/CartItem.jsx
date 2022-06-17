@@ -8,7 +8,6 @@ const CartItem = ({ cartItem }) => {
    const dispatch = useDispatch();
    const phoneNumber = localStorage.getItem('phoneNumber');
    const code = cartItem.code;
-   console.log(cartItem);
 
    return (
       <tr>

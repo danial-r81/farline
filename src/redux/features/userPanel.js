@@ -13,13 +13,14 @@ export const getWeekPlansHandler = createAsyncThunk(
       const { phoneNumber, navigate } = arg;
       try {
          const { data, status } = await getWeekPlan(phoneNumber);
-         console.log(data);
          if (status === 200) {
             navigate('/profile/week-plan');
             return { data };
          }
       } catch (er) {
-         console.log(er.response);
+         if (er.response) {
+            return { data: [] };
+         }
       }
    }
 );
@@ -31,7 +32,9 @@ export const getWeekPlanAfterRfresh = createAsyncThunk(
          const { data, status } = await getWeekPlan(arg);
          if (status === 200) return { data };
       } catch (er) {
-         console.log(er.response);
+         if (er.response) {
+            return { data: [] };
+         }
       }
    }
 );
@@ -43,11 +46,12 @@ export const getOnlineClassesHandler = createAsyncThunk(
          // const { phoneNumber, navigate } = arg;
          const { data, status } = await getOnlineCourses(arg);
          if (status === 200) {
-            console.log(data);
             return { data };
          }
       } catch (er) {
-         console.log(er.response);
+         if (er.response) {
+            return { data: [] };
+         }
       }
    }
 );
@@ -59,7 +63,9 @@ export const paymentHandler = createAsyncThunk('get-paid', async (arg) => {
          return { data };
       }
    } catch (er) {
-      console.log(er.response);
+      if (er.response) {
+         return { data: '' };
+      }
    }
 });
 
@@ -70,7 +76,9 @@ export const getFinancialServicesHandler = createAsyncThunk(
          const { data, status } = await getFinancialServices(arg);
          if (status === 200) return { data };
       } catch (er) {
-         console.log(er.response);
+         if (er.response) {
+            return { data: [] };
+         }
       }
    }
 );
@@ -89,7 +97,13 @@ export const getTimeLeftToKonkurHandler = createAsyncThunk(
             };
          }
       } catch (er) {
-         console.log(er.response);
+         if (er.response) {
+            return {
+               today: '',
+               week: '',
+               day: '',
+            };
+         }
       }
    }
 );
@@ -127,9 +141,6 @@ const userPanelReducer = createSlice({
          state.konkurTimer.today = action.payload.today;
          state.konkurTimer.day = action.payload.day;
          state.konkurTimer.week = action.payload.week;
-      },
-      [getTimeLeftToKonkurHandler.rejected]: (state, action) => {
-         console.log(action);
       },
    },
 });

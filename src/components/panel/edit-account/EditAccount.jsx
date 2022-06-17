@@ -3,11 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changePasswordFromPanelHandler } from '../../../redux/features/userInfo';
 import * as Yup from 'yup';
 import Input from '../../forms/Input';
-import Toast from '../../../toasts/toasts';
 
 const EditAccount = () => {
    const dispatch = useDispatch();
-   // const password = useSelector((state) => state.user.userInfo.password);
 
    const initialValues = {
       oldPassword: '',
@@ -26,7 +24,6 @@ const EditAccount = () => {
 
    const onSubmit = (value) => {
       dispatch(changePasswordFromPanelHandler(value));
-      console.log(value);
    };
 
    return (

@@ -23,7 +23,11 @@ const Sessions = ({ session, active, setActive, isFree }) => {
                </div>
                <div className='session-title'>
                   <p>{session.text}</p>
-                  {!isFree ? <BiLockAlt /> : <BiLockOpenAlt />}
+                  {!isFree ? (
+                     <BiLockAlt className='lock' />
+                  ) : (
+                     <BiLockOpenAlt className='lock' />
+                  )}
                </div>
             </div>
             <div className='accordion-left'>

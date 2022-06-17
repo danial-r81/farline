@@ -11,7 +11,6 @@ const FinancialServices = () => {
    useEffect(() => {
       dispatch(getFinancialServicesHandler(phoneNumber));
    }, []);
-   console.log(financialServices);
 
    const NoFinancials = () => (
       <div className='no-financials-container'>

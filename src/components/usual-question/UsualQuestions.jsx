@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUsualQuestionsHandler } from '../../redux/features/userInfo';
-import { FiArrowDown, FiArrowUp } from 'react-icons/fi';
+import { FiArrowDown } from 'react-icons/fi';
 
 import './usual-questions.css';
 const UsualQuestions = () => {
@@ -10,7 +10,6 @@ const UsualQuestions = () => {
    const { usualQuestions } = useSelector((state) => state.user);
 
    const toggleQuestion = (item) => {
-      console.log(item);
       active === item.question ? setActive('') : setActive(item.question);
    };
 

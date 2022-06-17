@@ -25,10 +25,7 @@ const Dashbord = () => {
             <Box
                icon={<BsInboxes />}
                text='کلاس های من'
-               onClick={() =>
-                  // dispatch(getOnlineClassesHandler({ phoneNumber, navigate }))
-                  navigate('/profile/courses')
-               }
+               onClick={() => navigate('/profile/courses')}
                to='/my-courses'
             />
             <Box

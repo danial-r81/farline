@@ -7,8 +7,10 @@ export const getTeachersHandler = createAsyncThunk('teacher-info', async () => {
       if (status) {
          return { data };
       }
-   } catch (e) {
-      console.log(e);
+   } catch (er) {
+      if (er.response) {
+         return { data: [] };
+      }
    }
 });
 
