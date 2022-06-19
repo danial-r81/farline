@@ -8,7 +8,7 @@ const CoursesPacks = () => {
    return (
       <div className='courses-boxes-container'>
          <div className='courses-boxes-title'>
-            <h3>پکیج های آموزشی فرتاک</h3>
+            <h3>پکیج های آموزشی فرلاین</h3>
          </div>
          <div className='courses-boxes'>
             {coursePackages.map((courseItem, index) => (

@@ -7,7 +7,6 @@ export const userRegister = (user) => {
 };
 
 export const fillProfile = (user, phoneNumber) => {
-   console.log(phoneNumber, user);
    return http.post(
       `${config.baseUrl}/api/user/update/${phoneNumber}/`,
       JSON.stringify(user)
@@ -60,7 +59,6 @@ export const logout = () => {
 
 export const changePasswordFromPanel = (value) => {
    const VALIDATION_CODE = process.env.REACT_APP_VALIDATION_CODE;
-   console.log(VALIDATION_CODE);
    const { oldPassword, password } = value;
    const phoneNumber = localStorage.getItem('phoneNumber');
    return http.post(

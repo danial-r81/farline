@@ -15,7 +15,7 @@ const FartakNews = () => {
    return (
       <div className='cuorse-container'>
          <div className='title-cuorse'>
-            <h2>دوره های جدید فرتاک </h2>
+            <h2>دوره های جدید فرلاین </h2>
          </div>
          <div className='box-cuorse-container'>
             {newsCourses.map((course) => (

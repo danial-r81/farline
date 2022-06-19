@@ -15,7 +15,7 @@ const TeacherGallery = () => {
    return (
       <div className='teacher-gallery-container'>
          <div className='header-name'>
-            <h1 className='title'>اساتید آموزشگاه فرتاک</h1>
+            <h1 className='title'>اساتید آموزشگاه فرلاین</h1>
          </div>
          <section className='main-gallery'>
             {teachers.map((item, index) => (

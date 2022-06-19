@@ -38,7 +38,7 @@ export const Footer = () => {
                <div className='footer-items'>
                   <ul>
                      <li>
-                        <Link to='/teachers'> اساتید فرتاک</Link>
+                        <Link to='/teachers'> اساتید فرلاین</Link>
                      </li>
                      <li>
                         <Link to='/study-map'>نقشه راه</Link>

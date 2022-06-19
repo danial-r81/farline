@@ -14,7 +14,7 @@ import SliderItem from './SliderItem';
 const CreateSlider = ({ items, slidesPerView, minWidth, maxWidth }) => {
    return (
       <MediaQuery minWidth={minWidth} maxWidth={maxWidth}>
-         <h2 className='slider-header'>اساتید فرتاک</h2>
+         <h2 className='slider-header'>اساتید فرلاین</h2>
          <Swiper
             slidesPerView={slidesPerView}
             spaceBetween={30}

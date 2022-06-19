@@ -67,7 +67,7 @@ const Nav = () => {
                         navData.isActive ? 'menu-link active-item' : 'menu-link'
                      }>
                      {' '}
-                     تازه های فرتاک{' '}
+                     تازه های فرلاین{' '}
                   </NavLink>
                </li>
                <li className='menu-item'>

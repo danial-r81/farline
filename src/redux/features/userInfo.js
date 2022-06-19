@@ -8,7 +8,6 @@ import {
    getAllUserData,
    changePassword,
    userLogin,
-   logout,
    changePasswordFromPanel,
    getCsrtToken,
    getUsualQuestions,
@@ -69,13 +68,11 @@ export const getCsrfTokenHandler = createAsyncThunk(
 export const loginHandler = createAsyncThunk(
    'user/login',
    async (arg, { dispatch }) => {
-      console.log(arg);
       const { value, navigate } = arg;
       const { phoneNumber } = value;
       try {
          const { status } = await userLogin(value);
          if (status === 200) {
-            console.log('login');
             localStorage.setItem('phoneNumber', phoneNumber);
             Toasts.toastSuccess('ورود موفقیت آمیز بود');
             navigate('/', { replace: true });
@@ -95,6 +92,7 @@ export const changePasswordFromPanelHandler = createAsyncThunk(
    async (arg) => {
       try {
          const { data, status } = await changePasswordFromPanel(arg);
+         console.log(data);
       } catch (e) {
          if (e.response.status === 500) {
             Toast.toastError('رمز قبلی وارد شده معتبر نمی باشد');
@@ -264,11 +262,6 @@ const userReducer = createSlice({
       [getUsualQuestionsHandler.fulfilled]: (state, action) => {
          state.usualQuestions = action.payload.data;
       },
-      // [logoutHandler.fulfilled]: (state, action) => {
-      //    localStorage.removeItem('phoneNumber');
-      //    console.log(action);
-      //    const navigate
-      // },
    },
 });
 

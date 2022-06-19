@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BiArrowFromTop, BiLockAlt, BiLockOpenAlt } from 'react-icons/bi';
 import Toast from '../../../../../toasts/toasts';
 
