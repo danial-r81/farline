@@ -18,7 +18,7 @@ const FartakNews = () => {
             <h2>دوره های جدید فرلاین </h2>
          </div>
          <div className='box-cuorse-container'>
-            {newsCourses.map((course) => (
+            {newsCourses?.map((course) => (
                <CourseBox course={course} />
             ))}
          </div>

@@ -231,46 +231,46 @@ const coursesReducer = createSlice({
    },
    extraReducers: {
       [getCoursesPackageHandler.fulfilled]: (state, action) => {
-         state.coursePackages = action.payload.data;
+         state.coursePackages = action.payload?.data;
       },
       [getCoursePackHandler.fulfilled]: (state, action) => {
-         state.coursePackageItems = action.payload.data;
+         state.coursePackageItems = action.payload?.data;
       },
       [getCoursePackAfterRefresh.fulfilled]: (state, action) => {
-         state.coursePackageItems = action.payload.data;
-         state.packageTitle = action.payload.data[0].package_title;
+         state.coursePackageItems = action.payload?.data;
+         state.packageTitle = action.payload?.data[0].package_title;
          state.firstButtonClassName = 'active';
       },
       [getCoursesItemsHandler.pending]: (state, action) => {
          state.loading = true;
       },
       [getCoursesItemsHandler.fulfilled]: (state, action) => {
-         state.coursesItems = action.payload.data;
+         state.coursesItems = action.payload?.data;
          state.loading = false;
       },
       [getCourseHandler.fulfilled]: (state, action) => {
-         state.course = action.payload.data;
+         state.course = action.payload?.data;
       },
       [getCourseAfterRefresh.fulfilled]: (state, action) => {
-         state.course = action.payload.data;
+         state.course = action.payload?.data;
       },
       [getCourseSessionsHandler.fulfilled]: (state, action) => {
-         state.courseSessions = action.payload.data;
+         state.courseSessions = action.payload?.data;
       },
       [getNewsCoursesHandler.fulfilled]: (state, action) => {
-         state.newsCourses = action.payload.data;
+         state.newsCourses = action.payload?.data;
       },
       [getMyCoursesHandler.fulfilled]: (state, action) => {
-         state.myCourses = action.payload.data;
+         state.myCourses = action.payload?.data;
       },
       [getMyCoursesHandlerAfterRefresh.fulfilled]: (state, action) => {
-         state.myCourses = action.payload.data;
+         state.myCourses = action.payload?.data;
       },
       [getSuggetsedCoursesHandler.fulfilled]: (state, action) => {
-         state.suggestedCourses = action.payload.data;
+         state.suggestedCourses = action.payload?.data;
       },
       [isCourseBoughtHandler.fulfilled]: (state, action) => {
-         state.isFree = action.payload.data.is_free;
+         state.isFree = action.payload?.data.is_free;
       },
    },
 });

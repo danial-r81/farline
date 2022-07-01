@@ -34,8 +34,8 @@ ContactBox.propTypes = {
    transitionDelay: PropTypes.number.isRequired,
    className: PropTypes.string.isRequired,
    // icon: PropTypes.string.isRequired,
-   initial: PropTypes.string.isRequired,
-   animate: PropTypes.string.isRequired,
+   initial: PropTypes.object.isRequired,
+   animate: PropTypes.object.isRequired,
    text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
 };
 

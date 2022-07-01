@@ -233,14 +233,14 @@ const userReducer = createSlice({
    initialState: initialState,
    reducers: {
       checkUseOnceCode: (state, action) => {
-         if (action.payload.values.code === action.payload.code) {
+         if (action.payload?.values.code === action.payload?.code) {
             state.isCodeValid = true;
          }
       },
    },
    extraReducers: {
       [getCodeAgain.fulfilled]: (state, action) => {
-         state.code = action.payload.code;
+         state.code = action.payload?.code;
       },
 
       [fillProfileHandler.fulfilled]: (state, action) => {
@@ -248,8 +248,8 @@ const userReducer = createSlice({
          state.isLogedIn = true;
       },
       [registerHandler.fulfilled]: (state, action) => {
-         Object.assign(state.userInfo, action.payload.value);
-         state.code = action.payload.code;
+         Object.assign(state.userInfo, action.payload?.value);
+         state.code = action.payload?.code;
       },
       [forgotPasswordHandler.fulfilled]: (state, action) => {
          const { data, code } = action.payload;
@@ -257,10 +257,10 @@ const userReducer = createSlice({
          state.code = code;
       },
       [getAllUsers.fulfilled]: (state, action) => {
-         Object.assign(state.userInfo, action.payload.data);
+         Object.assign(state.userInfo, action.payload?.data);
       },
       [getUsualQuestionsHandler.fulfilled]: (state, action) => {
-         state.usualQuestions = action.payload.data;
+         state.usualQuestions = action.payload?.data;
       },
    },
 });

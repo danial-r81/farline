@@ -11,7 +11,7 @@ const CoursesPacks = () => {
             <h3>پکیج های آموزشی فرلاین</h3>
          </div>
          <div className='courses-boxes'>
-            {coursePackages.map((courseItem, index) => (
+            {coursePackages?.map((courseItem, index) => (
                <CourseItemBox key={index} item={courseItem} />
             ))}
          </div>

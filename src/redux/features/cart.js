@@ -130,15 +130,15 @@ const cartReducer = createSlice({
    },
    extraReducers: {
       [getUserCartHandler.fulfilled]: (state, action) => {
-         state.cart = action.payload.data;
+         state.cart = action.payload?.data;
       },
       [getTotalPriceHandler.fulfilled]: (state, action) => {
-         state.totalPrice = action.payload.data.total;
-         state.totalCount = action.payload.data.count;
+         state.totalPrice = action.payload?.data.total;
+         state.totalCount = action.payload?.data.count;
       },
       [getCartItemsCountHandler.fulfilled]: (state, action) => {
          if (action.payload !== undefined) {
-            state.cartItemsCount = action.payload.count;
+            state.cartItemsCount = action.payload?.count;
          }
       },
    },

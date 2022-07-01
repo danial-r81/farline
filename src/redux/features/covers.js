@@ -21,7 +21,7 @@ const coverReducer = createSlice({
    },
    extraReducers: {
       [getHomePageCovers.fulfilled]: (state, action) => {
-         state.covers = action.payload.data;
+         state.covers = action.payload?.data;
       },
    },
 });

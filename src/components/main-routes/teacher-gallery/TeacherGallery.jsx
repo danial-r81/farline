@@ -18,7 +18,7 @@ const TeacherGallery = () => {
             <h1 className='title'>اساتید آموزشگاه فرلاین</h1>
          </div>
          <section className='main-gallery'>
-            {teachers.map((item, index) => (
+            {teachers?.map((item, index) => (
                <Teacher key={index} teacher={item} />
             ))}
          </section>

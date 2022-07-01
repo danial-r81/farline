@@ -21,7 +21,7 @@ const teacherReducer = createSlice({
    },
    extraReducers: {
       [getTeachersHandler.fulfilled]: (state, action) => {
-         state.teachers = action.payload.data;
+         state.teachers = action.payload?.data;
       },
    },
 });

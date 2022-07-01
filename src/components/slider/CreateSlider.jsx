@@ -25,7 +25,7 @@ const CreateSlider = ({ items, slidesPerView, minWidth, maxWidth }) => {
             navigation={true}
             className='teacher-swiper'
             modules={[Navigation]}>
-            {items.map((item, index) => (
+            {items?.map((item, index) => (
                <SwiperSlide key={index}>
                   <SliderItem item={item} />
                </SwiperSlide>

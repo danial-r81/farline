@@ -123,24 +123,24 @@ const userPanelReducer = createSlice({
    },
    extraReducers: {
       [getWeekPlansHandler.fulfilled]: (state, action) => {
-         state.weekPlanImages = action.payload.data;
+         state.weekPlanImages = action.payload?.data;
       },
       [getWeekPlanAfterRfresh.fulfilled]: (state, action) => {
-         state.weekPlanImages = action.payload.data;
+         state.weekPlanImages = action.payload?.data;
       },
       [getOnlineClassesHandler.fulfilled]: (state, action) => {
-         state.onlineClasses = action.payload.data;
+         state.onlineClasses = action.payload?.data;
       },
       [paymentHandler.fulfilled]: (state, action) => {
-         state.paymentUrl = action.payload.data;
+         state.paymentUrl = action.payload?.data;
       },
       [getFinancialServicesHandler.fulfilled]: (state, action) => {
-         state.financialServices = action.payload.data;
+         state.financialServices = action.payload?.data;
       },
       [getTimeLeftToKonkurHandler.fulfilled]: (state, action) => {
-         state.konkurTimer.today = action.payload.today;
-         state.konkurTimer.day = action.payload.day;
-         state.konkurTimer.week = action.payload.week;
+         state.konkurTimer.today = action.payload?.today;
+         state.konkurTimer.day = action.payload?.day;
+         state.konkurTimer.week = action.payload?.week;
       },
    },
 });

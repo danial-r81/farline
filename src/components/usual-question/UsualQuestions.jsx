@@ -27,7 +27,7 @@ const UsualQuestions = () => {
          <div className='questions'>
             <h2>!شاید سوال شما هم باشد</h2>
 
-            {usualQuestions.map((item) => (
+            {usualQuestions?.map((item) => (
                <div
                   className={`accordion ${
                      active === item.question ? 'show-answer' : ''
